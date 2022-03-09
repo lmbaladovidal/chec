@@ -1,9 +1,9 @@
 # chec
-Proyecto integrator programación web full stack Digital House
-<h2>Integrantes:</h2>
+<h1>Proyecto integrator programación web full stack Digital House</h1>
+<h4>Integrantes:</h4>
 <ul>
-  <li>-Alba Moran</li>
-  <li>-Araceli Catalano</li>
-  <li>-David Eduardo Juncos</li>
-  <li>-Leandro Martin Balado Vidal</li>
+  <li>Alba Moran</li>
+  <li>Araceli Catalano</li>
+  <li>David Eduardo Juncos</li>
+  <li>Leandro Martin Balado Vidal</li>
 </ul>
