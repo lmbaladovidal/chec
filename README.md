@@ -2,7 +2,7 @@
 <h1>Proyecto integrator programación web full stack Digital House</h1>
 <h4>Integrantes:</h4>
 <ul>
-  <li>Alba Moran</li>
+  <li>Alba Morán</li>
   <li>Araceli Catalano</li>
   <li>David Eduardo Juncos</li>
   <li>Leandro Martin Balado Vidal</li>
