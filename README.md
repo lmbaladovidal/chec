@@ -39,8 +39,8 @@ Persona: <br>
 </ul>
 <br>
 
-
-<ul>Eventos: 
+Eventos: <br>
+<ul>
   <li>Botellas individual de 500ml y 1 lt</li>
   <li> alquiler de barril de 20 litros con chopera lista para usar.</li>
 </ul>
