@@ -32,7 +32,7 @@ Especiales (la disponibilidad es variable)
 -	Salones y organizadores de eventos, emprendimientos de catering a domicilio.
 ¿Cómo ajustaremos nuestra oferta a ese público?
 -	Persona: 
-o	botella individual, 
+o	botella individual de 500ml y 1 lt, 
 o	packs promocionales de 2, 3 y 6 cervezas. 
 o	Envío a domicilio a Lanús,
 o	retiro sin costo por Gerli. 
