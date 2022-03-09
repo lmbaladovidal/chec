@@ -30,19 +30,30 @@ Especiales (la disponibilidad es variable)
 ¿Quién será nuestra audiencia objetivo? 
 -	Personas mayores de 18 años residentes en zona sur del conurbano bonaerense (Lanús, Avellaneda, Lomas de Zamora, Banfield, Quilmes, Wilde)
 -	Salones y organizadores de eventos, emprendimientos de catering a domicilio.
-¿Cómo ajustaremos nuestra oferta a ese público?
--	Persona: 
-o	botella individual de 500ml y 1 lt, 
-o	packs promocionales de 2, 3 y 6 cervezas. 
-o	Envío a domicilio a Lanús,
-o	retiro sin costo por Gerli. 
-o	Otras zonas: Rappi
-o	Costos de envío por zona (a definir)
 
--	Eventos: Botellas o barril de 20 litros con chopera lista para usar.
-Búsqueda de sitios similares, relacionados o que sean de interés:
-•	Brewdog: https://brewdogmedia.s3.eu-west-2.amazonaws.com/docs/2019+DIY+DOG+-+V8.pdf
-•	Bier haus (arma tu propio pack): https://bierhaus.co/categoria-producto/arma-tu-pack/
-•	Sir hopper: https://sirhopper.com/ 
+Tipo de oferta de productos:<br>
+Persona: <br>
+<ul>
+  <li>botella individual de 500ml y 1 lt. </li>
+  <li>packs promocionales de 2, 3 y 6 cervezas. </li>
+</ul>
+<br>
+
+
+<ul>Eventos: 
+  <li>Botellas individual de 500ml y 1 lt</li>
+  <li> alquiler de barril de 20 litros con chopera lista para usar.</li>
+</ul>
+
+Modalidad de compra y envíos<br>
+Envío a domicilio a Lanús,<br>
+retiro sin costo por Gerli. <br>
+Otras zonas: Rappi<br>
+Costos de envío por zona (a definir)<br>
+
+Sitios de referencia consultados<br>
+•	Brewdog: https://brewdogmedia.s3.eu-west-2.amazonaws.com/docs/2019+DIY+DOG+-+V8.pdf <br>
+•	Bier haus (arma tu propio pack): https://bierhaus.co/categoria-producto/arma-tu-pack/ <br>
+•	Sir hopper: https://sirhopper.com/ <br>
 • A la fut: https://www.alafut.qc.ca/en/
 
