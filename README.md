@@ -1,5 +1,5 @@
 # CHEC - Ceveceria Artesanal #
-<h1>Proyecto integrator programación web full stack Digital House</h1>
+<h1>Proyecto integrador programación web full stack Digital House</h1>
 <h4>Integrantes:</h4>
 <ul>
   <li>Alba Morán</li>
