@@ -1,4 +1,4 @@
-# CHEC - Ceveceria Artesanal #
+﻿# CHEC - Ceveceria Artesanal #
 <h1>Proyecto integrador programación web full stack Digital House</h1>
 <h4>Integrantes:</h4>
 <ul>
@@ -10,9 +10,11 @@
 
 Sitio web E-Commerce para cervecería 
 “CHEC – Cerveza Hecha en Casa”
-Descripción del emprendimiento 
-“CHEC es una cervecería artesanal hecha por un grupo de amigos en Gerli, Provincia de Buenos Aires. Nació como un juego entre hermanos y se convirtió en un proyecto personal.
-Ofrecemos una variedad de cervezas hechas nuestra casa para compartir en tu casa.”
+<p>Descripción del emprendimiento <br>
+“CHEC es una cervecería artesanal gestada por un grupo de amigos en Gerli, Provincia de Buenos Aires.<br> 
+Nació como un juego entre hermanos, pero rápidamente se convirtió en un lindo emprendimiento comercial.<br>
+Cervezas Hechas En Casa, con Calidad.<br> 
+¡Una rica selecección de variedades para compartir con vos!</p>
 ¿Qué productos o servicios brindará nuestro sitio? 
 
 Catálogo de variedades permanente
