@@ -1,7 +1,9 @@
 # chec
 Proyecto integrator programación web full stack Digital House
 <h2>Integrantes:</h2>
--Alba Moran
--Araceli Catalano
--David Eduardo Juncos
--Leandro Martin Balado Vidal
+<ul>
+  <li>-Alba Moran</li>
+  <li>-Araceli Catalano</li>
+  <li>-David Eduardo Juncos</li>
+  <li>-Leandro Martin Balado Vidal</li>
+</ul>
