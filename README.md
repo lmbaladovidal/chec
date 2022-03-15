@@ -69,11 +69,16 @@ Eventos:
 
 <h4>Sitios de referencia consultados</h4>
 <ul>
-  <li>Brewdog: https://brewdogmedia.s3.eu-west-2.amazonaws.com/docs/2019+DIY+DOG+-+V8.pdf</li>
-  <li>Bier haus (arma tu propio pack): https://bierhaus.co/categoria-producto/arma-tu-pack/</li>
-  <li>Sir hopper: https://sirhopper.com/</li>
-  <li>Alafut: https://www.alafut.qc.ca/en/</li>
-  <li>Peñon del Aguila: https://penondelaguila.com/home-cerveza/</li>
+  <li>Brewdog: https://brewdogmedia.s3.eu-west-2.amazonaws.com/docs/2019+DIY+DOG+-+V8.pdf <br>
+  Contenido: publicación de las recetas que utilizan para producir las cervezas de su catálogo.</li>
+  <li>Bier haus : https://bierhaus.co/categoria-producto/arma-tu-pack/  <br>
+  Funcionalidad del catálogo: ofrece la posibilidad de crear un pack en el que el cliente decide cuáles cervezas incluye. Oferta de productos similares.</li>
+  <li>Sir hopper: https://sirhopper.com/  <br>
+  Simplicidad en la organización de la página y en la presentación de los productos. Oferta de productos similares.</li>
+  <li>Alafut: https://www.alafut.qc.ca/en/ <br>
+  Estética y organización SPA de la página. Oferta de productos similares</li>
+  <li>Peñon del Aguila: https://penondelaguila.com/home-cerveza/ <br>
+  Estética y organización de la página. Oferta de productos similares.</li>
 </ul>
 <br>
 <h4> Equipo 8. Presentación de sus integrantes</h4>
