@@ -1,4 +1,4 @@
-﻿# CHEC - Cervecería Artesanal #
+# CHEC - Cervecería Artesanal #
 <h1>Proyecto integrador programación web full stack Digital House</h1>
 <h4>Integrantes:</h4>
 <ul>
@@ -79,7 +79,7 @@ Eventos:
 <h4> Equipo 8. Presentación de sus integrantes</h4>
 <li> Balado Vidal Leandro: 30 años, nacido en la ciudad de Mercedes, provincia de Buenos Aires. Actualmente vive ena la ciudad de Colonia Caroya, provincia de Córdoba. Trabaja en una empresa, dentro del area de sistemas realizando el matenimiento y desarrollo de aplicaciones de escritorio. </li>
 <li>	Catalano, Araceli:  xxx  </li>
-<li>	Juncos, David:  xxx  </li>
+<li>	Juncos, David:  39 años, nacido en la Ciudad de Deán Funes, provincia de Córdoba. Trabaja en relación de dependencia para una empresa dedicada a articulos de limpieza, en el área de sistemas, en desarrolo. En su tiempo libre realiza deporte, disfruta de la familia y amigos. </li>
 <li>	Morán, Alba: 43 años, nacida en la ciudad de Santa Fe, hace ya 17 años vive en la zona oeste de GBA y trabaja en la ciudad de Buenos Aires en una empresa dedicada los servicios de Comercio Exterior. Es responsable interna del área IT , brinda capacitaciones internas sobre herramientas de colaboración, y es referente del Sistema de Gestión de la Calidad de la compañía.  Disfruta su tiempo libre haciendo deporte, cuidando sus plantas, reuniéndose con amigos y componiendo música en su guitarra.
 Es licenciada en Comercialización, Técnica en Comercio Internacional y estudió inglés con certificación Bec. </li>
 
