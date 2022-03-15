@@ -77,7 +77,7 @@ Eventos:
 </ul>
 <br>
 <h4> Equipo 8. Presentación de sus integrantes</h4>
-<li> Balado Vidal Leandro: xxx </li>
+<li> Balado Vidal Leandro: 30 años, nacido en la ciudad de Mercedes, provincia de Buenos Aires. Actualmente vive ena la ciudad de Colonia Caroya, provincia de Córdoba. Trabaja en una empresa, dentro del area de sistemas realizando el matenimiento y desarrollo de aplicaciones de escritorio. </li>
 <li>	Catalano, Araceli:  xxx  </li>
 <li>	Juncos, David:  xxx  </li>
 <li>	Morán, Alba: 43 años, nacida en la ciudad de Santa Fe, hace ya 17 años vive en la zona oeste de GBA y trabaja en la ciudad de Buenos Aires en una empresa dedicada los servicios de Comercio Exterior. Es responsable interna del área IT , brinda capacitaciones internas sobre herramientas de colaboración, y es referente del Sistema de Gestión de la Calidad de la compañía.  Disfruta su tiempo libre haciendo deporte, cuidando sus plantas, reuniéndose con amigos y componiendo música en su guitarra.
