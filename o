@@ -1,0 +1,335 @@
+[33mcommit cb0cad3899a8ab368f4b5d6cea44baa8f647e8f6[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Leandro Martin, Balado Vidal <lm.baladovidal@gmail.com>
+Date:   Tue Mar 15 11:26:40 2022 -0300
+
+    Subo mi mini cv
+
+[33mcommit da627d73f9b6f907be19fc28b2e6046657fa5e7e[m
+Author: Alba Moran <100652736+AlbaMoran@users.noreply.github.com>
+Date:   Mon Mar 14 23:53:05 2022 -0300
+
+    Update README.md
+    
+    Modificacion del texto consensuado lunes 14 de marzo.
+
+[33mcommit d9d6dba7e34e7716a3ec6628bced4093c7f37240[m
+Author: Leandro Martín Balado Vidal <lm.baladovidal@gmail.com>
+Date:   Mon Mar 14 23:18:24 2022 -0300
+
+    Creacion de carpetas WireFrames y Desing
+
+[33mcommit 47250b1a0aec6a2651418aa2490807706ad87f0d[m
+Merge: 6f85dac c636290
+Author: “AraceliCatalano” <“aracelicatalano@gmail.com”>
+Date:   Mon Mar 14 20:54:48 2022 -0300
+
+    copio header y footer de home a productos wireframe
+
+[33mcommit 6f85dacfb79e43dfb124bf8a0c1557426523e898[m
+Merge: a11afa9 caf5157
+Author: “AraceliCatalano” <“aracelicatalano@gmail.com”>
+Date:   Mon Mar 14 20:50:13 2022 -0300
+
+    copio header y footer de home a productos wireframe
+
+[33mcommit c636290a65e59bea1aba3ddb395d1d095f9aa138[m
+Author: Leandro Martín Balado Vidal <lm.baladovidal@gmail.com>
+Date:   Mon Mar 14 20:36:07 2022 -0300
+
+    Cambio la ubicacion de la paleta de colores
+
+[33mcommit df7b44bc4f2ef2ee95a73586e2c56f913ce73b01[m
+Merge: 0fb8e4c caf5157
+Author: Leandro Martín Balado Vidal <lm.baladovidal@gmail.com>
+Date:   Mon Mar 14 20:31:31 2022 -0300
+
+    Merge branch 'main' of github.com:lmbaladovidal/chec
+
+[33mcommit 0fb8e4c1aea04312cdafd0befab8ed31ee890138[m
+Author: Leandro Martín Balado Vidal <lm.baladovidal@gmail.com>
+Date:   Mon Mar 14 20:31:17 2022 -0300
+
+    Subo version final WireFrame Registro
+
+[33mcommit caf5157c4387691327fb1cb53165835018fe2cf9[m
+Author: davidjuncos <davidjuncos@hotmail.com>
+Date:   Mon Mar 14 11:47:13 2022 -0300
+
+    WireFrame Carrito de Compra
+
+[33mcommit 326f0f3362c443fd8673226274bf7c2156dd2702[m
+Author: Leandro Martin, Balado Vidal <lm.baladovidal@gmail.com>
+Date:   Mon Mar 14 09:55:24 2022 -0300
+
+    Borre un archivo duplicado
+
+[33mcommit e908c3f8eccf029532e88a3fdf4579251e68cfc8[m
+Author: Leandro Martín Balado Vidal <lm.baladovidal@gmail.com>
+Date:   Mon Mar 14 08:05:36 2022 -0300
+
+    Agregue la fecha de nacimiento al wireFrame de registro
+
+[33mcommit 0d189b93a5d6ccaecda605324807f5bcb2871635[m
+Merge: 70582f1 1560b5f
+Author: AlbaMoran <alba.morann@gmail.com>
+Date:   Mon Mar 14 00:27:36 2022 -0300
+
+    Merge branch 'main' of github.com:lmbaladovidal/chec
+
+[33mcommit 70582f18ead0bdbb7f18fb417b4f979505513119[m
+Author: AlbaMoran <alba.morann@gmail.com>
+Date:   Mon Mar 14 00:27:29 2022 -0300
+
+    modifique centrado de natbar  y boton mapa
+
+[33mcommit 1560b5f4565c303cc305da1cf3c951500b898bd1[m
+Author: Leandro Martín Balado Vidal <lm.baladovidal@gmail.com>
+Date:   Mon Mar 14 00:15:53 2022 -0300
+
+    Subo WireFrames login y registro
+
+[33mcommit b8efd69ba76d91a19565a49b4dc045a4dcb35b7a[m
+Author: AlbaMoran <alba.morann@gmail.com>
+Date:   Mon Mar 14 00:05:58 2022 -0300
+
+    wireframe de Home
+
+[33mcommit 394ad45837ced567a2511040caa228791e9b81ab[m
+Author: Leandro Martín Balado Vidal <lm.baladovidal@gmail.com>
+Date:   Sun Mar 13 23:19:28 2022 -0300
+
+    Subo paleta de colores y archivos de diagrama
+
+[33mcommit 6549f6fca2a51aec9b0c217ff343216b948d9f05[m
+Author: Leandro Martin, Balado Vidal <lm.baladovidal@gmail.com>
+Date:   Sun Mar 13 22:41:50 2022 -0300
+
+    WireFramLogin
+
+[33mcommit ea95933ac7699f719e1fe8b2e5bc972a0dbbfb3a[m
+Author: Leandro Martin, Balado Vidal <lm.baladovidal@gmail.com>
+Date:   Sun Mar 13 22:18:52 2022 -0300
+
+    Added Untitled Diagram.drawio
+
+[33mcommit a11afa9e10d209785a9dc75b0ca9ce7862ddb8d1[m
+Author: “AraceliCatalano” <“aracelicatalano@gmail.com”>
+Date:   Sun Mar 13 22:16:16 2022 -0300
+
+    agrego fotos puente en imagenesR
+
+[33mcommit 41537c8da5813c2f0246cf894128d19282061381[m
+Merge: ec95fa6 9493ace
+Author: “AraceliCatalano” <“aracelicatalano@gmail.com”>
+Date:   Sun Mar 13 22:06:49 2022 -0300
+
+    Merge branch 'main' of github.com:lmbaladovidal/chec
+
+[33mcommit ec95fa6ff941b2d79a95367cb243ad571d40522a[m
+Author: “AraceliCatalano” <“aracelicatalano@gmail.com”>
+Date:   Sun Mar 13 22:06:19 2022 -0300
+
+    agrego fotos puente Gerli
+
+[33mcommit 9493ace64ce1bf8033ad4e18824cb521fde60424[m
+Author: Leandro Martín Balado Vidal <lm.baladovidal@gmail.com>
+Date:   Sun Mar 13 22:05:52 2022 -0300
+
+    Subo tipografia Montangu
+
+[33mcommit 717d47f212df5deb6f1d18d69c36a35b5371d114[m
+Merge: 8967bbb de08a9e
+Author: Leandro Martín Balado Vidal <lm.baladovidal@gmail.com>
+Date:   Sat Mar 12 14:43:57 2022 -0300
+
+    Merge branch 'main' of github.com:lmbaladovidal/chec
+
+[33mcommit 8967bbbf5dc8ac0ec331bc68f6ec52cc098e34ba[m
+Author: Leandro Martín Balado Vidal <lm.baladovidal@gmail.com>
+Date:   Sat Mar 12 14:43:40 2022 -0300
+
+    Subo las tipografias de la Fuente Minion
+
+[33mcommit de08a9e14f773ab526ec16841cfcd8af17bed1c4[m
+Author: “AraceliCatalano” <“aracelicatalano@gmail.com”>
+Date:   Sat Mar 12 12:27:35 2022 -0300
+
+    agrego wireframe producto en jpeg
+
+[33mcommit 54c46dc3585d349b6004ea1ecb8fd5da4cedb564[m
+Author: Leandro Martín Balado Vidal <lm.baladovidal@gmail.com>
+Date:   Sat Mar 12 12:27:13 2022 -0300
+
+    agrego documentos personales
+
+[33mcommit 3637b1d194eb3eb8ca710a81806b4b6afd5a136b[m
+Author: “AraceliCatalano” <“aracelicatalano@gmail.com”>
+Date:   Sat Mar 12 12:19:33 2022 -0300
+
+    Agrego wireframe producto y paleta de colores
+
+[33mcommit eebce5e1f7a7a4db639aaca2e8a5ea3e9532583f[m
+Author: AraceliCatalano <100554952+AraceliCatalano@users.noreply.github.com>
+Date:   Sat Mar 12 10:00:33 2022 -0300
+
+    Update README.md
+    
+    Edito formato y corrección de ortografía.
+
+[33mcommit 015beb478abbcc4642a08ca26f60b0c2072605e1[m
+Author: Leandro Martin, Balado Vidal <lm.baladovidal@gmail.com>
+Date:   Fri Mar 11 09:12:18 2022 -0300
+
+    wireFrameLogin
+
+[33mcommit cc11fb4ac6845bb89abf1d1e478b7c3ff3e34ec9[m
+Author: Leandro Martín Balado Vidal <lm.baladovidal@gmail.com>
+Date:   Thu Mar 10 20:22:43 2022 -0300
+
+    Generando carpetas para recursos
+
+[33mcommit 1080fca6d0a082011d21ee9ff10a52e8231f8676[m
+Author: Leandro Martín Balado Vidal <lm.baladovidal@gmail.com>
+Date:   Thu Mar 10 20:15:18 2022 -0300
+
+    Subiendo carpeta recursos
+
+[33mcommit 30aa78fa8aaa8adfd9be6ba5839e7bb8516e4057[m
+Author: Leandro Martín Balado Vidal <lm.baladovidal@gmail.com>
+Date:   Thu Mar 10 20:11:56 2022 -0300
+
+    Eliminando archivos de prueba
+
+[33mcommit 459535f1fb56f410c3fbbd687f70ee9a817cefd0[m
+Author: Leandro Martin, Balado Vidal <lm.baladovidal@gmail.com>
+Date:   Thu Mar 10 09:16:10 2022 -0300
+
+    Agregue la ultima referencia de sitios y cambie los <br> por una lista (<li>)
+
+[33mcommit 8924794371b5ac19c8637c25ece072e9a2de6d80[m
+Author: “AraceliCatalano” <“aracelicatalano@gmail.com”>
+Date:   Wed Mar 9 18:51:03 2022 -0300
+
+    corrijo un espacio
+
+[33mcommit be3b6c2c0b491b5752041fa46fa8de7d663bc515[m
+Author: “AraceliCatalano” <“aracelicatalano@gmail.com”>
+Date:   Wed Mar 9 18:49:18 2022 -0300
+
+    agrego cambios en la organización del texto
+
+[33mcommit ac63060c0d5f071443df74fa6a6e4d37c4392e85[m
+Author: “AraceliCatalano” <“aracelicatalano@gmail.com”>
+Date:   Wed Mar 9 18:32:45 2022 -0300
+
+    agrego cambios en la descripcion del emprendimiento
+
+[33mcommit 84b579780fc8c63742ef1eb90e8e2396f4ba8ee9[m
+Author: “AraceliCatalano” <“aracelicatalano@gmail.com”>
+Date:   Wed Mar 9 18:30:19 2022 -0300
+
+    agrego cambios en la descripcion del emprendimiento
+
+[33mcommit 748049fbb490be411d2c0cd6d800864d5b2247c2[m
+Merge: 41cd7c5 e69441b
+Author: David Juncos <davidjuncos@hotmail.com>
+Date:   Wed Mar 9 18:01:58 2022 -0300
+
+    Agrego sitio de referencia
+
+[33mcommit 41cd7c508989c01c3fb200b849d1f98da16f2dd8[m
+Author: David Juncos <davidjuncos@hotmail.com>
+Date:   Wed Mar 9 17:59:36 2022 -0300
+
+    Agrego sitio de referencia
+
+[33mcommit e69441bcb3c90ce07f1f72c12c2b977088d97b7c[m
+Author: Leandro Martin, Balado Vidal <lm.baladovidal@gmail.com>
+Date:   Wed Mar 9 17:47:08 2022 -0300
+
+    Modificacion del readme conforme lo hablado en el canal de Discord
+
+[33mcommit ea7b8e7d0ca6a36f059f0679ebe6ccde425acabc[m
+Author: “AraceliCatalano” <“aracelicatalano@gmail.com”>
+Date:   Wed Mar 9 17:37:08 2022 -0300
+
+    agrego prueba Ara
+
+[33mcommit edab3f662ce752738ea4c68c4759262a71b28b1c[m
+Author: David Juncos <davidjuncos@hotmail.com>
+Date:   Wed Mar 9 17:14:48 2022 -0300
+
+    archivo prueba david
+
+[33mcommit 74e25daf2280162bc97d2aa5cd0b8315eb701208[m
+Author: Leandro Martin, Balado Vidal <lm.baladovidal@gmail.com>
+Date:   Wed Mar 9 17:10:38 2022 -0300
+
+    configurando pc Oficina
+
+[33mcommit 264b5943883ac332fba6f38f3766c10b1813cde8[m
+Merge: 9ea4170 4b3f4ce
+Author: AlbaMoran <alba.morann@gmail.com>
+Date:   Wed Mar 9 10:40:22 2022 -0300
+
+    Merge branch 'main' of github.com:lmbaladovidal/chec
+
+[33mcommit 9ea417011a027a4e54a9a5dae545e9e3af74c265[m
+Author: AlbaMoran <alba.morann@gmail.com>
+Date:   Wed Mar 9 10:30:16 2022 -0300
+
+    agregue acento al apellido Morán
+
+[33mcommit 4b3f4ce90e95692b4ebc511f594428ba81e18428[m
+Author: Leandro Martin, Balado Vidal <lm.baladovidal@gmail.com>
+Date:   Wed Mar 9 10:24:43 2022 -0300
+
+    Update README.md
+
+[33mcommit feb4beda14892ebdb2529a5dac90c6c7d494a9cb[m
+Author: AlbaMoran <alba.morann@gmail.com>
+Date:   Wed Mar 9 10:20:38 2022 -0300
+
+    archivo Alba!
+
+[33mcommit 2670b8fb96721edad49cfba4c373046c6f0bc202[m
+Author: Leandro Martín Balado Vidal <lm.baladovidal@gmail.com>
+Date:   Wed Mar 9 02:08:45 2022 -0300
+
+    Prueba para comprobar que todo funciona correctamente
+
+[33mcommit 908755a263497873a81ee3d01256beaf613a46a7[m
+Author: Leandro Martin, Balado Vidal <lm.baladovidal@gmail.com>
+Date:   Tue Mar 8 23:24:45 2022 -0300
+
+    Update README.md
+
+[33mcommit ec6ec707bb51cfe89aff92614527ad9ea5d91fed[m
+Author: Leandro Martin, Balado Vidal <lm.baladovidal@gmail.com>
+Date:   Tue Mar 8 23:23:55 2022 -0300
+
+    Update README.md
+
+[33mcommit cdc65dad3063f2fdab414db67676e92681507189[m
+Author: Leandro Martin, Balado Vidal <lm.baladovidal@gmail.com>
+Date:   Tue Mar 8 23:23:21 2022 -0300
+
+    Update README.md
+
+[33mcommit 52ea584ab6e7b4f1cde8ffc0ff7d51fcdc7131f9[m
+Author: Leandro Martin, Balado Vidal <lm.baladovidal@gmail.com>
+Date:   Tue Mar 8 23:21:12 2022 -0300
+
+    Update README.md
+
+[33mcommit b93885723cf1f2584e9ead48d1dbcae1163f56d6[m
+Author: Leandro Martin, Balado Vidal <lm.baladovidal@gmail.com>
+Date:   Tue Mar 8 23:20:19 2022 -0300
+
+    Update README.md
+
+[33mcommit b0c549e974e465c6e3494a546f24b6caa6f28efe[m
+Author: Leandro Martin, Balado Vidal <lm.baladovidal@gmail.com>
+Date:   Tue Mar 8 23:05:53 2022 -0300
+
+    Initial commit
