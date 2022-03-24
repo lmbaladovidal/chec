@@ -13,6 +13,21 @@ app.get('/', (req,res)=>{
     res.sendFile(__dirname + '/views/index.html');
 });
 
+app.get('/', (req,res)=>{
+    res.sendFile(__dirname + '/views/productDetail.html');
+});
+
+app.get('/', (req,res)=>{
+    res.sendFile(__dirname + '/views/productCart.html');
+});
+
+app.get('/', (req,res)=>{
+    res.sendFile(__dirname + '/views/register.html');
+});
+
+app.get('/', (req,res)=>{
+    res.sendFile(__dirname + '/views/login.html');
+});
 
 
 
