@@ -2,6 +2,7 @@ body {
     font-family: 'Montagu Slab', serif;
 }
 
+
 section div {
     border: solid 1px #c4c4c4;
     margin: auto;
@@ -17,3 +18,14 @@ section div {
 div.product img, div.pack-customized img {
     width: 100%;
 }
+
+form.product-form input {
+    display: block;
+}
+
+.beer-attributes li {
+    display: flex;
+    
+}
+
+
