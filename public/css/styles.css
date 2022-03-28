@@ -39,6 +39,13 @@ a{text-decoration: none;}
     font-size: 12px;
 }
 
+a:hover{
+   color: #ff6200;
+}
+
+.main-navbar ul{
+    list-style: none;
+}
 
 .logo{
     margin:10px 0;
@@ -238,14 +245,13 @@ a{text-decoration: none;}
         flex-direction: row;
         flex-wrap: wrap;
     }
-
-    .logofooter{
+    .div-content-logoFooter{
         flex: 100%;
         padding: 0px 125px;
-        max-width: 450px;
-        display: inline-block;
+        text-align: center;
+        margin: 0 auto;
     }
-
+    
     .footer-links{
         flex: 40%;
     }
@@ -256,6 +262,54 @@ a{text-decoration: none;}
 
 
 @media (min-width:760px){
+
+    .main-navbar{
+        flex-direction: row;
+        justify-content: space-between;
+        max-width: 800px;
+        margin: auto;
+    }
+
+    .logo{
+        width: 50px;
+        flex: 10%;
+    }
+
+    .main-navbar ul{
+        display: flex;
+        justify-content: space-between;
+        align-content: center;
+        justify-content: flex-end;
+    }
+
+    .left-navbar{ /*pone los elementos de la lista en linea*/
+        display: flex;
+        width: 100%;
+        margin: 0 15px; 
+        flex-direction: row;
+        align-items: flex-start;
+    }
+    .rigth-navbar{ /*pone los elementos de la lista en linea*/
+       display: flex;
+       width: 100%;
+       margin: 0 15px; 
+       flex-direction: row;
+       align-items: flex-end;
+   }
+
+    .div-content-logoFooter{
+        flex: 30%;
+        padding: 10px 0;
+        text-align: center;
+        margin: 0 auto;
+    }
+    .footer-links{
+        flex: 30%;
+    }
+    .footer-social-media{
+        flex: 30%;
+        align-items: flex-end;
+    }
 
 }
 
