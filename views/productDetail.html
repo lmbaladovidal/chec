@@ -9,48 +9,93 @@
     <title>CHEC</title>
 </head>
 <body>
-    <header>
-        <p>HEADER Se copiará de Index</p>
+    <header class="main-header">
+            <div class="main-header-top-bar">
+            <img src="/Desing/Logo-Etiqueta-Originals/540x540.png" class="logo">
+            <h2 class="text-header">Cerveza hecha en casa</h2>    
+        </div>
+            
+        <a href="#" class="hamburguer-botton">
+            <i class="fas fa-bars"></i> 
+        </a>
+
+        <nav class="main-navbar">
+            <ul class="left-navbar">
+                <li><a href="">Home </a></li>
+                <li><a href="">Quienes somos </a></li>
+                <li><a href="">Nuestras Recetas </a></li>
+                <li><a href="">Contactanos </a></li>
+                <li><a href="">Ingresá  <i class="fas fa-sign-in-alt"></i></a></li>
+            </ul> 
+            <ul class="right-navbar">
+                <li><a href="#" class="tienda-botton">Tienda </a>
+                    <a href="#" class="Tienda"><i class="fas fa-shopping-cart"></i></a>
+                </li>
+                    <a href="#" class="redes"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" class="redes"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="redes"><i class="fab fa-instagram"></i></a>
+            </ul> 
+        </nav> 
     </header>
 
-    <section>
+    <section class="pp-product-area">
 
-        <div class="product-imgs">
-            <img src="/images/img-beer-temporary.jpg" width="360" alt="beer">
-            <img src="/images/img-beer-temporary.jpg" width="360" alt="beer">
+        <div class="pp-product-imgs">
             <img src="/images/img-beer-temporary.jpg" width="360" alt="beer">
         </div>
 
-        <div>
+        <div class="pp-product-info">
             <h4>Stout</h4>
             <p>Cerveza negra con notas a café y chocolate levemente lupulada y moderada en alcohol.</p>
-            <ul class="beer-attributes">
+            <ul class="pp-beer-attributes">
                 <li><h5>Amargor:</h5> <p>30%</p></li>
                 <li><h5>Alcohol:</h5> <p>6 V/V</p></li>
                 <li><h5>Color:</h5> <p>35 SRM</p></li>
                 <li><h5>Lúpulo/s:</h5> <p>Cascade</p></li>
             </ul>
-        </div>
 
-        <div>
-            <form class="product-form">
-                <input type='checkbox' name="productOption">Botella 500 ml
-                <input type='checkbox' name="productOption">Botella 1 lt
-                <input type='checkbox' name="productOption">Pack x 6 - 500 ml
-                <input type='checkbox' name="productOption">Pack x 6 - 1 lt
-            </form>
-    
             <div>
-                <button>Comprar</button>
-                <button>Agregar al carrito</button>
+                <form class="pp-product-form">
+                    <input type='checkbox' name="productOption">Botella 500 ml
+                    <input type='checkbox' name="productOption">Botella 1 lt
+                    <input type='checkbox' name="productOption">Pack x 6 - 500 ml
+                    <input type='checkbox' name="productOption">Pack x 6 - 1 lt
+                </form>
+        
+                <div class="pp-options">
+                    <button class="pp-buy">Comprar</button>
+                    <button class="pp-add">Agregar al carrito</button>
+                </div>
             </div>
         </div>
-
         
     </section>
     
     <footer>
-        <p>FOOTER Se copiará de Index</p>
+        <div class="footer-topbar">
+            <img src="/Desing/Logo-Etiqueta-Originals/540x540.png" class="logofooter">
+        
+            <ul class="footer-suscribe">
+                <li><h5 class="text-footer">¿Queres ser nuestro amigo? Te enviaremos ofertas, promociones y nuestras recetas!</h5></li>     
+                <li> <input type="Email" placeholder="tunombre@email.com"></li>   
+                <li><a href="#" class="suscribe-botton"><i class="fas fa-angle-double-right"></i> </a>
+                
+            </ul>
+    
+            <ul class="footer-links">
+                <li><a href="">Home </a></li>
+                <li><a href="">Quienes somos </a></li>
+                <li><a href="">Nuestras Recetas </a></li>
+                <li><a href="">Tienda </a></li>
+    
+            </ul>
+            <ul class="footer-redes">
+                <li><a href="" ><i class="fab fa-whatsapp"></i>  +54 9 11 12344567</a></li>
+                <li><a href="" ><i class="fab fa-facebook"></i>  /checCerveceria</a></li>
+                <li><a href="" ><i class="fab fa-instagram"></i> @cervezaChec</a></li>
+            </ul>
+        </div>
+        <div class="copyright"> Copyright © 2022 - All rights reserved - Created by Grupo 8  </div>
     </footer>
 </body>
 </html>

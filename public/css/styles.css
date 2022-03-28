@@ -260,6 +260,49 @@ main section article .pd-seleccionar {
         justify-content: space-between;
         flex-wrap: wrap;
     }
+
+    /* Página Product Detail*/
+
+    .pp-product-area {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+
+    section .pp-product-imgs, section .pp-product-info {
+        align-items: flex-start;
+        flex: 40%;
+        margin: 10px;
+        font-family: 'Montagu Slab', serif;
+        width: 100%;
+    }
+
+    section div .pp-beer-attributes{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        justify-content: left;
+        font-family: 'Montagu Slab', serif;
+    }
+
+    
+    section div .pp-beer-attributes li{
+        display: flex;
+        align-items: flex-start;
+        width: 70%;
+        justify-content: space-around;
+    }
+
+
+    section .pp-product-imgs img {
+        width: 100%;
+    }
+
+    section div .pp-product-form {
+        display: flex;
+        align-items: flex-start;
+    }
         
 }
 
