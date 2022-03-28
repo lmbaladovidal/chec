@@ -162,6 +162,45 @@ a.suscribe-botton{
 
 }
 
+/* Página Product Page*/
+
+.pd-main {
+    width: 90%;
+    margin: 0 auto;
+}
+
+main h2 .pd-titulo {
+    font-style: bold;
+    font-size: 20px;
+    line-height: 28px;
+}
+
+.pack-customized, .pd-product {
+    margin: 10px;
+    font-family: 'Montagu Slab', serif;
+    box-shadow: 0 0 10px rgb(100,100,100);
+}
+
+.pd-img-product {
+    width: 100%;
+}
+
+.pd-datos-cerveza {
+    border-top: 1px solid #ebebeb;
+    text-align: center;
+    padding: 15px;
+    font-family: 'Montagu Slab', serif;
+}
+
+main section article .pd-seleccionar {
+    font-family: 'Montagu Slab', serif;
+    background-color: #ff6200;
+    list-style: none;
+    border: 1px solid #ffffff;
+    color: #ffffff;
+    border-radius: 4px;
+}
+
 
 @media (max-width:767px){
    .footer-topbar,.footer-links,.footer-redes{
@@ -207,7 +246,20 @@ a.suscribe-botton{
         align-items: center;
         justify-content: space-around; 
         height: 140px;
-        
+    }
+
+    
+    /* Página Product Page*/
+
+    .pack-customized, .pd-product {
+        flex: 30%
+    }
+
+    main .pd-tienda {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
         
 }
 
@@ -241,6 +293,18 @@ a.suscribe-botton{
     footer{
         background-color:#000000;
     }
-}
+
+    /* Página Product Page*/
+
+    .pack-customized, .pd-product {
+        flex: 22%
+    }
+
+    main .pd-tienda {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
 
 }
+
