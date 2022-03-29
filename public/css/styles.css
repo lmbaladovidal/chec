@@ -311,13 +311,18 @@ main section article .pd-seleccionar {
     /* Página Product Page*/
 
     .pack-customized, .pd-product {
-        flex: 30%
+        flex: 30%;
+        margin: 40px;
     }
 
     main .pd-tienda {
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
+    }
+    
+    main .pd-titulo {
+        margin: 20px;
     }
 
     /* Página Product Detail*/
@@ -475,13 +480,17 @@ main section article .pd-seleccionar {
     /* Página Product Page*/
 
     .pack-customized, .pd-product {
-        flex: 30%
+        flex: 30%;
+        margin: 30px;
     }
 
     main .pd-tienda {
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
+    }
+    main .pd-titulo {
+        margin: 20px;
     }
 
 }
