@@ -14,11 +14,11 @@ app.get('/', (req,res)=>{
     res.sendFile(__dirname + '/views/index.html');
 });
 
-app.get('/views/productPage.html', (req,res)=>{
+app.get('/productPage', (req,res)=>{
     res.sendFile(__dirname + '/views/productPage.html');
 });
 
-app.get('/views/productDetail.html', (req,res)=>{
+app.get('/productDetail', (req,res)=>{
     res.sendFile(__dirname + '/views/productDetail.html');
 });
 
