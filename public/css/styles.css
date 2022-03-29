@@ -200,6 +200,29 @@ a:hover{
     border-top: 1px solid white;
 
 }
+  /*Pagina de Login*/
+
+  .lg-div-form{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 50vw;
+    max-width: 300px;
+    margin: 15px auto;
+}
+
+.lg-div-login{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.lg-form-login{
+    display: flex;
+    flex-direction: column;
+    width: 100%;margin-top: 15px;
+}
 
 /* Página Product Page*/
 
@@ -282,7 +305,9 @@ main section article .pd-seleccionar {
          align-items: flex-start;
     }
 
-    
+  .secondary-navbar{    
+      justify-content: space-around;
+}
     /* Página Product Page*/
 
     .pack-customized, .pd-product {
@@ -337,7 +362,11 @@ main section article .pd-seleccionar {
         display: flex;
         align-items: flex-start;
     }
-        
+       
+    .secondary-navbar{
+            justify-content: center;
+    }
+
     .main-footer{
         flex-direction: row;
         flex-wrap: wrap;
