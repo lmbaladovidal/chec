@@ -238,6 +238,7 @@ main section article .pd-seleccionar {
     border: 1px solid #ffffff;
     color: #ffffff;
     border-radius: 4px;
+    padding: 5px;
 }
 
 
@@ -442,7 +443,7 @@ main section article .pd-seleccionar {
     /* Página Product Page*/
 
     .pack-customized, .pd-product {
-        flex: 22%
+        flex: 30%
     }
 
     main .pd-tienda {
