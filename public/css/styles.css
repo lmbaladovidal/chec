@@ -277,7 +277,9 @@ main section article .pd-seleccionar {
         display: flex;
         align-items: center;
         justify-content: space-around; 
-        height: 140px;
+        width: 100%;
+        flex-direction: column;
+         align-items: flex-start;
     }
 
     
@@ -375,6 +377,7 @@ main section article .pd-seleccionar {
         justify-content: space-between;
         align-content: center;
         justify-content: flex-end;
+        align-items: center;
     }
 
     .left-navbar{ /*pone los elementos de la lista en linea*/
