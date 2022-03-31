@@ -327,13 +327,41 @@ main section article .pd-seleccionar {
 
     /* Página Product Detail*/
 
-    .pp-product-area {
+    .pd-product-area {
         display: flex;
         justify-content: space-around;
         flex-wrap: wrap;
+        margin: 20px;
     }
 
-    section .pp-product-imgs, section .pp-product-info {
+    .pd-product-area .pd-product-info h4, .pd-product-area .pd-product-info  >  p {
+        margin: 15px 0;
+    }
+
+    .pd-product-area .pd-product-form {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 40%;
+        margin: 5px;
+    }
+
+    .pd-product-area .pd-product-form [type="checkbox"] {
+        margin: 4px;
+        padding: 5px;
+    }
+    .pd-product-area .pd-product-form h4 {
+        padding: 4px 0;
+        margin: 4px 0;
+    }
+
+    section .pd-product-imgs {
+        align-items: flex-start;
+        margin: 25px 50px 70px 50px;
+        flex: 30%;
+        width: 80%;        
+    }
+    section .pd-product-info {
         align-items: flex-start;
         flex: 40%;
         margin: 10px;
@@ -341,35 +369,49 @@ main section article .pd-seleccionar {
         width: 100%;
     }
 
-    section div .pp-beer-attributes{
+    section div .pd-beer-attributes{
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         flex-wrap: wrap;
-        align-items: flex-start;
         justify-content: left;
         font-family: 'Montagu Slab', serif;
     }
 
     
-    section div .pp-beer-attributes li{
-        display: flex;
-        align-items: flex-start;
-        width: 70%;
-        justify-content: space-around;
+    section div .pd-beer-attributes li{
+        justify-content: left;
+        list-style-type: none;
     }
 
 
-    section .pp-product-imgs img {
+    section .pd-product-imgs img {
         width: 100%;
     }
 
-    section div .pp-product-form {
+    section div .pd-product-form {
         display: flex;
         align-items: flex-start;
     }
+
+    .pd-product-area .pd-options {
+        align-content: left;
+    }
+
+
+    .pd-product-area .pd-options button {
+        padding: 5px;
+        margin: 5px;
+        font-family: 'Montagu Slab', serif;
+        background-color: #000000;
+        color:#ffDA4D;
+        border: none;
+        border-radius: 4px;
+        align-items: right;
+        cursor: pointer;
+    }
        
     .secondary-navbar{
-            justify-content: center;
+        justify-content: center;
     }
 
     .main-footer{
