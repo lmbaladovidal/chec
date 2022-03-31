@@ -57,29 +57,60 @@
             <p>Cerveza negra con notas a café y chocolate levemente lupulada y moderada en alcohol.</p>
             <ul class="pd-beer-attributes">
                 <li>
-                    <p>Amargor: 30%</p>               
+                    <p>Amargor: 30%</p>
                 </li>
                 <li>
                     <p>Alcohol: 6 V/V</p>
-                   
+
                 </li>
                 <li>
-                    <p>Color: 35 SRM</p>                   
+                    <p>Color: 35 SRM</p>
                 </li>
                 <li>
-                    <p>Lúpulo/s: Cascade</p>                    
+                    <p>Lúpulo/s: Cascade</p>
                 </li>
             </ul>
 
             <div>
                 <form class="pd-product-form">
                     <h4>Tu selección</h4>
-                    <label for="botella500"><input type="checkbox" id="botella500" value="botella500">Botella 500
-                        ml</label>
-                    <label for="botella1l"><input type="checkbox" id="botella1l" value="botella1l">Botella 1 lt</label>
-                    <label for="pack6500"><input type="checkbox" id="pack6500" value="pack6500">Pack x 6 - 500
-                        ml</label>
-                    <label for="pack61l"><input type="checkbox" id="pack61l" value="pack61l">Pack x 6 - 1 lt</label>
+                    
+                        <div class="quantity">
+                            <label class="quantity-label" for="botella500"><input type="checkbox" id="botella500" value="botella500">Botella 500
+                                ml</label>
+                            <input type="button" value="-" class="minus">
+                            <input type="number" class="product-quantity" step="1" min="1" max="17" name="quantity"
+                                value="1" title="Cantidad" size="4" placeholder="" inputmode="numeric">
+                            <input type="button" value="+" class="plus">
+                            <h5>$ 300</h5>
+                        </div>
+                    
+                   
+                    <div class="quantity">
+                        <label class="quantity-label" for="botella1l"><input type="checkbox" id="botella1l" value="botella1l">Botella 1 lt</label>
+                        <input type="button" value="-" class="minus">
+                        <input type="number" class="product-quantity" step="1" min="1" max="17" name="quantity"
+                            value="1" title="Cantidad" size="4" placeholder="" inputmode="numeric">
+                        <input type="button" value="+" class="plus">
+                        <h5>$ 600</h5>
+                    </div>
+                    <div class="quantity">
+                        <label class="quantity-label" for="pack6500"><input type="checkbox" id="pack6500" value="pack6500">Pack x 6 - 500
+                            ml</label>
+                        <input type="button" value="-" class="minus">
+                        <input type="number" class="product-quantity" step="1" min="1" max="17" name="quantity"
+                            value="1" title="Cantidad" size="4" placeholder="" inputmode="numeric">
+                        <input type="button" value="+" class="plus">
+                        <h5>$ 1700</h5>
+                    </div>
+                    <div class="quantity">
+                        <label class="quantity-label" for="pack61l"><input type="checkbox" id="pack61l" value="pack61l">Pack x 6 - 1 lt</label>
+                        <input type="button" value="-" class="minus">
+                        <input type="number" class="product-quantity" step="1" min="1" max="17" name="quantity"
+                            value="1" title="Cantidad" size="4" placeholder="" inputmode="numeric">
+                        <input type="button" value="+" class="plus">
+                        <h5>$ 3500</h5>
+                    </div>
                 </form>
             </div>
 
