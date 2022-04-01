@@ -237,13 +237,16 @@ main h2 .pd-titulo {
     line-height: 28px;
 }
 
-.pack-customized, .pd-product {
+.pack-customized, .pd-product , .pc-product {
     margin: 10px;
     font-family: 'Montagu Slab', serif;
     box-shadow: 0 0 10px rgb(100,100,100);
 }
 
 .pd-img-product {
+    width: 100%;
+}
+.pc-img-product {
     width: 100%;
 }
 
@@ -362,7 +365,34 @@ main section article .pd-seleccionar {
         display: flex;
         align-items: flex-start;
     }
-       
+ 
+    .pc-product-carrito{
+        margin: 15px auto;
+        padding: 0 10px;
+    }
+
+    .pc-product-cantidad{
+        margin: 15px auto;
+        padding: 0 10px;
+    }
+    .pc-product-precio{
+        margin: 15px auto;
+        padding: 0 10px;
+    }
+    .pc-eliminar{
+        margin: 15px auto;
+        padding: 0 10px;
+        height: fit-content;
+    }
+
+    .pc-cart {
+        display: flex;
+        /*justify-content: space-between;
+        /*flex-direction: column;
+        flex-wrap: nowrap;*/
+    }
+    
+
     .secondary-navbar{
             justify-content: center;
     }
@@ -385,7 +415,12 @@ main section article .pd-seleccionar {
         flex: 40%;
         align-items: flex-end;
     }
-
+    .pc-product-cantidad, .pc-product{
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        /*flex-wrap: wrap;*/
+    }
 
 @media (min-width:760px){
 
@@ -438,6 +473,24 @@ main section article .pd-seleccionar {
         align-items: flex-end;
     }
 
+
+    .pc-product-cantidad, .pc-product{
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        /*flex-wrap: wrap;*/
+    }
+    
+     .pc-product-form {
+        display: flex;
+        flex-direction: column;
+        justify-content:left;
+    }
+    .pc-product-cantidad-combinada{
+        display: flex;
+        justify-content:space-between;
+        /*align-items: center;*/
+    }
 }
 
 @media (min-width:1200px){
@@ -482,6 +535,24 @@ main section article .pd-seleccionar {
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
+    }
+
+    .pc-product-cantidad, .pc-product{
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        /*flex-wrap: wrap;*/
+    }
+    
+     .pc-product-form {
+        display: flex;
+        flex-direction: column;
+        justify-content:left;
+    }
+    .pc-product-cantidad-combinada{
+        display: flex;
+        justify-content:space-between;
+        /*align-items: center;*/
     }
 
 }
