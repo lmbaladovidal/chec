@@ -15,19 +15,19 @@ app.get('/', (req,res)=>{
     res.sendFile(__dirname + '/views/index.html');
 });
 
-app.get('/productPage.html', (req,res)=>{
+app.get('/productPage', (req,res)=>{
     res.sendFile(__dirname + '/views/productPage.html');
 });
 
-app.get('/productDetail.html', (req,res)=>{
+app.get('/productDetail', (req,res)=>{
     res.sendFile(__dirname + '/views/productDetail.html');
 });
 
-app.get('/register.html', (req,res)=>{
+app.get('/register', (req,res)=>{
     res.sendFile(__dirname + '/views/register.html');
 });
 
-app.get('/login.html', (req,res)=>{
+app.get('/login', (req,res)=>{
     res.sendFile(__dirname + '/views/login.html');
 });
 
