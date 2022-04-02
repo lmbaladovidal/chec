@@ -572,6 +572,7 @@ main section article .pd-seleccionar {
         align-items: flex-end;
     }
 
+    
 
     .pc-product-cantidad, .pc-product{
         display: flex;
@@ -659,4 +660,190 @@ main section article .pd-seleccionar {
     }
 
 }
+    /*INDEX MAIN SECTION*/
+    /*index-top*/
+    section.ind-top{
+        display: flex;
+        flex-wrap: wrap;   /*REVISAR ESTO DEL REEL*/
+        justify-content: space-evenly;
+        width: 100%;
+        margin-top: 5px;
+        border-bottom: 5px #949494 solid;
+        border-top: 2px #949494 solid;
+        
+    }
+
+    div.reel-1, div.reel-2,div.reel-3,div.reel-4{
+        display:flex ;
+        justify-content: space-around;
+        margin: 10px 5px;
+        max-height: 200px;
+         
+    }
+
+    /*seccion Media*/
+    body{
+        background-color: #eeede1a8;
+        font-family: 'Montagu Slab', serif;
+        background-image: url("/Desing/Logo-Etiqueta-Originals/512x512original.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size:30%;
+        position: relative;
+        background-blend-mode: lighten;
+    }
+
+    section.ind-middle,
+    section.ind-bottom  {
+        display: flex;
+        border-bottom: 5px #949494 solid;
+        margin: 10px 0 ;
+    }
+    div.left-content{
+        width: 200px;
+        max-height: 200px;
+        margin-left: 15px;
+    }
+    div.best{
+       display: flex;
+       flex-wrap: nowrap;
+       flex-direction: column;
+       width: 100%;
+       margin: 10px 20px 10px 10px;
+       border: #000 2px solid;
+       border-radius: 12px;
+       box-shadow: 0 0 10px #000;;
+       text-align: center;
+       background-color: #FFda4d;
+   }
+    article.art-1{
+       display: flex;
+       flex-direction: column;
+       border-bottom: black 1px solid;
+       margin: auto;
+       width: 75%;
+     
+   }
+    div.best h3{
+        padding: 0 5px;
+        font-size: 16px;
+        margin-top: 5px;
+    }
+
+    div.best h4{
+       padding: 0 5px;
+       font-size: 12px;
+       margin-top: 5px;
+   }
+    button.art-1{
+       margin: 10px auto;
+       padding: 5px;
+       background-color: #ff6200;
+       color: #fff;
+       width: 75%;
+       text-align: center;
+       border-radius: 15px;
+       text-shadow: black 0 0 8px;
+       box-shadow:0 0 8px #000 ;
+       cursor: pointer;
+    }
+     
+    /*CONTENEDOR PADRE lado derecho*/  
+    div.right-content{
+       display: flex;
+       flex-wrap: wrap;
+       flex-direction: initial;
+       justify-content: space-evenly;
+       margin: 10px 20px ;
+       width: 970px; /*establece un panel de 970pxiles para armar el grid de fotos o contenido*/
+    }
+
+    article.art-2{
+        display: flex;
+        margin: auto;
+        border: #949494 1px solid;
+        box-shadow:0 0 10px #000 ;
+        opacity: 90%;
+        height: auto;
+        position: relative;
+        left: 5%;
+        
+    }
+/* texto del body lado derecho "cuando abrimos una..."*/ 
+    article.art-3{
+       display: flex;
+       flex-direction: column;
+       justify-content: flex-start;      
+       margin: 15px;
+       padding: 20px;
+       border: #949494 1px dotted;
+       border-radius: 52px;
+       box-shadow:0 0 10px #000 ;
+       background-color: #ebebeb;
+       text-align:center;
+       width:80%;
+       order:-1;
+       opacity: 90%;
+    }
+    article.art-3 h4{
+        font-size: 12px;
+        padding-bottom: 2px;
+    }
+
+     article.art-3 h4.bold{
+       margin: 5px 0;
+       font-style: italic;
+       font-weight: bold;
+       color: #ff6200;
+    }
+     article.art-3 h3{
+         padding:5px 0;
+         border-top: #ff8a00 1px double;
+         border-bottom: #ff8a00 1px double;
+         text-align: center;
+
+    }
+    article.art-4{
+        display: flex;
+        margin: auto;
+        border: #949494 1px solid;
+        box-shadow: 0 0 10px #000;
+        opacity: 90%;
+        height: auto;
+        position: relative;
+        left: 5%;
+    }
+    article.art-5{
+        display: flex;
+        margin: 10px;
+        border: #949494 1px solid;
+        box-shadow: 0 0 10px #000;
+        opacity: 90%;
+        height: auto;
+        position: relative;
+        left: 5%;
+    }
+
+   /*botones de la seccion 3*/
+   div.mapa, div.envios, div.pagos{
+       display: flex;
+       flex-direction: column;
+       justify-content:space-between;
+       width: 15%;
+       margin:  auto;
+       margin-bottom: 10px;
+       border-radius: 28px;
+       box-shadow: 0 0 10px #000;
+       padding: 25px 15px;
+       font-size: 16px;
+       font-weight: bold;
+       text-shadow: black 0 0 10px;
+       height: 90px;
+       text-align: center;
+       background-color: #ff8a00;
+       color: #ffffff;
+       cursor: pointer;
+
+   }
+
 }
