@@ -394,7 +394,6 @@ main section article .pd-seleccionar {
         display: flex;
         align-items: flex-start;
     }
-<<<<<<< HEAD
  
     .pc-product-carrito{
         margin: 15px auto;
@@ -423,7 +422,6 @@ main section article .pd-seleccionar {
     }
     
 
-=======
     section div .pd-product-form .quantity{
         display: flex;
         flex-direction: row;
@@ -488,7 +486,6 @@ main section article .pd-seleccionar {
         cursor: pointer;
     }
        
->>>>>>> 868a22d075c722c36186af6a8b860ee9ee711bc7
     .secondary-navbar{
         justify-content: center;
     }
