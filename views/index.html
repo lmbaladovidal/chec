@@ -10,6 +10,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Fredoka&family=Montagu+Slab&family=Roboto&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/1eb023256c.js" crossorigin="anonymous"></script>
     <title>Home</title>
+    <script>
+        function closeSection(){
+            console.log("acaEstoy")
+            element = document.getElementById("suscribe-section");
+            element.style.opacity= "0";
+        }
+    </script>
 </head>
 <body>
     <header class="main-header">
@@ -22,7 +29,7 @@
                 <li><a href="">Contactanos </a></li>
             </ul>
             <ul class="rigth-navbar">
-                <li><a href="/login.html">Ingresá <i class="fas fa-sign-in-alt"></i></a></li>
+                <li><a href="/pitufo">Ingresá <i class="fas fa-sign-in-alt"></i></a></li>
                 <li><a href="/productDetail.html" class="tienda-botton">Tienda <i class="fas fa-shopping-cart"></i></a></li>
             </ul>
         </nav> 
@@ -42,16 +49,54 @@
         </div>
     </header>
     <section>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio ullam minus, non nobis nemo, repudiandae doloribus a excepturi fugiat quasi at, fuga quia in. Sapiente amet illo corrupti? Facere, ipsam.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio ullam minus, non nobis nemo, repudiandae doloribus a excepturi fugiat quasi at, fuga quia in. Sapiente amet illo corrupti? Facere, ipsam.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio ullam minus, non nobis nemo, repudiandae doloribus a excepturi fugiat quasi at, fuga quia in. Sapiente amet illo corrupti? Facere, ipsam.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio ullam minus, non nobis nemo, repudiandae doloribus a excepturi fugiat quasi at, fuga quia in. Sapiente amet illo corrupti? Facere, ipsam.</p>        
+        <div>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+             Dignissimos hic facere distinctio atque molestiae quod 
+             laudantium cupiditate recusandae provident veritatis 
+             tempora expedita nesciunt eaque necessitatibus, alias 
+             harum? Esse, blanditiis sint.
+        </div>
+        <div>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+             Dignissimos hic facere distinctio atque molestiae quod 
+             laudantium cupiditate recusandae provident veritatis 
+             tempora expedita nesciunt eaque necessitatibus, alias 
+             harum? Esse, blanditiis sint.
+        </div>
+        <div>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+             Dignissimos hic facere distinctio atque molestiae quod 
+             laudantium cupiditate recusandae provident veritatis 
+             tempora expedita nesciunt eaque necessitatibus, alias 
+             harum? Esse, blanditiis sint.
+        </div>
+        <div>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+             Dignissimos hic facere distinctio atque molestiae quod 
+             laudantium cupiditate recusandae provident veritatis 
+             tempora expedita nesciunt eaque necessitatibus, alias 
+             harum? Esse, blanditiis sint.
+        </div>
+        <div>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+             Dignissimos hic facere distinctio atque molestiae quod 
+             laudantium cupiditate recusandae provident veritatis 
+             tempora expedita nesciunt eaque necessitatibus, alias 
+             harum? Esse, blanditiis sint.
+        </div>
+        <div>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+             Dignissimos hic facere distinctio atque molestiae quod 
+             laudantium cupiditate recusandae provident veritatis 
+             tempora expedita nesciunt eaque necessitatibus, alias 
+             harum? Esse, blanditiis sint.
+        </div>
     </section>
-    <div class="suscribe-section">
-        <h5 class="suscribe-text">Dejanos tu mail y recibí todas nuestras ofertas <i class="fa-solid fa-hands-clapping"></i></h5>
+    <div class="suscribe-section" id="suscribe-section">
+        <h5 class="suscribe-text" >Dejanos tu mail y recibí todas nuestras ofertas <i class="fa-solid fa-hands-clapping" ></i></h5>
         <div class="suscribe-bar">            
             <input type="text" class="suscribe-input-text" placeholder="ingresa tu mail">                
-            <i class="fas fa-times"></i>
+            <i class="fas fa-times" onclick="closeSection()"></i>
         </div> 
         
     </div>
