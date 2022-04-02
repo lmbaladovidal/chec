@@ -37,10 +37,14 @@ a{text-decoration: none;}
     display: inline-block;  /*convierte las lineas de la lista en bloque para poder darles un padding*/
     padding: 5px 2px;
     font-size: 12px;
+    transition-property: color box-shadow;
+    transition-duration: 200ms;
 }
 
 a:hover{
    color: #ff6200;
+   text-shadow: 10px 10px 20px rgb(255, 255, 255);
+   
 }
 
 .main-navbar ul{
@@ -326,6 +330,10 @@ main section article .pd-seleccionar {
   .secondary-navbar{    
       justify-content: space-around;
 }
+
+    .suscribe-bar{
+        width: 50%;
+    }
     /* Página Product Page*/
 
     .pack-customized, .pd-product {
@@ -771,6 +779,11 @@ main section article .pd-seleccionar {
         text-align: center;
         margin: 0 auto;
     }
+
+    .suscribe-bar{
+        width: 60%;
+    }
+
     .footer-links{
         flex: 30%;
     }
@@ -823,6 +836,11 @@ main section article .pd-seleccionar {
     .main-navbar a{
         font-size: 16px;
     }
+
+    .suscribe-bar{
+        width: 70%;
+    }
+
     /*FOOTER*/
     div.footer-topbar{
         max-width: 1400px;
