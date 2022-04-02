@@ -8,6 +8,9 @@
   <li>Leandro Martin Balado Vidal</li>
 </ul>
 
+<h3>Tablero de trabajo:</h3>
+  <a href="https://trello.com/b/YxXMZkYz/proyectointegrado">Link a Trello Grupo 8</a>
+
 <h4>Sitio web E-Commerce para cervecería “CHEC – Cerveza Hecha en Casa” </h4>
 
 <h4>Descripción del emprendimiento</h4>
