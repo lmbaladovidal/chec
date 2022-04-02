@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,103 +8,154 @@
     <link rel="icon" type="image/png" href="/Desing/Logo-Etiqueta-Originals/fav-icon.png">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
     <link href="css/styles.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka&family=Montagu+Slab&family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka&family=Montagu+Slab&family=Roboto&display=swap"
+        rel="stylesheet">
     <script src="https://kit.fontawesome.com/1eb023256c.js" crossorigin="anonymous"></script>
     <title>Detalle Producto</title>
 </head>
+
 <body>
     <header class="main-header">
         <nav class="main-navbar">
             <img src="/Desing/Logo-Etiqueta-Originals/540x540sqr.png" class="logo">
-            <ul class="left-navbar">                
+            <ul class="left-navbar">
                 <li><a href="/">Home </a></li>
                 <li><a href="">Quienes somos </a></li>
                 <li><a href="/productPage.html">Nuestras Recetas </a></li>
                 <li><a href="">Contactanos </a></li>
             </ul>
             <ul class="rigth-navbar">
-                <li><a href="/login.html">Ingresá  <i class="fas fa-sign-in-alt"></i></a></li>
+                <li><a href="/login.html">Ingresá <i class="fas fa-sign-in-alt"></i></a></li>
                 <li><a href="/productDetail.html" class="tienda-botton">Tienda </a></li>
-                <li><a href="#" class="Tienda"><i class="fas fa-shopping-cart"></i></a></li>            
+                <li><a href="#" class="Tienda"><i class="fas fa-shopping-cart"></i></a></li>
             </ul>
-        </nav> 
+        </nav>
         <div class="secondary-navbar">
             <div class="hamburguer-button">
-                <i class="fas fa-bars"></i> 
+                <i class="fas fa-bars"></i>
             </div>
             <div class="search-bar">
-                <input type="text" placeholder="Busca aquí">                
+                <input type="text" placeholder="Busca aquí">
                 <a href="#" class="lupa"><i class="fas fa-beer"></i></a>
-            </div> 
+            </div>
             <div class="social-media-bar">
                 <a href="#" class="redes2"><i class="fab fa-whatsapp"></i></a>
                 <a href="#" class="redes2"><i class="fab fa-facebook"></i></a>
                 <a href="#" class="redes2"><i class="fab fa-instagram"></i></a>
-            </div>           
+            </div>
         </div>
     </header>
-    <section>
 
-        <div class="pp-product-imgs">
-            <img src="/images/img-beer-temporary.jpg" width="360" alt="beer">
+    <section class="pd-product-area">
+
+        <div class="pd-product-imgs">
+            <img src="/images/img-beer-temporary.jpg" alt="beer">
         </div>
 
-        <div class="pp-product-info">
+        <div class="pd-product-info">
             <h4>Stout</h4>
             <p>Cerveza negra con notas a café y chocolate levemente lupulada y moderada en alcohol.</p>
-            <ul class="pp-beer-attributes">
-                <li><h5>Amargor:</h5> <p>30%</p></li>
-                <li><h5>Alcohol:</h5> <p>6 V/V</p></li>
-                <li><h5>Color:</h5> <p>35 SRM</p></li>
-                <li><h5>Lúpulo/s:</h5> <p>Cascade</p></li>
+            <ul class="pd-beer-attributes">
+                <li>
+                    <p>Amargor: 30%</p>
+                </li>
+                <li>
+                    <p>Alcohol: 6 V/V</p>
+
+                </li>
+                <li>
+                    <p>Color: 35 SRM</p>
+                </li>
+                <li>
+                    <p>Lúpulo/s: Cascade</p>
+                </li>
             </ul>
 
             <div>
-                <form class="pp-product-form">
-                    <input type='checkbox' name="productOption">Botella 500 ml
-                    <input type='checkbox' name="productOption">Botella 1 lt
-                    <input type='checkbox' name="productOption">Pack x 6 - 500 ml
-                    <input type='checkbox' name="productOption">Pack x 6 - 1 lt
+                <form class="pd-product-form">
+                    <h4>Tu selección</h4>
+                    
+                        <div class="quantity">
+                            <label class="quantity-label" for="botella500"><input type="checkbox" id="botella500" value="botella500">Botella 500
+                                ml</label>
+                            <input type="button" value="-" class="minus">
+                            <input type="number" class="product-quantity" step="1" min="1" max="17" name="quantity"
+                                value="1" title="Cantidad" size="4" placeholder="" inputmode="numeric">
+                            <input type="button" value="+" class="plus">
+                            <h5>$ 300</h5>
+                        </div>
+                    
+                   
+                    <div class="quantity">
+                        <label class="quantity-label" for="botella1l"><input type="checkbox" id="botella1l" value="botella1l">Botella 1 lt</label>
+                        <input type="button" value="-" class="minus">
+                        <input type="number" class="product-quantity" step="1" min="1" max="17" name="quantity"
+                            value="1" title="Cantidad" size="4" placeholder="" inputmode="numeric">
+                        <input type="button" value="+" class="plus">
+                        <h5>$ 600</h5>
+                    </div>
+                    <div class="quantity">
+                        <label class="quantity-label" for="pack6500"><input type="checkbox" id="pack6500" value="pack6500">Pack x 6 - 500
+                            ml</label>
+                        <input type="button" value="-" class="minus">
+                        <input type="number" class="product-quantity" step="1" min="1" max="17" name="quantity"
+                            value="1" title="Cantidad" size="4" placeholder="" inputmode="numeric">
+                        <input type="button" value="+" class="plus">
+                        <h5>$ 1700</h5>
+                    </div>
+                    <div class="quantity">
+                        <label class="quantity-label" for="pack61l"><input type="checkbox" id="pack61l" value="pack61l">Pack x 6 - 1 lt</label>
+                        <input type="button" value="-" class="minus">
+                        <input type="number" class="product-quantity" step="1" min="1" max="17" name="quantity"
+                            value="1" title="Cantidad" size="4" placeholder="" inputmode="numeric">
+                        <input type="button" value="+" class="plus">
+                        <h5>$ 3500</h5>
+                    </div>
                 </form>
-        
-                <div class="pp-options">
-                    <button class="pp-buy">Comprar</button>
-                    <button class="pp-add">Agregar al carrito</button>
-                </div>
+            </div>
+
+            <div class="pd-options">
+                <button class="pp-buy">Comprar</button>
+                <button class="pp-add">Agregar al carrito</button>
             </div>
         </div>
-        
-    </section>
-    <div class="suscribe-section">
-        <h5 class="suscribe-text">Dejanos tu mail y recibí todas nuestras ofertas <i class="fa-solid fa-hands-clapping"></i></h5>
-        <div class="suscribe-bar">            
-            <input type="text" class="suscribe-input-text" placeholder="ingresa tu mail">                
-            <i class="fas fa-times"></i>
-        </div> 
-        
-    </div>
-<footer>
-    <div class="main-footer">
-        <div class="div-content-logoFooter">
-            <img src="/Desing/Logo-Etiqueta-Originals/540x540sqr.png" class="logofooter">  
         </div>
-        <ul class="footer-links">
-            <li>Enlaces</li>
-            <li><a href="">Tienda </a></li>
-            <li><a href="">Quienes somos </a></li>
-            <li><a href="">Nuestras Recetas </a></li>
-        </ul>
-        <ul class="footer-social-media">
-            <li>Contacto</li>
-            <li><a href="" >  +54 9 11 12344567<i class="fab fa-whatsapp"></i></a></li>
-            <li><a href="" > @cervezaChec<i class="fab fa-instagram"></i></a></li>
-            <li><a href="" >  /checCerveceria<i class="fab fa-facebook"></i></a></li>
-            <li><a href="" ></i>  chec@cerveza.com.ar<i class="far fa-envelope"></i></a></li>
-        </ul>
+
+    </section>
+
+
+    <div class="suscribe-section">
+        <h5 class="suscribe-text">Dejanos tu mail y recibí todas nuestras ofertas <i
+                class="fa-solid fa-hands-clapping"></i></h5>
+        <div class="suscribe-bar">
+            <input type="text" class="suscribe-input-text" placeholder="ingresa tu mail">
+            <i class="fas fa-times"></i>
+        </div>
+
     </div>
-    <div class="copyright">
-        Copyright © 2022 - All rights reserved - Created by Grupo 8
-    </div>
-</footer>
+    <footer>
+        <div class="main-footer">
+            <div class="div-content-logoFooter">
+                <img src="/Desing/Logo-Etiqueta-Originals/540x540sqr.png" class="logofooter">
+            </div>
+            <ul class="footer-links">
+                <li>Enlaces</li>
+                <li><a href="">Tienda </a></li>
+                <li><a href="">Quienes somos </a></li>
+                <li><a href="">Nuestras Recetas </a></li>
+            </ul>
+            <ul class="footer-social-media">
+                <li>Contacto</li>
+                <li><a href=""> +54 9 11 12344567<i class="fab fa-whatsapp"></i></a></li>
+                <li><a href=""> @cervezaChec<i class="fab fa-instagram"></i></a></li>
+                <li><a href=""> /checCerveceria<i class="fab fa-facebook"></i></a></li>
+                <li><a href=""></i> chec@cerveza.com.ar<i class="far fa-envelope"></i></a></li>
+            </ul>
+        </div>
+        <div class="copyright">
+            Copyright © 2022 - All rights reserved - Created by Grupo 8
+        </div>
+    </footer>
 </body>
+
 </html>
