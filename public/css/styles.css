@@ -235,6 +235,29 @@ a:hover {
   width: 100%;
   margin-top: 15px;
 }
+.lg-a{
+    color: #000;
+    display: inline-block;  /*convierte las lineas de la lista en bloque para poder darles un padding*/
+    font-size: 15px;
+    font-weight: 600;
+    transition-property: color box-shadow;
+    transition-duration: 200ms;  
+}
+
+/*Pagina Register*/
+
+.rg-form{
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.rg-input{
+    margin:4px;
+    padding: 4px;
+    width: 20%;
+}
 
 /* Página Product Page*/
 
