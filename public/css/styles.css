@@ -29,13 +29,16 @@ a { text-decoration: none;}
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  transition-property: flex-direction;
+  transition-duration: 200ms;
 }
 
 .main-navbar a {
   color: #ffffff;
+  width: 135px;
   text-decoration: none;
   display: inline-block; /*convierte las lineas de la lista en bloque para poder darles un padding*/
-  padding: 5px 2px;
+  padding: 5px 5px;
   font-size: 12px;
   transition-property: color box-shadow;
   transition-duration: 200ms;
@@ -244,6 +247,19 @@ a:hover {
     transition-duration: 200ms;  
 }
 
+
+.lg-submit {
+  padding: 5px;
+  margin: 5px;
+  font-family: "Montagu Slab", serif;
+  background-color: #000000;
+  color: #ffda4d;
+  border: none;
+  border-radius: 4px;
+  align-items: right;
+  cursor: pointer;
+}
+
 /*Pagina Register*/
 
 .rg-form{
@@ -253,11 +269,32 @@ a:hover {
     align-items: center;
 }
 
+.rg-form [type="submit"],[type="reset"]{
+    padding: 5px;
+    margin: 5px;
+    width: 100px;
+    font-family: "Montagu Slab", serif;
+    background-color: #000000;
+    color: #ffda4d;
+    border: none;
+    border-radius: 4px;
+    align-items: right;
+    cursor: pointer;
+}
+
 .rg-input{
     margin:4px;
     padding: 4px;
-    width: 20%;
+    width: 40%;
+    max-width: 300px;
 }
+
+  /*Register*/
+
+  .rg-btn-div{
+    display: flex;
+    flex-direction: column;
+  }
 
 /* Página Product Page*/
 
@@ -360,6 +397,14 @@ main section article .pd-seleccionar {
   .suscribe-bar {
     width: 50%;
   }
+
+
+  /*Register*/
+
+  .rg-btn-div{
+    flex-direction: row;
+  }
+
   /* Página Product Page*/
 
   .pack-customized,
@@ -377,6 +422,10 @@ main section article .pd-seleccionar {
   main .pd-titulo {
     margin: 20px;
   }
+
+
+
+
 
   /* Página Product Detail*/
 
@@ -975,10 +1024,10 @@ article.art-5 {
   }
   .main-navbar li {
     /*pone espacios entre los elementos de las listas */
-    margin: 0 25px;
+    margin: 0 10px;
   }
   .main-navbar a {
-    font-size: 16px;
+    font-size: 14px;
   }
 
   .suscribe-bar {
