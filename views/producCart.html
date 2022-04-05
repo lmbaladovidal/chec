@@ -56,20 +56,55 @@
                     <img class="pc-img-product" src="/images/img-beer-temporary.jpg" alt="beer">
                 </div>
             </div>
-
-            <div class="pc-product-cantidad">
-                <h4>Cantidad </h4>
-                <a><input type='radio' name="productOption">Botella 500 ml</a>
-                <a><input type='radio' name="productOption">Botella 1 lt</a>
-                <a><input type='radio' name="productOption">Pack x 6 - 500 ml</a>
-                <a><input type='radio' name="productOption">Pack x 6 - 1 lt</a>
-                <button class="pd-seleccionar">Limpiar</button>
-                <div class="pc-product-cantidad-combinada">
-                    <i class="fas fa-minus"></i>
-                    <input type="text" class="input" >
-                    <i class="fas fa-plus"></i>
+            <div class="pc-product-group">
+                <div class="pc-product-label">
+                    
+                    <div class="pc-botton-inv"></div>
+                    <label class="pc-quantity-label-det" for="botella500"><input type="checkbox" id="botella500" value="botella500">Botella 500 ml</label>
+                    <label class="pc-quantity-label-det" for="botella1l"><input type="checkbox" id="botella500" value="botella500">Botella 1 lt</label>
+                    <label class="pc-quantity-label-det" for="pack6500"><input type="checkbox" id="botella500" value="botella500">Pack x 6 - 500 ml</label>
+                    <label class="pc-quantity-label-det" for="pack61l"><input type="checkbox" id="pack61l" value="pack61l">Pack x 6 - 1 lt</label>
+                    <div class="pc-botton-inv"></div>
+               </div>
+                <div class="pc-product-cantidad">
+    
+                    <h4>Cantidad </h4>
+                    
+    
+                    <div class="pc-product-cantidad-combinada">
+                        <i class="fas fa-minus"></i>
+                        <input type="number" class="pc-product-quantity" step="1" min="1" max="17" 
+                            value="0" title="Cantidad" size="4" placeholder="" inputmode="numeric" name="productOption">
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="pc-product-cantidad-combinada">
+                        <i class="fas fa-minus"></i>
+                        <input type="number" class="pc-product-quantity" step="1" min="1" max="17" 
+                            value="0" title="Cantidad" size="4" placeholder="" inputmode="numeric" name="productOption">
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="pc-product-cantidad-combinada">
+                      
+                        <i class="fas fa-minus"></i>
+                        <input type="number" class="pc-product-quantity" step="1" min="1" max="17" 
+                            value="0" title="Cantidad" size="4" placeholder="" inputmode="numeric" name="productOption">
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="pc-product-cantidad-combinada">
+                        
+                        <i class="fas fa-minus"></i>
+                        <input type="number" class="pc-product-quantity" step="1" min="1" max="17" 
+                            value="0" title="Cantidad" size="4" placeholder="" inputmode="numeric" name="productOption">
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    
+                    <button class="pc-options-button">Limpiar</button>
+                    
                 </div>
+
             </div>
+
+            
 
             <div class="pc-product-precio">
                 <h4>Precio</h4>
@@ -82,8 +117,23 @@
             
             
     </main>
-   
-
+    <section class="pc-bottom-content">
+        <div class="pc-label-total-group">
+            <label class="pc-label-envio" for="label-envio">Envio a:</label>
+            <p class="pc-label-envio-direccion" for="label-envio">Independencia 717. Piso 1 Dto "A".</p>
+        </div>
+        
+        <div class="pc-label-total-group">
+            <p class="pc-label-totalenvio" for="label-totalenvio">Total con envio: </p>
+            <h2><label class="pc-txtLabel-totalenvio" for="txtLabel-totalenvio">   $ 1200 </label></h2>
+        </div>
+        
+    </section>  
+    
+    <div class="pc-options">
+        <button class="pc-options-button">Finalizar Compra</button>
+    </div>
+    
     <footer>
         <div class="main-footer">
             <div class="div-content-logoFooter">

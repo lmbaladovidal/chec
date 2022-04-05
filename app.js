@@ -31,7 +31,7 @@ app.get('/login', (req,res)=>{
     res.sendFile(__dirname + '/views/login.html');
 });
 
-app.get('/producCart.html', (req,res)=>{
+app.get('/producCart', (req,res)=>{
     res.sendFile(__dirname + '/views/producCart.html');
 });
 
