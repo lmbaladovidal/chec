@@ -286,12 +286,22 @@ main h2 .pd-titulo {
 .pc-img-product {
   width: 100%;
 }
-
+.pc-quantity-label{
+    width: 60px;
+}
+.pc-product-quantity{
+    width: 60px;}
+.pc-quantity-label-det{
+    width: 130px;}
+.pc-quantity-label-det{
+    margin-bottom: 20px;
+}
 .pd-datos-cerveza {
   border-top: 1px solid #ebebeb;
   text-align: center;
   padding: 15px;
   font-family: "Montagu Slab", serif;
+  margin: 30px auto;
 }
 
 main section article .pd-seleccionar {
@@ -304,13 +314,88 @@ main section article .pd-seleccionar {
   padding: 5px;
 }
 
+.pc-product-cantidad {
+    width: 150px;
+}
+.fas fa-minus {
+    margin-top:10px ;
+}
 
+.pc-product-group{
+    display: flex;
+}
+.pc-product-quantity{
+    margin-bottom: 20px;
+}
+.pc-product-cantidad,
+  .pc-product {
+    flex-direction: column;
+  }
+.pc-product-label{
+  width: 250px;
+  margin: 15px auto;
+  padding: 0 10px;}
+  .pc-botton-inv{
+      height: 12px;
+  }
+
+  .pc-label-envio{
+      text-align: right;
+      margin-right: 20px;
+  }
+
+.pc-options {
+    display: flex;
+    flex-direction: row-reverse;
+    margin-bottom: 15px ;
+  }
+  .pc-label-envio{
+    margin-right:5px ;
+  }
+
+  .pc-label-envio-direccion{
+    font-weight: bold;
+    margin-right: 75px;
+  }
+  .pc-txtLabel-totalenvio{
+    font-weight: bold;
+  }
+
+  .pc-label-totalenvio{
+      margin-right:5px ;
+  }
+  
+  .pc-options-button {
+    padding: 5px;
+    margin: 5px 25px;
+    font-family: "Montagu Slab", serif;
+    background-color: #000000;
+    color: #ffda4d;
+    border: none;
+    border-radius: 4px;
+    align-items: right;
+    cursor: pointer;
+  }
+  .pc-bottom-content{
+      display: flex;
+      flex-direction: column;
+  }
+  
+  .pc-label-total-group{
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      margin: 0 20px 30px 0;
+  }
 
 /*#########################################################################################/*/
 /*################## MEDIA 361  ############################################/*/
 /*#########################################################################################/*/
 
 @media (min-width: 361px) {
+.pc-options-button{
+    margin-bottom: 0 20px 0 0;
+}
 
  .main-header-top-bar {
     display: flex;
@@ -458,7 +543,7 @@ main section article .pd-seleccionar {
     padding: 0 10px;
   }
   .pc-eliminar {
-    margin: 15px auto;
+    margin: 80px auto;
     padding: 0 10px;
     height: fit-content;
   }
@@ -469,10 +554,13 @@ main section article .pd-seleccionar {
         /*flex-direction: column;
         flex-wrap: nowrap;*/
   }
-
-  .pc-product-quantity{
-      padding: 10px;
+  
+  .pc-product-label{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
   }
+
   section div .pd-product-form .pd-quantity {
     display: flex;
     flex-direction: row;
@@ -597,6 +685,16 @@ div.reel-4 {
   margin: 10px 5px;
   max-height: 200px;
 }
+
+.pc-cart {
+    display: flex;
+    flex-wrap: wrap; /*REVISAR ESTO DEL REEL*/
+    justify-content: space-evenly;
+    width: 100%;
+    margin-top: 5px;
+    border-bottom: 5px #949494 solid;
+    border-top: 2px #949494 solid;
+  }
   /*seccion Media*/
   body.ind-body {
     background-color: #eeede1a8;
@@ -707,13 +805,15 @@ div.reel-4 {
   }
 
 /* section middle-bootom*/
-section.bottom-content{
+section.pc-bottom-content{
   display: flex;
   border-bottom: 5px #949494 solid;
   margin: 40px 10px;
   justify-content: center;
+  padding: 30px;
+
 }
-div.bottom-content{
+div.pc-bottom-content{
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 20px;
@@ -856,7 +956,6 @@ div.bottom-content{
   .pc-product {
     display: flex;
     justify-content: space-between;
-    flex-direction: column;
     /*flex-wrap: wrap;*/
   }
 
@@ -868,7 +967,7 @@ div.bottom-content{
   .pc-product-cantidad-combinada {
     display: flex;
     justify-content: space-between;
-    /*align-items: center;*/
+    justify-content: center;
   }
 
 
