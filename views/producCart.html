@@ -59,10 +59,39 @@
 
             <div class="pc-product-cantidad">
                 <h4>Cantidad </h4>
-                <a><input type='radio' name="productOption">Botella 500 ml</a>
-                <a><input type='radio' name="productOption">Botella 1 lt</a>
-                <a><input type='radio' name="productOption">Pack x 6 - 500 ml</a>
-                <a><input type='radio' name="productOption">Pack x 6 - 1 lt</a>
+                <div class="pc-product-cantidad-combinada">
+                    <label class="quantity-label" for="botella500"><input type="checkbox" id="botella500"
+                        value="botella500">Botella 500 ml</label>
+                    <i class="fas fa-minus"></i>
+                    <a><input type="number" class="product-quantity" step="1" min="1" max="17" 
+                        value="0" title="Cantidad" size="4" placeholder="" inputmode="numeric" name="productOption"></a>
+                    <i class="fas fa-plus"></i>
+                </div>
+                <div class="pc-product-cantidad-combinada">
+                    <label class="quantity-label" for="botella1l"><input type="checkbox" id="botella500"
+                        value="botella500">Botella 1 lt</label>
+                    <i class="fas fa-minus"></i>
+                    <a><input type="number" class="product-quantity" step="1" min="1" max="17" 
+                        value="0" title="Cantidad" size="4" placeholder="" inputmode="numeric" name="productOption"></a>
+                    <i class="fas fa-plus"></i>
+                </div>
+                <div class="pc-product-cantidad-combinada">
+                    <label class="quantity-label" for="pack6500"><input type="checkbox" id="botella500"
+                        value="botella500">Pack x 6 - 500 ml</label>
+                    <i class="fas fa-minus"></i>
+                    <a><input type="number" class="product-quantity" step="1" min="1" max="17" 
+                        value="0" title="Cantidad" size="4" placeholder="" inputmode="numeric" name="productOption"></a>
+                    <i class="fas fa-plus"></i>
+                </div>
+                <div class="pc-product-cantidad-combinada">
+                    <label class="quantity-label" for="pack61l"><input type="checkbox" id="pack61l"
+                        value="pack61l">Pack x 6 - 1 lt</label>
+                    <i class="fas fa-minus"></i>
+                    <a><input type="number" class="product-quantity" step="1" min="1" max="17" 
+                        value="0" title="Cantidad" size="4" placeholder="" inputmode="numeric" name="productOption"></a>
+                    <i class="fas fa-plus"></i>
+                </div>
+                
                 <button class="pd-seleccionar">Limpiar</button>
                 <div class="pc-product-cantidad-combinada">
                     <i class="fas fa-minus"></i>

@@ -447,6 +447,9 @@ main section article .pd-seleccionar {
         flex-wrap: nowrap;*/
   }
 
+  .pc-product-quantity{
+      padding: 10px;
+  }
   section div .pd-product-form .pd-quantity {
     display: flex;
     flex-direction: row;
