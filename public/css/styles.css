@@ -29,8 +29,7 @@ a { text-decoration: none;}
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  transition-property: flex-direction;
-  transition-duration: 200ms;
+
 }
 
 .main-navbar a {
@@ -60,6 +59,7 @@ a:hover {
 
 .left-navbar {
   display: none;
+
 }
 
 .rigth-navbar {
@@ -185,6 +185,8 @@ a:hover {
   font-size: 14px;
   padding: 5px;
   margin: 5px 5px;
+  transition-property: color;
+  transition-duration: 200ms;
 }
 
 .footer-social-media {
@@ -204,6 +206,16 @@ a:hover {
   font-size: 14px;
   padding: 5px;
   margin: 5px 5px;
+  transition-property: color;
+  transition-duration: 200ms;
+}
+
+.footer-links a:hover{
+  color: #ff6200;
+}
+
+.footer-social-media a:hover {
+  color: #ff6200;
 }
 
 .copyright {
@@ -258,6 +270,13 @@ a:hover {
   border-radius: 4px;
   align-items: right;
   cursor: pointer;
+  transition-property: color;
+  transition-duration: 200ms;
+}
+
+.lg-submit:hover{
+  background-color: #000000;
+  color: #ff6200;
 }
 
 /*Pagina Register*/
@@ -280,6 +299,9 @@ a:hover {
     border-radius: 4px;
     align-items: right;
     cursor: pointer;
+    transition-property: color, position;
+    transition-duration: 200ms;
+
 }
 
 .rg-input{
@@ -289,12 +311,18 @@ a:hover {
     max-width: 300px;
 }
 
-  /*Register*/
-
   .rg-btn-div{
     display: flex;
     flex-direction: column;
+
   }
+  
+  .rg-form [type="submit"]:hover,[type="reset"]:hover{
+    background-color: #000000;
+    color: #ff6200;
+  }
+
+
 
 /* Página Product Page*/
 
