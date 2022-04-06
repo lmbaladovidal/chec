@@ -753,6 +753,7 @@ section.ind-top {
   border-top: 2px #949494 solid;
 }
 
+
 div.reel-1,
 div.reel-2,
 div.reel-3,
@@ -882,6 +883,24 @@ div.reel-4 {
   }
 
 /* section middle-bootom*/
+section .bottom-content{
+  display: flex;
+  border-bottom: 5px #949494 solid;
+  margin: 40px 10px;
+  justify-content: center;
+  padding: 30px;
+
+}
+div .bottom-content{
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  justify-content: space-evenly;
+  width: 95%;
+
+  
+}
+/*CREO QUE ACA ESTA EL ERROR
 section.pc-bottom-content{
   display: flex;
   border-bottom: 5px #949494 solid;
@@ -895,9 +914,9 @@ div.pc-bottom-content{
   flex-wrap: wrap;
   margin-bottom: 20px;
   justify-content: space-evenly;
-  width: 95%;
+  width: 95%;  
+}*/
 
-}
 
   article.art-2 {
     display: flex;
@@ -1105,7 +1124,6 @@ article.art-3 {
 
 div.bottom-content{
   width: 90%;
-
 }
 
 article.art-2 {
