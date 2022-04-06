@@ -347,6 +347,8 @@ main h2 .pd-titulo {
   box-shadow: 0 0 10px rgb(100, 100, 100);
 }
 
+
+
 .pd-img-product {
   width: 100%;
 }
@@ -369,6 +371,60 @@ main section article .pd-seleccionar {
   color: #ffffff;
   border-radius: 4px;
   padding: 5px;
+}
+
+
+/* Fin página Product Page*/
+
+/* Página Product Detail*/
+
+section div .pd-product-form {
+  width: 330px;
+}
+section div .pd-product-form .pd-quantity .pd-counter {
+  justify-content: right;
+  flex-wrap: nowrap;
+  width: 90px;
+}
+section div .pd-product-form .pd-quantity h5 {
+  width: 80px;
+}
+section div .pd-product-form .pd-quantity .quantity-label {
+  width: 160px;
+}
+
+.pd-product-area .pd-product-info .pd-sub-total  {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: baseline;
+}
+.pd-product-area .pd-product-info .pd-sub-total h5 {
+  margin: 15px;
+}
+
+.pd-product-area div .pd-beer-attributes li {
+  display: flex;
+  flex-direction: row; 
+  align-items: baseline 
+}
+.pd-product-area div .pd-beer-attributes li p, .pd-product-area div .pd-beer-attributes li h5 {
+  margin:10px;  
+}
+/* Fin página Product Detail*/
+
+.pc-img-product {
+  width: 100%;
+}
+.pc-quantity-label{
+    width: 60px;
+}
+.pc-product-quantity{
+    width: 60px;}
+.pc-quantity-label-det{
+    width: 130px;}
+.pc-quantity-label-det{
+    margin-bottom: 20px;
 }
 
 /*Product-Cart*/
@@ -608,10 +664,7 @@ padding: 0 10px;}
     flex-wrap: nowrap;
   }
 
-  section div .pd-product-form .pd-quantity .pd-counter {
-    justify-content: center;
-    flex-wrap: nowrap;
-  }
+ 
   section div .pd-product-form .pd-quantity .quantity-label {
     align-items: start;
   }
@@ -652,11 +705,15 @@ padding: 0 10px;}
     text-align: right;
   }
 
-  .pd-product-area .pd-options {
+  .pd-product-area .pd-product-info .pd-options {
     display: flex;
     flex-direction: row-reverse;
   }
 
+  .pd-product-area .pd-product-info p, .pd-product-area .pd-product-info .pd-options {
+    max-width: 500px;
+  }
+  
   .pd-product-area .pd-options button {
     padding: 5px;
     margin: 5px;
@@ -1191,10 +1248,12 @@ article.art-5 {
     margin: 30px;
   }
 
-  main .pd-tienda {
+  .pd-main .pd-tienda {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    max-width: 1200px;
+    margin: auto;
   }
   main .pd-titulo {
     margin: 20px;
