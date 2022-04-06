@@ -26,7 +26,7 @@
             </ul>
             <ul class="rigth-navbar">
                 <li><a href="/login">Ingresá <i class="fas fa-sign-in-alt"></i></a></li>
-                <li><a href="/productDetail" class="tienda-botton">Tienda </a></li>
+                <li><a href="/productPage" class="tienda-botton">Tienda </a></li>
                 <li><a href="/producCart" class="Tienda"><i class="fas fa-shopping-cart"></i></a></li>
 
             </ul>
@@ -58,17 +58,20 @@
             <p>Cerveza negra con notas a café y chocolate levemente lupulada y moderada en alcohol.</p>
             <ul class="pd-beer-attributes">
                 <li>
-                    <p>Amargor: 30%</p>
+                    <h5>Amargor: </h5>
+                    <p>30%</p>
                 </li>
                 <li>
-                    <p>Alcohol: 6 V/V</p>
-
+                    <h5>Alcohol: </h5>
+                    <p>30%</p>
                 </li>
                 <li>
-                    <p>Color: 35 SRM</p>
+                    <h5>Color: </h5>
+                    <p> 35 SRM</p>
                 </li>
                 <li>
-                    <p>Lúpulo/s: Cascade</p>
+                    <h5>Lúpulo/s: </h5>
+                    <p> Cascade</p>
                 </li>
             </ul>
 
@@ -94,7 +97,7 @@
                                 value="botella1l">Botella 1 lt</label>
                         <div class="pd-counter">
                             <input type="button" id="decrease" value="-" class="minus">
-                            <input type="number" class="product-quantity" step="1" min="1" max="17" name="quantity"
+                            <input type="number" class="product-quantity" step="1" min="0" max="17" name="quantity"
                                 value="1" title="Cantidad" size="4" placeholder="" inputmode="numeric">
                             <input type="button" id="increase" value="+" class="plus">
                         </div>
@@ -105,7 +108,7 @@
                                 value="pack6500">Pack x 6 - 500 ml</label>
                         <div class="pd-counter">
                             <input type="button" id="decrease" value="-" class="minus">
-                            <input type="number" class="product-quantity" step="1" min="1" max="17" name="quantity"
+                            <input type="number" class="product-quantity" step="1" min="0" max="17" name="quantity"
                                 value="1" title="Cantidad" size="4" placeholder="" inputmode="numeric">
                             <input type="button" id="increase" value="+" class="plus">
                         </div>
@@ -116,13 +119,19 @@
                                 value="pack61l">Pack x 6 - 1 lt</label>
                         <div class="pd-counter">
                             <input type="button" id="decrease" value="-" class="minus">
-                            <input type="number" class="product-quantity" step="1" min="1" max="17" name="quantity"
+                            <input type="number" class="product-quantity" step="1" min="0" max="17" name="quantity"
                                 value="1" title="Cantidad" size="4" placeholder="" inputmode="numeric">
                             <input type="button" id="increase" value="+" class="plus">
                         </div>
                         <h5>$ 3500</h5>
                     </div>
                 </form>
+            </div>
+
+            <div class="pd-sub-total">
+                <h5>Sub-total</h5>
+                <span class="pd-sub-total-amount">
+                    <span class="pd-sub-total-currency">$</span>0.00</span>
             </div>
 
             <div class="pd-options">
