@@ -429,7 +429,6 @@ section div .pd-product-form .pd-quantity h5 {
 section div .pd-product-form .pd-quantity .quantity-label {
   width: 160px;
 }
-
 .pd-product-area .pd-product-info .pd-sub-total  {
   display: flex;
   flex-direction: row;
@@ -465,6 +464,12 @@ section div .pd-product-form .pd-quantity .quantity-label {
 }
 
 /*Product-Cart*/
+.pc-quantity-label{
+width: 160px;  
+border-style: none;
+box-shadow: none;
+}
+
 .pc-quantity-label{
   width: 60px;
 }
@@ -553,7 +558,14 @@ padding: 0 10px;}
 /*#########################################################################################/*/
 
 @media (min-width: 361px) {
+  .pc-quantity-label{
+    width: 160px;  
+    }
 
+
+  .pc-quantity-label {
+      border: 0;
+ }
  .main-header-top-bar {
     display: flex;
     align-items: center;
@@ -1025,7 +1037,7 @@ div.bottom-content{
     padding: 0 10px;
   }
   .pc-eliminar {
-    margin: 15px auto;
+    margin: 15px 40px;
     padding: 0 10px;
     height: fit-content;
   }
