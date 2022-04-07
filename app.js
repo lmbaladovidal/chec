@@ -34,6 +34,9 @@ app.get('/login', (req,res)=>{
 app.get('/productCart', (req,res)=>{
     res.sendFile(__dirname + '/views/productCart.html');
 });
+app.get('/notFound', (req,res)=>{
+    res.sendFile(__dirname + '/views/enDesarrollo.html');
+});
 
 
 
