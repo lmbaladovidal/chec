@@ -155,22 +155,40 @@ a { text-decoration: none;}
   margin: 10px;
 }
 
+.suscribe-section{
+  display: flex;
+  min-width: 300px;
+}
+
+.suscribe-container{
+  flex-direction: column;
+}
+
 .suscribe-text {
   font-family: "Montagu Slab", serif;
   flex: 20%;
+  margin-left: 5px;
+  margin-right: 10px;
 }
 
 .suscribe-input-text {
-  flex: 0.75;
-  max-width: 300px;
-  height: 40px;
+max-width: 500px;
+    min-width: 300px;
+    height: 40px;
+    width: 35%;
+}
+
+.suscribe-container{
+  display: flex;
+  max-width: 1000px;
+  
 }
 
 .suscribe-bar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 70%;
+  width: 50%;
 }
 
 .footer-links {
@@ -611,10 +629,14 @@ padding: 0 10px;}
     justify-content: space-around;
   }
 
+
   .suscribe-bar {
     width: 50%;
   }
   
+  .suscribe-text {
+    font-size: 10pt;
+  }
   /*Register*/
   .rg-btn-div{
     flex-direction: row;
@@ -1133,8 +1155,16 @@ div.bottom-content{
     margin: 0 auto;
   }
 
+  .suscribe-container{
+    flex-direction: row;
+  }
+
   .suscribe-bar {
-    width: 60%;
+    width: 45%;
+  }
+
+  .suscribe-text {
+    font-size: 12pt;
   }
 
   .footer-links {
@@ -1278,9 +1308,11 @@ article.art-5 {
   }
 
   .suscribe-bar {
-    width: 70%;
+    width: 50%;
   }
-
+  .suscribe-text {
+    font-size: 15pt;
+  }
   /*FOOTER*/
   div.footer-topbar {
     max-width: 1400px;
