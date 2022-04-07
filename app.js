@@ -38,5 +38,9 @@ app.get('/notFound', (req,res)=>{
     res.sendFile(__dirname + '/views/enDesarrollo.html');
 });
 
+app.get('/pack', (req,res)=>{
+    res.sendFile(__dirname + '/views/pack.html');
+});
+
 
 

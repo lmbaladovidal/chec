@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="/Desing/Logo-Etiqueta-Originals/fav-icon.png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <link href="css/styles.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka&family=Montagu+Slab&family=Roboto&display=swap"
+        rel="stylesheet">
+    <script src="https://kit.fontawesome.com/1eb023256c.js" crossorigin="anonymous"></script>
+    <title>Pack personalizado</title>
+</head>
+
+<body>
+    <header class="main-header">
+        <nav class="main-navbar">
+            <img src="/Desing/Logo-Etiqueta-Originals/540x540sqr.png" class="logo">
+            <ul class="left-navbar">
+                <li><a href="/">Home </a></li>
+                <li><a href="/notFound">Quienes somos </a></li>
+                <li><a href="/notFound">Nuestras Recetas </a></li>
+                <li><a href="/notFound">Contactanos </a></li>
+            </ul>
+            <ul class="rigth-navbar">
+                <li><a href="/login">Ingresá <i class="fas fa-sign-in-alt"></i></a></li>
+                <li>
+                    <div class="pd-pc-links">
+                        <a href="/productPage" class="tienda-botton">Tienda</a>
+                        <a href="/productCart"><i class="fas fa-shopping-cart"></i></a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <div class="secondary-navbar">
+            <div class="hamburguer-button">
+                <i class="fas fa-bars"></i>
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Busca aquí">
+                <a href="#" class="lupa"><i class="fas fa-beer"></i></a>
+            </div>
+            <div class="social-media-bar">
+                <a href="#" class="redes2"><i class="fab fa-whatsapp"></i></a>
+                <a href="#" class="redes2"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="redes2"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <section class="pd-pack-area">
+
+        <div class="pd-pack-container-left">
+            <div class="pd-pack-info">
+                <h4>Pack personalizado</h4>
+                <p>Seleccioná la cantidad y estilo de cerveza que querés agregar en tu pack.</p>
+            </div>
+
+            <div class="pd-pack-choice">
+                <h4>Elegí tu pack</h4>
+                <div class="pd-pack-form">
+                    
+                    <form class="pd-pack-500ml">
+                        <button>500 ml.</button>
+                        <label for="packx3"><input type="radio" id="packx3" name="pack-choice" value="packx3"
+                            checked>Pack x 3</label>
+                        <label for="packx6"><input type="radio" id="packx6" name="pack-choice" value="packx6"
+                            checked>Pack x 6</label>
+                        <label for="packx12"><input type="radio" id="packx12" name="pack-choice" value="packx12"
+                                checked>Pack x 12</label>
+                        <label for="packx24"><input type="radio" id="packx24" name="pack-choice" value="packx24"
+                                    checked>Pack x 24</label>
+                    </form>
+
+                    <form class="pd-pack-1l">
+                        <button>1 lt.</button>
+                        <label for="packx3"><input type="radio" id="packx3" name="pack-choice" value="packx3"
+                            checked>Pack x 3</label>
+                        <label for="packx6"><input type="radio" id="packx6" name="pack-choice" value="packx6"
+                            checked>Pack x 6</label>
+                        <label for="packx12"><input type="radio" id="packx12" name="pack-choice" value="packx12"
+                                checked>Pack x 12</label>
+                        <label for="packx24"><input type="radio" id="packx24" name="pack-choice" value="packx24"
+                                    checked>Pack x 24</label>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="pd-pack-container-right">
+            <h4>Elegí tus cervezas</h4>
+
+            <div class="pd-sub-total">
+                <h5>Sub-total</h5>
+                <span class="pd-sub-total-amount">
+                    <span class="pd-sub-total-currency">$</span>0.00</span>
+            </div>
+
+            <div class="pd-pack-selected">
+                <div class="pd-product-form-container">
+                    <form class="pd-product-form">
+
+                        <div class="pd-quantity">
+                            <label class="quantity-label" for="IPA">IPA</label>
+                            <div class="pd-counter">
+                                <input type="button" id="decrease" value="-" class="minus">
+                                <input type="number" class="product-quantity" step="1" min="0" max="17" name="quantity"
+                                    value="0" title="Cantidad" size="4" placeholder="" inputmode="numeric">
+                                <input type="button" id="increase" value="+" class="plus">
+                            </div>
+                            <h5>$ 400</h5>
+                        </div>
+
+                        <div class="pd-quantity">
+                            <label class="quantity-label" for="irish-red">Irish red</label>
+                            <div class="pd-counter">
+                                <input type="button" id="decrease" value="-" class="minus">
+                                <input type="number" class="product-quantity" step="1" min="0" max="17" name="quantity"
+                                    value="0" title="Cantidad" size="4" placeholder="" inputmode="numeric">
+                                <input type="button" id="increase" value="+" class="plus">
+                            </div>
+                            <h5>$ 300</h5>
+                        </div>
+
+                        <div class="pd-quantity">
+                            <label class="quantity-label" for="stout">Stout</label>
+                            <div class="pd-counter">
+                                <input type="button" id="decrease" value="-" class="minus">
+                                <input type="number" class="product-quantity" step="1" min="0" max="17" name="quantity"
+                                    value="0" title="Cantidad" size="4" placeholder="" inputmode="numeric">
+                                <input type="button" id="increase" value="+" class="plus">
+                            </div>
+                            <h5>$ 300</h5>
+                        </div>
+
+                        <div class="pd-quantity">
+                            <label class="quantity-label" for="honey">Honey</label>
+                            <div class="pd-counter">
+                                <input type="button" id="decrease" value="-" class="minus">
+                                <input type="number" class="product-quantity" step="1" min="0" max="17" name="quantity"
+                                    value="0" title="Cantidad" size="4" placeholder="" inputmode="numeric">
+                                <input type="button" id="increase" value="+" class="plus">
+                            </div>
+                            <h5>$ 300</h5>
+                        </div>
+
+                        <div class="pd-quantity">
+                            <label class="quantity-label" for="Golden">Golden</label>
+                            <div class="pd-counter">
+                                <input type="button" id="decrease" value="-" class="minus">
+                                <input type="number" class="product-quantity" step="1" min="0" max="17" name="quantity"
+                                    value="0" title="Cantidad" size="4" placeholder="" inputmode="numeric">
+                                <input type="button" id="increase" value="+" class="plus">
+                            </div>
+                            <h5>$ 300</h5>
+                        </div>
+
+                        <div class="pd-quantity">
+                            <label class="quantity-label" for="especial1">Especial 1</label>
+                            <div class="pd-counter">
+                                <input type="button" id="decrease" value="-" class="minus">
+                                <input type="number" class="product-quantity" step="1" min="0" max="17" name="quantity"
+                                    value="0" title="Cantidad" size="4" placeholder="" inputmode="numeric">
+                                <input type="button" id="increase" value="+" class="plus">
+                            </div>
+                            <h5>$ 300</h5>
+                        </div>
+
+                        <div class="pd-quantity">
+                            <label class="quantity-label" for="especial2">Especial 2</label>
+                            <div class="pd-counter">
+                                <input type="button" id="decrease" value="-" class="minus">
+                                <input type="number" class="product-quantity" step="1" min="0" max="17" name="quantity"
+                                    value="0" title="Cantidad" size="4" placeholder="" inputmode="numeric">
+                                <input type="button" id="increase" value="+" class="plus">
+                            </div>
+                            <h5>$ 300</h5>
+                        </div>
+
+                    </form>
+                </div>
+
+                <div class="pd-options">
+                    <button class="pd-buy"><a href="/productCart">Comprar</a></button>
+                    <button class="pd-add"><a href="/productCart">Agregar al carrito</a></button>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <footer>
+        <div class="main-footer">
+            <div class="div-content-logoFooter">
+                <img src="/Desing/Logo-Etiqueta-Originals/540x540sqr.png" class="logofooter">
+            </div>
+            <ul class="footer-links">
+                <li>Enlaces</li>
+                <li><a href="">Tienda </a></li>
+                <li><a href="">Quienes somos </a></li>
+                <li><a href="">Nuestras Recetas </a></li>
+            </ul>
+            <ul class="footer-social-media">
+                <li>Contacto</li>
+                <li><a href=""> +54 9 11 12344567<i class="fab fa-whatsapp"></i></a></li>
+                <li><a href=""> @cervezaChec<i class="fab fa-instagram"></i></a></li>
+                <li><a href=""> /checCerveceria<i class="fab fa-facebook"></i></a></li>
+                <li><a href=""></i> chec@cerveza.com.ar<i class="far fa-envelope"></i></a></li>
+            </ul>
+        </div>
+        <div class="copyright">
+            Copyright © 2022 - All rights reserved - Created by Grupo 8
+        </div>
+    </footer>
+</body>
+
+</html>

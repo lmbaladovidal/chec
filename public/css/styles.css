@@ -457,13 +457,13 @@ section div .pd-product-form .pd-quantity h5 {
 section div .pd-product-form .pd-quantity .quantity-label {
   width: 160px;
 }
-.pd-product-area .pd-product-info .pd-sub-total  {
+.pd-product-area .pd-product-info .pd-sub-total, .pd-pack-area .pd-pack-container-right .pd-sub-total {
   display: flex;
   flex-direction: row;
   justify-content: start;
   align-items: baseline;
 }
-.pd-product-area .pd-product-info .pd-sub-total h5 {
+.pd-product-area .pd-product-info .pd-sub-total h5, .pd-pack-area .pd-pack-container-right .pd-sub-total h5 {
   margin: 15px;
 }
 
@@ -635,6 +635,111 @@ padding: 0 10px;
   padding: 3px 0 0 5px;
   width: 80px;
 }
+
+/*PACK PERSONALIZADO*/
+.pd-pack-area {
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  flex-wrap: wrap;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  font-family: "Montagu Slab", serif;
+  max-width: 95%;
+}
+
+.pd-pack-area .pd-pack-container-left, .pd-pack-area  .pd-pack-container-right {
+  margin: auto;
+  max-width: 95%;
+} 
+
+.pd-pack-area .pd-pack-container-left .pd-pack-info, .pd-pack-area .pd-pack-container-left .pd-pack-choice {
+  align-items: flex-start;
+  flex: 40%;
+  margin: 10px;
+  font-family: "Montagu Slab", serif;
+  width: 100%;
+}
+
+.pd-pack-area .pd-pack-container-left .pd-pack-info h4, .pd-pack-area .pd-pack-container-left .pd-pack-choice h4, .pd-pack-area .pd-pack-container-right h4 {
+  padding: 20px 20px 20px 0px;
+}
+
+.pd-pack-area .pd-pack-container-left .pd-pack-choice .pd-pack-form .pd-pack-500ml,
+.pd-pack-area .pd-pack-container-left .pd-pack-choice .pd-pack-form .pd-pack-1l {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 5px;
+  border: solid 1px #ffda4d;
+  position: relative;
+  left: 0%;
+  top: 0%;
+  max-width: 80%;
+}
+.pd-pack-area .pd-pack-container-left .pd-pack-choice .pd-pack-form .pd-pack-500ml {
+  z-index: 100;
+}
+.pd-pack-area .pd-pack-container-left .pd-pack-choice .pd-pack-form .pd-pack-1l {
+  z-index: 10;
+}
+
+.pd-pack-area .pd-pack-container-left .pd-pack-choice .pd-pack-form .pd-pack-500ml label,
+.pd-pack-area .pd-pack-container-left .pd-pack-choice .pd-pack-form .pd-pack-1l label {
+  padding: 3px 0;
+}
+
+.pd-pack-area .pd-pack-container-left .pd-pack-choice .pd-pack-form .pd-pack-500ml > label,
+.pd-pack-area .pd-pack-container-left .pd-pack-choice .pd-pack-form .pd-pack-1l > label {
+  margin-top: 10px;
+}
+
+.pd-pack-area .pd-pack-container-left .pd-pack-choice .pd-pack-form .pd-pack-500ml button,
+.pd-pack-area .pd-pack-container-left .pd-pack-choice .pd-pack-form .pd-pack-1l button {
+  padding: 3px;
+  margin: 10px;
+  font-family: "Montagu Slab", serif;
+  background-color: #ffda4d;
+  color: #ff8a00;
+  border: none;
+  border-radius: 4px;
+  align-items: right;
+  cursor: pointer;
+  width: 60px;
+  position: absolute;
+  top: -25px;
+}
+
+.pd-pack-area .pd-pack-container-left .pd-pack-choice .pd-pack-form .pd-pack-500ml button {
+  left: 15px;
+}
+.pd-pack-area .pd-pack-container-left .pd-pack-choice .pd-pack-form .pd-pack-1l button {
+  left: 85px;
+}
+.pd-pack-area .pd-pack-container-left .pd-pack-choice .pd-pack-form .pd-pack-500ml [type="radio"] ,
+.pd-pack-area .pd-pack-container-left .pd-pack-choice .pd-pack-form .pd-pack-1l [type="radio"] {
+  margin: 4px;
+  padding: 5px;
+}
+
+.pd-pack-area .pd-pack-container-right .pd-pack-selected {
+  margin: auto;
+}
+
+.pd-pack-area .pd-pack-container-right .pd-pack-selected .pd-product-form-container {
+  margin: auto;
+}
+.pd-pack-area .pd-pack-container-right .pd-pack-selected .pd-product-form-container .pd-product-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 5px;
+}
+
+
+
+/*FIN PACK PERSONALIZADO*/
+
 /*#########################################################################################/*/
 /*################## MEDIA 361  ############################################/*/
 /*#########################################################################################/*/
@@ -840,7 +945,7 @@ padding: 0 10px;
     text-align: right;
   }
 
-  .pd-product-area .pd-product-info .pd-options {
+  .pd-product-area .pd-product-info .pd-options, .pd-pack-area .pd-pack-container-right .pd-pack-selected .pd-options {
     display: flex;
     flex-direction: row-reverse;
   }
@@ -849,7 +954,7 @@ padding: 0 10px;
     max-width: 500px;
   }
   
-  .pd-product-area .pd-options button {
+  .pd-product-area .pd-options button, .pd-pack-area .pd-pack-container-right .pd-pack-selected .pd-options button {
     padding: 5px;
     margin: 5px;
     font-family: "Montagu Slab", serif;
@@ -861,7 +966,7 @@ padding: 0 10px;
     cursor: pointer;
   }
 
-  .pd-product-area .pd-options .pd-buy a, .pd-product-area .pd-options .pd-add a {
+  .pd-product-area .pd-options .pd-buy a, .pd-product-area .pd-options .pd-add a, .pd-pack-area .pd-pack-container-right .pd-pack-selected .pd-options button a {
     color: #ffda4d;
     text-decoration: none;
     display: inline-block;
@@ -1348,6 +1453,12 @@ article.art-5 {
   border-radius: 28px;
   padding: 15px 15px auto 15px;
 }
+
+/* PACK PERSONALIZADO */
+.pd-pack-area .pd-pack-container-left, .pd-pack-area .pd-pack-container-right {
+  width: 40%;
+}
+/* FIN PACK PERSONALIZADO */
   
 
 
