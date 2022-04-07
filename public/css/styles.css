@@ -64,6 +64,11 @@ a { text-decoration: none;}
   display: none;
 }
 
+.pd-pc-links{
+    display: flex;
+    max-width:100px;
+}
+
 .hamburguer-button {
   background-color: #ff6200;
   color: #ffffff;
@@ -1041,6 +1046,7 @@ div.bottom-content{
     display: flex;
     flex-wrap: wrap;
     margin-bottom: 20px;
+  }
 
 }
 
