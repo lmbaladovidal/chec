@@ -92,16 +92,20 @@ a { text-decoration: none;}
 }
 
 .search-bar input {
-  border: 0;
+  border: 1px;
+  margin: 4px 0;
+  padding-left: 2px;
 }
 
 .lupa {
-  padding: 5px 2px;
+  padding: 5px ;
   color: #ff6200;
   text-decoration: none;
   background-color: #fff;
-  margin-top: 1px;
+  margin: 4px 10px 4px 0;
 }
+  
+
 
 .social-media-bar a {
   display: flex;
@@ -111,6 +115,7 @@ a { text-decoration: none;}
   display: inline-block; /*convierte las lineas de la lista en bloque para poder darles un padding*/
   padding: 5px 2px;
   font-size: 17px;
+ 
 }
 
 /*POP UP*/
@@ -150,7 +155,7 @@ a { text-decoration: none;}
 .suscribe-text {
   font-family: "Montagu Slab", serif;
   flex: 20%;
-}
+  }
 
 .suscribe-input-text {
   flex: 0.75;
@@ -520,6 +525,12 @@ padding: 0 10px;}
     align-items: center;
     margin: 0 20px 30px 0;
 }
+.fa-brands, .fab, .far {
+  font-family: "Font Awesome 6 Brands";
+  font-weight: 400;
+  padding-left: 5px;
+}
+
 
 /*#########################################################################################/*/
 /*################## MEDIA 361  ############################################/*/
@@ -762,9 +773,14 @@ padding: 0 10px;}
     flex: 40%;
   }
   .footer-social-media {
-    flex: 40%;
+    flex: 50%;
     align-items: flex-end;
   }
+  .footer-social-media a{
+    font-size: 13px;
+  }
+
+  /*xxxxxxxxxxxxxxxxxx/PRODUCT CART/xxxxxxxxxxxxxxxxxxxxxx*/
   .pc-product-cantidad,
   .pc-product {
     display: flex;
@@ -1097,7 +1113,7 @@ div.bottom-content{
   .div-content-logoFooter {
     flex: 30%;
     padding: 10px 0;
-    text-align: center;
+    text-align: left;
     margin: 0 auto;
   }
 
@@ -1228,7 +1244,8 @@ article.art-5 {
     align-items: center;
   }
   .main-header-top-bar,
-  .main-navbar {
+  .main-navbar,
+  .main-footer {
     max-width: 1400px;
     margin: auto;
   }
@@ -1248,7 +1265,7 @@ article.art-5 {
   .suscribe-bar {
     width: 70%;
   }
-
+  
   /*FOOTER*/
   div.footer-topbar {
     max-width: 1400px;
@@ -1319,8 +1336,9 @@ article.art-5 {
     margin: 10px;
   
   }
-   
+  
 }
+
 /*#########################################################################################/*/
 /*#########################################################################################/*/
 /*#########################################################################################/*/
