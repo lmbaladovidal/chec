@@ -378,6 +378,12 @@ main section article .pd-seleccionar {
   padding: 5px;
 }
 
+main section article .pd-seleccionar a {
+    color: #ffffff;
+    text-decoration: none;
+    display: inline-block;
+    transition-duration: 200ms;
+}
 
 /* Fin página Product Page*/
 
@@ -741,6 +747,13 @@ padding: 0 10px;}
     border-radius: 4px;
     align-items: right;
     cursor: pointer;
+  }
+
+  .pd-product-area .pd-options .pd-buy a, .pd-product-area .pd-options .pd-add a {
+    color: #ffda4d;
+    text-decoration: none;
+    display: inline-block;
+    transition-duration: 200ms;
   }
 /*xxxxxxxxxxxxxxxxxx/FOOTER/xxxxxxxxxxxxxxxxxxxxxx*/
   .secondary-navbar {
