@@ -18,18 +18,20 @@
     <header class="main-header">
         <nav class="main-navbar">
             <img src="/Desing/Logo-Etiqueta-Originals/540x540sqr.png" class="logo">
-            <ul class="left-navbar">
+            <ul class="left-navbar">                
                 <li><a href="/">Home </a></li>
-                <li><a href="">Quienes somos </a></li>
-                <li><a href="/productPage.html">Nuestras Recetas </a></li>
-                <li><a href="">Contactanos </a></li>
+                <li><a href="/notFound">Quienes somos </a></li>
+                <li><a href="/notFound">Nuestras Recetas </a></li>
+                <li><a href="/notFound">Contactanos </a></li>
             </ul>
             <ul class="rigth-navbar">
                 <li><a href="/login">Ingresá <i class="fas fa-sign-in-alt"></i></a></li>
-                <div class="pd-pc-links">
-                    <a href="/productDetail" class="tienda-botton">Tienda</a>
-                    <a href="/productCart"><i class="fas fa-shopping-cart"></i></a>
-                </div>
+                <li>
+                    <div class="pd-pc-links">
+                        <a href="/productPage" class="tienda-botton">Tienda</a>
+                        <a href="/productCart"><i class="fas fa-shopping-cart"></i></a>
+                    </div>
+                </li>
             </ul>
         </nav>
         <div class="secondary-navbar">
@@ -50,162 +52,84 @@
 
 
     <main class="pc-main">
-        <section class="pd-product-area">
-
-            <div class="pd-product-imgs">
-                <img src="/images/img-beer-temporary.jpg" alt="beer">
-            </div>
-    
-            <div class="pd-product-info">
-                  
-                <div class="pd-product-form-container">
-                    <form class="pd-product-form">
-    
-                        <div class="pd-quantity">
-                            <label class="pc-quantity-label" for="botella500"><input  id="botella500"
-                                    value="botella500"></label>
-                            <div class="pd-counter">
-                                <input type="button" id="decrease" value="-" class="minus">
-                                <input type="number" class="product-quantity" step="1" min="0" max="17" name="quantity"
-                                    value="0" title="Cantidad" size="4" placeholder="" inputmode="numeric">
-                                <input type="button" id="increase" value="+" class="plus">
-                            </div>
-                            <h5>$ 300</h5>
-                            <button class="pc-eliminar"> <i class="fas fa-trash-alt"></i></button>
-                        </div>
-    
-    
-                        <div class="pd-quantity">
-                            <label class="pc-quantity-label" for="botella1l"><input  id="botella1l"
-                                    value="botella1l"></label>
-                            <div class="pd-counter">
-                                <input type="button" id="decrease" value="-" class="minus">
-                                <input type="number" class="product-quantity" step="1" min="0" max="17" name="quantity"
-                                    value="0" title="Cantidad" size="4" placeholder="" inputmode="numeric">
-                                <input type="button" id="increase" value="+" class="plus">
-                            </div>
-                            <h5>$ 600</h5>
-                            <button class="pc-eliminar"> <i class="fas fa-trash-alt"></i></button>
-                        </div>
-                        <div class="pd-quantity">
-                            <label class="pc-quantity-label" for="pack6500"><input  id="pack6500"
-                                    value="pack6500"></label>
-                            <div class="pd-counter">
-                                <input type="button" id="decrease" value="-" class="minus">
-                                <input type="number" class="product-quantity" step="1" min="0" max="17" name="quantity"
-                                    value="0" title="Cantidad" size="4" placeholder="" inputmode="numeric">
-                                <input type="button" id="increase" value="+" class="plus">
-                            </div>
-                            <h5>$ 1700</h5>
-                            <button class="pc-eliminar"> <i class="fas fa-trash-alt"></i></button>
-                        </div>
-                        <div class="pd-quantity">
-                            <label class="pc-quantity-label" for="pack61l"><input  id="pack61l"
-                                    value="pack61l"></label>
-                            <div class="pd-counter">
-                                <input type="button" id="decrease" value="-" class="minus">
-                                <input type="number" class="product-quantity" step="1" min="0" max="17" name="quantity"
-                                    value="0" title="Cantidad" size="4" placeholder="" inputmode="numeric">
-                                <input type="button" id="increase" value="+" class="plus">
-                            </div>
-                            <h5>$ 3500</h5>
-                            <button class="pc-eliminar"> <i class="fas fa-trash-alt"></i></button>
-                        </div>
-                    </form>
-                </div>
-    
-                <div class="pd-sub-total">
-                    <h5>Sub-total</h5>
-                    <span class="pd-sub-total-amount">
-                        <span class="pd-sub-total-currency">$</span>0.00</span>
-                </div>
-    
-            
-            </div>
-            </div>
-    
-        </section>
-        <!--
         <section class="pc-cart">
             <div class="pc-product-carrito"> 
-                <h4>Producto</h4>
-            
                 <div class="pc-product">
                     <img class="pc-img-product" src="/images/img-beer-temporary.jpg" alt="beer">
                 </div>
             </div>
              
             <div class="pc-product-group">
-                <div class="pc-product-label">
-                    
-                    <div class="pc-botton-inv"></div>
-                    <label class="pc-quantity-label-det" for="botella500"><input type="checkbox" id="botella500" value="botella500">Botella 500 ml</label>
-                    <label class="pc-quantity-label-det" for="botella1l"><input type="checkbox" id="botella500" value="botella500">Botella 1 lt</label>
-                    <label class="pc-quantity-label-det" for="pack6500"><input type="checkbox" id="botella500" value="botella500">Pack x 6 - 500 ml</label>
-                    <label class="pc-quantity-label-det" for="pack61l"><input type="checkbox" id="pack61l" value="pack61l">Pack x 6 - 1 lt</label>
-                    <div class="pc-botton-inv"></div>
-               </div>
                 <div class="pc-product-cantidad">
     
-                    <h4>Cantidad </h4>
-                    
-    
-                    <div class="pc-product-cantidad-combinada">
-                        <i class="fas fa-minus"></i>
-                        <input type="number" class="pc-product-quantity" step="1" min="1" max="17" 
-                            value="0" title="Cantidad" size="4" placeholder="" inputmode="numeric" name="productOption">
-                        <i class="fas fa-plus"></i>
-                    </div>
-                    <div class="pc-product-cantidad-combinada">
-                        <i class="fas fa-minus"></i>
-                        <input type="number" class="pc-product-quantity" step="1" min="1" max="17" 
-                            value="0" title="Cantidad" size="4" placeholder="" inputmode="numeric" name="productOption">
-                        <i class="fas fa-plus"></i>
-                    </div>
-                    <div class="pc-product-cantidad-combinada">
-                      
-                        <i class="fas fa-minus"></i>
-                        <input type="number" class="pc-product-quantity" step="1" min="1" max="17" 
-                            value="0" title="Cantidad" size="4" placeholder="" inputmode="numeric" name="productOption">
-                        <i class="fas fa-plus"></i>
-                    </div>
-                    <div class="pc-product-cantidad-combinada">
-                        
-                        <i class="fas fa-minus"></i>
-                        <input type="number" class="pc-product-quantity" step="1" min="1" max="17" 
-                            value="0" title="Cantidad" size="4" placeholder="" inputmode="numeric" name="productOption">
-                        <i class="fas fa-plus"></i>
-                    </div>
-                    
-                    <button class="pc-options-button">Limpiar</button>
-                    
+                        <div class="pc-quantity">
+                            
+                            <div class="pc-counter">
+                                <label class="pc-quantity-label-det" for="botella500">Botella 500 ml</label>
+                                
+                                <input type="button" id="decrease" value="-" class="minus">
+                                <input type="number" class="pc-product-quantity" step="1" min="0" max="17" name="quantity"
+                                    value="0" title="Cantidad" size="4" placeholder="" inputmode="numeric">
+                                <input type="button" id="increase" value="+" class="plus">
+                                <label class="pc-counter-label-det-valor" for="botella500">250</label> 
+                                <button class="pc-eliminar lg-a"> <i class="fas fa-trash-alt"></i></button>
+                            </div>
+                            
+                            <div class="pc-counter">
+                                <label class="pc-quantity-label-det" for="botella1l">Botella 1 lt</label>
+                                
+                                <input type="button" id="decrease" value="-" class="minus">
+                                <input type="number" class="pc-product-quantity" step="1" min="0" max="17" name="quantity"
+                                    value="0" title="Cantidad" size="4" placeholder="" inputmode="numeric">
+                                <input type="button" id="increase" value="+" class="plus">
+                                <label class="pc-counter-label-det-valor" for="botella500">500</label>  
+                                <button class="pc-eliminar lg-a"> <i class="fas fa-trash-alt"></i></button>
+                            </div>
+                                
+                            <div class="pc-counter">
+                                <label class="pc-quantity-label-det" for="pack6500">Pack x 6 - 500 ml</label>
+                                
+                                <input type="button" id="decrease" value="-" class="minus">
+                                <input type="number" class="pc-product-quantity" step="1" min="0" max="17" name="quantity"
+                                    value="0" title="Cantidad" size="4" placeholder="" inputmode="numeric">
+                                <input type="button" id="increase" value="+" class="plus">
+                                <label class="pc-counter-label-det-valor" for="botella500">800</label>
+                                <button class="pc-eliminar lg-a"> <i class="fas fa-trash-alt"></i></button>
+                            </div>
+                                
+                            <div class="pc-counter">
+                                <label class="pc-quantity-label-det" for="pack61l">Pack x 6 - 1 lt</label>
+
+                                <input type="button" id="decrease" value="-" class="minus">
+                                <input type="number" class="pc-product-quantity" step="1" min="0" max="17" name="quantity"
+                                    value="0" title="Cantidad" size="4" placeholder="" inputmode="numeric">
+                                <input type="button" id="increase" value="+" class="plus">
+                                <label class="pc-counter-label-det-valor" for="botella500">1200</label> 
+                                <button class="pc-eliminar lg-a"> <i class="fas fa-trash-alt"></i></button>
+                            </div>
+                            <button class="pc-options-button lg-button" >Limpiar</button>
+                        </div>
                 </div>
 
             </div>
 
-           
-
-            <div class="pc-product-precio">
-                <h4>Precio</h4>
-                <div class="pd-datos-cerveza">
-                    <h4>$ 250</h4>
-                </div>
-            </div>
-            
-            <button class="pc-eliminar"> <i class="fas fa-trash-alt"></i></button>
-        -->
-            
     </main>
     <section class="pc-bottom-content">
-        <div class="pc-label-total-group">
-            <label class="pc-label-envio" for="label-envio">Envio a:</label>
+        <div class="pc-label-total-group-envio">
+            <label class="pc-label-envío" for="label-envio">Envio a:</label>
             
-            <input type="text" size="15" maxlength="30" value="Independencia 717. Piso 1 Dto A" name="nombre">
+            <input type="text" size="15" class="rg-input" value="Independencia 717. Piso 1 Dto A" name="nombre">
             <!--<input type="text" id="name" name="name" required minlength="0" maxlength="50" size="14"> 
             <input placeholder="Independencia 717. Piso 1 Dto ´A´" >
             <p><textarea name="comentario" rows="5" cols="50">Independencia 717. Piso 1 Dto "A" </textarea></p>-->
         </div>
         
+        <div class="pc-label-total-group">
+            <label class="pc-label-envio" for="label-envio">Código postal de envio:</label>
+            <input type="text" size="15" class="rg-input" value="5200" name="nombre">
+            <h2><label class="pc-txtLabel-totalenvio" for="txtLabel-totalenvio">   $ 700 </label></h2>
+        </div>
+
         <div class="pc-label-total-group">
             <p class="pc-label-totalenvio" for="label-totalenvio">Total con envio: </p>
             <h2><label class="pc-txtLabel-totalenvio" for="txtLabel-totalenvio">   $ 1200 </label></h2>
@@ -214,7 +138,7 @@
     </section>  
     
     <div class="pc-options">
-        <button class="pc-options-button">Finalizar Compra</button>
+        <button class="pc-options-button lg-button">Finalizar Compra</button>
     </div>
     
     <footer>
