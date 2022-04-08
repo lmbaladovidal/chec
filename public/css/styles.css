@@ -426,39 +426,150 @@ main h2 .pd-titulo {
 
 /* Página Product Detail*/
 
-section div .pd-product-form {
-  width: 330px;
-}
-section div .pd-product-form .pd-quantity .pd-counter {
-  justify-content: right;
-  flex-wrap: nowrap;
-  width: 90px;
-}
-section div .pd-product-form .pd-quantity h5 {
-  width: 80px;
-}
-section div .pd-product-form .pd-quantity .quantity-label {
-  width: 160px;
-}
-.pd-product-area .pd-product-info .pd-sub-total, .pd-pack-area .pd-pack-container-right .pd-sub-total {
+.pd-product-area {
   display: flex;
-  flex-direction: row;
-  justify-content: start;
-  align-items: baseline;
-}
-.pd-product-area .pd-product-info .pd-sub-total h5, .pd-pack-area .pd-pack-container-right .pd-sub-total h5 {
-  margin: 15px;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin: 20px;
 }
 
-.pd-product-area div .pd-beer-attributes li {
+.pd-product-area .pd-product-info h4,
+.pd-product-area .pd-product-info > p {
+  margin: 15px 0;
+}
+
+.pd-product-area .pd-product-form {
   display: flex;
-  flex-direction: row; 
-  align-items: baseline 
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 5px;
 }
-.pd-product-area div .pd-beer-attributes li p, .pd-product-area div .pd-beer-attributes li h5 {
-  margin:10px;  
+
+.pd-product-area .pd-product-form [type="checkbox"] {
+  margin: 4px;
+  padding: 5px;
 }
-/* Fin página Product Detail*/
+.pd-product-area .pd-product-form h4 {
+  padding: 4px 0;
+  margin: 4px 0;
+}
+
+section .pd-product-imgs {
+  align-items: flex-start;
+  margin: 25px 50px 70px 50px;
+  flex: 30%;
+  width: 80%;
+}
+section .pd-product-info {
+  align-items: flex-start;
+  flex: 40%;
+  margin: 10px;
+  font-family: "Montagu Slab", serif;
+  width: 100%;
+}
+
+section div .pd-beer-attributes {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: left;
+  font-family: "Montagu Slab", serif;
+}
+
+section div .pd-beer-attributes li {
+  justify-content: left;
+  list-style-type: none;
+}
+
+section .pd-product-imgs img {
+  width: 100%;
+}
+
+section div .pd-product-form {
+  display: flex;
+  align-items: flex-start;
+}
+
+section div .pd-product-form .pd-quantity {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin: 5px 0;
+  width: 100%;
+  flex-wrap: nowrap;
+}
+
+
+section div .pd-product-form .pd-quantity .quantity-label {
+  align-items: start;
+}
+
+section div .pd-product-form .pd-quantity input[type="button"] {
+  padding: 0 5px;
+  min-width: 25px;
+  height: 25px;
+  border: 1px solid #c4c4c4;
+  background: transparent;
+  box-shadow: none;
+}
+
+section div .pd-product-form .pd-quantity input[type="number"] {
+  width: 30px;
+  height: 25px;
+  border-radius: 0;
+  border: 1px solid #c4c4c4;
+  border-right: none;
+  border-left: none;
+  text-align: center;
+}
+
+section div .pd-product-form .pd-quantity .minus {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  cursor: pointer;
+}
+
+section div .pd-product-form .pd-quantity .plus {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  cursor: pointer;
+}
+
+section div .pd-product-form .pd-quantity h5 {
+  width: 20%;
+  text-align: right;
+}
+
+.pd-product-area .pd-product-info .pd-options, .pd-pack-area .pd-pack-container-right .pd-pack-selected .pd-options {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.pd-product-area .pd-product-info p, .pd-product-area .pd-product-info .pd-options {
+  max-width: 500px;
+}
+
+main section article .pd-seleccionar, .pd-add, .pd-product-area .pd-options button, .pd-pack-area .pd-pack-container-right .pd-pack-selected .pd-options button {
+  padding: 5px;
+  margin: 5px;
+  font-family: "Montagu Slab", serif;
+  background-color: #000000;
+  color: #ffda4d;
+  border: none;
+  border-radius: 4px;
+  align-items: right;
+  cursor: pointer;
+}
+
+main section article .pd-seleccionar a, .pd-product-area .pd-options .pd-buy a, .pd-add a, .pd-pack-area .pd-pack-container-right .pd-pack-selected .pd-options button a {
+  color: #ffda4d;
+  text-decoration: none;
+  display: inline-block;
+  transition-duration: 200ms;
+}
+
+/* FIN Página Product Detail*/
 
 .pc-img-product {
   width: 100%;
@@ -660,11 +771,24 @@ padding: 0 10px;
   top: 0%;
   max-width: 80%;
 }
+.pd-pack-area .pd-pack-container-left .pd-pack-choice .pd-pack-form .pd-pack-500ml,
+.pd-pack-area .pd-pack-container-left .pd-pack-choice .pd-pack-form .pd-pack-1l {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 5px;
+  border: solid 1px #ffda4d;
+  position: relative;
+  max-width: 80%;
+}
 .pd-pack-area .pd-pack-container-left .pd-pack-choice .pd-pack-form .pd-pack-500ml {
-  z-index: 100;
+  left: 0px;
+  top: 0px;
 }
 .pd-pack-area .pd-pack-container-left .pd-pack-choice .pd-pack-form .pd-pack-1l {
-  z-index: 10;
+  left: 0px;
+  top: -160px;
+  opacity: 0;
 }
 
 .pd-pack-area .pd-pack-container-left .pd-pack-choice .pd-pack-form .pd-pack-500ml label,
@@ -719,9 +843,51 @@ padding: 0 10px;
   margin: 5px;
 }
 
-
-
 /*FIN PACK PERSONALIZADO*/
+
+/* Quienes somos*/
+
+.pd-quienes-somos-area {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin: 25px;
+  text-align: center;
+}
+
+section .pd-quienes-somos-right, section .pd-quienes-somos-left {
+  display: flex;
+  flex: 40%;
+  justify-content: center;
+  flex-direction: column;
+}
+.pd-quienes-somos-right img, .pd-quienes-somos-left img {
+  padding: 10px;
+  max-width: 320px;
+  margin: auto;
+}
+.pd-quienes-somos-right div, .pd-quienes-somos-left div {
+  align-items: flex-start;
+  flex: 40%;
+  margin: 10px;
+  font-family: "Montagu Slab", serif;
+  width: 100%;
+}
+
+
+.pd-quienes-somos-right div h6, .pd-quienes-somos-left div h6 {
+  font-size: 1em;
+  padding: 10px;
+}
+
+.pd-quienes-somos-right div p, .pd-quienes-somos-left div p {
+  max-width: 500px;
+  padding: 10px 20px;
+  margin: 10px;
+  text-align: justify;
+}
+/* Fin Quienes somos*/
+
 
     
 /*°°°°°°°°° INDEX °°°°°°°°°°°*/
@@ -1019,266 +1185,9 @@ div.bottom-content{
     margin: 20px;
   }
 
-  /* Página Product Detail*/
-
-  .pd-product-area {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    margin: 20px;
-  }
-
-  .pd-product-area .pd-product-info h4,
-  .pd-product-area .pd-product-info > p {
-    margin: 15px 0;
-  }
-
-  .pd-product-area .pd-product-form {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin: 5px;
-  }
-
-  .pd-product-area .pd-product-form [type="checkbox"] {
-    margin: 4px;
-    padding: 5px;
-  }
-  .pd-product-area .pd-product-form h4 {
-    padding: 4px 0;
-    margin: 4px 0;
-  }
-
-  section .pd-product-imgs {
-    align-items: flex-start;
-    margin: 25px 50px 70px 50px;
-    flex: 30%;
-    width: 80%;
-  }
-  section .pd-product-info {
-    align-items: flex-start;
-    flex: 40%;
-    margin: 10px;
-    font-family: "Montagu Slab", serif;
-    width: 100%;
-  }
-
-  section div .pd-beer-attributes {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: left;
-    font-family: "Montagu Slab", serif;
-  }
-
-  section div .pd-beer-attributes li {
-    justify-content: left;
-    list-style-type: none;
-  }
-
-  section .pd-product-imgs img {
-    width: 100%;
-  }
-
-  section div .pd-product-form {
-    display: flex;
-    align-items: flex-start;
-  }
-
-  section div .pd-product-form .pd-quantity {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    margin: 5px 0;
-    width: 100%;
-    flex-wrap: nowrap;
-  }
-
- 
-  section div .pd-product-form .pd-quantity .quantity-label {
-    align-items: start;
-  }
-
-  section div .pd-product-form .pd-quantity input[type="button"] {
-    padding: 0 5px;
-    min-width: 25px;
-    height: 25px;
-    border: 1px solid #c4c4c4;
-    background: transparent;
-    box-shadow: none;
-  }
-
-  section div .pd-product-form .pd-quantity input[type="number"] {
-    width: 30px;
-    height: 25px;
-    border-radius: 0;
-    border: 1px solid #c4c4c4;
-    border-right: none;
-    border-left: none;
-    text-align: center;
-  }
-
-  section div .pd-product-form .pd-quantity .minus {
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-    cursor: pointer;
-  }
-
-  section div .pd-product-form .pd-quantity .plus {
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-    cursor: pointer;
-  }
-
-  section div .pd-product-form .pd-quantity h5 {
-    width: 20%;
-    text-align: right;
-  }
-
-  .pd-product-area .pd-product-info .pd-options, .pd-pack-area .pd-pack-container-right .pd-pack-selected .pd-options {
-    display: flex;
-    flex-direction: row-reverse;
-  }
-
-  .pd-product-area .pd-product-info p, .pd-product-area .pd-product-info .pd-options {
-    max-width: 500px;
-  }
   
-  main section article .pd-seleccionar, .pd-add, .pd-product-area .pd-options button, .pd-pack-area .pd-pack-container-right .pd-pack-selected .pd-options button {
-    padding: 5px;
-    margin: 5px;
-    font-family: "Montagu Slab", serif;
-    background-color: #000000;
-    color: #ffda4d;
-    border: none;
-    border-radius: 4px;
-    align-items: right;
-    cursor: pointer;
-  }
 
-  main section article .pd-seleccionar a, .pd-product-area .pd-options .pd-buy a, .pd-add a, .pd-pack-area .pd-pack-container-right .pd-pack-selected .pd-options button a {
-    color: #ffda4d;
-    text-decoration: none;
-    display: inline-block;
-    transition-duration: 200ms;
-  }
 
-   /* FIN Página Product Detail*/
-
-/*PACK PERSONALIZADO*/
-.pd-pack-area {
-  display: flex;
-  flex-direction: row;
-  margin: auto;
-  flex-wrap: wrap;
-  margin-top: 25px;
-  margin-bottom: 25px;
-  font-family: "Montagu Slab", serif;
-  max-width: 95%;
-}
-
-.pd-pack-area .pd-pack-container-left, .pd-pack-area  .pd-pack-container-right {
-  margin: auto;
-  max-width: 95%;
-} 
-
-.pd-pack-area .pd-pack-container-left .pd-pack-info, .pd-pack-area .pd-pack-container-left .pd-pack-choice {
-  align-items: flex-start;
-  flex: 40%;
-  margin: 10px;
-  font-family: "Montagu Slab", serif;
-  width: 100%;
-}
-
-.pd-pack-area .pd-pack-container-left .pd-pack-info h4, .pd-pack-area .pd-pack-container-left .pd-pack-choice h4, .pd-pack-area .pd-pack-container-right h4 {
-  padding: 20px 20px 20px 0px;
-}
-
-.pd-pack-area .pd-pack-container-left .pd-pack-choice .pd-pack-form .pd-pack-500ml,
-.pd-pack-area .pd-pack-container-left .pd-pack-choice .pd-pack-form .pd-pack-1l {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin: 5px;
-  border: solid 1px #ffda4d;
-  position: relative;
-  max-width: 80%;
-}
-.pd-pack-area .pd-pack-container-left .pd-pack-choice .pd-pack-form .pd-pack-500ml {
-  left: 0px;
-  top: 0px;
-}
-.pd-pack-area .pd-pack-container-left .pd-pack-choice .pd-pack-form .pd-pack-1l {
-  left: 0px;
-  top: -160px;
-  opacity: 0;
-}
-
-.pd-pack-area .pd-pack-container-left .pd-pack-choice .pd-pack-form .pd-pack-500ml label,
-.pd-pack-area .pd-pack-container-left .pd-pack-choice .pd-pack-form .pd-pack-1l label {
-  padding: 3px 0;
-}
-
-.pd-pack-area .pd-pack-container-left .pd-pack-choice .pd-pack-form .pd-pack-500ml > label,
-.pd-pack-area .pd-pack-container-left .pd-pack-choice .pd-pack-form .pd-pack-1l > label {
-  margin-top: 10px;
-}
-
-.pd-pack-area .pd-pack-container-left .pd-pack-choice .pd-pack-form .pd-pack-500ml button,
-.pd-pack-area .pd-pack-container-left .pd-pack-choice .pd-pack-form .pd-pack-1l button {
-  padding: 3px;
-  margin: 10px;
-  font-family: "Montagu Slab", serif;
-  background-color: #ffda4d;
-  color: #ff8a00;
-  border: none;
-  border-radius: 4px;
-  align-items: right;
-  cursor: pointer;
-  width: 60px;
-  position: absolute;
-  top: -25px;
-}
-
-.pd-pack-area .pd-pack-container-left .pd-pack-choice .pd-pack-form .pd-pack-500ml button {
-  left: 15px;
-}
-.pd-pack-area .pd-pack-container-left .pd-pack-choice .pd-pack-form .pd-pack-1l button {
-  left: 85px;
-}
-.pd-pack-area .pd-pack-container-left .pd-pack-choice .pd-pack-form .pd-pack-500ml [type="radio"] ,
-.pd-pack-area .pd-pack-container-left .pd-pack-choice .pd-pack-form .pd-pack-1l [type="radio"] {
-  margin: 4px;
-  padding: 5px;
-}
-
-.pd-pack-area .pd-pack-container-right .pd-pack-selected {
-  margin: auto;
-}
-
-.pd-pack-area .pd-pack-container-right .pd-pack-selected .pd-product-form-container {
-  margin: auto;
-}
-.pd-pack-area .pd-pack-container-right .pd-pack-selected .pd-product-form-container .pd-product-form {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin: 5px;
-}
-
-/*FIN PACK PERSONALIZADO*/
-
-/* Quienes somos*/
-
-.pd-quienes-somos-area {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  margin: 20px;
-}
-/* Fin Quienes somos*/
 
 /*#########################################################################################/*/
 /*################## MEDIA 361  ############################################/*/
@@ -1752,7 +1661,14 @@ article.art-5 {
  /*°°°°°°°°°°°INDEX°°°°°°°°°°°*/
 /*°°°°°°°°°°°°°°°°°°°°°°°°°°*/
 
-    
+/* Quienes somos media min 1200*/
+
+.pd-quienes-somos-area {
+  max-width: 1200px;
+  margin: auto;
+  margin-top: 20px;
+}   
+/* Fin Quienes somos media min 1200*/ 
    
 section.ind-top, section.ind-middle, section.bottom-content, section.ind-bottom{
   max-width: 1800px;
