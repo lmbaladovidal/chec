@@ -887,6 +887,17 @@ padding: 0 10px;
 
 /*FIN PACK PERSONALIZADO*/
 
+/* Quienes somos*/
+
+.pd-quienes-somos-area {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin: 20px;
+}
+/* Fin Quienes somos*/
+
 /*#########################################################################################/*/
 /*################## MEDIA 361  ############################################/*/
 /*#########################################################################################/*/
@@ -1002,7 +1013,21 @@ padding: 0 10px;
     
 /*°°°°°°°°° INDEX °°°°°°°°°°°*/
 /*°°°°°°°°°°°°°°°°°°°°°°°°°°*/
+
+.ic-ind-top {
+  margin: 0;
+}
+.ic-reel-banner {
+  width:100%
+}
+.ic-reel-banner img {
+  width: 100%;
+  max-height: 300px;
+  opacity: 80%;
+}
 /*index-top*/
+
+
 section.ind-top {
   display: flex;
   flex-wrap: wrap; /*REVISAR ESTO DEL REEL*/

@@ -42,5 +42,14 @@ app.get('/pack', (req,res)=>{
     res.sendFile(__dirname + '/views/pack.html');
 });
 
+app.get('/quienesSomos', (req,res)=>{
+    res.sendFile(__dirname + '/views/quienesSomos.html');
+});
+
+app.get('/indexCopia', (req,res)=>{
+    res.sendFile(__dirname + '/views/indexCopia.html');
+});
+
+
 
 
