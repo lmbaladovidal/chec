@@ -562,7 +562,7 @@ section div .pd-product-form .pd-quantity h5 {
   max-width: 500px;
 }
 
-article .pd-seleccionar, .pd-add, .pd-product-area .pd-options button, .pd-pack-area .pd-pack-container-right .pd-pack-selected .pd-options button {
+article .pd-seleccionar, .pd-add, .pd-product-area .pd-options button, .pd-pack-area .pd-pack-container-right .pd-pack-selected .pd-options button   {
   padding: 5px;
   margin: 5px;
   font-family: "Montagu Slab", serif;
@@ -945,12 +945,12 @@ div.reel-4 {
     flex-wrap: nowrap;
     flex-direction: column;
     width: 300px;
-    height: 250px;
-    border: #000 2px solid;
+    height: 265px;
+    border: #ff6200 2px solid;
     border-radius: 12px;
     box-shadow: 0 0 10px #000;
     text-align: center;
-    background-color: #ffda4d;
+    background-color: #fff;
   }
   article.art-1 {
     display: flex;
@@ -965,23 +965,25 @@ div.reel-4 {
     margin-top: 5px;
   }
   
-  div.best h4 {
+  div.best h4.best {
     padding: 0 5px;
-    font-size: 12px;
+    font-size: 16px;
     margin-top: 5px;
+    
+    
   }
-  button.art-1 {
+  /*button.art-1 {
     margin: 10px auto;
     padding: 5px;
-    background-color: #ff6200;
-    color: #fff;
+    background-color: #fff;
+    color: #ff6200;
     width: 75%;
     text-align: center;
     border-radius: 15px;
     text-shadow: black 0 0 8px;
     box-shadow: 0 0 8px #000;
     cursor: pointer;
-  }
+  }*/
   /*CONTENEDOR PADRE lado derecho*/
   div.right-content {
     display: flex;
@@ -998,25 +1000,18 @@ div.reel-4 {
     justify-content: flex-start;
     margin: 15px;
     padding: 20px;
-    border: #949494 1px dotted;
-    border-radius: 52px;
+    border-radius: 8px;
     box-shadow: 0 0 10px #000;
-    background-color: #ebebeb;
+    background-color: #fff;
     text-align: center;
     width: 80%;
     opacity: 90%;
   }
-  article.art-3 h4 {
+ /* article.art-3 h4 {
     font-size: 12px;
     padding-bottom: 2px;
-  }
+  }*/
   
-  article.art-3 h4.bold {
-    margin: 5px 0;
-    font-style: italic;
-    font-weight: bold;
-    color: #ff6200;
-  }
   article.art-3 h3 {
     padding: 5px 0;
     border-top: #ff8a00 1px double;
@@ -1516,12 +1511,13 @@ div.left-content {
 div.best {
   height: 285px;
   margin: 10px 20px 10px 10px;
-  border: #000 2px solid;
+  border: #ff6200 2px solid;
   border-radius: 12px;
   box-shadow: 0 0 10px #000;
   text-align: center;
-  background-color: #ffda4d;
+  
 }
+
 article.art-1 {
   width: 45%;
   position: relative;
@@ -1542,6 +1538,7 @@ div.right-content {
 
 /* texto  "cuando abrimos una..."*/
 article.art-3 {
+  text-align: justify;
   order: -1;
 }
 
