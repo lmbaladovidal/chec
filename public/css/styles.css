@@ -562,7 +562,7 @@ section div .pd-product-form .pd-quantity h5 {
   max-width: 500px;
 }
 
-main section article .pd-seleccionar, .pd-add, .pd-product-area .pd-options button, .pd-pack-area .pd-pack-container-right .pd-pack-selected .pd-options button {
+article .pd-seleccionar, .pd-add, .pd-product-area .pd-options button, .pd-pack-area .pd-pack-container-right .pd-pack-selected .pd-options button {
   padding: 5px;
   margin: 5px;
   font-family: "Montagu Slab", serif;
@@ -574,7 +574,7 @@ main section article .pd-seleccionar, .pd-add, .pd-product-area .pd-options butt
   cursor: pointer;
 }
 
-main section article .pd-seleccionar a, .pd-product-area .pd-options .pd-buy a, .pd-add a, .pd-pack-area .pd-pack-container-right .pd-pack-selected .pd-options button a {
+article .pd-seleccionar a, .pd-product-area .pd-options .pd-buy a, .pd-add a, .pd-pack-area .pd-pack-container-right .pd-pack-selected .pd-options button a {
   color: #ffda4d;
   text-decoration: none;
   display: inline-block;
