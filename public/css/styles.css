@@ -441,7 +441,7 @@ main h2 .pd-titulo {
 
 /* Fin página Product Page*/
 
-/* Página Product Detail*/
+/* Página Product Detail*/  
 
 .pd-product-area {
   display: flex;
@@ -496,6 +496,17 @@ section div .pd-beer-attributes {
 section div .pd-beer-attributes li {
   justify-content: left;
   list-style-type: none;
+  align-items: baseline;
+  display: flex;
+  padding: 3px;  
+}
+section div .pd-beer-attributes li p, section .pd-sub-total-amount {
+  margin-left: 8px; 
+}
+
+section .pd-sub-total {
+  display: flex;
+  align-items: baseline;
 }
 
 section .pd-product-imgs img {
@@ -504,7 +515,15 @@ section .pd-product-imgs img {
 
 section div .pd-product-form {
   display: flex;
+  flex-direction: column;
   align-items: flex-start;
+  margin: 5px;
+  width: 350px;
+}
+section div .pd-product-form .pd-quantity .pd-counter {
+  justify-content: right;
+  flex-wrap: nowrap;
+  width: 90px
 }
 
 section div .pd-product-form .pd-quantity {
@@ -520,6 +539,7 @@ section div .pd-product-form .pd-quantity {
 
 section div .pd-product-form .pd-quantity .quantity-label {
   align-items: start;
+  width: 160px;
 }
 
 section div .pd-product-form .pd-quantity input[type="button"] {
@@ -554,7 +574,7 @@ section div .pd-product-form .pd-quantity .plus {
 }
 
 section div .pd-product-form .pd-quantity h5 {
-  width: 20%;
+  width: 80px;
   text-align: right;
 }
 
@@ -567,23 +587,33 @@ section div .pd-product-form .pd-quantity h5 {
   max-width: 500px;
 }
 
-article .pd-seleccionar, .pd-add, .pd-product-area .pd-options button, .pd-pack-area .pd-pack-container-right .pd-pack-selected .pd-options button   {
+article .pd-seleccionar, .pd-add, .pd-product-area .pd-options button, .pd-options button {
   padding: 5px;
   margin: 5px;
   font-family: "Montagu Slab", serif;
   background-color: #000000;
-  color: #ffda4d;
+  color: white;
   border: none;
   border-radius: 4px;
   align-items: right;
   cursor: pointer;
+  display: inline-block;  /*convierte las lineas de la lista en bloque para poder darles un padding*/
+  transition-property: color, box-shadow;
+  transition-duration: 200ms;  
 }
 
-article .pd-seleccionar a, .pd-product-area .pd-options .pd-buy a, .pd-add a, .pd-pack-area .pd-pack-container-right .pd-pack-selected .pd-options button a {
-  color: #ffda4d;
+article .pd-seleccionar a, .pd-buy a, .pd-add a, .pd-pack-selected .pd-options button a {
+  color: white;
   text-decoration: none;
   display: inline-block;
   transition-duration: 200ms;
+  font-size: 13px;
+  font-weight: normal;
+}
+
+
+article .pd-seleccionar:hover, .pd-add:hover {
+color: #ff6200;
 }
 
 /* FIN Página Product Detail*/
@@ -950,12 +980,12 @@ div.reel-4 {
     flex-wrap: nowrap;
     flex-direction: column;
     width: 300px;
-    height: 265px;
-    border: #ff6200 2px solid;
+    height: 250px;
+    border: #000 2px solid;
     border-radius: 12px;
     box-shadow: 0 0 10px #000;
     text-align: center;
-    background-color: #fff;
+    background-color: #ffda4d;
   }
   div.art-1 {
     display: flex;
@@ -970,25 +1000,23 @@ div.reel-4 {
     margin-top: 5px;
   }
   
-  div.best h4.best {
+  div.best h4 {
     padding: 0 5px;
-    font-size: 16px;
+    font-size: 12px;
     margin-top: 5px;
-    
-    
   }
-  /*button.art-1 {
+  button.art-1 {
     margin: 10px auto;
     padding: 5px;
-    background-color: #fff;
-    color: #ff6200;
+    background-color: #ff6200;
+    color: #fff;
     width: 75%;
     text-align: center;
     border-radius: 15px;
     text-shadow: black 0 0 8px;
     box-shadow: 0 0 8px #000;
     cursor: pointer;
-  }*/
+  }
   /*CONTENEDOR PADRE lado derecho*/
   div.right-content {
     display: flex;
@@ -1005,18 +1033,25 @@ div.reel-4 {
     justify-content: flex-start;
     margin: 15px;
     padding: 20px;
-    border-radius: 8px;
+    border: #949494 1px dotted;
+    border-radius: 52px;
     box-shadow: 0 0 10px #000;
-    background-color: #fff;
+    background-color: #ebebeb;
     text-align: center;
     width: 80%;
     opacity: 90%;
   }
- /* article.art-3 h4 {
+  article.art-3 h4 {
     font-size: 12px;
     padding-bottom: 2px;
-  }*/
+  }
   
+  article.art-3 h4.bold {
+    margin: 5px 0;
+    font-style: italic;
+    font-weight: bold;
+    color: #ff6200;
+  }
   article.art-3 h3 {
     padding: 5px 0;
     border-top: #ff8a00 1px double;
@@ -1529,14 +1564,14 @@ div.left-content {
 div.best {
   height: 285px;
   margin: 10px 20px 10px 10px;
-  border: #ff6200 2px solid;
+  border: #000 2px solid;
   border-radius: 12px;
   box-shadow: 0 0 10px #000;
   text-align: center;
-  
+  background-color: #ffda4d;
 }
 
-div.art-1 {
+article.art-1 {
   width: 45%;
   position: relative;
   margin: 0 auto;
@@ -1556,7 +1591,7 @@ div.right-content {
 
 /* texto  "cuando abrimos una..."*/
 article.art-3 {
-  text-align: justify;
+  order: -1;
 }
 
 div.bottom-content{
