@@ -4,51 +4,21 @@ const app = express();
 const path = require("path");
 
 app.use(express.static("public"));
-
-
+const rutaControllers = require("./routes/main.js");
 
 app.listen(3000, () => {
     console.log('Servidor corriendo en puerto 3000') 
 });
 
-app.get('/', (req,res)=>{
-    res.sendFile(__dirname + '/views/index.html');
-});
-
-app.get('/productPage', (req,res)=>{
-    res.sendFile(__dirname + '/views/productPage.html');
-});
-
-app.get('/productDetail', (req,res)=>{
-    res.sendFile(__dirname + '/views/productDetail.html');
-});
-
-app.get('/register', (req,res)=>{
-    res.sendFile(__dirname + '/views/register.html');
-});
-
-app.get('/login', (req,res)=>{
-    res.sendFile(__dirname + '/views/login.html');
-});
-
-app.get('/productCart', (req,res)=>{
-    res.sendFile(__dirname + '/views/productCart.html');
-});
-app.get('/notFound', (req,res)=>{
-    res.sendFile(__dirname + '/views/enDesarrollo.html');
-});
-
-app.get('/pack', (req,res)=>{
-    res.sendFile(__dirname + '/views/pack.html');
-});
-
-app.get('/quienesSomos', (req,res)=>{
-    res.sendFile(__dirname + '/views/quienesSomos.html');
-});
-
-app.get('/indexCopia', (req,res)=>{
-    res.sendFile(__dirname + '/views/indexCopia.html');
-});
+app.use("/", rutaControllers);
+app.use("/productPage", rutaControllers);
+app.use("/productDetail", rutaControllers);
+app.use("/register", rutaControllers);
+app.use("/login", rutaControllers);
+app.use("/productCart", rutaControllers);
+app.use("/notFound", rutaControllers);
+app.use("/pack", rutaControllers);
+app.use("/quienesSomos", rutaControllers);
 
 
 
