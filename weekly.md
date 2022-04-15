@@ -1,3 +1,4 @@
+
 <h2>Weeky Semana 14/2022</h2>
 
 <h3>Qué se hizo</h3>
@@ -25,3 +26,4 @@
   <li>Separar los componentes repetidos en archivos parciales.</li>
   <li>Generar motor de templates.</li>
 </ul>
+
