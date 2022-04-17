@@ -635,13 +635,13 @@ padding: 0 10px;
   }
   
 /*Product-Cart*/
-.pc-quantity-label{
+.pc-quantity-label{                          /*REPETIDO DE LINEA 629???*/
 width: 260px;  
 border-style: none;
 box-shadow: none;
 }
 
-.pc-quantity-label{
+.pc-quantity-label{                            /*REPETIDO DE LINEA 629???*/
   width: 60px;}
 
 .pc-product-quantity{
@@ -983,9 +983,9 @@ div.reel-4 {
     height: 250px;
     border: #000 2px solid;
     border-radius: 12px;
-    box-shadow: 0 0 10px #000;
+    box-shadow: 0 0 10px #FF6200;
     text-align: center;
-    background-color: #ffda4d;
+    background-color: #FFF;
   }
   div.art-1 {
     display: flex;
@@ -1087,36 +1087,7 @@ div.bottom-content{
   width: 95%;
 
 }
-  article.art-2,
-  article.art-4,
-  article.art-5 {
-    display: flex;
-    border: #949494 1px solid;
-    box-shadow: 0 0 10px #000;
-    margin: 15px auto;
-    opacity: 90%;
-    height: auto;
-    position: relative;
-}
-
-  article.art-2, article.art-4 {
-    left: 5%;
-  }
-  
-  article.art-4 {
-    margin: auto ; 
-    
-  }
-  article.art-5 {
-    margin: 15px ;
-        
-  }
-  article.art-5 img{
-    text-align: center;
-    
-  }
-
-  /*botones de la seccion 3*/
+   /*botones de la seccion 3*/
    .ind-map-env-pag {
     display: flex;
     flex-direction: column;
@@ -1147,76 +1118,6 @@ div.bottom-content{
     transform: scale(98%);
   }
 
-/*#########################################################################################/*/
-/*################## MEDIA 361  ############################################/*/
-/*#########################################################################################/*/
-
-@media (min-width: 361px) {
-  .pc-quantity-label{
-    width: 160px;  
-    }
-
-
-  .pc-quantity-label {
-      border: 0;
- }
- .main-header-top-bar {
-    display: flex;
-    align-items: center;
-    justify-content: start; /* SINO SPACE-BETWEEN que distribuye los elemntos de la barra de una manera homogenea*/
-    height: 100px;
-  }
-
-  .logo {
-    width: 150px;
-  }
-
-  .text-header {
-    max-width: 350px;
-    text-align: right;
-  }
-  .hamburguer-button {
-    display: none;
-  }
-  .main-navbar {
-    display: flex;
-    justify-content: space-between;
-    margin: 0 15px;
-  }
-  .left-navbar {
-    /*pone los elementos de la lista en linea*/
-    display: flex;
-    width: 100%;
-    margin: 0 15px;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .rigth-navbar {
-    /*pone los elementos de la lista en linea*/
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    width: 100%;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .secondary-navbar {
-    justify-content: space-around;
-  }
-
-
-  .suscribe-bar {
-    width: 50%;
-  }
-  
-  .suscribe-text {
-    font-size: 10pt;
-  }
-  /*Register*/
-  .rg-btn-div{
-    flex-direction: row;
-  }
 
   /* Página Product Page*/
 
@@ -1566,9 +1467,9 @@ div.best {
   margin: 10px 20px 10px 10px;
   border: #000 2px solid;
   border-radius: 12px;
-  box-shadow: 0 0 10px #000;
+  box-shadow: 0 0 10px #FF6200;
   text-align: center;
-  background-color: #ffda4d;
+  background-color: #ffF;
 }
 
 article.art-1 {
@@ -1598,14 +1499,6 @@ div.bottom-content{
   width: 90%;
 }
 
-article.art-2 {
-  margin: auto;
- 
-}
-
-article.art-5 {
-  left: 5%;
-}
 
 /*botones de la seccion 3*/
 .ind-map-env-pag {
@@ -1710,8 +1603,6 @@ article.art-5 {
     /*align-items: center;*/
   }
 
- /*°°°°°°°°°°°INDEX°°°°°°°°°°°*/
-/*°°°°°°°°°°°°°°°°°°°°°°°°°°*/
 
 /* Quienes somos media min 1200*/
 
@@ -1732,7 +1623,7 @@ section.ind-bottom{
 
 }
 }
-}
+
 
 /*#########################################################################################/*/
 /*#########################################################################################/*/
