@@ -6,6 +6,8 @@ const path = require("path");
 app.use(express.static("public"));
 const rutaControllers = require("./routes/main.js");
 
+app.set('view engine', 'ejs');
+
 app.listen(3000, () => {
     console.log('Servidor corriendo en puerto 3000') 
 });

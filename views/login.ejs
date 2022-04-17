@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Head-->
+<%- include("./partials/head") %>
+
+<body>
+    <!-- Header-->
+    <%- include("./partials/header") %>
+    <section>
+        <div class="lg-div-form">
+            <div class="lg-div-login">
+                <button class="lg-button"><i class="fa-brands fa-google"> Ingresar con Google </i></button>
+                <button class="lg-button"><i class="fa-brands fa-facebook-f"> Ingresar con Facebook </i></button>
+            </div>
+            <form action="" class="lg-form-login">
+                <input type="text" class="lg-input" placeholder="Email">
+                <input type="text" class="lg-input" placeholder="Contraseña">
+                <button type="submit" class="lg-submit">Ingresar</button>
+            </form>
+            <h4>¿No tenes cuenta?</h4>
+            <a href="/register" class="lg-a">Registrate aca</a>
+        </div>
+    </section>
+
+
+    
+    <!-- Footer-->
+    <%- include("./partials/footer") %>
+</body>
+</html>
