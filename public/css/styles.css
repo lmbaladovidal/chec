@@ -429,7 +429,7 @@ main h2 .pd-titulo {
   padding: 10px;
 }
 .pc-img-product {
-  width: 100%;
+  width: 50%;
 }
 
 .pd-datos-cerveza {
@@ -618,6 +618,15 @@ color: #ff6200;
 
 /* FIN Página Product Detail*/
 
+.fa-brands, .fab, .far {
+  font-family: "Font Awesome 6 Brands";
+  font-weight: 400;
+  padding-left: 5px;
+}
+.fa-brands:hover, .fab:hover, .far:hover{
+  color: #ff5200;
+} 
+
 .pc-img-product {
   width: 100%;
 }
@@ -631,21 +640,23 @@ padding: 0 10px;
 }
 .pc-quantity-label-det{
     width: 330px;
-    margin: 3px 15px;
+    margin: 20px 25px
   }
   
 /*Product-Cart*/
-.pc-quantity-label{                          /*REPETIDO DE LINEA 629???*/
+.pc-quantity-label{
 width: 260px;  
 border-style: none;
 box-shadow: none;
 }
 
-.pc-quantity-label{                            /*REPETIDO DE LINEA 629???*/
+.pc-quantity-label{
   width: 60px;}
 
 .pc-product-quantity{
-  width: 60px;}
+  width: 60px;
+  margin: 20px 0;
+}
 
 .pc-product-cantidad {
   width: 250px;
@@ -657,9 +668,7 @@ box-shadow: none;
 .pc-product-group{
   display: flex;
 }
-.pc-product-quantity{
-  margin-bottom: 20px;
-}
+
 .pc-product-cantidad,
 .pc-product {
   flex-direction: column;
@@ -754,28 +763,59 @@ padding: 0 10px;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
   cursor: pointer;
+  margin: 20px 0;
 }
 
 .pc-quantity .plus {
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
   cursor: pointer;
+  margin: 20px 0;
 }
 
 .pc-counter{
   display: flex;
-/*justify-content: space-between;
-*/  
-  align-items: flex-start;
-    width: 350px;
-    margin-bottom: 20px;
+  flex-wrap: wrap;
+  /*align-items: flex-start;*/
+  width: 100%;
+  justify-content: space-around;
+  margin: 10px 5px;
 }
 
 .pc-counter-label-det-valor{
   font-weight: bold;
   padding: 3px 0 0 5px;
   width: 80px;
+  margin: 20px 0;
 }
+
+.pc-product{
+display: flex;
+justify-content: space-around;
+margin: 10px 5px;
+max-height: 200px;
+}
+.pc-eliminarlg-a{
+margin: 20px 0;
+}
+.fas fa-trash-alt{
+  margin: 20px 0;
+}
+.pc-eliminar-a{
+  margin: 20px 0;
+}
+
+.pc-product-carrito{
+  width: 200px;
+}
+
+.pc-quantity-botones{
+  display: block;
+}
+.pc-contenedor-quantity-botoon{
+margin: 20px 5px;
+}
+
 
 /*PACK PERSONALIZADO*/
 .pd-pack-area {
@@ -1137,10 +1177,6 @@ div.bottom-content{
     margin: 20px;
   }
 
-  
-
-
-
 /*#########################################################################################/*/
 /*################## MEDIA 361  ############################################/*/
 /*#########################################################################################/*/
@@ -1339,6 +1375,12 @@ section.ind-top {
     flex-wrap: wrap;
     margin-bottom: 20px;
   }
+  .pc-quantity-botones{
+    flex-wrap: nowrap;
+  }
+  .pc-counter{
+    border-bottom: 5px #949494 solid;
+  }
 
 }
 
@@ -1438,7 +1480,9 @@ section.ind-top {
     /*align-items: center;*/
   }
 
-
+  .pc-quantity-botones{
+    flex-wrap: nowrap;
+  }
 /*°°°°°°°°°°°  INDEX  °°°°°°°°°°°*/
 /*°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°*/
 
