@@ -30,7 +30,7 @@
                                         <input type="number" class="pc-product-quantity" step="1" min="0" max="17" name="quantity"
                                             value="0" title="Cantidad" size="4" placeholder="" inputmode="numeric">
                                         <input type="button" id="increase" value="+" class="plus">
-                                        <label class="pc-counter-label-det-valor" for="botella500">250</label> 
+                                        <label class="pc-counter-label-det-valor" for="botella500">ARS 250</label> 
                                         <button class="pc-eliminar-a"> <i class="fas fa-trash-alt"></i></button>
                                     </div>
                                 </div>
@@ -51,7 +51,7 @@
                                         <input type="number" class="pc-product-quantity" step="1" min="0" max="17" name="quantity"
                                             value="0" title="Cantidad" size="4" placeholder="" inputmode="numeric">
                                         <input type="button" id="increase" value="+" class="plus">
-                                        <label class="pc-counter-label-det-valor" for="botella500">500</label>  
+                                        <label class="pc-counter-label-det-valor" for="botella500">ARS 500</label>  
                                         <button class="pc-eliminar-a"> <i class="fas fa-trash-alt"></i></button>
                                     </div>
                                 </div>
@@ -65,18 +65,19 @@
                                 </div>
                                 <div class="pc-contenedor-quantity-botoon">
                                     <div class="pc-quantity-descripcion">
-                                        <label class="pc-quantity-label-det" for="pack6500">Pack x 6 - 500 ml</label>
+                                        <label class="pc-quantity-label-det" for="botella1l">Pack x 6 - 500 ml</label>
                                     </div>
                                     <div class="pc-quantity-botones">
                                         <input type="button" id="decrease" value="-" class="minus">
                                         <input type="number" class="pc-product-quantity" step="1" min="0" max="17" name="quantity"
                                             value="0" title="Cantidad" size="4" placeholder="" inputmode="numeric">
                                         <input type="button" id="increase" value="+" class="plus">
-                                        <label class="pc-counter-label-det-valor" for="botella500">800</label>
+                                        <label class="pc-counter-label-det-valor" for="botella500">ARS 800</label>  
                                         <button class="pc-eliminar-a"> <i class="fas fa-trash-alt"></i></button>
                                     </div>
                                 </div>
-                                
+                            </div>
+
                             <div class="pc-counter">
                                 <div class="pc-product-carrito"> 
                                     <div class="pc-product">
@@ -92,44 +93,86 @@
                                         <input type="number" class="pc-product-quantity" step="1" min="0" max="17" name="quantity"
                                             value="0" title="Cantidad" size="4" placeholder="" inputmode="numeric">
                                         <input type="button" id="increase" value="+" class="plus">
-                                        <label class="pc-counter-label-det-valor" for="botella500">1200</label> 
+                                        <label class="pc-counter-label-det-valor" for="botella500">ARS 1200</label> 
                                         <button class="pc-eliminar-a"> <i class="fas fa-trash-alt"></i></button>
                                     </div>
                                 </div>
                             </div>
-                            <button class="pc-options-button lg-button" >Limpiar</button>
+                            <div class="pc-options">
+                                <button class="pc-options-button lg-button" >Limpiar</button>
+                            </div>    
                         </div>
+                        <div class="pc-direccionEnvio">
+                            <div class="pc-direccionEnvio-detalle">
+                                <label class="pc-direccionEnvio-detalle-texto" >Dirección envío</label> 
+                                <label class="pc-direccionEnvio-detalle-texto" >Código Postal</label> 
+                            </div>
+                            <div class="pc-direccionEnvio-valor">
+                                <input type="text" class="pc-DireccionEnvio-Titulo-caja-texto" name="quantity"
+                                    value="Julio A. Roca 1826" title="Cantidad" placeholder="" inputmode="text">
+                                <input type="text" class="pc-DireccionEnvio-Titulo-caja-texto" name="quantity"
+                                    value="B6237" title="Cantidad" placeholder="" inputmode="text">
+                            </div>
+                           
+                        </div>
+                        <div class="pc-options">
+                            <button class="pc-options-button lg-button" >Calcular</button>
+                        </div>   
+                        
                 </div>
-                
+
             </div>
 
-    </main>
-    <section class="pc-bottom-content">
-        <div class="pc-label-total-group-envio">
-            <label class="pc-label-envío" for="label-envio">Envio a:</label>
+           
+
+            <div class="pc-ResumenCompra">
+                <div class="pc-ResumenCompra-Titulo">
+                    <label class="pc-quantity-label-det" >Resumen de Compra</label>
+                </div>
+                <div class="pc-ResumenCompra-Subtotal">
+                    <div class="pc-ResumenCompra-Subtotal-texto">
+                        <div class="pc-ResumenCompra-detalle">
+                            <label class="pc-ResumenCompra-detalle-texto" >Subtotal</label> 
+                        </div>
+                        <div class="pc-ResumenCompra-detalle">
+                            <label class="pc-ResumenCompra-detalle-texto" >Descuento</label> 
+                        </div>
+                        <div class="pc-ResumenCompra-detalle">
+                            <label class="pc-ResumenCompra-detalle-texto" >Envío</label> 
+                        </div>
+                        <div class="pc-ResumenCompra-detalle">
+                            <label class="pc-ResumenCompra-detalle-texto" >Total</label> 
+                        </div>
+                        
+                    </div>
+
+                    <div class="pc-ResumenCompra-Subtotal-valores">
+                        <input type="text" class="pc-ResumenCompra-Titulo-caja-texto" name="quantity"
+                                    value="ARS 1050" title="Cantidad" placeholder="" inputmode="text">
+                        <input type="text" class="pc-ResumenCompra-Titulo-caja-texto" name="quantity"
+                                    value="ARS 0" title="Cantidad" placeholder="" inputmode="text">
+                        <input type="text" class="pc-ResumenCompra-Titulo-caja-texto" name="quantity"
+                                    value="ARS 0" title="Cantidad" placeholder="" inputmode="text">
+                        <input type="text" class="pc-ResumenCompra-Titulo-caja-texto" name="quantity"
+                                    value="ARS 1050" title="Cantidad" placeholder="" inputmode="text">
+                    </div>  
+                      
+                </div>
+                <div class="pc-ResumenCompra-Subtotal"></div>
+                <div class="pc-options">
+                    <button class="pc-options-button lg-button">Finalizar Compra</button>
+                </div> 
+                </div>     
+                
+               
+            </div>
             
-            <input type="text" size="15" class="rg-input" value="Independencia 717. Piso 1 Dto A" name="nombre">
-            <!--<input type="text" id="name" name="name" required minlength="0" maxlength="50" size="14"> 
-            <input placeholder="Independencia 717. Piso 1 Dto ´A´" >
-            <p><textarea name="comentario" rows="5" cols="50">Independencia 717. Piso 1 Dto "A" </textarea></p>-->
-        </div>
-        
-        <div class="pc-label-total-group">
-            <label class="pc-label-envio" for="label-envio">Código postal de envio:</label>
-            <input type="text" size="15" class="rg-input" value="5200" name="nombre">
-            <h2><label class="pc-txtLabel-totalenvio" for="txtLabel-totalenvio">   $ 700 </label></h2>
         </div>
 
-        <div class="pc-label-total-group">
-            <p class="pc-label-totalenvio" for="label-totalenvio">Total con envio: </p>
-            <h2><label class="pc-txtLabel-totalenvio" for="txtLabel-totalenvio">   $ 1200 </label></h2>
-        </div>
-        
-    </section>  
+    </main>
+ 
     
-    <div class="pc-options">
-        <button class="pc-options-button lg-button">Finalizar Compra</button>
-    </div>
+   
     
     <!-- Footer-->
     <%- include("./partials/footer") %>

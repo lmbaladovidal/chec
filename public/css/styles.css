@@ -640,7 +640,8 @@ padding: 0 10px;
 }
 .pc-quantity-label-det{
     width: 330px;
-    margin: 20px 25px
+    margin: 10px 25px;
+    padding: 0 0 0 30px;
   }
   
 /*Product-Cart*/
@@ -691,7 +692,9 @@ padding: 0 10px;
 .pc-options {
   display: flex;
   flex-direction: row-reverse;
-  margin-bottom: 15px ;
+  margin: 20px 0 ;
+  align-items: center;
+  justify-content: center;
 }
 .pc-label-envio{
   margin-right:5px ;
@@ -718,6 +721,7 @@ padding: 0 10px;
   border-radius: 4px;
   align-items: right;
   cursor: pointer;
+  width: 200px;
 }
 .pc-bottom-content{
     display: flex;
@@ -730,6 +734,9 @@ padding: 0 10px;
     align-items: center;
     margin: 0 20px 30px 0;
 }
+
+
+
 .fa-brands, .fab, .far {
   font-family: "Font Awesome 6 Brands";
   font-weight: 400;
@@ -779,14 +786,14 @@ padding: 0 10px;
   /*align-items: flex-start;*/
   width: 100%;
   justify-content: space-around;
-  margin: 10px 5px;
+  margin: 5px 5px;
 }
 
 .pc-counter-label-det-valor{
   font-weight: bold;
   padding: 3px 0 0 5px;
   width: 80px;
-  margin: 20px 0;
+  margin: 8px 0;
 }
 
 .pc-product{
@@ -803,6 +810,8 @@ margin: 20px 0;
 }
 .pc-eliminar-a{
   margin: 20px 0;
+  height: 25px;
+  cursor: pointer;
 }
 
 .pc-product-carrito{
@@ -810,12 +819,100 @@ margin: 20px 0;
 }
 
 .pc-quantity-botones{
-  display: block;
+  display: flex;
+  justify-content: center;
 }
 .pc-contenedor-quantity-botoon{
 margin: 20px 5px;
+width: 300px;
+padding: 0 5px;
 }
 
+.pc-counter-label-det-valor{
+  padding: 3px 20px;
+}
+
+.pc-quantity-descripcion{
+  display: flex;
+  text-align-last: center;
+}
+
+.pc-ResumenCompra-Titulo{
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  flex-wrap: wrap;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  font-family: "Montagu Slab", serif;
+  font-size: 14pt;
+  font-weight: bold;
+  max-width: 95%;
+}
+.pc-ResumenCompra{
+  background-color:#eee ;
+}
+.pc-ResumenCompra-detalle{
+  padding: 20px 0 ;
+}
+
+.pc-ResumenCompra-detalle-texto{
+  padding: 0 20px;
+  font-size: 12pt;
+  font-weight: bold;
+}
+.pc-ResumenCompra-Titulo-caja-texto{
+  background-color:#eee ;
+  border: 0;
+  text-align: right;
+  padding: 20px 0;
+  width: 180px;
+  font-size: 12pt;
+  font-weight: bold;
+  font-family: "Montagu Slab", serif;
+  outline: none;
+}
+.pc-ResumenCompra-Subtotal{
+  display: flex;
+  flex-wrap: nowrap;
+  width: 380px;
+}
+.pc-ResumenCompra-Subtotal-texto{
+  display: flex;
+  flex-direction: column;
+  width: 150px;
+}
+.pc-ResumenCompra-Subtotal-valores{
+  display: flex;
+  flex-direction: column;
+  width: 150px;
+}
+
+.pc-direccionEnvio{
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100%;
+}
+
+.pc-direccionEnvio-valor{
+  display: flex;
+  flex-direction: column;
+  font-family: "Montagu Slab", serif;
+}
+
+.pc-direccionEnvio-detalle{
+  display: flex;
+  flex-direction: column;
+  font-family: "Montagu Slab", serif;
+}
+.pc-DireccionEnvio-Titulo-caja-texto{
+  font-family: "Montagu Slab", serif;
+  margin: 10px 5px;
+}
+.pc-direccionEnvio-detalle-texto{
+  display: block;
+  margin: 10px 5px;
+}
 
 /*PACK PERSONALIZADO*/
 .pd-pack-area {
@@ -1175,8 +1272,15 @@ div.bottom-content{
 
   main .pd-titulo {
     margin: 20px;
+    font-size: 12pt;
   }
 
+  .pc-direccionEnvio{
+    border-top: 5px #949494 solid;
+    margin: 10px auto;
+    padding: 1px 1px;
+  
+  }
 /*#########################################################################################/*/
 /*################## MEDIA 361  ############################################/*/
 /*#########################################################################################/*/
@@ -1377,10 +1481,21 @@ section.ind-top {
   }
   .pc-quantity-botones{
     flex-wrap: nowrap;
+    justify-content: center;
   }
   .pc-counter{
-    border-bottom: 5px #949494 solid;
+    border-top: 5px #949494 solid;
   }
+
+  .pc-ResumenCompra {
+    border-top: 5px #949494 solid;
+    margin: 40px auto;
+    padding: 10px 11px;
+  }
+.pc-direccionEnvio{
+  border-top: 5px #949494 solid;
+  margin: 40px auto;
+  padding: 10px 11px;
 
 }
 
