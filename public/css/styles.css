@@ -429,7 +429,7 @@ main h2 .pd-titulo {
   padding: 10px;
 }
 .pc-img-product {
-  width: 100%;
+  width: 50%;
 }
 
 .pd-datos-cerveza {
@@ -618,6 +618,15 @@ color: #ff6200;
 
 /* FIN Página Product Detail*/
 
+.fa-brands, .fab, .far {
+  font-family: "Font Awesome 6 Brands";
+  font-weight: 400;
+  padding-left: 5px;
+}
+.fa-brands:hover, .fab:hover, .far:hover{
+  color: #ff5200;
+} 
+
 .pc-img-product {
   width: 100%;
 }
@@ -631,7 +640,8 @@ padding: 0 10px;
 }
 .pc-quantity-label-det{
     width: 330px;
-    margin: 3px 15px;
+    margin: 10px 25px;
+    padding: 0 0 0 30px;
   }
   
 /*Product-Cart*/
@@ -645,7 +655,9 @@ box-shadow: none;
   width: 60px;}
 
 .pc-product-quantity{
-  width: 60px;}
+  width: 60px;
+  margin: 20px 0;
+}
 
 .pc-product-cantidad {
   width: 250px;
@@ -657,9 +669,7 @@ box-shadow: none;
 .pc-product-group{
   display: flex;
 }
-.pc-product-quantity{
-  margin-bottom: 20px;
-}
+
 .pc-product-cantidad,
 .pc-product {
   flex-direction: column;
@@ -682,7 +692,9 @@ padding: 0 10px;
 .pc-options {
   display: flex;
   flex-direction: row-reverse;
-  margin-bottom: 15px ;
+  margin: 20px 0 ;
+  align-items: center;
+  justify-content: center;
 }
 .pc-label-envio{
   margin-right:5px ;
@@ -709,6 +721,7 @@ padding: 0 10px;
   border-radius: 4px;
   align-items: right;
   cursor: pointer;
+  width: 200px;
 }
 .pc-bottom-content{
     display: flex;
@@ -721,6 +734,9 @@ padding: 0 10px;
     align-items: center;
     margin: 0 20px 30px 0;
 }
+
+
+
 .fa-brands, .fab, .far {
   font-family: "Font Awesome 6 Brands";
   font-weight: 400;
@@ -754,27 +770,148 @@ padding: 0 10px;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
   cursor: pointer;
+  margin: 20px 0;
 }
 
 .pc-quantity .plus {
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
   cursor: pointer;
+  margin: 20px 0;
 }
 
 .pc-counter{
   display: flex;
-/*justify-content: space-between;
-*/  
-  align-items: flex-start;
-    width: 350px;
-    margin-bottom: 20px;
+  flex-wrap: wrap;
+  /*align-items: flex-start;*/
+  width: 100%;
+  justify-content: space-around;
+  margin: 5px 5px;
 }
 
 .pc-counter-label-det-valor{
   font-weight: bold;
   padding: 3px 0 0 5px;
   width: 80px;
+  margin: 8px 0;
+}
+
+.pc-product{
+display: flex;
+justify-content: space-around;
+margin: 10px 5px;
+max-height: 200px;
+}
+.pc-eliminarlg-a{
+margin: 20px 0;
+}
+.fas fa-trash-alt{
+  margin: 20px 0;
+}
+.pc-eliminar-a{
+  margin: 20px 0;
+  height: 25px;
+  cursor: pointer;
+}
+
+.pc-product-carrito{
+  width: 200px;
+}
+
+.pc-quantity-botones{
+  display: flex;
+  justify-content: center;
+}
+.pc-contenedor-quantity-botoon{
+margin: 20px 5px;
+width: 300px;
+padding: 0 5px;
+}
+
+.pc-counter-label-det-valor{
+  padding: 3px 20px;
+}
+
+.pc-quantity-descripcion{
+  display: flex;
+  text-align-last: center;
+}
+
+.pc-ResumenCompra-Titulo{
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  flex-wrap: wrap;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  font-family: "Montagu Slab", serif;
+  font-size: 14pt;
+  font-weight: bold;
+  max-width: 95%;
+}
+.pc-ResumenCompra{
+  background-color:#eee ;
+}
+.pc-ResumenCompra-detalle{
+  padding: 20px 0 ;
+}
+
+.pc-ResumenCompra-detalle-texto{
+  padding: 0 20px;
+  font-size: 12pt;
+  font-weight: bold;
+}
+.pc-ResumenCompra-Titulo-caja-texto{
+  background-color:#eee ;
+  border: 0;
+  text-align: right;
+  padding: 20px 0;
+  width: 180px;
+  font-size: 12pt;
+  font-weight: bold;
+  font-family: "Montagu Slab", serif;
+  outline: none;
+}
+.pc-ResumenCompra-Subtotal{
+  display: flex;
+  flex-wrap: nowrap;
+  width: 380px;
+}
+.pc-ResumenCompra-Subtotal-texto{
+  display: flex;
+  flex-direction: column;
+  width: 150px;
+}
+.pc-ResumenCompra-Subtotal-valores{
+  display: flex;
+  flex-direction: column;
+  width: 150px;
+}
+
+.pc-direccionEnvio{
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100%;
+}
+
+.pc-direccionEnvio-valor{
+  display: flex;
+  flex-direction: column;
+  font-family: "Montagu Slab", serif;
+}
+
+.pc-direccionEnvio-detalle{
+  display: flex;
+  flex-direction: column;
+  font-family: "Montagu Slab", serif;
+}
+.pc-DireccionEnvio-Titulo-caja-texto{
+  font-family: "Montagu Slab", serif;
+  margin: 10px 5px;
+}
+.pc-direccionEnvio-detalle-texto{
+  display: block;
+  margin: 10px 5px;
 }
 
 /*PACK PERSONALIZADO*/
@@ -983,9 +1120,9 @@ div.reel-4 {
     height: 250px;
     border: #000 2px solid;
     border-radius: 12px;
-    box-shadow: 0 0 10px #000;
+    box-shadow: 0 0 10px #FF6200;
     text-align: center;
-    background-color: #ffda4d;
+    background-color: #FFF;
   }
   div.art-1 {
     display: flex;
@@ -1087,36 +1224,7 @@ div.bottom-content{
   width: 95%;
 
 }
-  article.art-2,
-  article.art-4,
-  article.art-5 {
-    display: flex;
-    border: #949494 1px solid;
-    box-shadow: 0 0 10px #000;
-    margin: 15px auto;
-    opacity: 90%;
-    height: auto;
-    position: relative;
-}
-
-  article.art-2, article.art-4 {
-    left: 5%;
-  }
-  
-  article.art-4 {
-    margin: auto ; 
-    
-  }
-  article.art-5 {
-    margin: 15px ;
-        
-  }
-  article.art-5 img{
-    text-align: center;
-    
-  }
-
-  /*botones de la seccion 3*/
+   /*botones de la seccion 3*/
    .ind-map-env-pag {
     display: flex;
     flex-direction: column;
@@ -1147,76 +1255,6 @@ div.bottom-content{
     transform: scale(98%);
   }
 
-/*#########################################################################################/*/
-/*################## MEDIA 361  ############################################/*/
-/*#########################################################################################/*/
-
-@media (min-width: 361px) {
-  .pc-quantity-label{
-    width: 160px;  
-    }
-
-
-  .pc-quantity-label {
-      border: 0;
- }
- .main-header-top-bar {
-    display: flex;
-    align-items: center;
-    justify-content: start; /* SINO SPACE-BETWEEN que distribuye los elemntos de la barra de una manera homogenea*/
-    height: 100px;
-  }
-
-  .logo {
-    width: 150px;
-  }
-
-  .text-header {
-    max-width: 350px;
-    text-align: right;
-  }
-  .hamburguer-button {
-    display: none;
-  }
-  .main-navbar {
-    display: flex;
-    justify-content: space-between;
-    margin: 0 15px;
-  }
-  .left-navbar {
-    /*pone los elementos de la lista en linea*/
-    display: flex;
-    width: 100%;
-    margin: 0 15px;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .rigth-navbar {
-    /*pone los elementos de la lista en linea*/
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    width: 100%;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .secondary-navbar {
-    justify-content: space-around;
-  }
-
-
-  .suscribe-bar {
-    width: 50%;
-  }
-  
-  .suscribe-text {
-    font-size: 10pt;
-  }
-  /*Register*/
-  .rg-btn-div{
-    flex-direction: row;
-  }
 
   /* Página Product Page*/
 
@@ -1234,12 +1272,15 @@ div.bottom-content{
 
   main .pd-titulo {
     margin: 20px;
+    font-size: 12pt;
   }
 
+  .pc-direccionEnvio{
+    border-top: 5px #949494 solid;
+    margin: 10px auto;
+    padding: 1px 1px;
   
-
-
-
+  }
 /*#########################################################################################/*/
 /*################## MEDIA 361  ############################################/*/
 /*#########################################################################################/*/
@@ -1438,6 +1479,23 @@ section.ind-top {
     flex-wrap: wrap;
     margin-bottom: 20px;
   }
+  .pc-quantity-botones{
+    flex-wrap: nowrap;
+    justify-content: center;
+  }
+  .pc-counter{
+    border-top: 5px #949494 solid;
+  }
+
+  .pc-ResumenCompra {
+    border-top: 5px #949494 solid;
+    margin: 40px auto;
+    padding: 10px 11px;
+  }
+.pc-direccionEnvio{
+  border-top: 5px #949494 solid;
+  margin: 40px auto;
+  padding: 10px 11px;
 
 }
 
@@ -1537,7 +1595,9 @@ section.ind-top {
     /*align-items: center;*/
   }
 
-
+  .pc-quantity-botones{
+    flex-wrap: nowrap;
+  }
 /*°°°°°°°°°°°  INDEX  °°°°°°°°°°°*/
 /*°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°*/
 
@@ -1566,9 +1626,9 @@ div.best {
   margin: 10px 20px 10px 10px;
   border: #000 2px solid;
   border-radius: 12px;
-  box-shadow: 0 0 10px #000;
+  box-shadow: 0 0 10px #FF6200;
   text-align: center;
-  background-color: #ffda4d;
+  background-color: #ffF;
 }
 
 article.art-1 {
@@ -1598,14 +1658,6 @@ div.bottom-content{
   width: 90%;
 }
 
-article.art-2 {
-  margin: auto;
- 
-}
-
-article.art-5 {
-  left: 5%;
-}
 
 /*botones de la seccion 3*/
 .ind-map-env-pag {
@@ -1710,8 +1762,6 @@ article.art-5 {
     /*align-items: center;*/
   }
 
- /*°°°°°°°°°°°INDEX°°°°°°°°°°°*/
-/*°°°°°°°°°°°°°°°°°°°°°°°°°°*/
 
 /* Quienes somos media min 1200*/
 
@@ -1732,7 +1782,7 @@ section.ind-bottom{
 
 }
 }
-}
+
 
 /*#########################################################################################/*/
 /*#########################################################################################/*/

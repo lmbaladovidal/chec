@@ -1,30 +1,18 @@
 const controllerMain = {
     index: (req,res) => {
-        res.sendFile('index.html', { root: './views'});
+        res.render('index');
     },
     quienesSomos: (req,res) => {
-        res.sendFile('quienesSomos.html', { root: './views'});
+        res.render('quienesSomos');
     },
     enDesarrollo: (req,res) => {
-        res.sendFile('enDesarrollo.html', { root: './views'});
+        res.render('enDesarrollo');
     },
     login: (req,res) => {
-        res.sendFile('login.html', { root: './views'});
-    },
-    pack: (req,res) => {
-        res.sendFile('pack.html', { root: './views'});
-    },
-    productCart: (req,res) => {
-        res.sendFile('productCart.html', { root: './views'});
-    },
-    productDetail: (req,res) => {
-        res.sendFile('productDetail.html', { root: './views'});
-    },
-    productPage: (req,res) => {
-        res.sendFile('productPage.html', { root: './views'});
+        res.render('login');
     },
     register: (req,res) => {
-        res.sendFile('register.html', { root: './views'});
+        res.render('register');
     }
 };
 
