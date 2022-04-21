@@ -11,18 +11,6 @@ const controllerMain = {
     login: (req,res) => {
         res.render('login');
     },
-    pack: (req,res) => {
-        res.render('pack');
-    },
-    productCart: (req,res) => {
-        res.render('productCart');
-    },
-    productDetail: (req,res) => {
-        res.render('productDetail');
-    },
-    productPage: (req,res) => {
-        res.render('productPage');
-    },
     register: (req,res) => {
         res.render('register');
     }
