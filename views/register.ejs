@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Head-->
+<%- include("./partials/head") %>
+
+<body>
+    <!-- Header-->
+    <%- include("./partials/header") %>
+    <section> 
+        <form action="POST" class="rg-form">
+            <input type="text" placeholder="Nombre" class="rg-input">
+            <input type="text" placeholder="Apellido" class="rg-input">
+            <input type="text" placeholder="Direccion" class="rg-input">
+            <input type="date" placeholder="Fecha de nacimiento" class="rg-input">
+            <input type="password" placeholder="Contraseña" class="rg-input">
+            <input type="password" placeholder="Contraseña" class="rg-input">
+            <div class="rg-btn-div">
+                <input type="submit" name="" id="rg-submit" class="rg-submit">
+                <input type="reset" class="rg-reset">
+            </div>
+            
+        </form>       
+    </section>
+    <!-- Footer-->
+    <%- include("./partials/footer") %>
+</body>
+</html>

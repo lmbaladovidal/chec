@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head-->
+<%- include("./partials/head") %>
+
+<body>
+    <!-- Header-->
+    <%- include("./partials/header") %>
+
+
+    <main class="pd-main">
+        <h2 class="pd-titulo">Tienda</h2>
+        <section class="pd-tienda">
+
+            <article class="pd-product">
+                <img class="pd-img-product" src="/images/img-beer-temporary.jpg" alt="beer">
+                <div class="pd-datos-cerveza">
+                    <h4>IPA</h4>
+                    <h4>$ 250</h4>
+                    <button class="pd-seleccionar">Seleccionar</button>
+                    <button class="pd-add"><a href="/productCart" class="lg-a">Agregar al carrito</a></button>
+                </div>
+
+            </article>
+
+            <article class="pd-product">
+                <img class="pd-img-product" src="/images/img-beer-temporary.jpg" alt="beer">
+                <div class="pd-datos-cerveza">
+                    <h4>Golden Ale</h4>
+                    <h4>$ 200</h4>
+                    <button class="pd-seleccionar">Seleccionar</button>
+                    <button class="pd-add"><a href="/productCart" class="lg-a">Agregar al carrito</a></button>
+                </div>
+            </article>
+
+            <article class="pd-product">
+                <img class="pd-img-product" src="/images/img-beer-temporary.jpg" alt="beer">
+                <div class="pd-datos-cerveza">
+                    <h4>Irish Red</h4>
+                    <h4>$ 200</h4>
+                    <button class="pd-seleccionar">Seleccionar</button>
+                    <button class="pd-add"><a href="/productCart" class="lg-a">Agregar al carrito</a></button>
+                </div>
+            </article>
+
+            <article class="pd-product">
+                <img class="pd-img-product" src="/images/img-beer-temporary.jpg" width="360" alt="beer">
+                <div class="pd-datos-cerveza">
+                    <h4>Stout</h4>
+                    <h4>$ 200</h4>
+                    <button class="pd-seleccionar"><a href="/productDetail" class="lg-a">Seleccionar</a></button>
+                    <button class="pd-add"><a href="/productCart" class="lg-a">Agregar al carrito</a></button>
+                </div>
+            </article>
+
+            <article class=" pd-product">
+                <img class="pd-img-product" src="/images/img-beer-temporary.jpg" width="360" alt="beer">
+                <div class="pd-datos-cerveza">
+                    <h4>Honey</h4>
+                    <h4>$ 200</h4>
+                    <button class="pd-seleccionar">Seleccionar</button>
+                    <button class="pd-add"><a href="/productCart" class="lg-a">Agregar al carrito</a></button>
+                </div>
+            </article>
+
+            <article class="pack-customized">
+                <img class="pd-img-product" src="/images/img-beer-temporary.jpg" width="360" alt="beer">
+                <div class="pd-datos-cerveza">
+                    <h4>Pack Personalizado</h4>
+                    <h4>Desde $ 600</h4>
+                    <button class="pd-seleccionar"><a href="/pack" class="lg-a">Seleccionar</a></button>
+                </div>
+            </article>
+    </main>
+   
+    <!-- Suscribe email-->
+    <%- include("./partials/suscribe") %>
+    
+    <!-- Footer-->
+    <%- include("./partials/footer") %>
+
+</body>
+
+</html>
