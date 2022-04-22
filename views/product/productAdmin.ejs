@@ -15,98 +15,43 @@
         </div>
 
         <div class="pd-product-info">
-            <h4><%= nombre %></h4>
-            <p><%= descripcion%></p>
-            <ul class="pd-beer-attributes">
-                <li>
-                    <h5>Amargor: </h5>
-                    <p><%= amargor%></p>
-                </li>
-                <li>
-                    <h5>Alcohol: </h5>
-                    <p><%= alcohol%></p>
-                </li>
-                <li>
-                    <h5>Color: </h5>
-                    <p> <%= color%> SRM</p>
-                </li>
-                <li>
-                    <h5>Lúpulo/s: </h5>
-                    <p> <%=lupulo%></p>
-                </li>
-                <li>
-                    <h5>Gasificaion: </h5>
-                    <p> <%= gasificacion%></p>
-                </li>
-            </ul>
-
-            <h4>Tu selección</h4>
-            <div class="pd-product-form-container">
-                <form class="pd-product-form">
-
-                    <div class="pd-quantity">
-                        <label class="quantity-label" for="botella500"><input type="checkbox" id="botella500"
-                                value="botella500">Botella 500 ml</label>
-                        <h5>$ 300</h5>
-                        <div class="pd-counter">
-                            <input type="button" id="decrease" value="-" class="minus">
-                            <input type="number" class="product-quantity" step="1" min="0" max="17" name="quantity"
-                                value="0" title="Cantidad" size="4" placeholder="" inputmode="numeric">
-                            <input type="button" id="increase" value="+" class="plus">
-                        </div>
-                        
-                    </div>
-
-
-                    <div class="pd-quantity">
-                        <label class="quantity-label" for="botella1l"><input type="checkbox" id="botella1l"
-                                value="botella1l">Botella 1 lt</label>
-                        <h5>$ 600</h5>
-                        <div class="pd-counter">
-                            <input type="button" id="decrease" value="-" class="minus">
-                            <input type="number" class="product-quantity" step="1" min="0" max="17" name="quantity"
-                                value="0" title="Cantidad" size="4" placeholder="" inputmode="numeric">
-                            <input type="button" id="increase" value="+" class="plus">
-                        </div>
-                        
-                    </div>
-                    <div class="pd-quantity">
-                        <label class="quantity-label" for="pack6500"><input type="checkbox" id="pack6500"
-                                value="pack6500">Pack x 6 - 500 ml</label>
-                        <h5>$ 1700</h5>
-                        <div class="pd-counter">
-                            <input type="button" id="decrease" value="-" class="minus">
-                            <input type="number" class="product-quantity" step="1" min="0" max="17" name="quantity"
-                                value="0" title="Cantidad" size="4" placeholder="" inputmode="numeric">
-                            <input type="button" id="increase" value="+" class="plus">
-                        </div>
-                        
-                    </div>
-                    <div class="pd-quantity">
-                        <label class="quantity-label" for="pack61l"><input type="checkbox" id="pack61l"
-                                value="pack61l">Pack x 6 - 1 lt</label>
-                        <h5>$ 3500</h5>
-                        <div class="pd-counter">
-                            <input type="button" id="decrease" value="-" class="minus">
-                            <input type="number" class="product-quantity" step="1" min="0" max="17" name="quantity"
-                                value="0" title="Cantidad" size="4" placeholder="" inputmode="numeric">
-                            <input type="button" id="increase" value="+" class="plus">
-                        </div>
-                    </div>
-                </form>
-            </div>
-
-            <div class="pd-sub-total">
-                <h5>Sub-total</h5>
-                <span class="pd-sub-total-amount">
-                    <span class="pd-sub-total-currency">$</span>0.00</span>
-            </div>
-
-            <div class="pd-options">
-                <button class="pd-buy"><a href="/productCart" class="lg-a">Comprar</a></button>
-                <button class="pd-add"><a href="/productCart" class="lg-a">Agregar al carrito</a></button>
-            </div>
-        </div>
+            <h3>Administracion de Producto</h3>
+            <form action="" method="post">
+                <ul class="pd-beer-attributes">
+                    <li>
+                        <h5>Nombre</h5>
+                        <p><input type="text" name="nombre" value="<%= nombre %>"></p>
+                    </li>
+                    <li>
+                        <h5>Descripción</h5>
+                        <p><input type="text" name="descripcion" value="<%= descripcion%>"></p>
+                    </li>
+                    <li>
+                        <h5>Amargor: </h5>
+                        <p><input type="text" name="amargor" value="<%= amargor%>"></p>
+                    </li>                  
+                    <li>
+                        <h5>Alcohol: </h5>
+                        <p><input type="text" name="alcohol" value="<%= alcohol%>"></p>
+                    </li>
+                    <li>
+                        <h5>Color: </h5>
+                        <p><input type="text" name="color" value="<%= color%> SRM"></p>
+                    </li>
+                    <li>
+                        <h5>Lúpulo/s: </h5>
+                        <p><input type="text" name="lupulo" value="<%=lupulo%>"></p>
+                    </li>
+                    <li>
+                        <h5>Gasificación: </h5>
+                        <p><input type="text" name="gasificacion" value="<%= gasificacion%>" ></p>
+                    </li>
+                </ul>
+                <div class="pd-options">
+                <input type="submit" class="lg-submit" value="Guardar">
+                    <input type="reset" class="lg-submit" name="limpiar" value="Limpiar">
+                </div>
+            </form>
         </div>
 
     </section>

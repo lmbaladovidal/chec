@@ -1,6 +1,8 @@
+const type = require('../model/bbdd')
+
 const controllerMain = {
     index: (req,res) => {
-        res.render('index');
+        res.render('index',{type:type});
     },
     quienesSomos: (req,res) => {
         res.render('quienesSomos');

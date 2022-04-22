@@ -10,6 +10,8 @@
 
 
 
+
+
 body  {
   background-color: #eeede1a8;
   font-family: "Montagu Slab", serif;
@@ -1212,6 +1214,7 @@ div.reel-4 {
 /* section middle-bootom*/
 section.bottom-content{
   display: flex;
+  flex-wrap: wrap;
   border-bottom: 5px #949494 solid;
   margin: 40px 10px;
   justify-content: center;
@@ -1499,7 +1502,7 @@ section.ind-top {
 
 }
 
-
+}
     
 /*#########################################################################################/*/
 /*############# MEDIA 760  ############################################/*/
