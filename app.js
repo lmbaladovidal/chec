@@ -12,11 +12,11 @@ app.listen(3000, () => {
 });
 
 app.use("/", rutaControllers);
-app.use("/product", productRouter);
 app.use("/register", rutaControllers);
 app.use("/login", rutaControllers);
 app.use("/notFound", rutaControllers);
 app.use("/quienesSomos", rutaControllers);
+app.use("/product", productRouter);
 
 
 
