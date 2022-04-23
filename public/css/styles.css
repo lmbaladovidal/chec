@@ -666,6 +666,7 @@ color: #ff6200;
 .pa-add-btn{
   position: fixed;
   width: 50%;
+  max-width:1200px;
 }
 
 
