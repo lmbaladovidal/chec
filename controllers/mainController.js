@@ -1,4 +1,4 @@
-const type = require('../model/bbdd')
+const type = require('../model/bbddCerveza')
 
 const controllerMain = {
     index: (req,res) => {
@@ -10,12 +10,7 @@ const controllerMain = {
     enDesarrollo: (req,res) => {
         res.render('enDesarrollo');
     },
-    login: (req,res) => {
-        res.render('login');
-    },
-    register: (req,res) => {
-        res.render('register');
-    }
+    
 };
 
 module.exports = controllerMain;

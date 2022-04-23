@@ -631,6 +631,44 @@ article .pd-seleccionar:hover, .pd-add:hover {
 color: #ff6200;
 }
 
+.pd-admin{
+  padding: 5px;
+  margin: 5px;
+  font-family: "Montagu Slab", serif;
+  background-color: #ff6200;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  align-items: right;
+  cursor: pointer;
+  display: inline-block;  /*convierte las lineas de la lista en bloque para poder darles un padding*/
+  transition-property: color, box-shadow;
+  transition-duration: 200ms;  
+}
+.pd-admin-a:hover{
+  color:#FFF;
+}
+
+.pd-admin-a{
+    color: #000;
+    display: inline-block;  /*convierte las lineas de la lista en bloque para poder darles un padding*/
+    font-size: 15px;
+    font-weight: 550;
+    transition-property: color, box-shadow;
+    transition-duration: 200ms;  
+}
+
+.pa-div-add-btn{
+  position: relative;
+  float: right;
+}
+
+.pa-add-btn{
+  position: fixed;
+  width: 95%;
+}
+
+
 /* FIN Página Product Detail*/
 
 .fa-brands, .fab, .far {

@@ -1,4 +1,14 @@
 const type = [
+    {nombre:"",
+    descripcion:"",
+    precio:0,
+    amargor:0,
+    color:0,
+    alcohol:0,
+    cuerpo:"",
+    gasificacion:"",
+    lupulo:""
+},
     {nombre:"STOUT",
     descripcion:"Cerveza negra con notas a café y chocolate levemente lupulada y moderada en alcohol.",
     precio:200,
@@ -58,6 +68,7 @@ const type = [
     cuerpo:"moderado",
     gasificacion:"media/baja",
     lupulo:"Cascade"}
+    
 
 ]
 
