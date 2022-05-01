@@ -41,6 +41,6 @@
 
 <h3>Qué se va a hacer</h3>
 <ul>
-  <li>Tomar las cosnignas planificadas en el tablero de Trello, que fueron subdivididas para un mejor cumplimiento</li>
+  <li>Tomar las consignas planificadas en el tablero de Trello, que fueron subdivididas para un mejor cumplimiento</li>
   <li>Reunirnos una vez mas antes de la entrega final del Sprint.</li>
 </ul>
