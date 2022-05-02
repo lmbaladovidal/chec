@@ -5,11 +5,8 @@ router.get('/pack', productController.productPack);
 router.get('/productCart', productController.productCart);
 router.get('/productDetail/:id', productController.productDetail);
 
-
-//router.put('/productAdmin/:id',productController.productUpdate);
-
-router.put('/productAdmin/:id',(req,res)=>{res.send("funciona")});
 router.get('/productAdmin/:id',productController.productAdmin);
+router.put('/productAdmin/:id',productController.productUpdate);
 router.get('/productAdmin/',productController.productCreate);
 router.get('/search/',productController.productSearch);
 router.get('/productPage', productController.productPage);
