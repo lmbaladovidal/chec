@@ -1,0 +1,35 @@
+[
+    {
+       "name":"Araceli",
+       "lastName":"Catalano",
+       "dateOfBirth":"26/03/1985",
+       "address":"Lacarra  - San Telmo",
+       "email":"aracelicatalano@gmail.com",
+       "userRole":"Admin"
+    },
+    
+    {
+        "name":"Alba",
+        "lastName":"Moran",
+        "dateOfBirth":"07/01/1979",
+        "address":"Merlo - Bs As",
+        "email":"alba.morann@gmail.com",
+        "userRole":"user"
+     },
+     {
+        "name":"David",
+        "lastName":"Juncos",
+        "dateOfBirth":"08/12/1982",
+        "address":"Independencia - Dean Funes - Cordoba",
+        "email":"david.juncos@gmail.com",
+        "userRole":"user"
+     },
+     {
+        "name":"Leandro",
+        "lastName":"Valado",
+        "dateOfBirth":"08/12/1982",
+        "address":" Dean Funes - Cordoba",
+        "email":"leandro.valado@gmail.com",
+        "userRole":"Admin"
+     }
+]

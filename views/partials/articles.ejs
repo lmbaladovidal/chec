@@ -1,9 +1,9 @@
-<% for (i=1;i< type.length;i++){%>
+<% for (i=1;i< cervezas.length;i++){%>
     <article class="pd-product">
         <img class="pd-img-product" src="/images/img-beer-temporary.jpg" width="360" alt="beer">
         <div class="pd-datos-cerveza">
-            <h4><%= type[i].nombre %></h4>
-            <h4>$ <%= type[i].precio %></h4>
+            <h4><%= cervezas[i].name %></h4>
+            <h4>$ <%= cervezas[i].price %></h4>
             <button class="pd-seleccionar"><a href="/product/productDetail/<%= i %>" class="lg-a">Seleccionar</a></button>
             <button class="pd-add"><a href="/product/productCart" class="lg-a">Agregar al carrito</a></button>
             <button class="pd-admin"><a href="/product/productAdmin/<%= i %>" class="pd-admin-a">Modificar </i></a></button>

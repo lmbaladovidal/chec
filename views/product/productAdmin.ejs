@@ -14,35 +14,35 @@
         </div>
         <div class="pd-product-info">
             <h3>Administracion de Producto</h3>
-            <form action="" method="post">
+            <form action="/product/productAdmin/<%= cervezaToEdit.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
                 <ul class="pd-beer-attributes">
                     <li>
                         <h5>Nombre</h5>
-                        <p><input type="text" name="nombre" value="<%= nombre %>"></p>
+                        <p><input type="text" name="nombre" value="<%=cervezaToEdit.name%>"></p>
                     </li>
                     <li>
                         <h5>Descripción</h5>
-                        <p><input type="text" name="descripcion" value="<%= descripcion%>"></p>
+                        <p><input type="text" name="descripcion" value="<%=cervezaToEdit.description%>"></p>
                     </li>
                     <li>
                         <h5>Amargor: </h5>
-                        <p><input type="text" name="amargor" value="<%= amargor%>"></p>
+                        <p><input type="text" name="amargor" value="<%=cervezaToEdit.bitterness%>"></p>
                     </li>                  
                     <li>
                         <h5>Alcohol: </h5>
-                        <p><input type="text" name="alcohol" value="<%= alcohol%>"></p>
+                        <p><input type="text" name="alcohol" value="<%=cervezaToEdit.alcohol%>"></p>
                     </li>
                     <li>
                         <h5>Color: </h5>
-                        <p><input type="text" name="color" value="<%= color%> SRM"></p>
+                        <p><input type="text" name="color" value="<%=cervezaToEdit.color%> SRM"></p>
                     </li>
                     <li>
                         <h5>Lúpulo/s: </h5>
-                        <p><input type="text" name="lupulo" value="<%=lupulo%>"></p>
+                        <p><input type="text" name="lupulo" value="<%=cervezaToEdit.hop%>"></p>
                     </li>
                     <li>
                         <h5>Gasificación: </h5>
-                        <p><input type="text" name="gasificacion" value="<%= gasificacion%>" ></p>
+                        <p><input type="text" name="gasificacion" value="<%=cervezaToEdit.carbonation%>" ></p>
                     </li>
                 </ul>
                 <div class="pd-options">
