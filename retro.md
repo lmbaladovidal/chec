@@ -41,3 +41,27 @@
 <ul>
 <li>Requerir el concenso del equipo completo para realizar cambios en el código de css para poder avanzar con mayor flexibilidad.</li>
 </ul>
+
+<h2>Retro Sprint 3</h2>
+
+<h3>Qué hicimos bien</h3>
+<ul>
+<li> Mejoramos la metodología en la división de tareas. </li>
+<li> Estar mas atentos a los avances de cada integrante del grupo. </li>
+<li> Organizarnos para entregar el sprint en tiempo y forma, a pesar de los inconvenientes en el tiempo para asimilar los nuevos conocimientos.</li>
+</ul>
+
+<h3>Qué hicimos mal</h3>
+<ul>
+<li>Nada que observar en este sprint </li>
+</ul>
+
+<h3>Qué deberíamos empezar a hacer</h3>
+<ul>
+<li>comenzar a subdividir las consignas del sprint en pequeñas implementaciones para avanzar paulatinamente .</li>
+</ul>
+
+<h3>Qué deberíamos dejar de hacer</h3>
+<ul>
+<li> En este sprint no hay puntos que ameriten tratamiento.</li>
+</ul>
