@@ -58,17 +58,5 @@
     "body": "liviano",
     "carbonation": "media",
     "hop": "Cascade"
-  },
-  {
-    "id": 6,
-    "name": "PACK ARA",
-    "description": "Arma tu pack.",
-    "price": 1230,
-    "bitterness": 0,
-    "color": 26,
-    "alcohol": 6.5,
-    "body": "moderado",
-    "carbonation": "media/baja",
-    "hop": "Cascade"
   }
 ]

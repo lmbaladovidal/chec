@@ -1,4 +1,5 @@
 const fs = require('fs');
+const { restart } = require('nodemon');
 const path = require('path');
 const cervezasFilePath = path.join(__dirname, '../DataBase/BDCervezas.json');
 const cervezas = JSON.parse(fs.readFileSync(cervezasFilePath,"utf-8"));
@@ -62,7 +63,8 @@ const productUpdate = (req, res) =>{
 }
 const productSearch=(req,res)=>{
         let search = req.query.search
-        let result = cervezas.filter((cerveza)=>{return cerveza.nombre.includes(search.toUpperCase())})
+        let result = cervezas.filter((cerveza)=>{return cerveza.name.includes(search.toUpperCase())})
+        result.unshift([])
         res.render('./product/productSearch',{cervezas:result})}
 
 const productPack=(req,res)=>{res.render('./product/pack')}
