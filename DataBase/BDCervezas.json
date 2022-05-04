@@ -1,27 +1,27 @@
 [
   {
     "id": 0,
-    "name": "",
-    "description": "",
+    "name": "CERVEZA BORRAR",
+    "description": "wieurwqoi",
     "price": 0,
-    "bitterness": 0,
-    "color": 0,
-    "alcohol": 0,
+    "bitterness": "4",
+    "color": "3 SRM",
+    "alcohol": "4",
     "body": "",
-    "carbonation": "",
-    "hop": ""
+    "carbonation": "qee1",
+    "hop": "hop"
   },
   {
     "id": 1,
-    "name": "STOUT",
     "description": "Cerveza negra con notas a café y chocolate levemente lupulada y moderada en alcohol.",
-    "price": 200,
-    "bitterness": 15,
-    "color": 32,
-    "alcohol": 7.5,
+    "bitterness": "15",
+    "color": "32 SRM SRM SRM SRM SRM SRM SRM SRM SRM SRM",
+    "alcohol": "7.5",
     "body": "pesado",
     "carbonation": "media",
-    "hop": "Cascade"
+    "hop": "Cascade",
+    "price": 200,
+    "name": "STOUT"
   },
   {
     "id": 2,

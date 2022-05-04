@@ -21,7 +21,6 @@ const productUpdate = (req, res) =>{
     let id = parseInt(req.params.id);
     cervezas.forEach(product =>{
         if(product.id == id){
-
             
             product.name = req.body.name?req.body.name:product.name;
             product.description = req.body.description?req.body.description:product.description;
@@ -32,12 +31,12 @@ const productUpdate = (req, res) =>{
             product.carbonation = req.body.carbonation?req.body.carbonation:product.carbonation;
             product.hop = req.body.hop?req.body.hop:product.hop;
         }
-        })
+        })       
         
-    let productEdited= JSON.stringify(cervezas, null, 2);
+    let cervezas_JSON= JSON.stringify(cervezas, null, 2);
     
-    let cervezasEditedPath= path.join(__dirname, '../DataBase/BDCervezas.json');
-    fs.writeFileSync(cervezasEditedPath, productEdited);
+    let cervezasPath= path.join(__dirname, '../DataBase/BDCervezas.json');
+    fs.writeFileSync(cervezasPath, cervezas_JSON);
     res.redirect('/product/productPage')
     
 }
@@ -48,8 +47,16 @@ const productSearch=(req,res)=>{
 
 const productPack=(req,res)=>{res.render('./product/pack')}
 
-const productCreate=(req,res)=>{res.render('./product/productAdmin')
+const productCreate=(req,res)=>{res.render('./product/productAdmin')}
 
+const productDelete = (req, res) => {
+    let id = parseInt(req.params.id);
+       let nonDeletedCervezas = cervezas.filter(cerveza=>cerveza.id!==id);
+    let cervezas_JSON = JSON.stringify(nonDeletedCervezas, null, 2);
+   
+    let cervezasPath= path.join(__dirname, '../DataBase/BDCervezas.json');
+    fs.writeFileSync(cervezasPath, cervezas_JSON);
+    res.redirect('/product/productPage')
 }
 
 
@@ -61,7 +68,8 @@ const productControler = {
     productUpdate,
     productSearch,
     productPack,
-    productCreate, 
+    productCreate,
+    productDelete, 
        
     cervezas:cervezas
 }

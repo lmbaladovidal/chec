@@ -14,19 +14,19 @@
         </div>
         <div class="pd-product-info">
             <h3>Administracion de Producto</h3>
-            <form action="/product/productAdmin/<%= cervezaToEdit.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+            <form action="/product/productAdmin/<%= cervezaToEdit.id %>?_method=PUT" method="POST">
                 <ul class="pd-beer-attributes">
                     <li>
                         <h5>Nombre</h5>
-                        <p><input type="text" name="nombre" value="<%=cervezaToEdit.name%>"></p>
+                        <p><input type="text" name="name" value="<%=cervezaToEdit.name%>"></p>
                     </li>
                     <li>
                         <h5>Descripción</h5>
-                        <p><input type="text" name="descripcion" value="<%=cervezaToEdit.description%>"></p>
+                        <p><input type="text" name="description" value="<%=cervezaToEdit.description%>"></p>
                     </li>
                     <li>
                         <h5>Amargor: </h5>
-                        <p><input type="text" name="amargor" value="<%=cervezaToEdit.bitterness%>"></p>
+                        <p><input type="text" name="bitterness" value="<%=cervezaToEdit.bitterness%>"></p>
                     </li>                  
                     <li>
                         <h5>Alcohol: </h5>
@@ -38,16 +38,20 @@
                     </li>
                     <li>
                         <h5>Lúpulo/s: </h5>
-                        <p><input type="text" name="lupulo" value="<%=cervezaToEdit.hop%>"></p>
+                        <p><input type="text" name="hop" value="<%=cervezaToEdit.hop%>"></p>
                     </li>
                     <li>
                         <h5>Gasificación: </h5>
-                        <p><input type="text" name="gasificacion" value="<%=cervezaToEdit.carbonation%>" ></p>
+                        <p><input type="text" name="carbonation" value="<%=cervezaToEdit.carbonation%>" ></p>
                     </li>
                 </ul>
                 <div class="pd-options">
+                    <form action="product/productPage/<%= cervezaToEdit.id %>?_method=DELETE" method="POST">
+                        <input type="submit" class="lg-submit" value="Eliminar">
+                    </form>
+                
                 <input type="submit" class="lg-submit" value="Guardar">
-                    <input type="reset" class="lg-submit" name="limpiar" value="Limpiar">
+                <input type="reset" class="lg-submit" name="limpiar" value="Limpiar">
                 </div>
             </form>
         </div>
