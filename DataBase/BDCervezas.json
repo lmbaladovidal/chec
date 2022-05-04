@@ -1,15 +1,15 @@
 [
   {
     "id": 0,
-    "name": "CERVEZA BORRAR",
-    "description": "wieurwqoi",
+    "name": "",
+    "description": "",
     "price": 0,
-    "bitterness": "4",
-    "color": "3 SRM",
-    "alcohol": "4",
+    "bitterness": "",
+    "color": "",
+    "alcohol": "",
     "body": "",
-    "carbonation": "qee1",
-    "hop": "hop"
+    "carbonation": "",
+    "hop": ""
   },
   {
     "id": 1,
@@ -57,18 +57,6 @@
     "alcohol": 5,
     "body": "liviano",
     "carbonation": "media",
-    "hop": "Cascade"
-  },
-  {
-    "id": 5,
-    "name": "IRISH RED ALE",
-    "description": "Cerveza roja acaramelada con notas maltosas y bajo amargor.",
-    "price": 200,
-    "bitterness": 10,
-    "color": 26,
-    "alcohol": 6.5,
-    "body": "moderado",
-    "carbonation": "media/baja",
     "hop": "Cascade"
   },
   {

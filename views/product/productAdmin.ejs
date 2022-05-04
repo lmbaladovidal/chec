@@ -14,7 +14,11 @@
         </div>
         <div class="pd-product-info">
             <h3>Administracion de Producto</h3>
-            <form action="/product/productAdmin/<%= cervezaToEdit.id %>?_method=PUT" method="POST">
+            <% if (cervezaToEdit.id == 0){%>
+                <form action="/product/productAdmin/" method="POST">
+            <%}else{%>
+                <form action="/product/productAdmin/<%= cervezaToEdit.id %>?_method=PUT" method="POST">
+            <%}%>
                 <ul class="pd-beer-attributes">
                     <li>
                         <h5>Nombre</h5>
@@ -44,16 +48,19 @@
                         <h5>Gasificación: </h5>
                         <p><input type="text" name="carbonation" value="<%=cervezaToEdit.carbonation%>" ></p>
                     </li>
+                    <li>
+                        <h5>Precio: </h5>
+                        <p><input type="text" name="price" value="<%=cervezaToEdit.price%>" ></p>
+                    </li>
                 </ul>
                 <div class="pd-options">
-                    <form action="product/productPage/<%= cervezaToEdit.id %>?_method=DELETE" method="POST">
-                        <input type="submit" class="lg-submit" value="Eliminar">
-                    </form>
-                
-                <input type="submit" class="lg-submit" value="Guardar">
-                <input type="reset" class="lg-submit" name="limpiar" value="Limpiar">
+                    <input type="submit" class="lg-submit" value="Guardar">
+                    <input type="reset" class="lg-submit" name="limpiar" value="Limpiar">
                 </div>
             </form>
+            <form action="/product/<%= cervezaToEdit.id %>?_method=DELETE" method="POST">
+                <input type="submit" class="lg-submit" value="Eliminar">
+            </form>  
         </div>
 
     </section>
