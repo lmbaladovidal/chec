@@ -4,6 +4,7 @@ const methodOverride= require('method-override')
 const rutaControllers = require("./routes/main.js");
 const productRouter = require("./routes/productRouter");
 const userRouter = require("./routes/userRouter");
+const notFound = require("./middlewares/notFound")
 const app = express();
 
 
@@ -22,7 +23,7 @@ app.use("/", rutaControllers);
 app.use("/quienesSomos", rutaControllers);
 app.use("/product", productRouter);
 app.use("/users", userRouter);
-app.use("/notFound", rutaControllers);
+app.use(notFound)
 
 
 
