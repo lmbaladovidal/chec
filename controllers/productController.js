@@ -30,7 +30,8 @@ const productCreate=(req,res)=>{
         alcohol: req.body.alcohol,
         body: req.body.body,
         carbonation: req.body.carbonation,
-        hop: req.body.hop
+        hop: req.body.hop,
+        image:req.file.filename
       }
     cervezas.push(cerveza);
     let cervezas_JSON= JSON.stringify(cervezas, null, 2);

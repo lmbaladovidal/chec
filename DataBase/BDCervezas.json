@@ -9,7 +9,8 @@
     "alcohol": "",
     "body": "",
     "carbonation": "",
-    "hop": ""
+    "hop": "",
+    "image": "img-beer-temporary.jpg"
   },
   {
     "id": 1,
@@ -21,7 +22,8 @@
     "carbonation": "media",
     "hop": "Cascade",
     "price": 200,
-    "name": "STOUT"
+    "name": "STOUT",
+    "image": "img-beer-temporary.jpg"
   },
   {
     "id": 2,
@@ -33,7 +35,8 @@
     "alcohol": 5.2,
     "body": "liviano",
     "carbonation": "media/alta",
-    "hop": "Cascade"
+    "hop": "Cascade",
+    "image": "img-beer-temporary.jpg"
   },
   {
     "id": 3,
@@ -45,7 +48,8 @@
     "alcohol": 5,
     "body": "liviano",
     "carbonation": "media",
-    "hop": "Cascade"
+    "hop": "Cascade",
+    "image": "img-beer-temporary.jpg"
   },
   {
     "id": 4,
@@ -57,6 +61,7 @@
     "alcohol": 5,
     "body": "liviano",
     "carbonation": "media",
-    "hop": "Cascade"
+    "hop": "Cascade",
+    "image": "beerGlasses.jpg"
   }
 ]

@@ -9,16 +9,17 @@
     <%- include("../partials/header") %>
 
     <section class="pd-product-area">
-        <div class="pd-product-imgs">
-            <img src="/images/img-beer-temporary.jpg" alt="beer">
-        </div>
+        
         <div class="pd-product-info">
             <h3>Administracion de Producto</h3>
             <% if (cervezaToEdit.id == 0){%>
-                <form action="/product/productAdmin/" method="POST">
+                <form action="/product/productAdmin/" method="POST" enctype="multipart/form-data">
             <%}else{%>
-                <form action="/product/productAdmin/<%= cervezaToEdit.id %>?_method=PUT" method="POST">
+                <form action="/product/productAdmin/<%= cervezaToEdit.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
             <%}%>
+            <div class="pd-product-imgs">
+                <img src="/images/<%= cervezaToEdit.image %>" alt="beer">
+            </div>
                 <ul class="pd-beer-attributes">
                     <li>
                         <h5>Nombre</h5>
@@ -53,6 +54,7 @@
                         <p><input type="text" name="price" value="<%=cervezaToEdit.price%>" ></p>
                     </li>
                 </ul>
+                <input type="file" name="product-image">
                 <div class="pd-options">
                     <input type="submit" class="lg-submit" value="Guardar">
                     <input type="reset" class="lg-submit" name="limpiar" value="Limpiar">
