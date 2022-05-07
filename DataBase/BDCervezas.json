@@ -16,14 +16,14 @@
     "id": 1,
     "description": "Cerveza negra con notas a café y chocolate levemente lupulada y moderada en alcohol.",
     "bitterness": "15",
-    "color": "32 SRM SRM SRM SRM SRM SRM SRM SRM SRM SRM",
+    "color": "32 SRM SRM SRM SRM SRM SRM SRM SRM SRM SRM SRM",
     "alcohol": "7.5",
     "body": "pesado",
     "carbonation": "media",
     "hop": "Cascade",
-    "price": 200,
+    "price": "200",
     "name": "STOUT",
-    "image": "img-beer-temporary.jpg"
+    "image": "stout.png"
   },
   {
     "id": 2,
@@ -36,20 +36,20 @@
     "body": "liviano",
     "carbonation": "media/alta",
     "hop": "Cascade",
-    "image": "img-beer-temporary.jpg"
+    "image": "honey.png"
   },
   {
     "id": 3,
     "name": "GOLDEN",
     "description": "Cerveza rubia, refrescante fácil y de tomar por su balance y bajo amargor.",
-    "price": 200,
-    "bitterness": 7,
-    "color": 5,
-    "alcohol": 5,
+    "price": "200",
+    "bitterness": "7",
+    "color": "5 SRM",
+    "alcohol": "5",
     "body": "liviano",
     "carbonation": "media",
     "hop": "Cascade",
-    "image": "img-beer-temporary.jpg"
+    "image": "golden.png"
   },
   {
     "id": 4,
@@ -62,6 +62,18 @@
     "body": "liviano",
     "carbonation": "media",
     "hop": "Cascade",
-    "image": "beerGlasses.jpg"
+    "image": "honey.png"
+  },
+  {
+    "id": 5,
+    "name": "Irish Red Ale",
+    "description": "Cerveza roja acaramelada con notas maltosas y bajo amargor.",
+    "price": "3000",
+    "bitterness": "10 IBU",
+    "color": "26 SRM",
+    "alcohol": "6,5%",
+    "carbonation": "media/baja",
+    "hop": "Cascade",
+    "image": "beer-.png"
   }
 ]

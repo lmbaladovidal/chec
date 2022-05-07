@@ -442,6 +442,7 @@ main h2 .pd-titulo {
 .pd-img-product {
   width: 100%;
   padding: 10px;
+  max-width: 250px;
 }
 .pc-img-product {
   width: 50%;
@@ -491,7 +492,9 @@ section .pd-product-imgs {
   margin: 25px 50px 70px 50px;
   flex: 30%;
   width: 80%;
+  text-align: center;
 }
+
 section .pd-product-info {
   align-items: flex-start;
   flex: 40%;
@@ -526,6 +529,8 @@ section .pd-sub-total {
 
 section .pd-product-imgs img {
   width: 100%;
+  padding: 15px;
+  max-width: 350px;
 }
 
 section div .pd-product-form {
@@ -1316,6 +1321,7 @@ div.bottom-content{
   .pd-product {
     flex: 30%;
     margin: 40px;
+    text-align: center;
   }
 
   main .pd-tienda {
