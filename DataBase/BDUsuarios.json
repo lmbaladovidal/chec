@@ -39,9 +39,119 @@
         "id": 5,
         "name": "Pablo",
         "lastname": "Bornan",
-        "dateOfbirth": "1985-08-03",
+        "dateOfbirth": "1985-08-73",
         "adress": "Colonia Caroya",
         "email": "bornarp@hotmail.com",
         "userRole": "User"
-    }
+    },
+    {
+      "id": 6,
+      "name": "Britany",
+      "lastName": "Loomes",
+      "DateOfBrth": "30/05/1947",
+      "address": "SAnta Fe - Santa Fe",
+      "email": "bloomes5@hubpages.com",
+      "userRole": "user",
+      "password:": "uRhajFcCrK",
+      "userImage": "img-default.jpg"
+    },
+    {
+      "id": 7,
+      "name": "Carlos",
+      "lastName": "Fidock",
+      "DateOfBrth": "14/01/1987",
+      "address": "Lanus Oeste",
+      "email": "cfidock6@businessweek.com",
+      "userRole": "user",
+      "password:": "wAsfdp8m9",
+      "userImage": "img-default.jpg"
+    },
+    {
+      "id": 8,
+      "name": "Karina",
+      "lastName": "Tabard",
+      "DateOfBrth": "24/06/2019",
+      "address": "Florencio Varela",
+      "email": "ktabard7@samsung.com",
+      "userRole": "user",
+      "password:": "Qt3MnYqNceaE",
+      "userImage": "img-default.jpg"
+    },
+    {
+      "id": 9,
+      "name": "Marina",
+      "lastName": "Camillo",
+      "DateOfBrth": "11/06/1973",
+      "address": "Quilmes",
+      "email": "mcamillo8@csmonitor.com",
+      "userRole": "user",
+      "password:": "Y9Ls9sy",
+      "userImage": "img-default.jpg"
+    },
+    {
+      "id": 10,
+      "name": "Alina",
+      "lastName": "Normanton",
+      "DateOfBrth": "15/08/1937",
+      "address": "Morón",
+      "email": "snormanton9@slashdot.org",
+      "userRole": "user",
+      "password:": "W2Dv0khBNiqq",
+      "userImage": "img-default.jpg"
+    },
+    {
+        "id": 11,
+        "name": "Ulises",
+        "lastName": "Rodriguez",
+        "DateOfBrth": "19/08/1941",
+        "address": "74 Merrick Point",
+        "email": "udodridge0@pen.io",
+        "userRole": "user",
+        "password:": "KzffsS5",
+        "userImage": "img-default.jpg"
+      },
+      {
+        "id": 12,
+        "name": "Alessandra",
+        "lastName": "Flannery",
+        "DateOfBrth": "25/02/1934",
+        "address": "776 Comanche Plaza",
+        "email": "aflannery1@sciencedirect.com",
+        "userRole": "user",
+        "password:": "E67MBBH",
+        "userImage": "img-default.jpg"
+      },
+      {
+        "id": 13,
+        "name": "Jose",
+        "lastName": "Callado",
+        "DateOfBrth": "10/02/1915",
+        "address": "San Antonio de Padua - Buenos Aires",
+        "email": "jcallard2@msu.edu",
+        "userRole": "user",
+        "password:": "6JCBgHBByiRS",
+        "userImage": "img-default.jpg"
+      },
+      {
+        "id": 14,
+        "name": "Juan Manuel",
+        "lastName": "Madryn",
+        "DateOfBrth": "25/01/1924",
+        "address": "Wilde",
+        "email": "pwanklyn3@studiopress.com",
+        "userRole": "user",
+        "password:": "awVylXYexi9",
+        "userImage": "img-default.jpg"
+      },
+      {
+        "id": 15,
+        "name": "Juan Cruz",
+        "lastName": "Dudiuk",
+        "DateOfBrth": "26/05/1984",
+        "address": "68625 Kedzie Avenue",
+        "email": "sdurrett4@wordpress.com",
+        "userRole": "user",
+        "password:": "q358ZOmdC",
+        "userImage": "img-default.jpg"
+      }
 ]
