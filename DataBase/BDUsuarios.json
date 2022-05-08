@@ -6,7 +6,8 @@
         "dateOfBirth": "26/03/1985",
         "address": "Lacarra  - San Telmo",
         "email": "aracelicatalano@gmail.com",
-        "userRole": "Admin"
+        "userRole": "Admin",
+        "userImage": "img-default.jpg"
     },
     {
         "id": 2,
@@ -15,7 +16,8 @@
         "dateOfBirth": "07/01/1979",
         "address": "Merlo - Bs As",
         "email": "alba.morann@gmail.com",
-        "userRole": "user"
+        "userRole": "Admin",
+        "userImage": "img-default.jpg"
     },
     {
         "id": 3,
@@ -24,7 +26,8 @@
         "dateOfBirth": "08/12/1982",
         "address": "Independencia - Dean Funes - Cordoba",
         "email": "david.juncos@gmail.com",
-        "userRole": "user"
+        "userRole": "Admin",
+        "userImage": "img-default.jpg"
     },
     {
         "id": 4,
@@ -33,24 +36,26 @@
         "dateOfBirth": "08/12/1982",
         "address": " Colonia Caroya - Cordoba",
         "email": "leandro.valado@gmail.com",
-        "userRole": "Admin"
+        "userRole": "Admin",
+        "userImage": "img-default.jpg"
     },
     {
         "id": 5,
         "name": "Pablo",
-        "lastname": "Bornan",
+        "lastname": "Montenegro",
         "dateOfbirth": "1985-08-73",
         "adress": "Colonia Caroya",
-        "email": "bornarp@hotmail.com",
-        "userRole": "User"
+        "email": "pablom@hotmail.com",
+        "userRole": "User",
+        "userImage": "img-default.jpg"
     },
     {
       "id": 6,
-      "name": "Britany",
-      "lastName": "Loomes",
+      "name": "Juan Pablo",
+      "lastName": "Doldan",
       "DateOfBrth": "30/05/1947",
-      "address": "SAnta Fe - Santa Fe",
-      "email": "bloomes5@hubpages.com",
+      "address": "Santa Fe - Santa Fe",
+      "email": "Juanpi-doldan@hubpages.com",
       "userRole": "user",
       "password:": "uRhajFcCrK",
       "userImage": "img-default.jpg"
@@ -69,10 +74,10 @@
     {
       "id": 8,
       "name": "Karina",
-      "lastName": "Tabard",
-      "DateOfBrth": "24/06/2019",
+      "lastName": "Tabardo",
+      "DateOfBrth": "24/06/1999",
       "address": "Florencio Varela",
-      "email": "ktabard7@samsung.com",
+      "email": "KarinaTab@samsung.com",
       "userRole": "user",
       "password:": "Qt3MnYqNceaE",
       "userImage": "img-default.jpg"
@@ -94,7 +99,7 @@
       "lastName": "Normanton",
       "DateOfBrth": "15/08/1937",
       "address": "Morón",
-      "email": "snormanton9@slashdot.org",
+      "email": "AlinaNorma@dott.com.ar",
       "userRole": "user",
       "password:": "W2Dv0khBNiqq",
       "userImage": "img-default.jpg"
@@ -105,7 +110,7 @@
         "lastName": "Rodriguez",
         "DateOfBrth": "19/08/1941",
         "address": "74 Merrick Point",
-        "email": "udodridge0@pen.io",
+        "email": "uRodriguez0@open.com.ar",
         "userRole": "user",
         "password:": "KzffsS5",
         "userImage": "img-default.jpg"
@@ -113,10 +118,10 @@
       {
         "id": 12,
         "name": "Alessandra",
-        "lastName": "Flannery",
-        "DateOfBrth": "25/02/1934",
+        "lastName": "Diez",
+        "DateOfBrth": "25/02/1954",
         "address": "776 Comanche Plaza",
-        "email": "aflannery1@sciencedirect.com",
+        "email": "aleDiez111@sciencedirect.com",
         "userRole": "user",
         "password:": "E67MBBH",
         "userImage": "img-default.jpg"
@@ -125,7 +130,7 @@
         "id": 13,
         "name": "Jose",
         "lastName": "Callado",
-        "DateOfBrth": "10/02/1915",
+        "DateOfBrth": "10/02/1965",
         "address": "San Antonio de Padua - Buenos Aires",
         "email": "jcallard2@msu.edu",
         "userRole": "user",
@@ -136,9 +141,9 @@
         "id": 14,
         "name": "Juan Manuel",
         "lastName": "Madryn",
-        "DateOfBrth": "25/01/1924",
+        "DateOfBrth": "25/01/1969",
         "address": "Wilde",
-        "email": "pwanklyn3@studiopress.com",
+        "email": "JMM@studiopress.com",
         "userRole": "user",
         "password:": "awVylXYexi9",
         "userImage": "img-default.jpg"
@@ -148,10 +153,76 @@
         "name": "Juan Cruz",
         "lastName": "Dudiuk",
         "DateOfBrth": "26/05/1984",
-        "address": "68625 Kedzie Avenue",
-        "email": "sdurrett4@wordpress.com",
+        "address": "Avellaneda",
+        "email": "JuanCruzDudiuk@wordpress.com",
         "userRole": "user",
         "password:": "q358ZOmdC",
+        "userImage": "img-default.jpg"
+      },
+      {
+        "id": 15,
+        "name": "Alicia",
+        "lastName": "Ayala",
+        "DateOfBrth": "26/05/1970",
+        "address": "Rosario - Santa Fe",
+        "email": "aliciaA@gmail.com",
+        "userRole": "user",
+        "password:": "q358ZOmdC",
+        "userImage": "img-default.jpg"
+      },
+      {
+        "id": 16,
+        "name": "Luz Emilia",
+        "lastName": "Romero",
+        "DateOfBrth": "16/05/1979",
+        "address": "Capital Federal",
+        "email": "LuzEmilia@gmail.com",
+        "userRole": "user",
+        "password:": "Farolito1",
+        "userImage": "img-default.jpg"
+      },
+      {
+        "id": 17,
+        "name": "David ",
+        "lastName": "Kaplan",
+        "DateOfBrth": "16/08/1989",
+        "address": "Capital Federal",
+        "email": "david_kaplan@gmail.com",
+        "userRole": "user",
+        "password:": "DK_1254*",
+        "userImage": "img-default.jpg"
+      },
+      {
+        "id": 18,
+        "name": "Alfredo ",
+        "lastName": "Antonio",
+        "DateOfBrth": "16/08/1961",
+        "address": "Merlo",
+        "email": "AlfredoA@gmail.com",
+        "userRole": "user",
+        "password:": "q358ZOmdC",
+        "userImage": "img-default.jpg"
+      },
+      {
+        "id": 19,
+        "name": "Fabiana ",
+        "lastName": "Chalini",
+        "DateOfBrth": "16/08/1963",
+        "address": "Merlo",
+        "email": "fabianaChelini@outlook.com",
+        "userRole": "user",
+        "password:": "fabichelini_11",
+        "userImage": "img-default.jpg"
+      },
+      {
+        "id": 20,
+        "name": "Federico",
+        "lastName": "Moran",
+        "DateOfBrth": "02/08/1986",
+        "address": "Santa Fe",
+        "email": "fedeMoran@outlook.com",
+        "userRole": "user",
+        "password:": "fedemoran1",
         "userImage": "img-default.jpg"
       }
 ]
