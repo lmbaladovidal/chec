@@ -52,6 +52,7 @@ const productUpdate = (req, res) =>{
                 product.alcohol = req.body.alcohol;
                 product.carbonation = req.body.carbonation;
                 product.hop = req.body.hop;
+            
             }
         })       
         
