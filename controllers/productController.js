@@ -31,7 +31,8 @@ const productCreate=(req,res)=>{
         body: req.body.body,
         carbonation: req.body.carbonation,
         hop: req.body.hop,
-        image:req.file.filename
+        image:req.file.filename,
+        category : req.body.category
       }
     cervezas.push(cerveza);
     let cervezas_JSON= JSON.stringify(cervezas, null, 2);
@@ -52,8 +53,11 @@ const productUpdate = (req, res) =>{
                 product.alcohol = req.body.alcohol;
                 product.carbonation = req.body.carbonation;
                 product.hop = req.body.hop;
+                product.category = req.body.category;
+                product.image = req.file?req.file.filename:req.body.image;         
             
             }
+            
         })       
         
     let cervezas_JSON= JSON.stringify(cervezas, null, 2);

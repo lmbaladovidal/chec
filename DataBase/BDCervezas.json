@@ -10,7 +10,8 @@
     "body": "",
     "carbonation": "",
     "hop": "",
-    "image": "img-beer-temporary.jpg"
+    "image": "img-beer-temporary.jpg",
+    "category": ""
   },
   {
     "id": 1,
@@ -24,7 +25,7 @@
     "price": "200",
     "name": "STOUT",
     "image": "stout.png",
-    "_locals": {}
+    "category": "Estándar"
   },
   {
     "id": 2,
@@ -37,7 +38,8 @@
     "body": "liviano",
     "carbonation": "media/alta",
     "hop": "Cascade",
-    "image": "honey.png"
+    "image": "honey.png",
+    "category": "Estándar"
   },
   {
     "id": 3,
@@ -50,20 +52,23 @@
     "body": "liviano",
     "carbonation": "media",
     "hop": "Cascade",
-    "image": "golden.png"
+    "image": "golden.png",
+    "category": "Estándar"
   },
   {
     "id": 4,
     "name": "HONEY",
     "description": "Cerveza rubia de alto dulzor con notas de sabor a miel.",
-    "price": 200,
-    "bitterness": 7,
-    "color": 5,
-    "alcohol": 5,
+    "price": "200",
+    "bitterness": "7",
+    "color": "5",
+    "alcohol": "5",
     "body": "liviano",
     "carbonation": "media",
     "hop": "Cascade",
-    "image": "honey.png"
+    "image": "beer-1652058782427.png",
+    "category": "Estandar",
+    "_locals": {}
   },
   {
     "id": 5,
@@ -75,6 +80,7 @@
     "alcohol": "6,5%",
     "carbonation": "media/baja",
     "hop": "Cascade",
-    "image": "beer-.png"
+    "image": "beer-1652058793037.png",
+    "category": "Estandar"
   }
 ]

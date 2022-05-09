@@ -53,8 +53,24 @@
                         <h5>Precio: </h5>
                         <p><input type="text" name="price" value="<%=cervezaToEdit.price%>" ></p>
                     </li>
+                    <li>
+                        <h5>Categoría: </h5> 
+                    <select name="category">
+                            <% let categories=['Estandar', 'Especial' , 'Merchandising']; %>
+                            <% for (const oneCategory of categories) { %>
+                                <option 
+									value="<%= oneCategory %>"
+									<%= locals.oldData && (oneCategory === oldData.oneCategory) ? 'selected' : null %>> <%= oneCategory %> </option>
+                                </option>
+                                <% } %>
+                    </select>
+                    </li>
+
                 </ul>
+
                 <input type="file" name="product-image">
+                <input type="text" name="image" style="opacity: 0;" value="<%=cervezaToEdit.image%>">
+                
                 <div class="pd-options">
                     <input type="submit" class="lg-submit" value="Guardar">
                     <input type="reset" class="lg-submit" name="limpiar" value="Limpiar">
