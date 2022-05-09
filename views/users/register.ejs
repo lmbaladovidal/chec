@@ -7,12 +7,13 @@
     <!-- Header-->
     <%- include("../partials/header") %>
     <section> 
-        <form action="POST" class="rg-form">
-            <input type="text" placeholder="Nombre" class="rg-input">
-            <input type="text" placeholder="Apellido" class="rg-input">
-            <input type="text" placeholder="Direccion" class="rg-input">
-            <input type="date" placeholder="Fecha de nacimiento" class="rg-input">
-            <input type="password" placeholder="Contraseña" class="rg-input">
+        <form action="/users/register" class="rg-form" method="POST">
+            <input type="text" name="name"placeholder="Nombre" class="rg-input">
+            <input type="text" name="lastName" placeholder="Apellido" class="rg-input">
+            <input type="text" name="email" placeholder="Email" class="rg-input">
+            <input type="text" name="adress" placeholder="Direccion" class="rg-input">
+            <input type="date" name="birthDate" placeholder="Fecha de nacimiento" class="rg-input">
+            <input type="password" name="pass" placeholder="Contraseña" class="rg-input">
             <input type="password" placeholder="Contraseña" class="rg-input">
             <div class="rg-btn-div">
                 <input type="submit" name="" id="rg-submit" class="rg-submit">

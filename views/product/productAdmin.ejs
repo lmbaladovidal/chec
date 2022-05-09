@@ -9,47 +9,76 @@
     <%- include("../partials/header") %>
 
     <section class="pd-product-area">
-        <div class="pd-product-imgs">
-            <img src="/images/img-beer-temporary.jpg" alt="beer">
-        </div>
+        
         <div class="pd-product-info">
             <h3>Administracion de Producto</h3>
-            <form action="" method="post">
+            <% if (cervezaToEdit.id == 0){%>
+                <form action="/product/productAdmin/" method="POST" enctype="multipart/form-data">
+            <%}else{%>
+                <form action="/product/productAdmin/<%= cervezaToEdit.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+            <%}%>
+            <div class="pd-product-imgs">
+                <img src="/images/<%= cervezaToEdit.image %>" alt="beer">
+            </div>
                 <ul class="pd-beer-attributes">
                     <li>
                         <h5>Nombre</h5>
-                        <p><input type="text" name="nombre" value="<%= nombre %>"></p>
+                        <p><input type="text" name="name" value="<%=cervezaToEdit.name%>"></p>
                     </li>
                     <li>
                         <h5>Descripción</h5>
-                        <p><input type="text" name="descripcion" value="<%= descripcion%>"></p>
+                        <p><input type="text" name="description" value="<%=cervezaToEdit.description%>"></p>
                     </li>
                     <li>
                         <h5>Amargor: </h5>
-                        <p><input type="text" name="amargor" value="<%= amargor%>"></p>
+                        <p><input type="text" name="bitterness" value="<%=cervezaToEdit.bitterness%>"></p>
                     </li>                  
                     <li>
                         <h5>Alcohol: </h5>
-                        <p><input type="text" name="alcohol" value="<%= alcohol%>"></p>
+                        <p><input type="text" name="alcohol" value="<%=cervezaToEdit.alcohol%>"></p>
                     </li>
                     <li>
                         <h5>Color: </h5>
-                        <p><input type="text" name="color" value="<%= color%> SRM"></p>
+                        <p><input type="text" name="color" value="<%=cervezaToEdit.color%>"></p>
                     </li>
                     <li>
                         <h5>Lúpulo/s: </h5>
-                        <p><input type="text" name="lupulo" value="<%=lupulo%>"></p>
+                        <p><input type="text" name="hop" value="<%=cervezaToEdit.hop%>"></p>
                     </li>
                     <li>
                         <h5>Gasificación: </h5>
-                        <p><input type="text" name="gasificacion" value="<%= gasificacion%>" ></p>
+                        <p><input type="text" name="carbonation" value="<%=cervezaToEdit.carbonation%>" ></p>
                     </li>
+                    <li>
+                        <h5>Precio: </h5>
+                        <p><input type="text" name="price" value="<%=cervezaToEdit.price%>" ></p>
+                    </li>
+                    <li>
+                        <h5>Categoría: </h5> 
+                    <select name="category">
+                            <% let categories=['Estandar', 'Especial' , 'Merchandising']; %>
+                            <% for (const oneCategory of categories) { %>
+                                <option 
+									value="<%= oneCategory %>"
+									<%= locals.oldData && (oneCategory === oldData.oneCategory) ? 'selected' : null %>> <%= oneCategory %> </option>
+                                </option>
+                                <% } %>
+                    </select>
+                    </li>
+
                 </ul>
+
+                <input type="file" name="product-image">
+                <input type="text" name="image" style="opacity: 0;" value="<%=cervezaToEdit.image%>">
+                
                 <div class="pd-options">
-                <input type="submit" class="lg-submit" value="Guardar">
+                    <input type="submit" class="lg-submit" value="Guardar">
                     <input type="reset" class="lg-submit" name="limpiar" value="Limpiar">
                 </div>
             </form>
+            <form action="/product/<%= cervezaToEdit.id %>?_method=DELETE" method="POST">
+                <input type="submit" class="lg-submit" value="Eliminar">
+            </form>  
         </div>
 
     </section>
