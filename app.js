@@ -4,9 +4,20 @@ const methodOverride= require('method-override')
 const rutaControllers = require("./routes/main.js");
 const productRouter = require("./routes/productRouter");
 const userRouter = require("./routes/userRouter");
-const notFound = require("./middlewares/notFound")
+const notFound = require("./middlewares/notFound");
+
+const session = require('express-session');
+const cookies = require('cookie-parser');
+
 const app = express();
 
+app.use(session({
+	secret: "Shhh, It's a secret",
+	resave: false,
+	saveUninitialized: false,
+}));
+
+app.use(cookies());
 
 app.use(express.static("public"));
 app.set('view engine', 'ejs');

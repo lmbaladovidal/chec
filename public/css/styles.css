@@ -376,7 +376,9 @@ max-width: 500px;
 
 /*Pagina Register*/
 
-
+.text-danger {
+  color: #dc3545 !important;
+}
 
 
 .rg-form{
