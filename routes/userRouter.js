@@ -57,11 +57,14 @@ router.get('/login',guestMiddleware, userController.login);
 //Process login
 router.post('/login', userController.loginProcess);
 
-router.get('/register', userController.register);
+router.get('/register', guestMiddleware, userController.register);
 // Proces user register
 router.post('/register',uploadFile.single('avatar'), validations, userController.userRegister);
 
 //Profile
-router.get('/profile', userController.profile);
+router.get('/profile', authMiddleware, userController.profile);
+
+// Logout
+router.get('/logout/', userController.logout);
 
 module.exports = router;

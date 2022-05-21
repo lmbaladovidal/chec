@@ -26,8 +26,8 @@ const userController = {
         if (req.body.remember_user) {
           res.cookie("userEmail", req.body.email, { maxAge: 1000 * 60 * 60 });
         }
-        return res.render("./users/profile", { user: userToLogin });
-        //return res.redirect('/users/profile');
+        //return res.render("./users/profile", { user: userToLogin });
+        return res.redirect('/users/profile');
       }
       return res.render("./users/login", {
         errors: {
@@ -88,13 +88,15 @@ const userController = {
     return res.redirect("./login");
   },
   profile: (req, res) => {
-    return res.render("profile");
-  },
+	return res.render('./users/profile', {
+		user: req.session.userLogged  // pasar a la vista la variable userLogged
+	});
+},
   logout: (req, res) => {
     res.clearCookie("userEmail");
     req.session.destroy();
     return res.redirect("/");
-  },
+}
 };
 
 module.exports = userController;

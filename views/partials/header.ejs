@@ -7,19 +7,20 @@
             <li><a href="/nuestrasRecetas">Nuestras Recetas </a></li>
         </ul>
         <ul class="rigth-navbar">
-            <li><div class="pd-pc-links">
-                <a href="/product/productPage" class="tienda-botton">Tienda</a>
-                <a href="/product/productCart"><i class="fas fa-shopping-cart"></i></a>
-            </div>
+            <li>
+                <div class="pd-pc-links">
+                    <a href="/product/productPage" class="tienda-botton">Tienda</a>
+                    <a href="/product/productCart"><i class="fas fa-shopping-cart"></i></a>
+                </div>
             </li>
             <li>
-                <ul class="main-navbar-dropdown-menu-container">
+                <ul class="right-navbar-dropdown-menu-container">
                     <% if (locals.isLogged) { %>
                         <li>
-                            <img src="/images/avatars/<%= locals.userLogged.avatar %>">
-                            <%= locals.userLogged.name %>
+                            <img src="/images/avatars/default.png">
+                            Nombre
                             </a>
-                            <ul class="main-navbar-dropdown-menu">
+                            <ul class="right-navbar-dropdown-menu">
                                 <li><a href="/users/profile">Mi perfil</a></li>
                                 <li><a href="/users/logout">Salir</a></li>
                             </ul>
