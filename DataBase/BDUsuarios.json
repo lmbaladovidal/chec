@@ -236,5 +236,28 @@
   "password": "$2a$10$/Ra60bN3cBEPdasRVJtCuedblzUqTH7AnY.4P1aIuI3j5gzm9k8KS",
   "avatar": "default.png",
   "userRole": "user"
+ },
+ {
+  "id": 23,
+  "name": "Araceli",
+  "lastName": "Catalano",
+  "email": "catalano@gmail.com",
+  "address": "Lacarra 565",
+  "birthDate": "2022-05-03",
+  "password": "$2a$10$dwyrmQAN9NHtWYVlPmXO3OYoOoJtiz5mugOWLiPK27V6l.O9d4O82",
+  "avatar": "default.png",
+  "userRole": "user"
+ },
+ {
+  "id": 24,
+  "name": "Araceli",
+  "lastName": "Catalano",
+  "email": "Catalano@gmail.com",
+  "address": "Lacarra 565",
+  "birthDate": "2022-05-03",
+  "password": "$2a$10$udDNzX9fSYgXmvbmxnRfU.AWAA8tmf.q0OtDP6ZNEhqp.GKksuxAm",
+  "passVerify": "12345678",
+  "avatar": "default.png",
+  "userRole": "user"
  }
 ]

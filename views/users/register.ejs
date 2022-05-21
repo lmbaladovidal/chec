@@ -1,7 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- Head-->
-<%- include("../partials/head") %>
+    
+<%- include('../partials/head') %>
+
+    <script>
+        function validar(){
+            if(document.getElementById("password").value == document.getElementById("passVerify").value){
+                document.getElementById("passVerify").style.backgroundColor = 'green'
+                document.getElementById("pwsd-error-msg").innerHTML = ''
+            }else{
+                document.getElementById("passVerify").style.backgroundColor = 'pink'
+                document.getElementById("pwsd-error-msg").innerHTML = 'Error'
+            }
+        }
+    </script>
 
 <body>
     <!-- Header-->
@@ -77,6 +89,7 @@
                 <label><b>Contraseña</b></label>
                 <input 
                     type="password" 
+                    id="password"
                     name="password" 
                     class="rg-input"<%= locals.errors && errors.password ? 'is-invalid' : null %>"
                     value="<%= locals.oldData ? oldData.password : null %>">
@@ -85,6 +98,18 @@
                             <%= errors.password.msg %> 
                         </div>
                     <% } %>
+                <input 
+                    type="password" 
+                    name="passVerify" 
+                    id="passVerify" 
+                    placeholder="Confirma tu contraseña" 
+                    required onkeyup="validar()">
+                <% if (locals.errors && errors.passVerify) { %>
+                    <div class="text-danger">
+                        <%= errors.passVerify.msg %> 
+                    </div>
+                <% } %>
+
             </div>
 
                                  

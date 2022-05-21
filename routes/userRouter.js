@@ -30,8 +30,14 @@ const validations = [
 	body('email')
 		.notEmpty().withMessage('Tienes que escribir un correo electrónico').bail() //bail corta la validación si está vacío
 		.isEmail().withMessage('Debes escribir un formato de correo válido'),
-	body('password').notEmpty().withMessage('Tienes que escribir una contraseña'),
 	body('address').notEmpty().withMessage('Tienes que escribir tu dirección'),
+	body('password').notEmpty().withMessage('Tienes que escribir una contraseña'),
+	body('passVerify').notEmpty().withMessage('Repite tu contraseña').bail()
+		.custom((value,{req}) =>{
+			if(value !== req.body.password){
+				throw new Error('Las contraseñas no coinciden')
+			}
+			return true}),
 	body('avatar').custom((value, { req }) => {       //custom validation xq no hay una validación para files. 
 		let file = req.file;                          //Custom val. requiere cb para pasar el campo a validar
 		let acceptedExtensions = ['.jpg', '.png', '.gif'];
