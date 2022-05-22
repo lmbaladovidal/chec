@@ -19,9 +19,11 @@
     <!-- Header-->
     <%- include("../partials/header") %>
     <section> 
+        <label><h3>REGISTRO NUEVO USUARIO</h3></label>
         <form action="/users/register" class="rg-form" method="POST" enctype="multipart/form-data">
             <div>
             <label><b>Nombre</b></label>
+            <br>
             <input 
                 type="text" 
                 name="name"
@@ -35,6 +37,7 @@
             </div>
             <div>
                 <label><b>Apellido</b></label>
+                <br>
                 <input 
                     type="text"
                     name="lastName" 
@@ -48,6 +51,7 @@
             </div>
            <div>
             <label><b>Email</b></label>
+            <br>
             <input 
                 type="text" 
                 name="email" 
@@ -61,6 +65,7 @@
            </div>
            <div>
             <label><b>Dirección</b></label>
+            <br>
                <input 
                     type="text" 
                     name="address" 
@@ -74,6 +79,7 @@
             </div>
             <div>
                 <label><b>Fecha de nacimiento</b></label>
+                <br>
                 <input 
                     type="date"
                     name="birthDate" 
@@ -87,6 +93,7 @@
             </div>
             <div>
                 <label><b>Contraseña</b></label>
+                <br>
                 <input 
                     type="password" 
                     id="password"
@@ -98,11 +105,15 @@
                             <%= errors.password.msg %> 
                         </div>
                     <% } %>
+            </div>
+            <div>
+                <label><b>Confirmá tu contraseña</b></label>
+                <br>
                 <input 
                     type="password" 
+                    class="rg-input"
                     name="passVerify" 
                     id="passVerify" 
-                    placeholder="Confirma tu contraseña" 
                     required onkeyup="validar()">
                 <% if (locals.errors && errors.passVerify) { %>
                     <div class="text-danger">
@@ -111,19 +122,22 @@
                 <% } %>
 
             </div>
-
+           
                                  
-            <div class="col-md-6 my-1">
-                <div class="form-group">
+            <div>
+                <div >
                     <label><b>Imagen de perfil:</b></label>
+                    <br>
                     <input 
                         type="file" 
                         name="avatar"
+                        class="rg-input"
                         
                     >
                 </div>
             </div>
-            <div class="rg-btn-div">
+        
+            <div class="rg-btn-div rg-input" >
                 <input type="submit" name="" id="rg-submit" class="rg-submit">
                 <input type="reset" class="rg-reset">
             </div>
