@@ -91,17 +91,23 @@ a { text-decoration: none;}
   display: flex;
   justify-content: space-around;
   color: white;
-    padding: 10px;
 }
 
-.main-navbar ul img {
+.main-navbar ul img{
   width: 30px;
   border-radius: 100%;
+  margin: 0px 5px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: nowrap;
 
 }
 .main-navbar ul .dropdown-menu-container  li {
   font-size: 12px;
+  flex-wrap: nowrap;
 }
+
 .main-navbar ul .dropdown-menu-container > li > a{
   display: block;
   justify-content: space-around;
@@ -118,6 +124,7 @@ a { text-decoration: none;}
 }
 .main-navbar ul .dropdown-menu-container li:hover .dropdown-menu{
   display: block;
+  
 }
 .main-navbar ul .dropdown-menu-container .dropdown-menu li:hover {
   color: #ff6200;
@@ -1179,6 +1186,36 @@ section .pd-quienes-somos-right, section .pd-quienes-somos-left {
 }
 /* Fin Quienes somos*/
 
+/* NUESTRAS RECETAS*/
+.nr-main-containter {
+  display: flex;
+  max-width: 90%;
+  margin: auto;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.nr-details-container {
+  margin: 5px;
+}
+.nr-information h4 {
+  padding: 10px 10px 10px 5px;
+}
+
+.nr-process {
+  border: solid 1px #c4c4c4;
+  border-radius: 4px;
+  margin: 5px;
+}
+.nr-process h4 {
+  padding: 15px 15px 15px 10px;
+  color: #541E00;
+}
+.nr-process p {
+  font-size: 14px;
+  padding: 5px 10px 5px 10px;
+}
+/* Fin NUESTRAS RECETAS*/
 
     
 /*°°°°°°°°° INDEX °°°°°°°°°°°*/
@@ -1857,6 +1894,16 @@ div.bottom-content{
   width: 40%;
 }
 /* FIN PACK PERSONALIZADO */
+
+/* Media 760 NUESTRAS RECETAS*/
+
+.nr-container {
+  flex: 65%;
+}
+.nr-process{
+  flex: 30%;
+}
+/* Fin Meddia 760 NUESTRAS RECETAS*/
 
 }
 /*#########################################################################################/*/
