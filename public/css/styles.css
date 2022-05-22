@@ -1361,6 +1361,12 @@ section.ind-top {
     border-bottom: #ff8a00 1px double;
     text-align: center;
   }
+  article.art-3 img {
+    max-height: 40px;
+    max-width: 40%;
+    margin: auto;
+   
+  }
 
   article.art-3 i {
     transition: all 450ms;
