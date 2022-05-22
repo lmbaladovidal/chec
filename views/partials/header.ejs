@@ -14,20 +14,20 @@
                 </div>
             </li>
             <li>
-                <ul class="right-navbar-dropdown-menu-container">
+                <ul class="dropdown-menu-container">
                     <% if (locals.isLogged) { %>
                         <li>
-                            <img src="/images/avatars/default.png">
-                            Nombre
+                            <img src="/images/avatars/<%= locals.userLogged.avatar %>">
+                            <%= locals.userLogged.name %>
                             </a>
-                            <ul class="right-navbar-dropdown-menu">
+                            <ul class="dropdown-menu">
                                 <li><a href="/users/profile">Mi perfil</a></li>
                                 <li><a href="/users/logout">Salir</a></li>
                             </ul>
                         </li>
                         <% } else { %>
                             <li><a href="/users/login">Ingresá <i class="fas fa-sign-in-alt"></i></a></li>
-                            <% } %>
+                        <% } %>
                 </ul>
             </li>
         </ul>

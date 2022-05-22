@@ -86,6 +86,52 @@ a { text-decoration: none;}
   list-style: none;
 }
 
+.main-navbar ul .dropdown-menu-container {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  color: white;
+    padding: 10px;
+}
+
+.main-navbar ul img {
+  width: 30px;
+  border-radius: 100%;
+
+}
+.main-navbar ul .dropdown-menu-container  li {
+  font-size: 12px;
+}
+.main-navbar ul .dropdown-menu-container > li > a{
+  display: block;
+  justify-content: space-around;
+  color: white;
+  padding: 15px;
+  font-size: 12px;
+}
+.main-navbar ul .dropdown-menu-container li .dropdown-menu {
+  position: absolute;
+  display: none;
+  list-style: none;
+  width: 200px;
+  background-color: black;
+}
+.main-navbar ul .dropdown-menu-container li:hover .dropdown-menu{
+  display: block;
+}
+.main-navbar ul .dropdown-menu-container .dropdown-menu li:hover {
+  color: #ff6200;
+}
+.main-navbar ul .dropdown-menu-container .dropdown-menu li a {
+  display: block;
+  color: white;
+  padding: 15px 15px 15px 20px;
+  text-decoration: none;
+}
+.main-navbar ul .dropdown-menu-container .dropdown-menu li a:hover {
+  color: #ff6200;
+}
+
 .logo {
   margin: 10px 0;
   flex: 100%;
@@ -1421,7 +1467,7 @@ div.bottom-content{
   }
   .rigth-navbar {
     /*pone los elementos de la lista en linea*/
-    display: block; /*AC: cambié flex x block*/
+    display: flex; 
     align-items: center;
     justify-content: space-around;
     width: 100%;
