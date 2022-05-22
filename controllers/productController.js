@@ -1,7 +1,7 @@
 const fs = require('fs');
 const { restart } = require('nodemon');
 const path = require('path');
-const cervezasFilePath = path.join(__dirname, '../DataBase/BDCervezas.json');
+const cervezasFilePath = path.join(__dirname, '../DataBase/products/BDCervezas.json');
 const cervezas = JSON.parse(fs.readFileSync(cervezasFilePath,"utf-8"));
 
 

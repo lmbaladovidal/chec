@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const usuariosFilePath = path.join(__dirname,'../DataBase/BDUsuarios.json');
+const usuariosFilePath = path.join(__dirname,'../DataBase/users/BDUsuarios.json');
 const usuarios = JSON.parse(fs.readFileSync(usuariosFilePath,"utf-8"))
 
 const userController = {
