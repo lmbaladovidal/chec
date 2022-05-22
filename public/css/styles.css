@@ -86,6 +86,59 @@ a { text-decoration: none;}
   list-style: none;
 }
 
+.main-navbar ul .dropdown-menu-container {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  color: white;
+}
+
+.main-navbar ul img{
+  width: 30px;
+  border-radius: 100%;
+  margin: 0px 5px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: nowrap;
+
+}
+.main-navbar ul .dropdown-menu-container  li {
+  font-size: 12px;
+  flex-wrap: nowrap;
+}
+
+.main-navbar ul .dropdown-menu-container > li > a{
+  display: block;
+  justify-content: space-around;
+  color: white;
+  padding: 15px;
+  font-size: 12px;
+}
+.main-navbar ul .dropdown-menu-container li .dropdown-menu {
+  position: absolute;
+  display: none;
+  list-style: none;
+  width: 200px;
+  background-color: black;
+}
+.main-navbar ul .dropdown-menu-container li:hover .dropdown-menu{
+  display: block;
+  
+}
+.main-navbar ul .dropdown-menu-container .dropdown-menu li:hover {
+  color: #ff6200;
+}
+.main-navbar ul .dropdown-menu-container .dropdown-menu li a {
+  display: block;
+  color: white;
+  padding: 15px 15px 15px 20px;
+  text-decoration: none;
+}
+.main-navbar ul .dropdown-menu-container .dropdown-menu li a:hover {
+  color: #ff6200;
+}
+
 .logo {
   margin: 10px 0;
   flex: 100%;
@@ -376,7 +429,9 @@ max-width: 500px;
 
 /*Pagina Register*/
 
-
+.text-danger {
+  color: #dc3545 !important;
+}
 
 
 .rg-form{
@@ -1131,6 +1186,36 @@ section .pd-quienes-somos-right, section .pd-quienes-somos-left {
 }
 /* Fin Quienes somos*/
 
+/* NUESTRAS RECETAS*/
+.nr-main-containter {
+  display: flex;
+  max-width: 90%;
+  margin: auto;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.nr-details-container {
+  margin: 5px;
+}
+.nr-information h4 {
+  padding: 10px 10px 10px 5px;
+}
+
+.nr-process {
+  border: solid 1px #c4c4c4;
+  border-radius: 4px;
+  margin: 5px;
+}
+.nr-process h4 {
+  padding: 15px 15px 15px 10px;
+  color: #541E00;
+}
+.nr-process p {
+  font-size: 14px;
+  padding: 5px 10px 5px 10px;
+}
+/* Fin NUESTRAS RECETAS*/
 
     
 /*°°°°°°°°° INDEX °°°°°°°°°°°*/
@@ -1419,12 +1504,55 @@ div.bottom-content{
   }
   .rigth-navbar {
     /*pone los elementos de la lista en linea*/
-    display: flex;
+    display: flex; 
     align-items: center;
     justify-content: space-around;
     width: 100%;
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .main-navbar-dropdown-menu-container {   
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .main-navbar-dropdown-menu-container li img {
+    width: 35px;
+    border-radius: 100%;
+  }
+  .main-navbar-dropdown-menu-container ul > li > a{
+    display: block;
+    color: white;
+    padding: 15px;
+    text-decoration: none;
+  }
+  .main-navbar-dropdown-menu ul:hover {
+    background-color: white;
+  }
+
+  .main-navbar-dropdown-menu {
+    position: absolute;
+    display: none;
+    list-style: none;
+    width: 200px;
+    background-color: rgb(0, 0, 0)
+  }
+  .main-navbar-dropdown-menu-container li:hover .main-navbar-dropdown-menu{
+    display: block;
+  }
+  .main-navbar-dropdown-menu li:hover {
+    background-color: #000000;
+  }
+  .main-navbar-dropdown-menu li a {
+    display: block;
+    color: black;
+    padding: 15px 15px 15px 20px;
+    text-decoration: none;
+  }
+  .main-navbar-dropdown-menu li a:hover {
+    color:white;
   }
 
   .secondary-navbar {
@@ -1635,6 +1763,8 @@ section.ind-top {
     align-items: flex-end;
   }
 
+  
+
   /*°°°°°°°  FOOTER Y SUSCRIBE °°°°°°°°°°°°°*/
   /*°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°*/
 
@@ -1764,6 +1894,16 @@ div.bottom-content{
   width: 40%;
 }
 /* FIN PACK PERSONALIZADO */
+
+/* Media 760 NUESTRAS RECETAS*/
+
+.nr-container {
+  flex: 65%;
+}
+.nr-process{
+  flex: 30%;
+}
+/* Fin Meddia 760 NUESTRAS RECETAS*/
 
 }
 /*#########################################################################################/*/

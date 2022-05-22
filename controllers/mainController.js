@@ -13,6 +13,9 @@ const controllerMain = {
     enDesarrollo: (req,res) => {
         res.render('enDesarrollo');
     },
+    recetas: (req,res) => {
+        res.render('nuestrasRecetas');
+    },
     
 };
 
