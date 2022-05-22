@@ -3,6 +3,9 @@ const path = require('path');
 const cervezasFilePath = path.join(__dirname, '../DataBase/BDCervezas.json');
 const cervezas = JSON.parse(fs.readFileSync(cervezasFilePath,"utf-8"));
 
+const recetasFilePath = path.join(__dirname, '../DataBase/bbddRecetas.json');
+const recetas = JSON.parse(fs.readFileSync(recetasFilePath,"utf-8"));
+
 const controllerMain = {
     index: (req,res) => {
         res.render('index',{cervezas:cervezas});
@@ -14,8 +17,9 @@ const controllerMain = {
         res.render('enDesarrollo');
     },
     recetas: (req,res) => {
-        res.render('nuestrasRecetas');
+        res.render('nuestrasRecetas', recetas[req.params.id]);
     },
+    
     
 };
 

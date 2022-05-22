@@ -91,21 +91,19 @@ a { text-decoration: none;}
   display: flex;
   justify-content: space-around;
   color: white;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;  
 }
 
 .main-navbar ul img{
   width: 30px;
   border-radius: 100%;
-  margin: 0px 5px;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  flex-wrap: nowrap;
-
+  margin: 10px 5px 0px 5px;
 }
+
 .main-navbar ul .dropdown-menu-container  li {
-  font-size: 12px;
-  flex-wrap: nowrap;
+  display: inline-block;
 }
 
 .main-navbar ul .dropdown-menu-container > li > a{
@@ -1189,32 +1187,27 @@ section .pd-quienes-somos-right, section .pd-quienes-somos-left {
 /* NUESTRAS RECETAS*/
 .nr-main-containter {
   display: flex;
-  max-width: 90%;
-  margin: auto;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+  margin: 20px;
+  text-align: center;
+}
+.nr-main-containter h5 {
+  text-align: left;
+  padding: 15px;
+}
+
+section .nr-details-container, section .nr-process-container {
+  display: flex;
+  justify-content: center;
   flex-direction: column;
-  flex-wrap: wrap;
+  padding: 10px;
+}
+.section .nr-process-container p {
+  font-size: 12px;
+
 }
 
-.nr-details-container {
-  margin: 5px;
-}
-.nr-information h4 {
-  padding: 10px 10px 10px 5px;
-}
-
-.nr-process {
-  border: solid 1px #c4c4c4;
-  border-radius: 4px;
-  margin: 5px;
-}
-.nr-process h4 {
-  padding: 15px 15px 15px 10px;
-  color: #541E00;
-}
-.nr-process p {
-  font-size: 14px;
-  padding: 5px 10px 5px 10px;
-}
 /* Fin NUESTRAS RECETAS*/
 
     
@@ -1897,12 +1890,6 @@ div.bottom-content{
 
 /* Media 760 NUESTRAS RECETAS*/
 
-.nr-container {
-  flex: 65%;
-}
-.nr-process{
-  flex: 30%;
-}
 /* Fin Meddia 760 NUESTRAS RECETAS*/
 
 }
@@ -2013,6 +2000,22 @@ section.ind-bottom{
   margin-top: 10px;
 
 }
+
+/* FIN PACK PERSONALIZADO */
+
+/* Media 1200 NUESTRAS RECETAS*/
+
+section .nr-main-containter {
+  flex-wrap: wrap;
+}
+section .nr-details-container {
+  flex:80%;
+}
+section .nr-process-container {
+  flex:15%;
+}
+/* Fin Meddia 1200 NUESTRAS RECETAS*/
+
 }
 
 
