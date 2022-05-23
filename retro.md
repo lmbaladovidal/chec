@@ -65,3 +65,32 @@
 <ul>
 <li> En este sprint no hay puntos que ameriten tratamiento.</li>
 </ul>
+
+<h2>Retro Sprint 4</h2>
+
+<h3>Qué hicimos bien</h3>
+<ul>
+  
+<li> Dividir las tareas segun las dificultades de cada uno. </li>
+<li> Dividimos en subtareas algunas consignas del sprint</li>
+</ul>
+
+<h3>Qué hicimos mal</h3>
+<ul>
+<li>No supimos organizar correctamente la división de tareas en función de las dependencias.</li>
+</ul>
+
+<h3>Qué deberíamos empezar a hacer</h3>
+<ul>
+  <li>Definir un camino critico para la realización de tareas.</li>
+</ul>
+
+<h3>Qué deberíamos dejar de hacer</h3>
+<ul>
+<li> En este sprint no hay puntos que ameriten tratamiento.</li>
+</ul>
+
+
+
+
+
