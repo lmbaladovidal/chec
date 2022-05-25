@@ -3,7 +3,7 @@ const router = express.Router();
 //const path = require('path');
 const nuestrasRecetasController = require('../controllers/nuestrasRecetasController');
 
-router.get('/nuestrasRecetas', nuestrasRecetasController.recetas);
+router.get('/recetas/nuestrasRecetas/', nuestrasRecetasController.recetas);
 //router.get('/nuestrasRecetas/:id', nuestrasRecetasController.recetaDetail);
 //router.get('/recetasAdmin/:id',nuestrasRecetasController.recetaAdmin);
 //router.put('/recetasAdmin/:id',  nuestrasRecetasController.recetaUpdate);
