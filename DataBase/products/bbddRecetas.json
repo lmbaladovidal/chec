@@ -1,5 +1,7 @@
 [
-    {"name":"",
+    {
+    "id": 1, 
+    "name":"",
     "volume":0,
     "boilvolume":0,
     "alcohol":0,
@@ -36,7 +38,8 @@
     "brewerTip":"",
     "foodPairing":""
 },
-{"name":"Golden Ale",
+{   "id": 2,
+     "name":"Golden Ale",
     "volume":55,
     "boilvolume":60,
     "alcohol":4.5,
@@ -59,7 +62,8 @@
     "foodPairing":"Pizza y cerveza siempre van de la mano. También podés probar combinarla con bombas de papa."
 },
 
-{"name":"IPA",
+{   "id": 3,
+    "name":"IPA",
     "volume":55,
     "boilvolume":60,
     "alcohol":5,
@@ -92,7 +96,9 @@
     "foodPairing":"Pollo asado. Bondiola braseada."
 },
 
-{"name":"Honey",
+{
+"id": 4,
+"name":"Honey",
 "volume":55,
 "boilvolume":60,
 "alcohol":4.5,
@@ -117,7 +123,9 @@
 "foodPairing":"Pizza"
 },
 
-{"name":"Irish Red",
+{   
+    "id": 5,
+    "name":"Irish Red",
     "volume":55,
     "boilvolume":60,
     "alcohol":6,
@@ -150,7 +158,8 @@
     "brewerTip":"Una vez terminado el macerado, llevar a 72° para un mash out de 15 minutos.",
     "foodPairing":"A COMPLETAR"
 },
-{"name":"Stout",
+{   "id": 6,
+    "name":"Stout",
     "volume":55,
     "boilvolume":60,
     "alcohol":7,
