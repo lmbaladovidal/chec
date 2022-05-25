@@ -2,15 +2,48 @@
 <html lang="en">
 
 <!-- Head-->
-<%- include("./partials/head") %>
+<%- include("../partials/head") %>
 
     <body>
         <!-- Header-->
-        <%- include("./partials/header") %>
+        <%- include("../partials/header") %>
 
             <div class="nr-main-containter">
             
+               <!--  <li>
+                    <h5>Tipo de cerveza: </h5> 
+                    <select name="tipoCerveza">
+                            <% let categories=['STOUT', 'Especial' , 'Merchandising']; %>
+                            <% for (const oneCategory of categories) { %>
+                                <option 
+                                value="<%= oneCategory %>"
+                                       <%= locals.oldData && (oneCategory === oldData.oneCategory) ? 'selected' : null %>> <%= oneCategory %> </option>
+                                </option>
+                                <% } %>
+                    </select>
+                </li> -->
+
+
+                <select name="provincia" id="provincia"></select>
+
+                <script type="text/javascript">
+                    function cargar_provincias()
+                    {
+                        var array = ["Cantabria", "Asturias", "Galicia", "Andalucia", "Extremadura"];
+                        for(var i in array)
+                        { 
+                            document.getElementById("provincia").innerHTML += "<option value='"+array[i]+"'>"+array[i]+"</option>"; 
+
+                        }
+                }
+
+                cargar_provincias();
+
+                </script>
+
+
             <section class="nr-details-container">
+
                 <h5>Nombre</h5>
                 <div class="nr-information-container">
                 <div class="nr-information">
@@ -120,7 +153,7 @@
             </div>
 
             <!-- Footer-->
-            <%- include("./partials/footer") %>
+            <%- include("../partials/footer") %>
     </body>
 
 </html>

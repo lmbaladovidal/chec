@@ -22,11 +22,12 @@
  {
   "id": 4,
   "name": "Leandro",
-  "lastName": "Valado",
+  "lastName": "Balado",
   "dateOfBirth": "08/12/1982",
   "address": " Colonia Caroya - Cordoba",
-  "email": "leandro.valado@gmail.com",
+  "email": "q@q.q",
   "userRole": "Admin",
+  "password:": "$2a$10$JrdE2fkQkSnat5QqMhuTe.bIRZ3O8WVrktFTWUXX9gu/xS1hepjlW",
   "userImage": "img-default.jpg"
  },
  {
@@ -224,7 +225,7 @@
   "birthDate": "2022-05-19",
   "password": "$2a$10$thLG/HvWZ28IDe5/ZnQ5v.iNdl8aTjxYlUTU8bjV0OEHc.xQ6BnPe",
   "avatar": "default.png",
-  "userRole": "user"
+  "userRole": "Admin"
  },
  {
   "id": 22,
@@ -239,25 +240,14 @@
  },
  {
   "id": 23,
-  "name": "Araceli",
-  "lastName": "Catalano",
-  "email": "catalano@gmail.com",
-  "address": "Lacarra 565",
-  "birthDate": "2022-05-03",
-  "password": "$2a$10$dwyrmQAN9NHtWYVlPmXO3OYoOoJtiz5mugOWLiPK27V6l.O9d4O82",
-  "avatar": "default.png",
-  "userRole": "user"
- },
- {
-  "id": 24,
-  "name": "Araceli",
-  "lastName": "Catalano",
-  "email": "Catalano@gmail.com",
-  "address": "Lacarra 565",
-  "birthDate": "2022-05-03",
-  "password": "$2a$10$udDNzX9fSYgXmvbmxnRfU.AWAA8tmf.q0OtDP6ZNEhqp.GKksuxAm",
+  "name": "userT",
+  "lastName": "UserTLN",
+  "email": "q@q.com",
+  "address": "test dir",
+  "birthDate": "2022-12-31",
+  "password": "$2a$10$UMe35OKSuR2DONOjqFSrZeFNL/Xp8LgWQLjj55vZZLUQ8uYLlWDVu",
   "passVerify": "12345678",
-  "avatar": "default.png",
+  "avatar": "1653489452438_img.jpg",
   "userRole": "user"
  },
  {
