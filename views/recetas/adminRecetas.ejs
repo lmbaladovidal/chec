@@ -8,47 +8,55 @@
         <!-- Header-->
         <%- include("../partials/header") %>
 
+        <!--PÁGINA AÚN NO TRABAJADA-->
+        
             <div class="nr-main-containter">
-                <h3>Administracion de Producto</h3>
+            <h3>Administracion de Recetas</h3>
             <% if (recetaToEdit.id == 0){%>
-                <form action="/receta/recetaAdmin/" method="POST" enctype="multipart/form-data">
+                <form action="/receta/recetaAdmin/" method="POST" >
             <%}else{%>
                 <form action="/receta/recetaAdmin/<%= recetaToEdit.id %>?_method=PUT" method="POST">
             <%}%>
-            <section class="nr-details-container">
-                <h5>Nombre</h5>
+            
+            <h5><%= recetas[2].name %></h5>
+                 
                 <div class="nr-information-container">
                 <div class="nr-information">
                     <h4>Básicos</h4>
                     <ul class="pd-beer-attributes">
                         <li>
                             <h6>Volumen: </h6>
-                            <p>20 lts.</p>
+                            <p><%= recetas[2].volume %> lts.</p>
                         </li>
                         <li>
                             <h6>Volumen de hervor: </h6>
-                            <p>2r lts.</p>
+                            <p><%= recetas[2].boilvolume %>lts.</p>
+                        </li>
+                        <li>
+                            <h6>Duración del hervor: </h6>
+                            <p><%= recetas[2].boilTime %>lts.</p>
                         </li>
                         <li>
                             <h6>Alcohol: </h6>
-                            <p>5%</p>
+                            <p><%= recetas[2].alcohol %> %</p>
                         </li>
                         <li>
-                            <h6>Densidad: </h6>
-                            <p>1053</p>
+                            <h6>Densidad final: </h6>
+                            <p><%= recetas[2].targetFG %></p>
                         </li>
                         <li>
-                            <h6>SRM: </h6>
-                            <p> 7 </p>
+                            <h6>Densidad inicial: </h6>
+                            <p><%= recetas[2].targetOG %></p>
                         </li>
                         <li>
-                            <h6>PH: </h6>
-                            <p> 4.4 </p>
+                            <h6>PH inicial: </h6>
+                            <p><%= recetas[2].initialPH %></p>
                         </li>
                         <li>
-                            <h6>Nivel de atenuación: </h6>
-                            <p> 78%</p>
+                            <h6>PH final: </h6>
+                            <p><%= recetas[2].finalPH %></p>
                         </li>
+                        
                     </ul>
                 </div>
 
@@ -57,11 +65,11 @@
                     <ul class="pd-beer-attributes">
                         <li>
                             <h6>Macerado: </h6>
-                            <p>66° - 75 min.</p>
+                            <p><%= recetas[2].mashTemp %>° - <%= recetas[2].mashTime %> min.</p>
                         </li>
                         <li>
                             <h6>Fermentación: </h6>
-                            <p>19°</p>
+                            <p><%= recetas[2].fermentationTemp %>°</p>
                         </li>
                     </ul>
                 </div>
@@ -70,14 +78,23 @@
                     <h4>Ingredientes</h4>
                     <ul class="pd-beer-attributes">
                         <li>
-                            <h6>Maltas: </h6>
-                            <p>Pale:</p>
-                            <p>Caramelo:</p>
+                            <h6>Maltas: </h6> </br>
+                            <p><%= recetas[2].malt1 %>: <%= recetas[2].malt1Amount %> </p></br>
+                            <p><%= recetas[2].malt2 %>: <%= recetas[2].malt2Amount %> </p></br>
+                            <p><%= recetas[2].malt3 %>: <%= recetas[2].malt3Amount %> </p></br>
+                            <p><%= recetas[2].malt4 %>: <%= recetas[2].malt4Amount %> </p></br>
+                            <p><%= recetas[2].malt5 %>: <%= recetas[2].malt5Amount %> </p></br>
                         </li>
                         <li>
                             <h6>Lúpulo/s: </h6>
-                            <p>Cascade:</p>
-                            <p>Chinook:</p>
+                            <p><%= recetas[2].hop1 %>: <%= recetas[2].hop1Amount %> <%= recetas[2].hop1Moment %> min.</p></br>
+                            <p><%= recetas[2].hop2 %>: <%= recetas[2].hop2Amount %> <%= recetas[2].hop2Moment %></p></br>
+                            <p><%= recetas[2].hop3 %>: <%= recetas[2].hop3Amount %> <%= recetas[2].hop3Moment %></p></br>
+                        </li>
+                        <li>
+                            <h6>Levadta: </h6> </br>
+                            <p><%= recetas[2].yeast %>: <%= recetas[2].yeastAmount %> gr. </p></br>
+                            
                         </li>
                     </ul>
                 </div>
@@ -85,41 +102,13 @@
                 <div class="nr-tip-container">
                 <div class="nr-tip">
                     <h4>Tip cervecero</h4>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur, dicta saepe sint obcaecati eveniet tempora? Eaque voluptatum debitis adipisci earum impedit, dolor recusandae assumenda consequatur ex, mollitia dicta perspiciatis alias!</p>
+                    <p><%= recetas[2].brewerTip %></p>
                 </div>
                 <div class="nr-tip">
                     <h4>Maridaje</h4>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur, dicta saepe sint obcaecati eveniet tempora? Eaque voluptatum debitis adipisci earum impedit, dolor recusandae assumenda consequatur ex, mollitia dicta perspiciatis alias!</p>
+                    <p><%= recetas[2].foodPairing %></p>
                 </div>
                 </div>
-            </section>
-
-            <section class="nr-process-container">
-                <h4>Nuestro proceso</h4>
-                <p>MACERADO:
-                    El grano malteado y molido se mezcla con agua caliente en un proceso conocido como maceración. Al triturar parcialmente la malta antes de remojarla, el agua caliente puede entrar en cada grano individual para exponer los almidones naturales que contiene. Esto es lo que quiere el cervecero, ya que estos almidones se convierten en azúcares por las propias enzimas del grano. Son estos azúcares los que luego serán utilizados por la levadura como fuente de alimento para producir alcohol y dióxido de carbono
-                    </p>
-               
-                <p>LAVADO: El siguiente paso es agregar más agua a la parte superior de la cama de granos y se deja filtrar, llevando consigo el dulce líquido azucarado.
-                    Esta etapa se realiza en la olla de maceración original o en un recipiente separado
-                    de filtrado. Cualquiera de los dos necesitará una base perforada para dejar escapar el líquido ya clarificado y así comenzar con el hervor del mosto.
-                    </p>
-                
-                <p>HERVOR:
-                    Luego, el mosto se transfiere a otro recipiente grande conocido como hervidor y se calienta. El mosto hervirá aquí durante aproximadamente una hora (dependiendo del estilo que cocinemos).
-                    La etapa de ebullición también suele ser donde se agregan los lúpulos. A menudo,
-                    también agregamos lúpulo a la etapa de maduración para aumentar el perfil de sabor, pero casi todas las cervezas están lupuladas durante la ebullición. Al agregar lúpulo
-                    antes, se obtiene más amargor. Las adiciones posteriores aportan aroma y sabor.
-                </p>
-                <p>FERMENTACION: Una vez hecho el hervor, el mosto se enfría y se transfiere a un fermentador sanitizado y listo para inocular la levadura en el mosto ya enfriado.
-                    Este proceso durará unos días, hasta que la levadura metabolice las azúcares obtenidas en la maceración. Una vez alcanzada la densidad final enfriaremos la nuestra cerveza por aproximadamente 2 semanas más para lograr una clarificación ideal.
-                </p>
-                <p>EMBALAJE:
-                    Lo único que queda es llevarte la cerveza. En CHEC empaquetamos nuestra cerveza
-                    artesanal en latas y barriles. También utilizamos botellas recicladas.
-                    Ya que nuestra cerveza no posee conservantes ni está sometida al proceso de
-                    pasteurización aconsejamos que estén almacenadas en frio para evitar que se deteriore.
-                </p>
             </section>
 
             </div>
