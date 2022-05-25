@@ -2,14 +2,19 @@
 <html lang="en">
 
 <!-- Head-->
-<%- include("./partials/head") %>
+<%- include("../partials/head") %>
 
     <body>
         <!-- Header-->
-        <%- include("./partials/header") %>
+        <%- include("../partials/header") %>
 
             <div class="nr-main-containter">
-            
+                <h3>Administracion de Producto</h3>
+            <% if (recetaToEdit.id == 0){%>
+                <form action="/receta/recetaAdmin/" method="POST" enctype="multipart/form-data">
+            <%}else{%>
+                <form action="/receta/recetaAdmin/<%= recetaToEdit.id %>?_method=PUT" method="POST">
+            <%}%>
             <section class="nr-details-container">
                 <h5>Nombre</h5>
                 <div class="nr-information-container">
@@ -120,7 +125,7 @@
             </div>
 
             <!-- Footer-->
-            <%- include("./partials/footer") %>
+            <%- include("../partials/footer") %>
     </body>
 
 </html>
