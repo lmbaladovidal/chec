@@ -11,6 +11,9 @@ const notFound = require("./middlewares/notFound");
 const session = require('express-session');
 const cookies = require('cookie-parser');
 const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
+const logMiddleWare = require('./middlewares/logMiddleWare')
+
+
 
 
 const app = express();
@@ -23,6 +26,7 @@ app.use(session({
 
 app.use(cookies());
 app.use(userLoggedMiddleware);
+app.use(logMiddleWare)
 
 app.use(express.static("public"));
 app.set('view engine', 'ejs');
