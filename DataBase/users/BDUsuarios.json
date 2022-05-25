@@ -1,0 +1,253 @@
+[
+ {
+  "id": 2,
+  "name": "Alba",
+  "lastName": "Moran",
+  "dateOfBirth": "07/01/1979",
+  "address": "Merlo - Bs As",
+  "email": "alba.morann@gmail.com",
+  "userRole": "Admin",
+  "userImage": "img-default.jpg"
+ },
+ {
+  "id": 3,
+  "name": "David",
+  "lastName": "Juncos",
+  "dateOfBirth": "08/12/1982",
+  "address": "Independencia - Dean Funes - Cordoba",
+  "email": "david.juncos@gmail.com",
+  "userRole": "Admin",
+  "userImage": "img-default.jpg"
+ },
+ {
+  "id": 4,
+  "name": "Leandro",
+  "lastName": "Balado",
+  "dateOfBirth": "08/12/1982",
+  "address": " Colonia Caroya - Cordoba",
+  "email": "q@q.q",
+  "userRole": "Admin",
+  "password:": "$2a$10$JrdE2fkQkSnat5QqMhuTe.bIRZ3O8WVrktFTWUXX9gu/xS1hepjlW",
+  "userImage": "img-default.jpg"
+ },
+ {
+  "id": 5,
+  "name": "Pablo",
+  "lastname": "Montenegro",
+  "dateOfbirth": "1985-08-73",
+  "adress": "Colonia Caroya",
+  "email": "pablom@hotmail.com",
+  "userRole": "User",
+  "userImage": "img-default.jpg"
+ },
+ {
+  "id": 6,
+  "name": "Juan Pablo",
+  "lastName": "Doldan",
+  "DateOfBrth": "30/05/1947",
+  "address": "Santa Fe - Santa Fe",
+  "email": "Juanpi-doldan@hubpages.com",
+  "userRole": "user",
+  "password:": "uRhajFcCrK",
+  "userImage": "img-default.jpg"
+ },
+ {
+  "id": 7,
+  "name": "Carlos",
+  "lastName": "Fidock",
+  "DateOfBrth": "14/01/1987",
+  "address": "Lanus Oeste",
+  "email": "cfidock6@businessweek.com",
+  "userRole": "user",
+  "password:": "wAsfdp8m9",
+  "userImage": "img-default.jpg"
+ },
+ {
+  "id": 8,
+  "name": "Karina",
+  "lastName": "Tabardo",
+  "DateOfBrth": "24/06/1999",
+  "address": "Florencio Varela",
+  "email": "KarinaTab@samsung.com",
+  "userRole": "user",
+  "password:": "Qt3MnYqNceaE",
+  "userImage": "img-default.jpg"
+ },
+ {
+  "id": 9,
+  "name": "Marina",
+  "lastName": "Camillo",
+  "DateOfBrth": "11/06/1973",
+  "address": "Quilmes",
+  "email": "mcamillo8@csmonitor.com",
+  "userRole": "user",
+  "password:": "Y9Ls9sy",
+  "userImage": "img-default.jpg"
+ },
+ {
+  "id": 10,
+  "name": "Alina",
+  "lastName": "Normanton",
+  "DateOfBrth": "15/08/1937",
+  "address": "Morón",
+  "email": "AlinaNorma@dott.com.ar",
+  "userRole": "user",
+  "password:": "W2Dv0khBNiqq",
+  "userImage": "img-default.jpg"
+ },
+ {
+  "id": 11,
+  "name": "Ulises",
+  "lastName": "Rodriguez",
+  "DateOfBrth": "19/08/1941",
+  "address": "74 Merrick Point",
+  "email": "uRodriguez0@open.com.ar",
+  "userRole": "user",
+  "password:": "KzffsS5",
+  "userImage": "img-default.jpg"
+ },
+ {
+  "id": 12,
+  "name": "Alessandra",
+  "lastName": "Diez",
+  "DateOfBrth": "25/02/1954",
+  "address": "776 Comanche Plaza",
+  "email": "aleDiez111@sciencedirect.com",
+  "userRole": "user",
+  "password:": "E67MBBH",
+  "userImage": "img-default.jpg"
+ },
+ {
+  "id": 13,
+  "name": "Jose",
+  "lastName": "Callado",
+  "DateOfBrth": "10/02/1965",
+  "address": "San Antonio de Padua - Buenos Aires",
+  "email": "jcallard2@msu.edu",
+  "userRole": "user",
+  "password:": "6JCBgHBByiRS",
+  "userImage": "img-default.jpg"
+ },
+ {
+  "id": 14,
+  "name": "Juan Manuel",
+  "lastName": "Madryn",
+  "DateOfBrth": "25/01/1969",
+  "address": "Wilde",
+  "email": "JMM@studiopress.com",
+  "userRole": "user",
+  "password:": "awVylXYexi9",
+  "userImage": "img-default.jpg"
+ },
+ {
+  "id": 15,
+  "name": "Juan Cruz",
+  "lastName": "Dudiuk",
+  "DateOfBrth": "26/05/1984",
+  "address": "Avellaneda",
+  "email": "JuanCruzDudiuk@wordpress.com",
+  "userRole": "user",
+  "password:": "q358ZOmdC",
+  "userImage": "img-default.jpg"
+ },
+ {
+  "id": 15,
+  "name": "Alicia",
+  "lastName": "Ayala",
+  "DateOfBrth": "26/05/1970",
+  "address": "Rosario - Santa Fe",
+  "email": "aliciaA@gmail.com",
+  "userRole": "user",
+  "password:": "q358ZOmdC",
+  "userImage": "img-default.jpg"
+ },
+ {
+  "id": 16,
+  "name": "Luz Emilia",
+  "lastName": "Romero",
+  "DateOfBrth": "16/05/1979",
+  "address": "Capital Federal",
+  "email": "LuzEmilia@gmail.com",
+  "userRole": "user",
+  "password:": "Farolito1",
+  "userImage": "img-default.jpg"
+ },
+ {
+  "id": 17,
+  "name": "David ",
+  "lastName": "Kaplan",
+  "DateOfBrth": "16/08/1989",
+  "address": "Capital Federal",
+  "email": "david_kaplan@gmail.com",
+  "userRole": "user",
+  "password:": "DK_1254*",
+  "userImage": "img-default.jpg"
+ },
+ {
+  "id": 18,
+  "name": "Alfredo ",
+  "lastName": "Antonio",
+  "DateOfBrth": "16/08/1961",
+  "address": "Merlo",
+  "email": "AlfredoA@gmail.com",
+  "userRole": "user",
+  "password:": "q358ZOmdC",
+  "userImage": "img-default.jpg"
+ },
+ {
+  "id": 19,
+  "name": "Fabiana ",
+  "lastName": "Chalini",
+  "DateOfBrth": "16/08/1963",
+  "address": "Merlo",
+  "email": "fabianaChelini@outlook.com",
+  "userRole": "user",
+  "password:": "fabichelini_11",
+  "userImage": "img-default.jpg"
+ },
+ {
+  "id": 20,
+  "name": "Federico",
+  "lastName": "Moran",
+  "DateOfBrth": "02/08/1986",
+  "address": "Santa Fe",
+  "email": "fedeMoran@outlook.com",
+  "userRole": "user",
+  "password:": "fedemoran1",
+  "userImage": "img-default.jpg"
+ },
+ {
+  "id": 21,
+  "name": "Araceli",
+  "lastName": "Catalano",
+  "email": "aracelicatalano@gmail.com",
+  "address": "Lacarra 565",
+  "birthDate": "2022-05-19",
+  "password": "$2a$10$thLG/HvWZ28IDe5/ZnQ5v.iNdl8aTjxYlUTU8bjV0OEHc.xQ6BnPe",
+  "avatar": "default.png",
+  "userRole": "Admin"
+ },
+ {
+  "id": 22,
+  "name": "Maria",
+  "lastName": "Juana",
+  "email": "maria@mail.com",
+  "address": "calle123",
+  "birthDate": "2022-05-03",
+  "password": "$2a$10$/Ra60bN3cBEPdasRVJtCuedblzUqTH7AnY.4P1aIuI3j5gzm9k8KS",
+  "avatar": "default.png",
+  "userRole": "user"
+ },
+ {
+  "id": 23,
+  "name": "userT",
+  "lastName": "UserTLN",
+  "email": "q@q.com",
+  "address": "test dir",
+  "birthDate": "2022-12-31",
+  "password": "$2a$10$UMe35OKSuR2DONOjqFSrZeFNL/Xp8LgWQLjj55vZZLUQ8uYLlWDVu",
+  "passVerify": "12345678",
+  "avatar": "1653489452438_img.jpg",
+  "userRole": "user"
+ }
+]
