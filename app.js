@@ -4,12 +4,14 @@ const methodOverride= require('method-override')
 const rutaControllers = require("./routes/main.js");
 const productRouter = require("./routes/productRouter");
 const userRouter = require("./routes/userRouter");
+const nuestrasRecetasRouter = require('./routes/nuestrasRecetasRouter');
 const notFound = require("./middlewares/notFound");
 
 const session = require('express-session');
 const cookies = require('cookie-parser');
 const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
 const logMiddleWare = require('./middlewares/logMiddleWare')
+
 
 
 
@@ -40,6 +42,7 @@ app.use("/", rutaControllers);
 app.use("/quienesSomos", rutaControllers);
 app.use("/product", productRouter);
 app.use("/users", userRouter);
+app.use("/nuestrasRecetas", nuestrasRecetasRouter);
 app.use(notFound)
 
 

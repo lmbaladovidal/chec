@@ -22,7 +22,7 @@ const User = {
 		return this.getData();
 	},
 // 3. Buscar a un usuario por su id
-	findByPk: function (id) {       // Pk en bases de datos es Prymary Key (es el ID)
+	findByPk: function (id) {       
 		let allUsers = this.findAll();
 		let userFound = allUsers.find(oneUser => oneUser.id === id);
 		return userFound;
