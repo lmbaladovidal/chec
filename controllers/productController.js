@@ -5,7 +5,11 @@ const cervezasFilePath = path.join(__dirname, '../DataBase/products/BDCervezas.j
 const cervezas = JSON.parse(fs.readFileSync(cervezasFilePath,"utf-8"));
 
 
-const productPage = (req,res)=>{res.render('./product/productPage',{cervezas:cervezas})}
+const productPage = (req,res)=>{
+        const userLogged = req.session.userLogged;
+        const datos ={cervezas,userLogged}
+        res.render('./product/productPage',{datos})
+    }
 const productCart=(req,res)=>{res.render('./product/productCart')}
 const productDetail=(req,res)=>{res.render('./product/productDetail',cervezas[req.params.id])}
 
