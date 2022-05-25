@@ -259,5 +259,17 @@
   "passVerify": "12345678",
   "avatar": "default.png",
   "userRole": "user"
+ },
+ {
+  "id": 25,
+  "name": "Alba",
+  "lastName": "Moran",
+  "email": "alba.moran@gmail.com",
+  "address": "SA Padua",
+  "birthDate": "1979-01-07",
+  "password": "$2a$10$3d0unEcx9OWiOhKXISRVD.c6t9MLHABobfah.dXitRZDQnIpR1x4G",
+  "passVerify": "12345678",
+  "avatar": "1653289177472_img.png",
+  "userRole": "admin"
  }
 ]
