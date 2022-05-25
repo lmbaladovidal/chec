@@ -1187,26 +1187,35 @@ section .pd-quienes-somos-right, section .pd-quienes-somos-left {
 /* NUESTRAS RECETAS*/
 .nr-main-containter {
   display: flex;
-  justify-content: space-around;
-  flex-wrap: nowrap;
+  justify-content: space-between;
+  flex-wrap: wrap;
   margin: 20px;
-  text-align: center;
+
 }
 .nr-main-containter h5 {
   text-align: left;
   padding: 15px;
+  font-size: 20px;  
 }
 
-section .nr-details-container, section .nr-process-container {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
+.nr-tip {
+  background-color: #ff8a00;
+  margin: 10px;
   padding: 10px;
+  max-width: 500px;
 }
-.section .nr-process-container p {
-  font-size: 12px;
 
+.nr-tip h4, .nr-process-container h4 {
+  margin: 5px;
 }
+.nr-process-container {
+  margin: 20px;
+  padding: 10px;
+ }
+.nr-process-container p {
+  margin: 10px;
+}
+
 
 /* Fin NUESTRAS RECETAS*/
 
@@ -2004,17 +2013,45 @@ section.ind-bottom{
 /* FIN PACK PERSONALIZADO */
 
 /* Media 1200 NUESTRAS RECETAS*/
+.nr-main-containter {
+  margin: auto;
+  max-width: 90%;
+  margin-top: 20px;
 
-section .nr-main-containter {
-  flex-wrap: wrap;
 }
-section .nr-details-container {
-  flex:80%;
+.nr-details-container {
+  margin: 10px;
 }
-section .nr-process-container {
-  flex:15%;
+
+.nr-process-container {
+  margin: 10px;
+  border: solid 1px #c4c4c4;
 }
-/* Fin Meddia 1200 NUESTRAS RECETAS*/
+
+.nr-information-container {
+  display: flex;
+}
+.nr-information {
+  flex: 30%;
+  padding: 10px;
+}
+.pd-beer-attributes h4 {
+  font-size: 18px;
+  margin: 10px 0;
+}
+.pd-beer-attributes h6 {
+  font-size: 16px;
+}
+.pd-beer-attributes p {
+  font-size: 14px;
+}
+.nr-tip-container {
+  display: flex;
+
+}
+
+
+/* Fin Media 1200 NUESTRAS RECETAS*/
 
 }
 

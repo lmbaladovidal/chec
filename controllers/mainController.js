@@ -17,7 +17,8 @@ const controllerMain = {
         res.render('enDesarrollo');
     },
     recetas: (req,res) => {
-        res.render('nuestrasRecetas', recetas[req.params.id]);
+        // logica CRUD - mover a nuevo controller de nuevas recetas
+        res.render('nuestrasRecetas', {recetas:recetas});
     },
     
     
