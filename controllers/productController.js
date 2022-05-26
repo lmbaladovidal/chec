@@ -40,7 +40,7 @@ const productCreate=(req,res)=>{
       }
     cervezas.push(cerveza);
     let cervezas_JSON= JSON.stringify(cervezas, null, 2);
-    let cervezasPath= path.join(__dirname, '../DataBase/BDCervezas.json');
+    let cervezasPath= path.join(__dirname, '../DataBase/products/BDCervezas.json');
     fs.writeFileSync(cervezasPath, cervezas_JSON);
     res.redirect('/product/productPage')
 }
@@ -66,7 +66,7 @@ const productUpdate = (req, res) =>{
         
     let cervezas_JSON= JSON.stringify(cervezas, null, 2);
     
-    let cervezasPath= path.join(__dirname, '../DataBase/BDCervezas.json');
+    let cervezasPath= path.join(__dirname, '../DataBase/products/BDCervezas.json');
     fs.writeFileSync(cervezasPath, cervezas_JSON);
     res.redirect('/product/productPage')
     
@@ -88,7 +88,7 @@ const productDelete = (req, res) => {
     
     let nonDeletedCervezas = cervezas.filter(cerveza=>cerveza.id!==id);
     let cervezas_JSON = JSON.stringify(nonDeletedCervezas, null, 2);   
-    let cervezasPath= path.join(__dirname, '../DataBase/BDCervezas.json');
+    let cervezasPath= path.join(__dirname, '../DataBase/products/BDCervezas.json');
     fs.writeFileSync(cervezasPath, cervezas_JSON);
     res.redirect('/product/productPage');
 }

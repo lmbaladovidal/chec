@@ -9,6 +9,7 @@
         <%- include("../partials/header") %>
 
             <div class="nr-main-containter">
+<<<<<<< HEAD
                 <!--Por acá quiero poner el for para que muestre agregar y modificar a los Admins solo-->
                 <!--pero me daba recetas is undefined y lo dejé porque primero quiero ver lo del id (ver comments abajo). -->
                 <% for (i=1;i< recetas.length;i++){%>
@@ -26,6 +27,35 @@
             <section class="nr-details-container">
                 <h5><%= recetas[2].name %></h5>
                  <!--Donde está el 2 debe ir "i" para desplegar la receta seleccionada-->
+=======
+            
+               <!--  <li>
+                    <h5>Tipo de cerveza: </h5> 
+                    <select name="tipoCerveza">
+                            <% let categories=['STOUT', 'Especial' , 'Merchandising']; %>
+                            <% for (const oneCategory of categories) { %>
+                                <option 
+                                value="<%= oneCategory %>"
+                                       <%= locals.oldData && (oneCategory === oldData.oneCategory) ? 'selected' : null %>> <%= oneCategory %> </option>
+                                </option>
+                                <% } %>
+                    </select>
+                </li> -->
+
+                <div>
+                    <select name="recetas" id="recetas">
+                    <% for(i=0;i<recetas.length;i++){ %>
+                        <option value="<%= recetas[i].id %>"><%= recetas[i].name %></option>%>
+                    <% }%>
+                </select>
+                </div>
+
+            <section class="nr-details-container">
+
+                
+
+                <h5>Nombre</h5>
+>>>>>>> 0b57738ee24de1501511070981417ff496f9cb6c
                 <div class="nr-information-container">
                 <div class="nr-information">
                     <h4>Básicos</h4>
