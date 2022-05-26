@@ -23,26 +23,17 @@
                     </select>
                 </li> -->
 
-
-                <select name="provincia" id="provincia"></select>
-
-                <script type="text/javascript">
-                    function cargar_provincias()
-                    {
-                        var array = ["Cantabria", "Asturias", "Galicia", "Andalucia", "Extremadura"];
-                        for(var i in array)
-                        { 
-                            document.getElementById("provincia").innerHTML += "<option value='"+array[i]+"'>"+array[i]+"</option>"; 
-
-                        }
-                }
-
-                cargar_provincias();
-
-                </script>
-
+                <div>
+                    <select name="recetas" id="recetas">
+                    <% for(i=0;i<recetas.length;i++){ %>
+                        <option value="<%= recetas[i].id %>"><%= recetas[i].name %></option>%>
+                    <% }%>
+                </select>
+                </div>
 
             <section class="nr-details-container">
+
+                
 
                 <h5>Nombre</h5>
                 <div class="nr-information-container">

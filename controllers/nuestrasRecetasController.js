@@ -7,10 +7,10 @@ const recetas = JSON.parse(fs.readFileSync(recetasFilePath,"utf-8"));
 const nuestrasRecetasController = {
     
     recetas: (req,res) => {
-        console.log("LLEGA");
-        // logica CRUD - mover a nuevo controller de nuevas recetas
-        res.render('./recetas/nuestrasRecetas');
+        // logica CRUD - mover a nuevo controller de nuevas recetas 
+        res.render('./recetas/nuestrasRecetas',{recetas});
     },
+    
     
     
 };
