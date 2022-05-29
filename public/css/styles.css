@@ -1204,6 +1204,15 @@ section .pd-quienes-somos-right, section .pd-quienes-somos-left {
 /* Fin Quienes somos*/
 
 /* NUESTRAS RECETAS*/
+.add-receta {
+  display: flex;
+  width: 100%;
+
+}
+#receta-container {
+  display: none;
+  background-color: #c4c4c4;
+}
 .nr-main-containter {
   display: flex;
   justify-content: space-between;

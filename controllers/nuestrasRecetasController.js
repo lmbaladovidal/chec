@@ -8,10 +8,12 @@ const recetas = JSON.parse(fs.readFileSync(recetasFilePath,"utf-8"));
 const nuestrasRecetasController = {
     
     recetas: (req,res) => {
-        // logica CRUD - mover a nuevo controller de nuevas recetas 
-        res.render('./recetas/nuestrasRecetas',{recetas});
+        const userLogged = req.session.userLogged;
+        const datos ={recetas,userLogged }
+        res.render('./recetas/nuestrasRecetas',{datos});
     },
-    
+    //const productDetail=(req,res)=>{
+    //    res.render('./product/productDetail',cervezas[req.params.id])}
     
     
 };
