@@ -10,9 +10,6 @@ const nuestrasRecetasController = {
         // logica CRUD - mover a nuevo controller de nuevas recetas 
         res.render('./recetas/nuestrasRecetas',{recetas});
     },
-    
-    
-    
 };
 
 module.exports = nuestrasRecetasController;

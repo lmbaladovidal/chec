@@ -9,32 +9,15 @@
         <%- include("../partials/header") %>
 
             <div class="nr-main-containter">
-            
-               <!--  <li>
-                    <h5>Tipo de cerveza: </h5> 
-                    <select name="tipoCerveza">
-                            <% let categories=['STOUT', 'Especial' , 'Merchandising']; %>
-                            <% for (const oneCategory of categories) { %>
-                                <option 
-                                value="<%= oneCategory %>"
-                                       <%= locals.oldData && (oneCategory === oldData.oneCategory) ? 'selected' : null %>> <%= oneCategory %> </option>
-                                </option>
-                                <% } %>
-                    </select>
-                </li> -->
-
                 <div>
                     <select name="recetas" id="recetas">
-                    <% for(i=0;i<recetas.length;i++){ %>
-                        <option value="<%= recetas[i].id %>"><%= recetas[i].name %></option>%>
-                    <% }%>
-                </select>
+                        <% for(i=0;i<recetas.length;i++){ %>
+                            <option value="<%= recetas[i].id %>"><%= recetas[i].name %></option>%>
+                        <% }%>
+                    </select>
                 </div>
 
             <section class="nr-details-container">
-
-                
-
                 <h5>Nombre</h5>
                 <div class="nr-information-container">
                 <div class="nr-information">
