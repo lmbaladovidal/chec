@@ -1209,7 +1209,7 @@ section .pd-quienes-somos-right, section .pd-quienes-somos-left {
   width: 100%;
 
 }
-#receta-container {
+.receta-container {
   display: none;
   background-color: #c4c4c4;
 }
