@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head-->
+<head>
+    <link rel="icon" type="image/png" href="/Desing/Logo-Etiqueta-Originals/fav-icon.png">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <link href="/css/styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="/public/css/bootstrap-grid.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka&family=Montagu+Slab&family=Roboto&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/1eb023256c.js" crossorigin="anonymous"></script>
+    <title>Home</title>
+    <script>
+        function closeSection(){
+            console.log("acaEstoy")
+            element = document.getElementById("suscribe-section");
+            element.style.opacity= "0";
+        }
+    </script>
+    
+</head>
+
+    <script>
+        function display(id){  // (id)
+            document.getElementById('receta-container' + id).style.display = "block";
+            
+        }
+        function hide(id){   // (id)
+            document.getElementById('receta-container' + id).style.display = "none";
+        }
+    </script>
+
+
+    <body>
+        <!-- Header-->
+        <%- include("../partials/header") %>
+
+        <div class="nr-main-containter">
+            <div class="add-receta">
+            <% if (locals.datos && datos.userLogged && datos.userLogged.userRole=="Admin" ){ %>
+                <button class="pd-admin"></a>Agregar </i></a></button>
+            <%}%>
+         </div>
+           
+            <% for (let i=0;i< datos.recetas.length;i++){%>
+                <section class="nr-details-container">
+
+                    <h5>
+                        <%= datos.recetas[i].name %>
+                    </h5>
+                    <% if (datos.userLogged && datos.userLogged.userRole=="Admin" ){ %>
+                        <button class="pd-admin"></a>Modificar </i></a></button>
+                    <%}%>
+                            <button id="display-hide-btn<%= datos.recetas[i].id %>" onclick="display('<%= datos.recetas[i].id %>');">Desplegar</button>
+                            <div id="receta-container<%= datos.recetas[i].id %>" class="receta-container">
+                            <button id="display-hide-btn<%= datos.recetas[i].id %>"  onclick="hide('<%= datos.recetas[i].id %>')">Ocultar</button>
+                                <div class="nr-information-container">
+                                    <div class="nr-information">
+                                        <h4>Básicos</h4>
+                                        <ul class="pd-beer-attributes">
+                                            <li>
+                                                <h6>Volumen: </h6>
+                                                <p>
+                                                    <%= datos.recetas[i].volume %> lts.
+                                                </p>
+                                            </li>
+                                            <li>
+                                                <h6>Volumen de hervor: </h6>
+                                                <p>
+                                                    <%= datos.recetas[i].boilvolume %>lts.
+                                                </p>
+                                            </li>
+                                            <li>
+                                                <h6>Duración del hervor: </h6>
+                                                <p>
+                                                    <%= datos.recetas[i].boilTime %>lts.
+                                                </p>
+                                            </li>
+                                            <li>
+                                                <h6>Alcohol: </h6>
+                                                <p>
+                                                    <%= datos.recetas[i].alcohol %> %
+                                                </p>
+                                            </li>
+                                            <li>
+                                                <h6>Densidad final: </h6>
+                                                <p>
+                                                    <%= datos.recetas[i].targetFG %>
+                                                </p>
+                                            </li>
+                                            <li>
+                                                <h6>Densidad inicial: </h6>
+                                                <p>
+                                                    <%= datos.recetas[i].targetOG %>
+                                                </p>
+                                            </li>
+                                            <li>
+                                                <h6>PH inicial: </h6>
+                                                <p>
+                                                    <%= datos.recetas[i].initialPH %>
+                                                </p>
+                                            </li>
+                                            <li>
+                                                <h6>PH final: </h6>
+                                                <p>
+                                                    <%= datos.recetas[i].finalPH %>
+                                                </p>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+
+                                    <div class="nr-information">
+                                        <h4>Método y tiempos</h4>
+                                        <ul class="pd-beer-attributes">
+                                            <li>
+                                                <h6>Macerado: </h6>
+                                                <p>
+                                                    <%= datos.recetas[i].mashTemp %>° - <%=
+                                                            datos.recetas[i].mashTime %> min.
+                                                </p>
+                                            </li>
+                                            <li>
+                                                <h6>Fermentación: </h6>
+                                                <p>
+                                                    <%= datos.recetas[i].fermentationTemp %>°
+                                                </p>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="nr-information">
+                                        <h4>Ingredientes</h4>
+                                        <ul class="pd-beer-attributes">
+                                            <li>
+                                                <h6>Maltas: </h6> </br>
+                                                <p>
+                                                    <%= datos.recetas[i].malt1 %>: <%=
+                                                            datos.recetas[i].malt1Amount %>
+                                                </p></br>
+                                                <p>
+                                                    <%= datos.recetas[i].malt2 %>: <%=
+                                                            datos.recetas[i].malt2Amount %>
+                                                </p></br>
+                                                <p>
+                                                    <%= datos.recetas[i].malt3 %>: <%=
+                                                            datos.recetas[i].malt3Amount %>
+                                                </p></br>
+                                                <p>
+                                                    <%= datos.recetas[i].malt4 %>: <%=
+                                                            datos.recetas[i].malt4Amount %>
+                                                </p></br>
+                                                <p>
+                                                    <%= datos.recetas[i].malt5 %>: <%=
+                                                            datos.recetas[i].malt5Amount %>
+                                                </p></br>
+                                            </li>
+                                            <li>
+                                                <h6>Lúpulo/s: </h6>
+                                                <p>
+                                                    <%= datos.recetas[i].hop1 %>: <%=
+                                                            datos.recetas[i].hop1Amount %>
+                                                            <%= datos.recetas[i].hop1Moment %>
+                                                                min.
+                                                </p></br>
+                                                <p>
+                                                    <%= datos.recetas[i].hop2 %>: <%=
+                                                            datos.recetas[i].hop2Amount %>
+                                                            <%= datos.recetas[i].hop2Moment %>
+                                                </p></br>
+                                                <p>
+                                                    <%= datos.recetas[i].hop3 %>: <%=
+                                                            datos.recetas[i].hop3Amount %>
+                                                            <%= datos.recetas[i].hop3Moment %>
+                                                </p></br>
+                                            </li>
+                                            <li>
+                                                <h6>Levadura: </h6> </br>
+                                                <p>
+                                                    <%= datos.recetas[i].yeast %>: <%=
+                                                            datos.recetas[i].yeastAmount %> gr.
+                                                </p></br>
+
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="nr-tip-container">
+                                    <div class="nr-tip">
+                                        <h4>Tip cervecero</h4>
+                                        <p>
+                                            <%= datos.recetas[i].brewerTip %>
+                                        </p>
+                                    </div>
+                                    <div class="nr-tip">
+                                        <h4>Maridaje</h4>
+                                        <p>
+                                            <%= datos.recetas[i].foodPairing %>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                </section>
+            <%}%>
+
+            <section class="nr-process-container">
+                <h4>Nuestro proceso</h4>
+                <p>MACERADO:
+                    El grano malteado y molido se mezcla con agua caliente en un proceso
+                    conocido como maceración. Al triturar parcialmente la malta antes de
+                    remojarla, el agua caliente puede entrar en cada grano individual para
+                    exponer los almidones naturales que contiene. Esto es lo que quiere el
+                    cervecero, ya que estos almidones se convierten en azúcares por las
+                    propias enzimas del grano. Son estos azúcares los que luego serán
+                    utilizados por la levadura como fuente de alimento para producir alcohol
+                    y dióxido de carbono
+                </p>
+
+                <p>LAVADO: El siguiente paso es agregar más agua a la parte superior de la
+                    cama de granos y se deja filtrar, llevando consigo el dulce líquido
+                    azucarado.
+                    Esta etapa se realiza en la olla de maceración original o en un
+                    recipiente separado
+                    de filtrado. Cualquiera de los dos necesitará una base perforada para
+                    dejar escapar el líquido ya clarificado y así comenzar con el hervor del
+                    mosto.
+                </p>
+
+                <p>HERVOR:
+                    Luego, el mosto se transfiere a otro recipiente grande conocido como
+                    hervidor y se calienta. El mosto hervirá aquí durante aproximadamente
+                    una hora (dependiendo del estilo que cocinemos).
+                    La etapa de ebullición también suele ser donde se agregan los lúpulos. A
+                    menudo,
+                    también agregamos lúpulo a la etapa de maduración para aumentar el
+                    perfil de sabor, pero casi todas las cervezas están lupuladas durante la
+                    ebullición. Al agregar lúpulo
+                    antes, se obtiene más amargor. Las adiciones posteriores aportan aroma y
+                    sabor.
+                </p>
+                <p>FERMENTACION: Una vez hecho el hervor, el mosto se enfría y se transfiere
+                    a un fermentador sanitizado y listo para inocular la levadura en el
+                    mosto ya enfriado.
+                    Este proceso durará unos días, hasta que la levadura metabolice las
+                    azúcares obtenidas en la maceración. Una vez alcanzada la densidad final
+                    enfriaremos la nuestra cerveza por aproximadamente 2 semanas más para
+                    lograr una clarificación ideal.
+                </p>
+                <p>EMBALAJE:
+                    Lo único que queda es llevarte la cerveza. En CHEC empaquetamos nuestra
+                    cerveza
+                    artesanal en latas y barriles. También utilizamos botellas recicladas.
+                    Ya que nuestra cerveza no posee conservantes ni está sometida al proceso
+                    de
+                    pasteurización aconsejamos que estén almacenadas en frio para evitar que
+                    se deteriore.
+                </p>
+            </section>
+
+            </div>
+
+    <!-- Footer-->
+    <%- include("../partials/footer") %>
+    </body>
+
+</html>

@@ -2,15 +2,32 @@
 <html lang="en">
 
 <!-- Head-->
-<%- include("./partials/head") %>
+<%- include("../partials/head") %>
 
     <body>
         <!-- Header-->
-        <%- include("./partials/header") %>
+        <%- include("../partials/header") %>
 
             <div class="nr-main-containter">
             
+               <!--  <li>
+                    <h5>Tipo de cerveza: </h5> 
+                    <select name="tipoCerveza">
+                            <% let categories=['STOUT', 'Especial' , 'Merchandising']; %>
+                            <% for (const oneCategory of categories) { %>
+                                <option 
+                                value="<%= oneCategory %>"
+                                       <%= locals.oldData && (oneCategory === oldData.oneCategory) ? 'selected' : null %>> <%= oneCategory %> </option>
+                                </option>
+                                <% } %>
+                    </select>
+                </li> -->
+
+
             <section class="nr-details-container">
+
+                
+
                 <h5>Nombre</h5>
                 <div class="nr-information-container">
                 <div class="nr-information">
@@ -18,32 +35,37 @@
                     <ul class="pd-beer-attributes">
                         <li>
                             <h6>Volumen: </h6>
-                            <p>20 lts.</p>
+                            <p><%= recetas.volume %> lts.</p>
                         </li>
                         <li>
                             <h6>Volumen de hervor: </h6>
-                            <p>2r lts.</p>
+                            <p><%= recetas.boilvolume %>lts.</p>
+                        </li>
+                        <li>
+                            <h6>Duración del hervor: </h6>
+                            <p><%= recetas.boilTime %>lts.</p>
                         </li>
                         <li>
                             <h6>Alcohol: </h6>
-                            <p>5%</p>
+                            <p><%= recetas.alcohol %> %</p>
                         </li>
                         <li>
-                            <h6>Densidad: </h6>
-                            <p>1053</p>
+                            <h6>Densidad final: </h6>
+                            <p><%= recetas.targetFG %></p>
                         </li>
                         <li>
-                            <h6>SRM: </h6>
-                            <p> 7 </p>
+                            <h6>Densidad inicial: </h6>
+                            <p><%= recetas.targetOG %></p>
                         </li>
                         <li>
-                            <h6>PH: </h6>
-                            <p> 4.4 </p>
+                            <h6>PH inicial: </h6>
+                            <p><%= recetas.initialPH %></p>
                         </li>
                         <li>
-                            <h6>Nivel de atenuación: </h6>
-                            <p> 78%</p>
+                            <h6>PH final: </h6>
+                            <p><%= recetas.finalPH %></p>
                         </li>
+                        
                     </ul>
                 </div>
 
@@ -52,11 +74,11 @@
                     <ul class="pd-beer-attributes">
                         <li>
                             <h6>Macerado: </h6>
-                            <p>66° - 75 min.</p>
+                            <p><%= recetas.mashTemp %>° - <%= recetas.mashTime %> min.</p>
                         </li>
                         <li>
                             <h6>Fermentación: </h6>
-                            <p>19°</p>
+                            <p><%= recetas.fermentationTemp %>°</p>
                         </li>
                     </ul>
                 </div>
@@ -65,14 +87,23 @@
                     <h4>Ingredientes</h4>
                     <ul class="pd-beer-attributes">
                         <li>
-                            <h6>Maltas: </h6>
-                            <p>Pale:</p>
-                            <p>Caramelo:</p>
+                            <h6>Maltas: </h6> </br>
+                            <p><%= recetas.malt1 %>: <%= recetas.malt1Amount %> </p></br>
+                            <p><%= recetas.malt2 %>: <%= recetas.malt2Amount %> </p></br>
+                            <p><%= recetas.malt3 %>: <%= recetas.malt3Amount %> </p></br>
+                            <p><%= recetas.malt4 %>: <%= recetas.malt4Amount %> </p></br>
+                            <p><%= recetas.malt5 %>: <%= recetas.malt5Amount %> </p></br>
                         </li>
                         <li>
                             <h6>Lúpulo/s: </h6>
-                            <p>Cascade:</p>
-                            <p>Chinook:</p>
+                            <p><%= recetas.hop1 %>: <%= recetas.hop1Amount %> <%= recetas.hop1Moment %> min.</p></br>
+                            <p><%= recetas.hop2 %>: <%= recetas.hop2Amount %> <%= recetas.hop2Moment %></p></br>
+                            <p><%= recetas.hop3 %>: <%= recetas.hop3Amount %> <%= recetas.hop3Moment %></p></br>
+                        </li>
+                        <li>
+                            <h6>Levadta: </h6> </br>
+                            <p><%= recetas.yeast %>: <%= recetas.yeastAmount %> gr. </p></br>
+                            
                         </li>
                     </ul>
                 </div>
@@ -80,11 +111,11 @@
                 <div class="nr-tip-container">
                 <div class="nr-tip">
                     <h4>Tip cervecero</h4>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur, dicta saepe sint obcaecati eveniet tempora? Eaque voluptatum debitis adipisci earum impedit, dolor recusandae assumenda consequatur ex, mollitia dicta perspiciatis alias!</p>
+                    <p><%= recetas.brewerTip %></p>
                 </div>
                 <div class="nr-tip">
                     <h4>Maridaje</h4>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur, dicta saepe sint obcaecati eveniet tempora? Eaque voluptatum debitis adipisci earum impedit, dolor recusandae assumenda consequatur ex, mollitia dicta perspiciatis alias!</p>
+                    <p><%= recetas.foodPairing %></p>
                 </div>
                 </div>
             </section>
@@ -120,7 +151,7 @@
             </div>
 
             <!-- Footer-->
-            <%- include("./partials/footer") %>
+            <%- include("../partials/footer") %>
     </body>
 
 </html>
