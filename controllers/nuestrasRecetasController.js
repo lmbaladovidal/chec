@@ -9,7 +9,7 @@ const nuestrasRecetasController = {
     recetas: (req,res) => {
         const userLogged = req.session.userLogged;
         const datos ={recetas,userLogged }
-        console.log(datos);
+       
         res.render('./recetas/nuestrasRecetas',{datos});
     }   
     
