@@ -4,6 +4,7 @@ const multer = require('multer');
 const path = require('path');
 const productController = require('../controllers/productController');
 
+
 const storage = multer.diskStorage({
     destination: (req,res,cb) => {
         cb(null, path.join(__dirname, '../public/images'));
@@ -25,5 +26,6 @@ router.get('/pack', productController.productPack);
 router.get('/productCart', productController.productCart);
 router.get('/search/',productController.productSearch);
 router.get('/productPage', productController.productPage);
+
 
 module.exports = router;

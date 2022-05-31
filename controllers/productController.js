@@ -1,11 +1,15 @@
 const fs = require('fs');
 const { restart } = require('nodemon');
 const path = require('path');
-const cervezasFilePath = path.join(__dirname, '../DataBase/BDCervezas.json');
+const cervezasFilePath = path.join(__dirname, '../DataBase/products/BDCervezas.json');
 const cervezas = JSON.parse(fs.readFileSync(cervezasFilePath,"utf-8"));
 
 
-const productPage = (req,res)=>{res.render('./product/productPage',{cervezas:cervezas})}
+const productPage = (req,res)=>{
+        const userLogged = req.session.userLogged;
+        const datos ={cervezas,userLogged}
+        res.render('./product/productPage',{datos})
+    }
 const productCart=(req,res)=>{res.render('./product/productCart')}
 const productDetail=(req,res)=>{res.render('./product/productDetail',cervezas[req.params.id])}
 
@@ -36,7 +40,7 @@ const productCreate=(req,res)=>{
       }
     cervezas.push(cerveza);
     let cervezas_JSON= JSON.stringify(cervezas, null, 2);
-    let cervezasPath= path.join(__dirname, '../DataBase/BDCervezas.json');
+    let cervezasPath= path.join(__dirname, '../DataBase/products/BDCervezas.json');
     fs.writeFileSync(cervezasPath, cervezas_JSON);
     res.redirect('/product/productPage')
 }
@@ -62,7 +66,7 @@ const productUpdate = (req, res) =>{
         
     let cervezas_JSON= JSON.stringify(cervezas, null, 2);
     
-    let cervezasPath= path.join(__dirname, '../DataBase/BDCervezas.json');
+    let cervezasPath= path.join(__dirname, '../DataBase/products/BDCervezas.json');
     fs.writeFileSync(cervezasPath, cervezas_JSON);
     res.redirect('/product/productPage')
     
@@ -84,7 +88,7 @@ const productDelete = (req, res) => {
     
     let nonDeletedCervezas = cervezas.filter(cerveza=>cerveza.id!==id);
     let cervezas_JSON = JSON.stringify(nonDeletedCervezas, null, 2);   
-    let cervezasPath= path.join(__dirname, '../DataBase/BDCervezas.json');
+    let cervezasPath= path.join(__dirname, '../DataBase/products/BDCervezas.json');
     fs.writeFileSync(cervezasPath, cervezas_JSON);
     res.redirect('/product/productPage');
 }
