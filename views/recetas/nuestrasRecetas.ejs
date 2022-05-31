@@ -24,13 +24,15 @@
 </head>
 
     <script>
-        function display(){
-            document.getElementById('receta-container').style.display = "block";
+        function display(id){  // (id)
+            document.getElementById('receta-container' + id).style.display = "block";
+            console.log("prueba desde display")
         }
-        function hide(){
-            document.getElementById('receta-container').style.display = "none";
+        function hide(id){   // (id)
+            document.getElementById('receta-container' + id).style.display = "none";
         }
     </script>
+
 
     <body>
         <!-- Header-->
@@ -38,12 +40,12 @@
 
         <div class="nr-main-containter">
             <div class="add-receta">
-            <% if (datos.userLogged && datos.userLogged.userRole=="Admin" ){ %>
+            <% if (locals.datos && datos.userLogged && datos.userLogged.userRole=="Admin" ){ %>
                 <button class="pd-admin"></a>Agregar </i></a></button>
             <%}%>
          </div>
            
-            <% for (i=1;i< datos.recetas.length;i++){%>
+            <% for (let i=0;i< datos.recetas.length;i++){%>
                 <section class="nr-details-container">
 
                     <h5>
@@ -51,10 +53,10 @@
                     </h5>
                     <% if (datos.userLogged && datos.userLogged.userRole=="Admin" ){ %>
                         <button class="pd-admin"></a>Modificar </i></a></button>
-                        <%}%>
-                            <button id="display-hide-btn" onclick="display();">Desplegar</button>
-                            <div id="receta-container" >
-                            <button id="display-hide-btn"  onclick="hide();">Ocultar</button>
+                    <%}%>
+                            <button id="display-hide-btn<%= datos.recetas[i].id %>" onclick="display(datos.recetas[i].id);">Desplegar</button>
+                            <div id="receta-container<%= datos.recetas[i].id %>" class="receta-container">
+                            <button id="display-hide-btn<%= datos.recetas[i].id %>"  onclick="hide(datos.recetas[i].id)">Ocultar</button>
                                 <div class="nr-information-container">
                                     <div class="nr-information">
                                         <h4>Básicos</h4>
