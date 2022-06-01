@@ -52,11 +52,12 @@ const validations = [
 		return true;
 	})
 ];
-
+//Form de login
 router.get('/login',guestMiddleware, userController.login);
 //Process login
 router.post('/login', userController.loginProcess);
 
+//Form de register
 router.get('/register', guestMiddleware, userController.register);
 // Proces user register
 router.post('/register',uploadFile.single('avatar'), validations, userController.userRegister);
