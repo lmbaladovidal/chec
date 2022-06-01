@@ -728,7 +728,7 @@ color: #ff6200;
 
 .pd-admin-a{
     color: #000;
-    display: inline-block;  /*convierte las lineas de la lista en bloque para poder darles un padding*/
+    /*display: inline-block;  /*convierte las lineas de la lista en bloque para poder darles un padding*/
     font-size: 15px;
     font-weight: 550;
     transition-property: color, box-shadow;
@@ -736,14 +736,27 @@ color: #ff6200;
 }
 
 .pa-div-add-btn{
-  position: relative;
-  float: right;
+  /*display: inline-block;
+  flex-wrap: nowrap;
+  */
+  /*position: relative;
+  float: right;*/
+}
+
+.pd-david{
+  right: 100px;
 }
 
 .pa-add-btn{
+  /*display: block;
+  margin: auto;*/
+  
+
+  /*width:100%;
   position: fixed;
   width:100%;
   max-width:1200px;
+*/
 }
 
 
