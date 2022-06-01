@@ -1207,39 +1207,91 @@ section .pd-quienes-somos-right, section .pd-quienes-somos-left {
 .add-receta {
   display: flex;
   width: 100%;
-
 }
+.add-receta-container{
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 10px 0;
+  justify-content: right;
+}
+
+.nr-details-container {
+  width: 100%;
+}
+.receta-name-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  background-color: #ffda4d;
+  margin: 10px 0 0;
+  border-top-right-radius: 10px;
+  justify-content: space-between;
+  align-items: center
+}
+.receta-name-container button {
+  align-content: right;
+}
+.nr-display-btn {
+  align-self: end;
+}
+.nr-buton-container {
+  display: flex;
+  justify-content: right;
+}
+
 .receta-container {
   display: none;
-  background-color: #c4c4c4;
+  border-right: 2px solid #ffda4d;
+  border-left: 2px solid #ffda4d;
+  border-bottom: 2px solid #ffda4d;
 }
 .nr-main-containter {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   margin: 20px;
-
 }
-.nr-main-containter h5 {
+.receta-name {
   text-align: left;
   padding: 15px;
   font-size: 20px;  
+  display: inline-block;
+  width: 200px;
+}
+.nr-edit {
+  align-self: end;
+}
+.pd-admin i {
+  padding: 0 3px;
+}
+.nr-information-container {
+  display: flex;
+  flex-direction: column;
 }
 
 .nr-tip {
-  background-color: #ff8a00;
-  margin: 10px;
+  background-color: #c4c4c4;
+  margin: 10px 10px 30px 10px;
   padding: 10px;
   max-width: 500px;
+  
+}
+
+.nr-process-container div {
+  background-color: #c4c4c4;
+  width: 100%;
+  padding: 10px;
 }
 
 .nr-tip h4, .nr-process-container h4 {
   margin: 5px;
 }
 .nr-process-container {
-  margin: 20px;
-  padding: 10px;
+  border: solid 1px #c4c4c4;
  }
+
 .nr-process-container p {
   margin: 10px;
 }
@@ -1891,6 +1943,18 @@ div.bottom-content{
 /* FIN PACK PERSONALIZADO */
 
 /* Media 760 NUESTRAS RECETAS*/
+.nr-information-container {
+  flex-direction: row;
+}
+.nr-information-block {
+  flex: 55%;
+  display: flex;
+  padding: 10px;
+}
+.nr-tip-container {
+flex: 30%;
+padding: 10px;
+}
 
 /* Fin Meddia 760 NUESTRAS RECETAS*/
 
@@ -2022,12 +2086,13 @@ section.ind-bottom{
   border: solid 1px #c4c4c4;
 }
 
-.nr-information-container {
-  display: flex;
-}
+
 .nr-information {
   flex: 30%;
-  padding: 10px;
+  padding: 10px 20px 10px 10px;
+}
+.nr-information h4 {
+  padding: 10px 5px;
 }
 .pd-beer-attributes h4 {
   font-size: 18px;
@@ -2039,10 +2104,8 @@ section.ind-bottom{
 .pd-beer-attributes p {
   font-size: 14px;
 }
-.nr-tip-container {
-  display: flex;
 
-}
+
 
 
 /* Fin Media 1200 NUESTRAS RECETAS*/
