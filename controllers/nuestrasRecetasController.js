@@ -14,6 +14,15 @@ const recetasDetail = (req,res) => {
     res.render('./recetas/nuestrasRecetas',{datos});
 };
 
+const recetaAdmin =(req,res)=>{
+    //res.send(req.body);
+    let id= parseInt(req.params.id);
+    let recetaToEdit = recetas.find(receta => {
+        return receta.id == id
+    });    
+    res.render('./recetas/nuestrasRecetasAdmin',{recetaToEdit})
+};
+
 const recetaCreate = (req,res) => {
     receta = {
         id: recetas[recetas.length-1].id+1,
@@ -59,13 +68,7 @@ const recetaCreate = (req,res) => {
     res.redirect('/recetas/nuestrasRecetas')
 };
 
-const recetaAdmin = (req, res) => {
-    let id= parseInt(req.params.id);
-    let recetaToEdit = recetas.find(receta => {
-        return receta.id == id
-    });    
-    res.render('/recetasAdmin',{recetaToEdit})
-};
+
 
 const recetaDelete = (req, res) => {
     let id = parseInt(req.params.id);
@@ -74,7 +77,7 @@ const recetaDelete = (req, res) => {
     let recetas_JSON = JSON.stringify(nonDeletedRecetas, null, 2);   
     let recetasPath= path.join(__dirname, '../DataBase/bbddRecetas.json');
     fs.writeFileSync(recetasPath, recetas_JSON);
-    res.redirect('/recetas/nuestrasRecetas');
+    res.redirect('./recetas/nuestrasRecetas');
 };
 
 const recetaUpdate = (req, res) =>{
@@ -122,15 +125,15 @@ const recetaUpdate = (req, res) =>{
     
     let recetasPath= path.join(__dirname, '../DataBase/bbddRecetas.json');
     fs.writeFileSync(recetasPath, recetas_JSON);
-    res.redirect('/recetas/nuestrasRecetas')
+    res.redirect('./recetas/nuestrasRecetas')
 }
 
 
 const nuestrasRecetasController = {
     recetasDetail,
     recetaDelete,
-    recetaCreate,
     recetaAdmin,
+    recetaCreate,
     recetaUpdate,       
     recetas:recetas
 }

@@ -4,192 +4,178 @@
 <!-- Head-->
 <%- include("../partials/head") %>
 
-<body>
-<!-- Header-->
-<%- include("../partials/header") %>
+    <body>
+        <!-- Header-->
+        <%- include("../partials/header") %>
 
-            <div class="pd-product-info">
-                <h3>Administración de Recetas</h3>
-                <% if (recetaToEdit.id==0){%>
-                    <form action="/recetasAdmin" method="POST">
-                        <%}else{%>
-                            <form action="/recetasAdmin/<%= recetaToEdit.id %>?_method=PUT" method="POST">
-                                <%}%>
+        <div class="ra-admin-container">
+            <h3>Administración de Recetas</h3>
 
-                                    <section class="nr-details-container">
-                                        <div class="receta-name-container">
-                                            <h5 class="receta-name">
-                                                <%= recetaToEdit.name %>
-                                            </h5>
-                                            <div class="nr-buton-container">
-                                                <button class="pd-admin nr-edit"></a>Eliminar receta</a></button>
-                                            </div>
+            <form action="/recetas/nuestrasRecetasAdmin/" method="POST">
+                
+            <section class="ra-details-container">
+                
+                <div class="ra-name">
+                    <h5 class="receta-name">Nombre</h5> 
+                        <p><input type="text" name="name"></p>        
+                </div>
+
+                <div class="ra-receta-container">
+
+                    <div class="ra-information-container">
+                        <div class="ra-information-block">
+                            <div class="ra-information">
+                                <h4>Completá los datos básicos</h4>
+                                <ul class="pd-beer-attributes">
+                                    <li>
+                                        <h6>Volumen: </h6>
+                                        <p><input type="text" name="volume"> lts.</p> 
+                                    </li>
+                                    <li>
+                                        <h6>Volumen de hervor: </h6>
+                                        <p><input type="text" name="boilvolume"> lts.</p>
+                                    </li>
+                                    <li>
+                                        <h6>Duración del hervor: </h6>
+                                        <p><input type="text" name="boilTime"> min.</p>
+                                        
+                                    </li>
+                                    <li>
+                                        <h6>Alcohol: </h6>
+                                        <p><input type="text" name="alcohol"> min.</p>
+                                    </li>
+                                    <li>
+                                        <h6>Densidad final: </h6>
+                                        <p><input type="text" name="targetFG"> min.</p>
+                                    </li>
+                                    <li>
+                                        <h6>Densidad inicial: </h6>
+                                        <p><input type="text" name="targetOG"> min.</p>
+                                    </li>
+                                    <li>
+                                        <h6>PH inicial: </h6>
+                                        <p><input type="text" name="initialPH"> min.</p>
+                                    </li>
+                                    <li>
+                                        <h6>PH final: </h6>
+                                        <p><input type="text" name="finalPH"> min.</p>
+                                    </li>
+                                </ul>
+                            </div><br>
+
+                            <div class="ra-information">
+                                <h4>Completa los datos de método y tiempos</h4>
+                                <ul class="ra-information-attributes">
+                                    <li class="ra-li-malt">
+                                        <h6>Macerado </h6>
+                                          
+                                        <h6>Temperatura de maceración: </h6>
+                                        <p></p><input type="text" name="mashTemp"> ° (grados celsius)
+                                            
+                                        <h6>Tiempo de maceración: </h6>
+                                        <p></p><input type="text" name="mashTime"> minutos
+                                 
+                                    </li>
+                                    <li class="ra-li-malt">
+                                        <h6>Fermentación </h6>
+                                        <h6>Temperatura de fermentación: </h6>
+                                        <p></p><input type="text" name="fermentationTemp"> minutos
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="ra-information">
+                                <h4>Ingredientes</h4>
+                                <p>Completá solo los campos aplicables.</p><br>
+                                <ul class="ra-information-attributes">
+                                    <li class="ra-li-malt">
+                                        <h6>Maltas</h6>
+                                        <h6>Malta principal: </h6>
+                                        <div>
+                                        <p>Tipo de malta:</p><input type="text" name="malt1"> 
+                                        <p>Cantidad:</p><input type="text" name="malt1Amount">
+                                    </div>
+                                    <h6>Malta adicional: </h6>
+                                    <div>
+                                        <p>Tipo de malta:</p><input type="text" name="malt2"> 
+                                        <p>Cantidad:</p><input type="text" name="malt2Amount">
+                                    </div>
+                                    <h6>Malta adicional: </h6>
+                                    <div>   
+                                        <p>Tipo de malta:</p><input type="text" name="malt3"> 
+                                        <p>Cantidad:</p><input type="text" name="malt3Amount">
+                                    </div>
+                                        <h6>Malta adicional: </h6>
+                                        <div>
+                                             <p>Tipo de malta:</p><input type="text" name="malt4"> 
+                                        <p>Cantidad:</p><input type="text" name="malt4Amount">
+                                    </div>
+                                        <h6>Malta adicional: </h6>
+                                       <div>
+                                            <p>Tipo de malta:</p><input type="text" name="malt5"> 
+                                        <p>Cantidad:</p><input type="text" name="malt5Amount"> 
+                                    </div>
+                                    </li>
+                                    <li class="ra-li-hop">
+                                        <h6>Lúpulo/s: </h6>
+                                       
+                                        <h6>Lúpulo principal: </h6>
+                                        <div>
+                                        <p>Tipo de lúpulo:</p><input type="text" name="hop1"> 
+                                        <p>Cantidad: </p> <input type="text" name="hop1Amount">                                      
+                                        <p>Momento de adición:</p><input type="text" name="hop1Moment"> 
                                         </div>
+                                        <h6>Lúpulo adicional: </h6>
+                                        <div>
+                                        <p>Tipo de lúpulo:</p><input type="text" name="hop2"> 
+                                        <p>Cantidad:</p><input type="text" name="hop2Amount"> 
+                                        <p>Momento de adición:</p><input type="text" name="hop2Moment"> 
+                                    </div>
+                                        <h6>Lúpulo adicional: </h6>
+                                        <div>
+                                        <p>Tipo de lúpulo:</p><input type="text" name="hop3"> 
+                                        <p>Cantidad:</p><input type="text" name="hop3Amount"> 
+                                        <p>Momento de adición:</p><input type="text" name="hop3Moment"> 
+                                    </div>
+                                    </li>
+                                    <li class="ra-li-malt">
+                                        <h6>Levadura: </h6> 
+                                        <div>
+                                        <p>Tipo de levadura:</p><input type="text" name="yeast"> 
+                                        <p>Cantidad:</p><input type="text" name="yeastAmount"> 
+                                    </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="ra-tip-container">
+                            <div class="ra-tip">
+                                <h4>Tip cervecero</h4>
+                                <p>Redactá una recmendación:<input type="text" name="brewerTip"> </p>
+                            </div>
+                            <div class="ra-tip">
+                                <h4>Maridaje</h4>
+                                <p>¿Combina bien con qué comida/s?<input type="text" name="foodPairing"> </p>
+                        
+                            </div>
+                        </div>
+                    </div>
 
-                                        <div id="receta-container<%= recetaToEdit.id %>" class="receta-container">
+                </div>
+                <button class="pd-admin" type="submit">Guardar nueva receta</button>
+            </section>
 
-                                            <div class="nr-buton-container">
-                                                <button id="display-hide-btn<%= recetaToEdit.id %>"
-                                                    onclick="hide('<%= recetaToEdit.id %>')"
-                                                    class="pd-admin">Ocultar <i class="fas fa-chevron-up"></i></button>
-                                            </div>
-                                            <div class="nr-information-container">
-                                                <div class="nr-information-block">
-                                                    <div class="nr-information">
-                                                        <h4>Básicos</h4>
-                                                        <ul class="pd-beer-attributes">
-                                                            <li>
-                                                                <h6>Volumen: </h6>
-                                                                <p>
-                                                                    <%= recetaToEdit.volume %> lts.
-                                                                </p>
-                                                            </li>
-                                                            <li>
-                                                                <h6>Volumen de hervor: </h6>
-                                                                <p>
-                                                                    <%= recetaToEdit.boilvolume %>lts.
-                                                                </p>
-                                                            </li>
-                                                            <li>
-                                                                <h6>Duración del hervor: </h6>
-                                                                <p>
-                                                                    <%= recetaToEdit.boilTime %>lts.
-                                                                </p>
-                                                            </li>
-                                                            <li>
-                                                                <h6>Alcohol: </h6>
-                                                                <p>
-                                                                    <%= recetaToEdit.alcohol %> %
-                                                                </p>
-                                                            </li>
-                                                            <li>
-                                                                <h6>Densidad final: </h6>
-                                                                <p>
-                                                                    <%= recetaToEdit.targetFG %>
-                                                                </p>
-                                                            </li>
-                                                            <li>
-                                                                <h6>Densidad inicial: </h6>
-                                                                <p>
-                                                                    <%= recetaToEdit.targetOG %>
-                                                                </p>
-                                                            </li>
-                                                            <li>
-                                                                <h6>PH inicial: </h6>
-                                                                <p>
-                                                                    <%= recetaToEdit.initialPH %>
-                                                                </p>
-                                                            </li>
-                                                            <li>
-                                                                <h6>PH final: </h6>
-                                                                <p>
-                                                                    <%= recetaToEdit.finalPH %>
-                                                                </p>
-                                                            </li>
+            </form>
 
-                                                        </ul>
-                                                    </div>
 
-                                                    <div class="nr-information">
-                                                        <h4>Método y tiempos</h4>
-                                                        <ul class="pd-beer-attributes">
-                                                            <li>
-                                                                <h6>Macerado: </h6>
-                                                                <p>
-                                                                    <%= recetaToEdit.mashTemp %>° -
-                                                                     <%= recetaToEdit.mashTime %> min.
-                                                                </p>
-                                                            </li>
-                                                            <li>
-                                                                <h6>Fermentación: </h6>
-                                                                <p>
-                                                                    <%= recetaToEdit.fermentationTemp %>°
-                                                                </p>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-
-                                                    <div class="nr-information">
-                                                        <h4>Ingredientes</h4>
-                                                        <ul class="pd-beer-attributes">
-                                                            <li>
-                                                                <h6>Maltas: </h6> </br>
-                                                                <p>
-                                                                    <%= recetaToEdit.malt1 %>: <%=
-                                                                            recetaToEdit.malt1Amount %>
-                                                                </p></br>
-                                                                <p>
-                                                                    <%= recetaToEdit.malt2 %>: <%=
-                                                                            recetaToEdit.malt2Amount %>
-                                                                </p></br>
-                                                                <p>
-                                                                    <%= recetaToEdit.malt3 %>: <%=
-                                                                            recetaToEdit.malt3Amount %>
-                                                                </p></br>
-                                                                <p>
-                                                                    <%= recetaToEdit.malt4 %>: <%=
-                                                                            recetaToEdit.malt4Amount %>
-                                                                </p></br>
-                                                                <p>
-                                                                    <%= recetaToEdit.malt5 %>: <%=
-                                                                            recetaToEdit.malt5Amount %>
-                                                                </p></br>
-                                                            </li>
-                                                            <li>
-                                                                <h6>Lúpulo/s: </h6>
-                                                                <p>
-                                                                    <%= recetaToEdit.hop1 %>: <%=
-                                                                            recetaToEdit.hop1Amount %> gr.
-                                                                            <%= recetaToEdit.hop1Moment %>
-                                                                                min.
-                                                                </p></br>
-                                                                <p>
-                                                                    <%= recetaToEdit.hop2 %>: <%=
-                                                                            recetaToEdit.hop2Amount %> gr.
-                                                                            <%= recetaToEdit.hop2Moment %>
-                                                                </p></br>
-                                                                <p>
-                                                                    <%= recetaToEdit.hop3 %>: <%=
-                                                                            recetaToEdit.hop3Amount %> gr.
-                                                                            <%= recetaToEdit.hop3Moment %>
-                                                                </p></br>
-                                                            </li>
-                                                            <li>
-                                                                <h6>Levadura: </h6> </br>
-                                                                <p>
-                                                                    <%= recetaToEdit.yeast %>
-                                                                </p><br>
-                                                                <p>
-                                                                    <%= recetaToEdit.yeastAmount %> gr.
-                                                                </p></br>
-
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="nr-tip-container">
-                                                    <div class="nr-tip">
-                                                        <h4>Tip cervecero</h4>
-                                                        <p>
-                                                            <%= recetaToEdit.brewerTip %>
-                                                        </p>
-                                                    </div>
-                                                    <div class="nr-tip">
-                                                        <h4>Maridaje</h4>
-                                                        <p>
-                                                            <%= recetaToEdit.foodPairing %>
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </section>
-
-                    </form>
-            </div>
-    <!-- Footer-->
-    <%- include("../partials/footer") %>
-</body>
+            <form action="">
+                <div class="ra-buton-container">
+                    <button class="pd-admin ra-edit"></a>Eliminar receta</a></button>
+                </div>
+            </form>
+        </div>
+        <!-- Footer-->
+        <%- include("../partials/footer") %>
+    </body>
 
 </html>
