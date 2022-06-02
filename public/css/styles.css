@@ -1267,13 +1267,14 @@ section .pd-quienes-somos-right, section .pd-quienes-somos-left {
   padding: 0 3px;
 }
 .nr-beer-attributes li {
+  display: flex;
   justify-content: left;
   list-style-type: none;
   align-items: baseline;
 }
 
 .nr-beer-attributes li h5 {
-  width: 100px;
+  width: 150px;
 }
 .nr-information-container {
   display: flex;
@@ -1304,6 +1305,12 @@ section .pd-quienes-somos-right, section .pd-quienes-somos-left {
 
 .nr-process-container p {
   margin: 10px;
+}
+.nr-information {
+  margin: 0 10px;
+}
+.nr-beer-attributes .nr-ingredients-list {
+  display: block;
 }
 
 .ra-admin-container {
@@ -1392,22 +1399,30 @@ div .ra-receta-container {
 .ra-tip-container {
   display: flex;
   background-color: #c4c4c4;
-  justify-content: space-around;
+  justify-content: center;
   padding: 10px;
   margin: 10px;
   border-radius: 5px;
 }
 .ra-tip {
+  display: flex;
   flex-wrap: wrap;
+  flex-direction: column;
+  margin: 0 30px;
 }
 .ra-tip h4 {
   padding: 10px 0;
 }
+.ra-tip p {
+  display: flex;;
+  flex-direction: column;
+}
+
 .ra-tip input {
   height: 350px;
   width: 350px;
   border-radius: 3px;
-  border: 1px solid #c4c4c4;
+  border: 1px solid #aaa9a9;
   padding:2px;
 }
 
@@ -2204,10 +2219,13 @@ section.ind-bottom{
 
 .nr-information {
   flex: 30%;
-  padding: 10px 20px 10px 10px;
+  padding: 10px 0;
 }
 .nr-information h4 {
   padding: 10px 0;
+}
+.nr-information p {
+  font-size: 14px;
 }
 .nr-beer-attributes {
     display: flex;
