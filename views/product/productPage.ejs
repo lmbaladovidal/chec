@@ -10,16 +10,17 @@
     
 
     <main class="pd-main">
+        
+        <h2 class="pd-titulo">Tienda</h2>
         <% if (datos.userLogged && datos.userLogged.userRole == "Admin"){ %> 
-            <div class="pa-add-btn">
-                <div class="pa-div-add-btn">
+            <div class="add-receta-container">
+                <!-- <div class="pa-div-add-btn">-->
                     <button class="pd-admin ">
                         <a href="/product/productAdmin/0" class="pd-admin-a">Agregar</a>
                     </button>
-                </div>
+                <!-- </div>-->
             </div>        
         <%}%>
-        <h2 class="pd-titulo">Tienda</h2>
         <div class="pd-tienda">
             <%- include("../partials/articles") %>
         </div>

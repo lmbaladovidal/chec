@@ -261,5 +261,17 @@
   "passVerify": "12345678",
   "avatar": "1653289177472_img.png",
   "userRole": "admin"
+ },
+ {
+  "id": 26,
+  "name": "David",
+  "lastName": "Juncos",
+  "email": "davidjuncos@gmail.com",
+  "address": "Independencia 717",
+  "birthDate": "1982-12-08",
+  "password": "$2a$10$gLfGswrmfIlSGHkQ4mqaYejwMpRynZcSQBU/q9VxcdYOes1ep2V86",
+  "passVerify": "David.1234",
+  "avatar": "default.png",
+  "userRole": "Admin"
  }
 ]
