@@ -145,22 +145,27 @@
                                     <ul class="pd-beer-attributes">
                                         <li>
                                             <h6>Maltas: </h6> </br>
-                                            <p>
+                                            <h1><%= datos.recetas[i].malt1%></h1>
+                                            <p style='display:<%= datos.recetas[i].malt1?'block':'none'%>'>
                                                 <%= datos.recetas[i].malt1 %>: <%=
                                                         datos.recetas[i].malt1Amount %>
                                             </p></br>
-                                            <p>
+                                            <h1><%= datos.recetas[i].malt2%></h1>
+                                            <p style='display:<%= datos.recetas[i].malt2?'block':'none'%>'>
                                                 <%= datos.recetas[i].malt2 %>: <%=
                                                         datos.recetas[i].malt2Amount %>
                                             </p></br>
-                                            <p>
+                                            <h1><%= datos.recetas[i].malt3%></h1>
+                                            <p style='display:<%= datos.recetas[i].malt3?'block':'none'%>'>
                                                 <%= datos.recetas[i].malt3 %>: <%=
                                                         datos.recetas[i].malt3Amount %>
                                             </p></br>
-                                            <p>
+                                            <h1><%= datos.recetas[i].malt4%></h1>
+                                            <p style='display:<%= datos.recetas[i].malt4?'block':'none'%>'>
                                                 <%= datos.recetas[i].malt4 %>: <%=
                                                         datos.recetas[i].malt4Amount %>
                                             </p></br>
+                                            <h1><%= datos.recetas[i].malt5%></h1>
                                             <p style='display:<%= datos.recetas[i].malt5?'block':'none'%>'>
                                                 <%= datos.recetas[i].malt5 %>: <%=
                                                         datos.recetas[i].malt5Amount + 'xx' %>

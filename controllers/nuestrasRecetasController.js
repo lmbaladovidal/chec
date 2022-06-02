@@ -5,11 +5,13 @@ const path = require('path');
 const recetasFilePath = path.join(__dirname, '../DataBase/bbddRecetas.json');
 const recetas = JSON.parse(fs.readFileSync(recetasFilePath,"utf-8"));
 
+
+
 const recetasDetail = (req,res) => {
-        const userLogged = req.session.userLogged;
-        const datos ={recetas,userLogged }
-       
-        res.render('./recetas/nuestrasRecetas',{datos});
+    const userLogged = req.session.userLogged;
+    const datos ={recetas,userLogged }
+   
+    res.render('./recetas/nuestrasRecetas',{datos});
 };
 
 const recetaCreate = (req,res) => {
