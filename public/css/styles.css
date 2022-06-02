@@ -735,6 +735,10 @@ color: #ff6200;
     transition-duration: 200ms;  
 }
 
+.pa-Alinear_texto_Derecha{
+  text-align:right
+}
+
 .pa-div-add-btn{
   /*display: inline-block;
   flex-wrap: nowrap;
@@ -744,10 +748,6 @@ color: #ff6200;
 }
 
 .pa-add-btn{
-  /*display: block;
-  margin: auto;*/
-  
-
   /*width:100%;
   position: fixed;
   width:100%;
