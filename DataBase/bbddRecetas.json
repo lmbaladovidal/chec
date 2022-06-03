@@ -1,4 +1,4 @@
-[ {   "id": 2,
+[ {   "id": 1,
      "name":"Golden Ale",
     "volume":55,
     "boilvolume":60,
@@ -22,7 +22,7 @@
     "foodPairing":"Pizza y cerveza siempre van de la mano. También podés probar combinarla con bombas de papa."
 },
 
-{   "id": 3,
+{   "id": 2,
     "name":"IPA",
     "volume":55,
     "boilvolume":60,
@@ -57,7 +57,7 @@
 },
 
 {
-"id": 4,
+"id": 3,
 "name":"Honey",
 "volume":55,
 "boilvolume":60,
@@ -84,7 +84,7 @@
 },
 
 {   
-    "id": 5,
+    "id": 4,
     "name":"Irish Red",
     "volume":55,
     "boilvolume":60,
@@ -118,7 +118,7 @@
     "brewerTip":"Una vez terminado el macerado, llevar a 72° para un mash out de 15 minutos.",
     "foodPairing":"A COMPLETAR"
 },
-{   "id": 6,
+{   "id": 5,
     "name":"Stout",
     "volume":55,
     "boilvolume":60,

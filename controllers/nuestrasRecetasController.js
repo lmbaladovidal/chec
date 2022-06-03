@@ -15,11 +15,11 @@ const recetasDetail = (req,res) => {
 };
 
 const recetaAdmin =(req,res)=>{
-    //res.send(req.body);
+   
     let id= parseInt(req.params.id);
     let recetaToEdit = recetas.find(receta => {
         return receta.id == id
-    });    
+    });   
     res.render('./recetas/nuestrasRecetasAdmin',{recetaToEdit})
 };
 
