@@ -10,8 +10,11 @@
 
         <div class="ra-admin-container">
             <h3>Administración de Recetas</h3>
-
-            <form action="/recetas/nuestrasRecetasAdmin/" method="POST">
+            <% if (recetaToEdit.id == 0){%>
+                <form action="/recetas/nuestrasRecetasAdmin/" method="POST">
+            <%}else{%>
+                <form action="/recetas/nuestrasRecetasAdmin/<%= recetaToEdit.id %>?_method=PUT" method="POST">
+            <%}%>
                 
             <section class="ra-details-container">
                 
@@ -79,7 +82,7 @@
                                     <li class="ra-li-malt">
                                         <h6>Fermentación </h6>
                                         <h6>Temperatura de fermentación: </h6>
-                                        <p></p><input type="text" name="fermentationTemp" value="<%=recetaToEdit.fermentationTemp%>"> minutos
+                                        <p></p><input type="text" name="fermentationTemp" value="<%=recetaToEdit.fermentationTemp%>"> grados
                                     </li>
                                 </ul>
                             </div>
@@ -160,15 +163,15 @@
                             </div>
                         </div>
                     </div>
-
+                    <button class="pd-admin" type="submit">Guardar</button>
                 </div>
-                <button class="pd-admin" type="submit">Guardar nueva receta</button>
+                
             </section>
 
             </form>
 
-
-            <form action="">
+            
+            <form action="/product/<%= recetaToEdit.id %>?_method=DELETE" method="POST">
                 <div class="ra-buton-container">
                     <button class="pd-admin ra-edit"></a>Eliminar receta</a></button>
                 </div>

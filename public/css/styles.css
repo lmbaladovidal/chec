@@ -1309,8 +1309,15 @@ section .pd-quienes-somos-right, section .pd-quienes-somos-left {
 .nr-information {
   margin: 0 10px;
 }
+.nr-information h4{
+  margin: 10px 0 0 0;
+  color: #541e00;
+}
 .nr-beer-attributes .nr-ingredients-list {
   display: block;
+}
+.nr-ingredients-list h6 {
+  font-size: 14px;
 }
 
 .ra-admin-container {

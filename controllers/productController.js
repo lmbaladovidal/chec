@@ -58,8 +58,7 @@ const productUpdate = (req, res) =>{
                 product.carbonation = req.body.carbonation;
                 product.hop = req.body.hop;
                 product.category = req.body.category;
-                product.image = req.file?req.file.filename:req.body.image;         
-            
+                product.image = req.file?req.file.filename:req.body.image;                    
             }
             
         })       
