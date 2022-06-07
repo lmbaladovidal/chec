@@ -561,7 +561,7 @@ main h2 .pd-titulo {
 
 section .pd-product-imgs {
   align-items: flex-start;
-  margin: 25px 50px 70px 50px;
+  margin: 25px auto;
   flex: 30%;
   width: 80%;
   text-align: center;
@@ -572,27 +572,29 @@ section .pd-product-info {
   flex: 40%;
   margin: 10px;
   font-family: "Montagu Slab", serif;
-  width: 100%;
+  /*width: 100%;*/
 }
-
-section div .pd-beer-attributes {
+.pa-li-element {
+  list-style-type: none;
+}
+/* section div .pd-beer-attributes {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: left;
   font-family: "Montagu Slab", serif;
-}
-
+} */
+/* 
 section div .pd-beer-attributes li {
   justify-content: left;
   list-style-type: none;
   align-items: baseline;
   display: flex;
   padding: 3px;  
-}
-section div .pd-beer-attributes li p, section .pd-sub-total-amount {
+} */
+/* section div .pd-beer-attributes li p, section .pd-sub-total-amount {
   margin-left: 8px; 
-}
+} */
 
 section .pd-sub-total {
   display: flex;
@@ -677,6 +679,8 @@ section div .pd-product-form .pd-quantity h5 {
 
 .pd-product-area .pd-product-info p, .pd-product-area .pd-product-info .pd-options {
   max-width: 500px;
+  margin: 3px auto;
+  justify-content: center;
 }
 
 article .pd-seleccionar, .pd-add, .pd-product-area .pd-options button, .pd-options button {
@@ -2029,7 +2033,7 @@ section.ind-bottom{
   flex: 30%;
   padding: 10px;
 }
-.pd-beer-attributes h4 {
+/* .pd-beer-attributes h4 {
   font-size: 18px;
   margin: 10px 0;
 }
@@ -2038,7 +2042,8 @@ section.ind-bottom{
 }
 .pd-beer-attributes p {
   font-size: 14px;
-}
+} */
+
 .nr-tip-container {
   display: flex;
 
