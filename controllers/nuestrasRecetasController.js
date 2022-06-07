@@ -1,5 +1,4 @@
 const fs = require('fs');
-const { restart } = require('nodemon');
 const path = require('path');
 
 const recetasFilePath = path.join(__dirname, '../DataBase/bbddRecetas.json');
