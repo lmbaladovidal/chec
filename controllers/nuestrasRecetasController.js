@@ -15,11 +15,10 @@ const recetasDetail = (req,res) => {
 };
 
 const recetaAdmin =(req,res)=>{
-   
     let id= parseInt(req.params.id);
     let recetaToEdit = recetas.find(receta => {
         return receta.id == id
-    });   
+    });
     res.render('./recetas/nuestrasRecetasAdmin',{recetaToEdit})
 };
 
@@ -63,9 +62,9 @@ const recetaCreate = (req,res) => {
       }
     recetas.push(receta);
     let recetas_JSON= JSON.stringify(recetas, null, 2);
-    let recetasPath= path.join(__dirname, '../DataBase/BDCervezas.json');
+    let recetasPath= path.join(__dirname, '../DataBase/bbddRecetas.json');
     fs.writeFileSync(recetasPath, recetas_JSON);
-    res.redirect('/recetas/nuestrasRecetas')
+    res.redirect('/nuestrasRecetas')
 };
 
 
@@ -77,13 +76,14 @@ const recetaDelete = (req, res) => {
     let recetas_JSON = JSON.stringify(nonDeletedRecetas, null, 2);   
     let recetasPath= path.join(__dirname, '../DataBase/bbddRecetas.json');
     fs.writeFileSync(recetasPath, recetas_JSON);
-    res.redirect('./recetas/nuestrasRecetas');
+    res.redirect('/nuestrasRecetas');
 };
 
 const recetaUpdate = (req, res) =>{
     let id = parseInt(req.params.id);
-    if(product.id == id){   
+   
     recetas.forEach(receta =>{
+        if(receta.id == id){   
         receta.name= req.body.name,
         receta.recetavolume= req.body.volume,
         receta.boilvolume= req.body.boilvolume,
@@ -118,14 +118,14 @@ const recetaUpdate = (req, res) =>{
         receta.yeastAmount= req.body.yeastAmount,
         receta.brewerTip= req.body.brewerTip,
         receta.foodPairing= req.body.foodPairing
-        })   
-        }
+        }    
+    })   
+        
         
     let recetas_JSON= JSON.stringify(recetas, null, 2);
-    
     let recetasPath= path.join(__dirname, '../DataBase/bbddRecetas.json');
     fs.writeFileSync(recetasPath, recetas_JSON);
-    res.redirect('./recetas/nuestrasRecetas')
+    res.redirect('/nuestrasRecetas')
 }
 
 
