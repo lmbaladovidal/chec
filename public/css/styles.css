@@ -1430,8 +1430,8 @@ div .ra-receta-container {
 }
 
 .ra-tip input {
-  height: 350px;
-  width: 350px;
+  height: 200px;
+  width: 300px;
   border-radius: 3px;
   border: 1px solid #aaa9a9;
   padding:2px;
