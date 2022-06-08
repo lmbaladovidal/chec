@@ -561,7 +561,7 @@ main h2 .pd-titulo {
 
 section .pd-product-imgs {
   align-items: flex-start;
-  margin: 25px 50px 70px 50px;
+  margin: 25px auto;
   flex: 30%;
   width: 80%;
   text-align: center;
@@ -572,16 +572,18 @@ section .pd-product-info {
   flex: 40%;
   margin: 10px;
   font-family: "Montagu Slab", serif;
-  width: 100%;
+  /*width: 100%;*/
 }
-
+.pa-li-element {
+  list-style-type: none;
+}
 section div .pd-beer-attributes {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: left;
   font-family: "Montagu Slab", serif;
-}
+} 
 
 section div .pd-beer-attributes li {
   justify-content: left;
@@ -589,10 +591,10 @@ section div .pd-beer-attributes li {
   align-items: baseline;
   display: flex;
   padding: 3px;  
-}
-section div .pd-beer-attributes li p, section .pd-sub-total-amount {
+} 
+ section div .pd-beer-attributes li p, section .pd-sub-total-amount {
   margin-left: 8px; 
-}
+} 
 
 section .pd-sub-total {
   display: flex;
@@ -677,6 +679,12 @@ section div .pd-product-form .pd-quantity h5 {
 
 .pd-product-area .pd-product-info p, .pd-product-area .pd-product-info .pd-options {
   max-width: 500px;
+  margin: 3px ;
+  justify-content: center;
+}
+
+.pd-beer-attributes li h5 {
+  width: 100px;
 }
 
 article .pd-seleccionar, .pd-add, .pd-product-area .pd-options button, .pd-options button {
@@ -1275,6 +1283,16 @@ section .pd-quienes-somos-right, section .pd-quienes-somos-left {
 .pd-admin i {
   padding: 0 3px;
 }
+.nr-beer-attributes li {
+  display: flex;
+  justify-content: left;
+  list-style-type: none;
+  align-items: baseline;
+}
+
+.nr-beer-attributes li h5 {
+  width: 150px;
+}
 .nr-information-container {
   display: flex;
   flex-direction: column;
@@ -1299,10 +1317,137 @@ section .pd-quienes-somos-right, section .pd-quienes-somos-left {
 }
 .nr-process-container {
   border: solid 1px #c4c4c4;
+  margin-top: 10px; 
  }
 
 .nr-process-container p {
   margin: 10px;
+}
+.nr-information {
+  margin: 0 10px;
+}
+.nr-information h4{
+  margin: 10px 0 0 0;
+  color: #541e00;
+}
+.nr-beer-attributes .nr-ingredients-list {
+  display: block;
+}
+.nr-ingredients-list h6 {
+  font-size: 14px;
+}
+
+.ra-admin-container {
+  padding: 20px 40px;
+}
+.ra-admin-container h3 {
+  margin: 10px 0;
+}
+
+.ra-name {
+  display: flex;
+  align-items: center;
+  background-color: #ffda4d;
+  border-top-right-radius: 10px;
+}
+.ra-information {
+  padding-left: 10px;
+
+}
+
+div .ra-receta-container {
+  border-right: 2px solid #ffda4d;
+  border-left: 2px solid #ffda4d;
+  border-bottom: 2px solid #ffda4d;
+  padding: 10px 15px;
+}
+.ra-information h4 {
+  margin: 10px 0;
+
+}
+.ra-information ul li h6 {
+  width: 250px;
+  font-size: 14px;
+}
+
+.ra-beer-attributes {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: left;
+  font-family: "Montagu Slab", serif;
+}
+
+.ra-beer-attributes li {
+  justify-content: left;
+  list-style-type: none;
+  align-items: baseline;
+  display: flex;
+  padding: 3px;  
+}
+
+.ra-information-attributes  h6{
+  padding: 10px 0;
+}
+.ra-li-malt, .ra-li-hop {
+  list-style-type: none;
+  padding:0 3px;  
+  background-color: white;
+  border: 1px solid #c4c4c4;
+  margin: 5px 5px 15px 5px;
+  padding: 10px 5px;
+  border-radius: 5px;
+
+}
+.ra-li-hop p {
+  width: 170px;
+}
+.ra-information-attributes li div {
+  display: flex;
+ 
+  padding: 3px 20px;
+ 
+}
+.ra-information-attributes li p {
+  width: 100px;
+  justify-content: left;
+  margin-left: 10px;
+  font-size: 13px;
+}
+.ra-information-attributes li input, .ra-information .ra-beer-attributes li p input, .ra-name p input {
+  border-radius: 3px;
+  margin-right: 20px;
+  border: 1px solid #c4c4c4;
+  padding:2px;
+}
+.ra-tip-container {
+  display: flex;
+  background-color: #c4c4c4;
+  justify-content: center;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+}
+.ra-tip {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin: 0 30px;
+}
+.ra-tip h4 {
+  padding: 10px 0;
+}
+.ra-tip p {
+  display: flex;;
+  flex-direction: column;
+}
+
+.ra-tip input {
+  height: 200px;
+  width: 300px;
+  border-radius: 3px;
+  border: 1px solid #aaa9a9;
+  padding:2px;
 }
 
 
@@ -2098,28 +2243,53 @@ section.ind-bottom{
 
 .nr-information {
   flex: 30%;
-  padding: 10px 20px 10px 10px;
+  padding: 10px 0;
 }
+
 .nr-information h4 {
-  padding: 10px 5px;
+  padding: 10px 0;
 }
 .pd-beer-attributes h4 {
   font-size: 18px;
   margin: 10px 0;
+
 }
-.pd-beer-attributes h6 {
-  font-size: 16px;
-}
-.pd-beer-attributes p {
+.nr-information p {
   font-size: 14px;
 }
+.nr-beer-attributes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    
+  }
+  
+
+  .nr-beer-attributes h4 {
+    font-size: 18px;
+    margin: 10px 0;
+  }
+  .nr-beer-attributes h6 {
+    font-size: 16px;
+  }
+  .nr-beer-attributes p {
+    font-size: 14px;
+  }
+} 
+
+.nr-tip-container {
+  display: flex;
+
+}
+
+
 
 
 
 
 /* Fin Media 1200 NUESTRAS RECETAS*/
 
-}
+
 
 
 /*#########################################################################################/*/
