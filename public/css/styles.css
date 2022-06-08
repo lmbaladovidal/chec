@@ -2232,18 +2232,17 @@ section.ind-bottom{
   flex: 30%;
   padding: 10px 0;
 }
-<<<<<<< HEAD
+
 .nr-information h4 {
   padding: 10px 0;
-=======
-/* .pd-beer-attributes h4 {
+}
+.pd-beer-attributes h4 {
   font-size: 18px;
   margin: 10px 0;
->>>>>>> dce9ca78b099f4a13f32521769c106a027a6dadf
+
 }
 .nr-information p {
   font-size: 14px;
-<<<<<<< HEAD
 }
 .nr-beer-attributes {
     display: flex;
@@ -2263,12 +2262,10 @@ section.ind-bottom{
   .nr-beer-attributes p {
     font-size: 14px;
   }
-=======
-} */
+} 
 
 .nr-tip-container {
   display: flex;
->>>>>>> dce9ca78b099f4a13f32521769c106a027a6dadf
 
 }
 
