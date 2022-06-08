@@ -7,24 +7,47 @@
     <!-- Header-->
     <%- include("../partials/header") %>
     <section>
-        <div class="lg-div-form">
-            <div class="lg-div-login">
+       
+        <div">
+            <label><h3>LOGIN DE USUARIO</h3></label>
+            <div class="lg-div-login lg-input">
                 <button class="lg-button"><i class="fa-brands fa-google"> Ingresar con Google </i></button>
                 <button class="lg-button"><i class="fa-brands fa-facebook-f"> Ingresar con Facebook </i></button>
             </div>
-            <form action="" class="lg-form-login">
-                <input type="text" class="lg-input" placeholder="Email">
-                <input type="text" class="lg-input" placeholder="Contraseña">
+            <form action="/users/login" method="POST" class="lg-form-login rg-form">
+                <div>
+                    <label>Email</label>
+                    <input type="email" name="email" class="lg-input">
+                    <% if (locals.errors && errors.email) { %>
+                        <div class="text-danger">
+                            <%= errors.email.msg %>
+                        </div>
+                    <% } %>
+                </div>
+                <div>
+                    <label>Constraseña</label>
+                    <input type="password" name="password" class="lg-input">
+                </div>
+                <div>
+                    <label>
+                        <input type="checkbox" name="remember_user"> Recordar mi usuario
+                    </label>
+                </div>
+                
                 <button type="submit" class="lg-submit">Ingresar</button>
             </form>
-            <h4>¿No tenes cuenta?</h4>
-            <a href="/users/register" class="lg-a">Registrate aca</a>
+           
+            <div class="lg-input">
+            <h4>¿No tenés cuenta?
+            <a href="/users/register" class="lg-a">Registrate acá</a></h4>
+        </div>
         </div>
     </section>
 
 
     
     <!-- Footer-->
+    <div style="margin-top:175px"> </div>
     <%- include("../partials/footer") %>
 </body>
 </html>

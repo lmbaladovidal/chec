@@ -1,25 +1,32 @@
 const fs = require('fs');
 const { restart } = require('nodemon');
 const path = require('path');
-const cervezasFilePath = path.join(__dirname, '../DataBase/BDCervezas.json');
+const cervezasFilePath = path.join(__dirname, '../DataBase/products/BDCervezas.json');
 const cervezas = JSON.parse(fs.readFileSync(cervezasFilePath,"utf-8"));
 
 
-const productPage = (req,res)=>{res.render('./product/productPage',{cervezas:cervezas})}
+const productPage = (req,res)=>{
+        const userLogged = req.session.userLogged;
+        const datos ={cervezas,userLogged}
+        res.render('./product/productPage',{datos})
+    }
 const productCart=(req,res)=>{res.render('./product/productCart')}
 const productDetail=(req,res)=>{res.render('./product/productDetail',cervezas[req.params.id])}
 
 const productAdmin=(req,res)=>{
-    //res.send(req.body);
+
     let id= parseInt(req.params.id);
     let cervezaToEdit = cervezas.find(cerveza => {
         return cerveza.id == id
-    });    
-    res.render('product/productAdmin',{cervezaToEdit})
+    }); 
+    if(cervezaToEdit==undefined)  {
+        res.render('enDesarrollo')
+    } else{
+    res.render('product/productAdmin',{cervezaToEdit})}
 }
     
 const productCreate=(req,res)=>{
-    //res.send(req.body);
+
     cerveza = {
         id: cervezas[cervezas.length-1].id+1,
         name: req.body.name,
@@ -36,7 +43,7 @@ const productCreate=(req,res)=>{
       }
     cervezas.push(cerveza);
     let cervezas_JSON= JSON.stringify(cervezas, null, 2);
-    let cervezasPath= path.join(__dirname, '../DataBase/BDCervezas.json');
+    let cervezasPath= path.join(__dirname, '../DataBase/products/BDCervezas.json');
     fs.writeFileSync(cervezasPath, cervezas_JSON);
     res.redirect('/product/productPage')
 }
@@ -54,15 +61,14 @@ const productUpdate = (req, res) =>{
                 product.carbonation = req.body.carbonation;
                 product.hop = req.body.hop;
                 product.category = req.body.category;
-                product.image = req.file?req.file.filename:req.body.image;         
-            
+                product.image = req.file?req.file.filename:req.body.image;                    
             }
             
         })       
         
     let cervezas_JSON= JSON.stringify(cervezas, null, 2);
     
-    let cervezasPath= path.join(__dirname, '../DataBase/BDCervezas.json');
+    let cervezasPath= path.join(__dirname, '../DataBase/products/BDCervezas.json');
     fs.writeFileSync(cervezasPath, cervezas_JSON);
     res.redirect('/product/productPage')
     
@@ -84,7 +90,7 @@ const productDelete = (req, res) => {
     
     let nonDeletedCervezas = cervezas.filter(cerveza=>cerveza.id!==id);
     let cervezas_JSON = JSON.stringify(nonDeletedCervezas, null, 2);   
-    let cervezasPath= path.join(__dirname, '../DataBase/BDCervezas.json');
+    let cervezasPath= path.join(__dirname, '../DataBase/products/BDCervezas.json');
     fs.writeFileSync(cervezasPath, cervezas_JSON);
     res.redirect('/product/productPage');
 }

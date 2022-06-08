@@ -86,6 +86,57 @@ a { text-decoration: none;}
   list-style: none;
 }
 
+.main-navbar ul .dropdown-menu-container {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  color: white;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;  
+}
+
+.main-navbar ul img{
+  width: 30px;
+  border-radius: 100%;
+  margin: 10px 5px 0px 5px;
+}
+
+.main-navbar ul .dropdown-menu-container  li {
+  display: inline-block;
+}
+
+.main-navbar ul .dropdown-menu-container > li > a{
+  display: block;
+  justify-content: space-around;
+  color: white;
+  padding: 15px;
+  font-size: 12px;
+}
+.main-navbar ul .dropdown-menu-container li .dropdown-menu {
+  position: absolute;
+  display: none;
+  list-style: none;
+  width: 200px;
+  background-color: black;
+}
+.main-navbar ul .dropdown-menu-container li:hover .dropdown-menu{
+  display: block;
+  
+}
+.main-navbar ul .dropdown-menu-container .dropdown-menu li:hover {
+  color: #ff6200;
+}
+.main-navbar ul .dropdown-menu-container .dropdown-menu li a {
+  display: block;
+  color: white;
+  padding: 15px 15px 15px 20px;
+  text-decoration: none;
+}
+.main-navbar ul .dropdown-menu-container .dropdown-menu li a:hover {
+  color: #ff6200;
+}
+
 .logo {
   margin: 10px 0;
   flex: 100%;
@@ -310,6 +361,7 @@ max-width: 500px;
   display: flex;
   flex-direction: column;
   width: 100%;
+  margin: 10px;
 }
 
 .lg-form-login {
@@ -320,7 +372,7 @@ max-width: 500px;
 }
 
 .lg-input{
-  margin:4px;
+  margin:10px auto;
   padding: 4px;
   width: 100%;
   max-width: 300px;
@@ -376,21 +428,41 @@ max-width: 500px;
 
 /*Pagina Register*/
 
+.text-danger {
+  color: #dc3545 !important;
+}
 
+section label h3{
+  text-align: center;
+  margin-top: 15px;
+  color: #ff5200;
 
+}
 
+form div label > b {
+  font-weight: normal;
+  margin: 15px 0 15px 5px;
+  
+    
+
+}
 .rg-form{
-    margin: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+   width: 360px;
+   display: block;
+   justify-content: center; 
+   margin: 15px auto;
+   padding: 20px 30px;
+   background-color: rgba(102,102,102,0.32);
 }
 
 .rg-input{
-  margin:4px;
+  margin: 5px auto;
+  display: flex;
   padding: 4px;
-  width: 40%;
+  width: 100%;
   max-width: 300px;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 .rg-form [type="submit"], .rg-form [type="reset"]{
@@ -489,7 +561,7 @@ main h2 .pd-titulo {
 
 section .pd-product-imgs {
   align-items: flex-start;
-  margin: 25px 50px 70px 50px;
+  margin: 25px auto;
   flex: 30%;
   width: 80%;
   text-align: center;
@@ -500,16 +572,18 @@ section .pd-product-info {
   flex: 40%;
   margin: 10px;
   font-family: "Montagu Slab", serif;
-  width: 100%;
+  /*width: 100%;*/
 }
-
+.pa-li-element {
+  list-style-type: none;
+}
 section div .pd-beer-attributes {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: left;
   font-family: "Montagu Slab", serif;
-}
+} 
 
 section div .pd-beer-attributes li {
   justify-content: left;
@@ -517,10 +591,10 @@ section div .pd-beer-attributes li {
   align-items: baseline;
   display: flex;
   padding: 3px;  
-}
-section div .pd-beer-attributes li p, section .pd-sub-total-amount {
+} 
+ section div .pd-beer-attributes li p, section .pd-sub-total-amount {
   margin-left: 8px; 
-}
+} 
 
 section .pd-sub-total {
   display: flex;
@@ -605,6 +679,12 @@ section div .pd-product-form .pd-quantity h5 {
 
 .pd-product-area .pd-product-info p, .pd-product-area .pd-product-info .pd-options {
   max-width: 500px;
+  margin: 3px ;
+  justify-content: center;
+}
+
+.pd-beer-attributes li h5 {
+  width: 100px;
 }
 
 article .pd-seleccionar, .pd-add, .pd-product-area .pd-options button, .pd-options button {
@@ -656,22 +736,31 @@ color: #ff6200;
 
 .pd-admin-a{
     color: #000;
-    display: inline-block;  /*convierte las lineas de la lista en bloque para poder darles un padding*/
+    /*display: inline-block;  /*convierte las lineas de la lista en bloque para poder darles un padding*/
     font-size: 15px;
     font-weight: 550;
     transition-property: color, box-shadow;
     transition-duration: 200ms;  
 }
 
+.pa-Alinear_texto_Derecha{
+  text-align:right
+}
+
 .pa-div-add-btn{
-  position: relative;
-  float: right;
+  /*display: inline-block;
+  flex-wrap: nowrap;
+  */
+  /*position: relative;
+  float: right;*/
 }
 
 .pa-add-btn{
+  /*width:100%;
   position: fixed;
   width:100%;
   max-width:1200px;
+*/
 }
 
 
@@ -1131,6 +1220,238 @@ section .pd-quienes-somos-right, section .pd-quienes-somos-left {
 }
 /* Fin Quienes somos*/
 
+/* NUESTRAS RECETAS*/
+.add-receta {
+  display: flex;
+  width: 100%;
+}
+.add-receta-container{
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 10px 0;
+  justify-content: right;
+}
+
+.nr-details-container {
+  width: 100%;
+}
+.receta-name-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  background-color: #ffda4d;
+  margin: 10px 0 0;
+  border-top-right-radius: 10px;
+  justify-content: space-between;
+  align-items: center
+}
+.receta-name-container button {
+  align-content: right;
+}
+.nr-display-btn {
+  align-self: end;
+}
+.nr-buton-container {
+  display: flex;
+  justify-content: right;
+}
+
+.receta-container {
+  display: none;
+  border-right: 2px solid #ffda4d;
+  border-left: 2px solid #ffda4d;
+  border-bottom: 2px solid #ffda4d;
+}
+.nr-main-containter {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 20px;
+}
+.receta-name {
+  text-align: left;
+  padding: 15px;
+  font-size: 20px;  
+  display: inline-block;
+  width: 200px;
+}
+.nr-edit {
+  align-self: end;
+}
+.pd-admin i {
+  padding: 0 3px;
+}
+.nr-beer-attributes li {
+  display: flex;
+  justify-content: left;
+  list-style-type: none;
+  align-items: baseline;
+}
+
+.nr-beer-attributes li h5 {
+  width: 150px;
+}
+.nr-information-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.nr-tip {
+  background-color: #c4c4c4;
+  margin: 10px 10px 30px 10px;
+  padding: 10px;
+  max-width: 500px;
+  
+}
+
+.nr-process-container div {
+  background-color: #c4c4c4;
+  width: 100%;
+  padding: 10px;
+}
+
+.nr-tip h4, .nr-process-container h4 {
+  margin: 5px;
+}
+.nr-process-container {
+  border: solid 1px #c4c4c4;
+  margin-top: 10px; 
+ }
+
+.nr-process-container p {
+  margin: 10px;
+}
+.nr-information {
+  margin: 0 10px;
+}
+.nr-information h4{
+  margin: 10px 0 0 0;
+  color: #541e00;
+}
+.nr-beer-attributes .nr-ingredients-list {
+  display: block;
+}
+.nr-ingredients-list h6 {
+  font-size: 14px;
+}
+
+.ra-admin-container {
+  padding: 20px 40px;
+}
+.ra-admin-container h3 {
+  margin: 10px 0;
+}
+
+.ra-name {
+  display: flex;
+  align-items: center;
+  background-color: #ffda4d;
+  border-top-right-radius: 10px;
+}
+.ra-information {
+  padding-left: 10px;
+
+}
+
+div .ra-receta-container {
+  border-right: 2px solid #ffda4d;
+  border-left: 2px solid #ffda4d;
+  border-bottom: 2px solid #ffda4d;
+  padding: 10px 15px;
+}
+.ra-information h4 {
+  margin: 10px 0;
+
+}
+.ra-information ul li h6 {
+  width: 250px;
+  font-size: 14px;
+}
+
+.ra-beer-attributes {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: left;
+  font-family: "Montagu Slab", serif;
+}
+
+.ra-beer-attributes li {
+  justify-content: left;
+  list-style-type: none;
+  align-items: baseline;
+  display: flex;
+  padding: 3px;  
+}
+
+.ra-information-attributes  h6{
+  padding: 10px 0;
+}
+.ra-li-malt, .ra-li-hop {
+  list-style-type: none;
+  padding:0 3px;  
+  background-color: white;
+  border: 1px solid #c4c4c4;
+  margin: 5px 5px 15px 5px;
+  padding: 10px 5px;
+  border-radius: 5px;
+
+}
+.ra-li-hop p {
+  width: 170px;
+}
+.ra-information-attributes li div {
+  display: flex;
+ 
+  padding: 3px 20px;
+ 
+}
+.ra-information-attributes li p {
+  width: 100px;
+  justify-content: left;
+  margin-left: 10px;
+  font-size: 13px;
+}
+.ra-information-attributes li input, .ra-information .ra-beer-attributes li p input, .ra-name p input {
+  border-radius: 3px;
+  margin-right: 20px;
+  border: 1px solid #c4c4c4;
+  padding:2px;
+}
+.ra-tip-container {
+  display: flex;
+  background-color: #c4c4c4;
+  justify-content: center;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+}
+.ra-tip {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin: 0 30px;
+}
+.ra-tip h4 {
+  padding: 10px 0;
+}
+.ra-tip p {
+  display: flex;;
+  flex-direction: column;
+}
+
+.ra-tip input {
+  height: 200px;
+  width: 300px;
+  border-radius: 3px;
+  border: 1px solid #aaa9a9;
+  padding:2px;
+}
+
+
+/* Fin NUESTRAS RECETAS*/
 
     
 /*°°°°°°°°° INDEX °°°°°°°°°°°*/
@@ -1203,54 +1524,26 @@ section.ind-top {
 
   }
   div.best {
-    display: flex;
-    flex-wrap: nowrap;
-    flex-direction: column;
-    width: 300px;
+    width: 285px;
     height: 250px;
-    border: #000 2px solid;
-    border-radius: 12px;
-    box-shadow: 0 0 10px #FF6200;
+    border: #000 8px solid;
+    border-radius: 100%;
+    box-shadow: 0 0 10px #FF08;
     text-align: center;
-    background-color: #FFF;
+    background-color: #FF6208;
   }
-  div.art-1 {
-    display: flex;
-    flex-direction: column;
-    border-bottom: black 1px solid;
-    margin: auto;
-    width: 33%;
-  }
-  div.best h3 {
-    padding: 0 5px;
-    font-size: 16px;
-    margin-top: 5px;
+  div.best img{
+    width: 85%;
+    
   }
   
-  div.best h4 {
-    padding: 0 5px;
-    font-size: 12px;
-    margin-top: 5px;
-  }
-  button.art-1 {
-    margin: 10px auto;
-    padding: 5px;
-    background-color: #ff6200;
-    color: #fff;
-    width: 75%;
-    text-align: center;
-    border-radius: 15px;
-    text-shadow: black 0 0 8px;
-    box-shadow: 0 0 8px #000;
-    cursor: pointer;
-  }
   /*CONTENEDOR PADRE lado derecho*/
   div.right-content {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
-    margin: 10px 20px;
+    margin: 40px 20px;
     
   }
  /* texto del body lado derecho "cuando abrimos una..."*/
@@ -1261,7 +1554,7 @@ section.ind-top {
     margin: 15px;
     padding: 20px;
     border: #949494 1px dotted;
-    border-radius: 52px;
+    border-radius: 8px;
     box-shadow: 0 0 10px #000;
     background-color: #ebebeb;
     text-align: center;
@@ -1285,6 +1578,12 @@ section.ind-top {
     border-bottom: #ff8a00 1px double;
     text-align: center;
   }
+  article.art-3 img {
+    max-height: 40px;
+    max-width: 40%;
+    margin: auto;
+   
+  }
 
   article.art-3 i {
     transition: all 450ms;
@@ -1295,8 +1594,10 @@ section.ind-top {
     color:#ff5200; /*transition*/
     transform: scale(1.5);
    }
-  div.best:hover{
-    box-shadow: 0 0 10px #ff8a00;
+  div.best:hover, div.best button:hover{
+    box-shadow: 0 0 10px #000;
+    transform: scale(1.015);
+    transition: all 450ms;
    }
 
 /* section middle-bootom*/
@@ -1419,12 +1720,55 @@ div.bottom-content{
   }
   .rigth-navbar {
     /*pone los elementos de la lista en linea*/
-    display: flex;
+    display: flex; 
     align-items: center;
     justify-content: space-around;
     width: 100%;
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .main-navbar-dropdown-menu-container {   
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .main-navbar-dropdown-menu-container li img {
+    width: 35px;
+    border-radius: 100%;
+  }
+  .main-navbar-dropdown-menu-container ul > li > a{
+    display: block;
+    color: white;
+    padding: 15px;
+    text-decoration: none;
+  }
+  .main-navbar-dropdown-menu ul:hover {
+    background-color: white;
+  }
+
+  .main-navbar-dropdown-menu {
+    position: absolute;
+    display: none;
+    list-style: none;
+    width: 200px;
+    background-color: rgb(0, 0, 0)
+  }
+  .main-navbar-dropdown-menu-container li:hover .main-navbar-dropdown-menu{
+    display: block;
+  }
+  .main-navbar-dropdown-menu li:hover {
+    background-color: #000000;
+  }
+  .main-navbar-dropdown-menu li a {
+    display: block;
+    color: black;
+    padding: 15px 15px 15px 20px;
+    text-decoration: none;
+  }
+  .main-navbar-dropdown-menu li a:hover {
+    color:white;
   }
 
   .secondary-navbar {
@@ -1443,6 +1787,7 @@ div.bottom-content{
   .rg-btn-div{
     flex-direction: row;
   }
+ 
 
 /*xxxxxxxxxxxxxxxxxx/FOOTER/xxxxxxxxxxxxxxxxxxxxxx*/
   .secondary-navbar {
@@ -1635,6 +1980,8 @@ section.ind-top {
     align-items: flex-end;
   }
 
+  
+
   /*°°°°°°°  FOOTER Y SUSCRIBE °°°°°°°°°°°°°*/
   /*°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°*/
 
@@ -1712,26 +2059,10 @@ div.left-content {
   width: 300px;
   max-height: 350px;
   margin-left: 15px;
-}
-div.best {
-  height: 285px;
-  margin: 10px 20px 10px 10px;
-  border: #000 2px solid;
-  border-radius: 12px;
-  box-shadow: 0 0 10px #FF6200;
-  text-align: center;
-  background-color: #ffF;
+  margin-bottom: 20px;
+  margin-top: 15px;
 }
 
-article.art-1 {
-  width: 45%;
-  position: relative;
-  margin: 0 auto;
-}
- div.art-1 img{
-    width: 100%;
-    
-  }
 
 /*CONTENEDOR lado derecho*/
 div.right-content {
@@ -1764,6 +2095,23 @@ div.bottom-content{
   width: 40%;
 }
 /* FIN PACK PERSONALIZADO */
+
+/* Media 760 NUESTRAS RECETAS*/
+.nr-information-container {
+  flex-direction: row;
+}
+.nr-information-block {
+  flex: 55%;
+  display: flex;
+  padding: 10px;
+}
+.nr-tip-container {
+flex: 30%;
+padding: 10px;
+}
+
+/* Fin Meddia 760 NUESTRAS RECETAS*/
+
 
 }
 /*#########################################################################################/*/
@@ -1873,7 +2221,75 @@ section.ind-bottom{
   margin-top: 10px;
 
 }
+
+/* FIN PACK PERSONALIZADO */
+
+/* Media 1200 NUESTRAS RECETAS*/
+.nr-main-containter {
+  margin: auto;
+  max-width: 90%;
+  margin-top: 20px;
+
 }
+.nr-details-container {
+  margin: 10px;
+}
+
+.nr-process-container {
+  margin: 10px;
+  border: solid 1px #c4c4c4;
+}
+
+
+.nr-information {
+  flex: 30%;
+  padding: 10px 0;
+}
+
+.nr-information h4 {
+  padding: 10px 0;
+}
+.pd-beer-attributes h4 {
+  font-size: 18px;
+  margin: 10px 0;
+
+}
+.nr-information p {
+  font-size: 14px;
+}
+.nr-beer-attributes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    
+  }
+  
+
+  .nr-beer-attributes h4 {
+    font-size: 18px;
+    margin: 10px 0;
+  }
+  .nr-beer-attributes h6 {
+    font-size: 16px;
+  }
+  .nr-beer-attributes p {
+    font-size: 14px;
+  }
+} 
+
+.nr-tip-container {
+  display: flex;
+
+}
+
+
+
+
+
+
+/* Fin Media 1200 NUESTRAS RECETAS*/
+
+
 
 
 /*#########################################################################################/*/
