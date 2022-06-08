@@ -39,10 +39,9 @@ app.use(methodOverride('_method'));//Middleware de aplicación el cual se encarg
 app.use(express.urlencoded({ extended: false })); //URL encode  - Para que nos pueda llegar la información desde el formulario al req.body
 
 app.use("/", rutaControllers);
-//app.use("/quienesSomos", rutaControllers);
-app.use("/recetas", nuestrasRecetasRouter);
-app.use("/product", productRouter);
 app.use("/", nuestrasRecetasRouter);
+app.use("/product", productRouter);
+app.use("/recetas", nuestrasRecetasRouter);
 app.use("/users", userRouter);
 
 app.use(notFound)
