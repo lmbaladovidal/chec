@@ -18,8 +18,11 @@ const productAdmin=(req,res)=>{
     let id= parseInt(req.params.id);
     let cervezaToEdit = cervezas.find(cerveza => {
         return cerveza.id == id
-    });    
-    res.render('product/productAdmin',{cervezaToEdit})
+    }); 
+    if(cervezaToEdit==undefined)  {
+        res.render('enDesarrollo')
+    } else{
+    res.render('product/productAdmin',{cervezaToEdit})}
 }
     
 const productCreate=(req,res)=>{

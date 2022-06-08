@@ -31,15 +31,15 @@
     "id": 2,
     "name": "IPA",
     "description": "Cerveza rubia amarga con aromas herbales que aportan sus lúpulos cascade y chinok.",
-    "price": 250,
-    "bitterness": 40,
-    "color": 9,
-    "alcohol": 5.2,
+    "price": "250",
+    "bitterness": "40",
+    "color": "9",
+    "alcohol": "5.2",
     "body": "liviano",
     "carbonation": "media/alta",
     "hop": "Cascade",
     "image": "honey.png",
-    "category": "Estándar"
+    "category": "Estandar"
   },
   {
     "id": 3,
@@ -81,19 +81,6 @@
     "carbonation": "media/baja",
     "hop": "Cascade",
     "image": "beer-1652058793037.png",
-    "category": "Estandar"
-  },
-  {
-    "id": 6,
-    "name": "123123123asdasdasd",
-    "description": "123123",
-    "price": "0123",
-    "bitterness": "123123",
-    "color": "123123",
-    "alcohol": "12312",
-    "carbonation": "123",
-    "hop": "123",
-    "image": "beer-1654651633987.png",
     "category": "Estandar"
   }
 ]

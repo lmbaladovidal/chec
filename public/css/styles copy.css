@@ -577,24 +577,24 @@ section .pd-product-info {
 .pa-li-element {
   list-style-type: none;
 }
-section div .pd-beer-attributes {
+/* section div .pd-beer-attributes {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: left;
   font-family: "Montagu Slab", serif;
-} 
-
+} */
+/* 
 section div .pd-beer-attributes li {
   justify-content: left;
   list-style-type: none;
   align-items: baseline;
   display: flex;
   padding: 3px;  
-} 
- section div .pd-beer-attributes li p, section .pd-sub-total-amount {
+} */
+/* section div .pd-beer-attributes li p, section .pd-sub-total-amount {
   margin-left: 8px; 
-} 
+} */
 
 section .pd-sub-total {
   display: flex;
@@ -679,12 +679,8 @@ section div .pd-product-form .pd-quantity h5 {
 
 .pd-product-area .pd-product-info p, .pd-product-area .pd-product-info .pd-options {
   max-width: 500px;
-  margin: 3px ;
+  margin: 3px auto;
   justify-content: center;
-}
-
-.pd-beer-attributes li h5 {
-  width: 100px;
 }
 
 article .pd-seleccionar, .pd-add, .pd-product-area .pd-options button, .pd-options button {
@@ -736,31 +732,22 @@ color: #ff6200;
 
 .pd-admin-a{
     color: #000;
-    /*display: inline-block;  /*convierte las lineas de la lista en bloque para poder darles un padding*/
+    display: inline-block;  /*convierte las lineas de la lista en bloque para poder darles un padding*/
     font-size: 15px;
     font-weight: 550;
     transition-property: color, box-shadow;
     transition-duration: 200ms;  
 }
 
-.pa-Alinear_texto_Derecha{
-  text-align:right
-}
-
 .pa-div-add-btn{
-  /*display: inline-block;
-  flex-wrap: nowrap;
-  */
-  /*position: relative;
-  float: right;*/
+  position: relative;
+  float: right;
 }
 
 .pa-add-btn{
-  /*width:100%;
   position: fixed;
   width:100%;
   max-width:1200px;
-*/
 }
 
 
@@ -2245,17 +2232,18 @@ section.ind-bottom{
   flex: 30%;
   padding: 10px 0;
 }
-
+<<<<<<< HEAD
 .nr-information h4 {
   padding: 10px 0;
-}
-.pd-beer-attributes h4 {
+=======
+/* .pd-beer-attributes h4 {
   font-size: 18px;
   margin: 10px 0;
-
+>>>>>>> dce9ca78b099f4a13f32521769c106a027a6dadf
 }
 .nr-information p {
   font-size: 14px;
+<<<<<<< HEAD
 }
 .nr-beer-attributes {
     display: flex;
@@ -2275,10 +2263,12 @@ section.ind-bottom{
   .nr-beer-attributes p {
     font-size: 14px;
   }
-} 
+=======
+} */
 
 .nr-tip-container {
   display: flex;
+>>>>>>> dce9ca78b099f4a13f32521769c106a027a6dadf
 
 }
 
