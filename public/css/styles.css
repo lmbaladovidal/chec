@@ -1499,6 +1499,30 @@ section.ind-top {
   border-bottom: 5px #949494 solid;
   border-top: 2px #949494 solid;
 }
+.ind-top-test {
+  background-image: url("/Desing/Logo-Etiqueta-Originals/CERVECERIA-CHEC-RGB-DIGITAL.png");
+  background-size: cover;
+  background-position: center;
+  min-height: 300px;
+}
+
+.right-content-test {
+  display: flex;
+  margin: auto;
+  padding: 30px 0;
+  justify-content: start;
+  min-width: 500px;
+}
+.right-content-test .art-3 {
+  max-width: 500px;
+  margin-left: 50px;
+ }
+.right-content-test p {
+  font-size: 13px;
+}
+.right-content-test h3 {
+  font-size: 14px;
+}
 
 /*slider index-top*/
 .slider {
@@ -2019,7 +2043,7 @@ section.ind-top {
   /*°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°*/
 
   .div-content-logoFooter {
-    flex: 30%;
+    flex: 3%;
     padding: 10px 0;
     text-align: left;
     margin: 0 auto;
