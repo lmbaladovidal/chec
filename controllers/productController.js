@@ -14,12 +14,15 @@ const productCart=(req,res)=>{res.render('./product/productCart')}
 const productDetail=(req,res)=>{res.render('./product/productDetail',cervezas[req.params.id])}
 
 const productAdmin=(req,res)=>{
-    //res.send(req.body);
-    let id= parseInt(req.params.id);
+    
+    let id = parseInt(req.params.id);
     let cervezaToEdit = cervezas.find(cerveza => {
         return cerveza.id == id
-    });    
-    res.render('product/productAdmin',{cervezaToEdit})
+    }); 
+    if(cervezaToEdit==undefined)  {
+        res.render('enDesarrollo')
+    } else{
+    res.render('product/productAdmin',{cervezaToEdit})}
 }
     
 const productCreate=(req,res)=>{

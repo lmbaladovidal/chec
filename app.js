@@ -44,7 +44,7 @@ app.use("/product", productRouter);
 app.use("/recetas", nuestrasRecetasRouter);
 app.use("/users", userRouter);
 
-//app.use(notFound)
+app.use(notFound)
 
 
 
