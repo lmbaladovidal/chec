@@ -14,7 +14,7 @@ const productCart=(req,res)=>{res.render('./product/productCart')}
 const productDetail=(req,res)=>{res.render('./product/productDetail',cervezas[req.params.id])}
 
 const productAdmin=(req,res)=>{
-    //res.send(req.body);
+
     let id= parseInt(req.params.id);
     let cervezaToEdit = cervezas.find(cerveza => {
         return cerveza.id == id
@@ -23,7 +23,7 @@ const productAdmin=(req,res)=>{
 }
     
 const productCreate=(req,res)=>{
-    //res.send(req.body);
+
     cerveza = {
         id: cervezas[cervezas.length-1].id+1,
         name: req.body.name,
