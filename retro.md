@@ -65,3 +65,58 @@
 <ul>
 <li> En este sprint no hay puntos que ameriten tratamiento.</li>
 </ul>
+
+<h2>Retro Sprint 4</h2>
+
+<h3>Qué hicimos bien</h3>
+<ul>
+  
+<li> Dividir las tareas segun las dificultades de cada uno. </li>
+<li> Dividimos en subtareas algunas consignas del sprint</li>
+</ul>
+
+<h3>Qué hicimos mal</h3>
+<ul>
+<li>No supimos organizar correctamente la división de tareas en función de las dependencias.</li>
+</ul>
+
+<h3>Qué deberíamos empezar a hacer</h3>
+<ul>
+  <li>Definir un camino critico para la realización de tareas.</li>
+</ul>
+
+<h3>Qué deberíamos dejar de hacer</h3>
+<ul>
+<li> En este sprint no hay puntos que ameriten tratamiento.</li>
+</ul>
+
+
+<h2>Retro Sprint 5</h2>
+
+<h3>Qué hicimos bien</h3>
+<ul>
+  
+<li> Dividimos las tareas equitativamente. </li>
+<li> Aplicamos los conocimientos de clase a la construcción de los entregables.</li>
+</ul>
+
+<h3>Qué hicimos mal</h3>
+<ul>
+<li>Mantuvimos las tareas completas en las ramas individuales en lugar de ir consolidándolas en la rama de desarrollo y esto nos demandó demasiado tiempo en resolver conflictos durante la entrega a último momento. </li>
+</ul>
+
+<h3>Qué deberíamos empezar a hacer</h3>
+<ul>
+  <li>Subir las tareas completas individualmente a la rama desarrollo a medida que se van terminando. </li>
+  <li>Monitorear la rama desarrollo frecuentemente. </li>
+  <li>Agregar más reuniones grupales a partir del sprint 6 debido a la complejidad de los temas. </li>
+</ul>
+
+<h3>Qué deberíamos dejar de hacer</h3>
+<ul>
+<li> No acumular muchos commits en las ramas individuales sin subirlas a desarrollo. Esto requiere mantener fluida la conversación grupal para consensuar lo que subimos a desarrollo y resolver conflictos a medida que sucedan.</li>
+</ul>
+
+
+
+

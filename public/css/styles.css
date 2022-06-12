@@ -1192,30 +1192,37 @@ section .pd-quienes-somos-right, section .pd-quienes-somos-left {
   flex: 40%;
   justify-content: center;
   flex-direction: column;
+  border: 1px solid #c4c4c4;
+  border-radius: 4px;
+  background-color: #ebebeb;
+  margin: 10px;
+}
+
+.qs-img-container {
+  padding: 10px 0 20px 0;
+  margin: auto;
 }
 .pd-quienes-somos-right img, .pd-quienes-somos-left img {
-  padding: 10px;
-  max-width: 320px;
+  max-width: 400px;
   margin: auto;
 }
 .pd-quienes-somos-right div, .pd-quienes-somos-left div {
   align-items: flex-start;
   flex: 40%;
-  margin: 10px;
   font-family: "Montagu Slab", serif;
-  width: 100%;
+  width: 95%;
 }
-
 
 .pd-quienes-somos-right div h6, .pd-quienes-somos-left div h6 {
   font-size: 1em;
-  padding: 10px;
+  padding: 20px 0 10px 0;
+  margin: auto;
 }
 
 .pd-quienes-somos-right div p, .pd-quienes-somos-left div p {
   max-width: 500px;
   padding: 10px 20px;
-  margin: 10px;
+  margin: auto;
   text-align: justify;
 }
 /* Fin Quienes somos*/
@@ -1252,7 +1259,33 @@ section .pd-quienes-somos-right, section .pd-quienes-somos-left {
 }
 .nr-display-btn {
   align-self: end;
+  padding: 5px;
+  margin: 5px;
+  font-family: "Montagu Slab", serif;
+  background-color: #000000;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  align-items: right;
+  cursor: pointer;
+  display: inline-block;  /*convierte las lineas de la lista en bloque para poder darles un padding*/
+  transition-property: color, box-shadow;
+  transition-duration: 200ms;  
 }
+
+.nr-display-btn a {
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+  transition-duration: 200ms;
+  font-size: 13px;
+  font-weight: normal;
+}
+
+.nr-display-btn:hover {
+  color: #ff6200;
+}
+
 .nr-buton-container {
   display: flex;
   justify-content: right;
@@ -1465,6 +1498,30 @@ section.ind-top {
   margin-top: 5px;
   border-bottom: 5px #949494 solid;
   border-top: 2px #949494 solid;
+}
+.ind-top-test {
+  background-image: url("/Desing/Logo-Etiqueta-Originals/CERVECERIA-CHEC-RGB-DIGITAL.png");
+  background-size: cover;
+  background-position: center;
+  min-height: 300px;
+}
+
+.right-content-test {
+  display: flex;
+  margin: auto;
+  padding: 30px 0;
+  justify-content: start;
+  min-width: 500px;
+}
+.right-content-test .art-3 {
+  max-width: 500px;
+  margin-left: 50px;
+ }
+.right-content-test p {
+  font-size: 13px;
+}
+.right-content-test h3 {
+  font-size: 14px;
 }
 
 /*slider index-top*/
@@ -1986,7 +2043,7 @@ section.ind-top {
   /*°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°*/
 
   .div-content-logoFooter {
-    flex: 30%;
+    flex: 3%;
     padding: 10px 0;
     text-align: left;
     margin: 0 auto;
