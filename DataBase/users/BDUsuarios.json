@@ -273,5 +273,17 @@
   "passVerify": "David.1234",
   "avatar": "default.png",
   "userRole": "Admin"
+ },
+ {
+  "id": 27,
+  "name": "David",
+  "lastName": "Juncos",
+  "email": "davidjuncos@joseguma.com",
+  "address": "Independencia 717",
+  "birthDate": "1982-12-08",
+  "password": "$2a$10$gzAjSwRiTWlZBv81pt1E3ex2XE3wQrszBjGFgCWshCrWhjx/8D01O",
+  "passVerify": "12345678",
+  "avatar": "default.png",
+  "userRole": "Admin"
  }
 ]
