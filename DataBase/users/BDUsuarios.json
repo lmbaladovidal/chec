@@ -265,6 +265,7 @@
  {
   "id": 26,
   "name": "David",
+<<<<<<< HEAD
   "lastName": "Juncos",
   "email": "davidjuncos@gmail.com",
   "address": "Independencia 717",
@@ -284,6 +285,15 @@
   "password": "$2a$10$gzAjSwRiTWlZBv81pt1E3ex2XE3wQrszBjGFgCWshCrWhjx/8D01O",
   "passVerify": "12345678",
   "avatar": "default.png",
+=======
+  "lastName": "juncos",
+  "email": "davidjuncos@joseguma.com",
+  "address": "dean funes",
+  "birthDate": "1980-12-08",
+  "password": "$2a$10$ie8rZHe21JvmU8P6K5icHuTUePtFAsEtGpSpv1aMCkskPAMfUV0Re",
+  "passVerify": "12345678",
+  "avatar": "1654094972307_img.png",
+>>>>>>> 746c63f433ad3abcc30256287fa384e517ec1069
   "userRole": "Admin"
  }
 ]

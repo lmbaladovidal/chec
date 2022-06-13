@@ -44,3 +44,22 @@
   <li>Tomar las consignas planificadas en el tablero de Trello, que fueron subdivididas para un mejor cumplimiento</li>
   <li>Reunirnos una vez mas antes de la entrega final del Sprint.</li>
 </ul>
+
+<h2>Weeky Semana 20/2022</h2>
+<h3>Qué se hizo</h3>
+<ul>
+  <li>Leandro: Creé nuevas rutas de archivos.</li>
+  <li>Alba, Araceli: Proceso de Register y login.</li>
+  <li>Alba, David, Leandro, Araceli: Dividimos las tareas en el Tablero de Trello y conversamos acerca de las prioridades y dependencias entre ellas.</li>
+</ul>
+<h3>Qué impedimentos encontramos</h3>
+<ul>
+  <li>No se econtraron impedimentos.</li>
+</ul>
+
+<h3>Qué se va a hacer</h3>
+<ul>
+  <li>Araceli va a trabajar en el CRUD y CSS de la sección Nuestras Recetas</li>  
+  <li>Reunirnos una vez mas antes de la entrega final del Sprint.</li>
+</ul>
+
