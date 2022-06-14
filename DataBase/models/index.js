@@ -29,7 +29,13 @@ Object.keys(db).forEach(modelName => {
   if (db[modelName].associate) {
     db[modelName].associate(db);
   }
+
 });
+sequelize.authenticate().then(() => {
+  console.log('conexion establecida con la Base de Datos CheDiagrams')
+}).catch(error => {
+  console.log(error)
+})
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;

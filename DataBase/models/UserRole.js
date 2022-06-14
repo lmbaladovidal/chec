@@ -25,4 +25,6 @@ UserRoles.associate= (models) =>{
         foreignKey:"UserRoles_id" //aca va la aclaracion de la FK que tiene la otra tabla conectandola con esta
     })
 }
+return UserRoles;
+
 }

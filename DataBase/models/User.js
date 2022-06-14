@@ -49,5 +49,5 @@ Users.belongsTo(models.UserRoles,{
     foreignKey:"Users_id"
 })
 }
-
+ return Users;
 }
