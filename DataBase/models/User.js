@@ -1,39 +1,45 @@
 module.exports = (sequelize, dataTypes) => {
-    let alias = "Users";
+    let alias = "users";
     let cols = {
-        id:{ types: dataTypes.INT(4).UNSIGNED,
+        id:{ 
+            type: dataTypes.INTEGER(6).UNSIGNED,
             primaryKey : true,
             autoIncrement: true,
             allowNull:false,
         },
         name: {
-            types: dataTypes.STRING(45), 
-            allowNull: false
+            type: dataTypes.STRING(45), 
+            allowNull: true,
+            default: "valorPorDefecto"
         },
         lastName: {            
-            types: dataTypes.STRING(65), 
-            allowNull: false
+            type: dataTypes.STRING(65), 
+            allowNull: true,
+            default: "valorPorDefecto"
         },
                       
-        dateOfBirth: {            
-            types: dataTypes.DATEONLY, 
-            allowNull: false,
+        birthDate: {            
+            type: dataTypes.DATE, 
+            allowNull: true,
+            default: null
         },
         address: {            
-            types: dataTypes.STRING(65), 
-            allowNull: false
+            type: dataTypes.STRING(65), 
+            allowNull: true,
+            default: "valorPorDefecto"
         },
         email: {            
-            types: dataTypes.STRING(65), 
-            allowNull: false
+            type: dataTypes.STRING(65), 
+            allowNull: true,
+            default: "email@"
         },
         userRole: {            
-            types: dataTypes.STRING(65), 
-            allowNull: false
+            type: dataTypes.STRING(65), 
+            allowNull: true
         },
-        userImage: {            
-            types: dataTypes.STRING(200), 
-            allowNull: false
+        avatar: {            
+            type: dataTypes.STRING(200), 
+            allowNull: true
         },
 
     };
@@ -43,7 +49,7 @@ module.exports = (sequelize, dataTypes) => {
     };
 
 const Users = sequelize.define(alias, cols, config);
-Movie.associate =( models)=>{
+Users.associate =(models)=>{
 Users.belongsTo(models.UserRoles,{
     as:"userroles",
     foreignKey:"Users_id"
