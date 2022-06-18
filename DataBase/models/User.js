@@ -1,5 +1,5 @@
 module.exports = (sequelize, dataTypes) => {
-    let alias = "users";
+    let alias = "Users";
     let cols = {
         id:{ 
             type: dataTypes.INTEGER(6).UNSIGNED,
@@ -9,38 +9,47 @@ module.exports = (sequelize, dataTypes) => {
         },
         name: {
             type: dataTypes.STRING(45), 
-            allowNull: true,
-            default: "valorPorDefecto"
+            allowNull: false,
+         
         },
         lastName: {            
-            type: dataTypes.STRING(65), 
-            allowNull: true,
-            default: "valorPorDefecto"
+            type: dataTypes.STRING(45), 
+            allowNull: false,
+           
         },
                       
         birthDate: {            
             type: dataTypes.DATE, 
-            allowNull: true,
-            default: null
+            allowNull: false,
+            
         },
         address: {            
             type: dataTypes.STRING(65), 
-            allowNull: true,
-            default: "valorPorDefecto"
+            allowNull: false,
+           
         },
         email: {            
             type: dataTypes.STRING(65), 
-            allowNull: true,
-            default: "email@"
+            allowNull: false,
+            
         },
-        userRole: {            
-            type: dataTypes.STRING(65), 
-            allowNull: true
-        },
+             
         avatar: {            
             type: dataTypes.STRING(200), 
-            allowNull: true
+            allowNull: false,
+            default:'images/avatar/default.png'
         },
+
+        userroles_id: {
+            type: dataTypes.INTEGER(6),
+            allowNull: true, 
+            
+        },
+        // recipes_id: {
+        //     type: dataTypes.INTEGER(6),
+        //     allowNull: true, 
+        //     default: null
+        // }
 
     };
     let config = {
@@ -52,7 +61,7 @@ const Users = sequelize.define(alias, cols, config);
 Users.associate =(models)=>{
 Users.belongsTo(models.UserRoles,{
     as:"userroles",
-    foreignKey:"Users_id"
+    foreignKey:"users_id"
 })
 }
  return Users;

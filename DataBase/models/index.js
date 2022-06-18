@@ -32,7 +32,7 @@ Object.keys(db).forEach(modelName => {
 
 });
 sequelize.authenticate().then(() => {
-  console.log('conexion establecida con la Base de Datos CheDiagrams')
+  console.log('conexion establecida con la Base de Datos ChecDiagrams')
 }).catch(error => {
   console.log(error)
 })

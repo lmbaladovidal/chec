@@ -9,7 +9,8 @@ module.exports = (sequelize, dataTypes) => {
         },
         roleName: {
             type: dataTypes.STRING(45), 
-            allowNull: false
+            allowNull: false,
+            default: "user"
         },
         
     };
@@ -21,9 +22,9 @@ module.exports = (sequelize, dataTypes) => {
 const UserRoles = sequelize.define(alias, cols, config);
 
 UserRoles.associate= (models) =>{
-    UserRoles.hasMany(models.users,{
+    UserRoles.hasMany(models.Users,{
         as:"users",
-        foreignKey:"UserRoles_id" //aca va la aclaracion de la FK que tiene la otra tabla conectandola con esta
+        foreignKey:"userroles_id" //aca va la aclaracion de la FK que tiene la otra tabla conectandola con esta
     })
 }
 return UserRoles;

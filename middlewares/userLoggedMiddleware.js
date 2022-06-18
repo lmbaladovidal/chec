@@ -1,10 +1,17 @@
-const User = require('../model/Users');
+
+const db = require('../DataBase/models')
+const sequelize = db.Sequelize;
+const Users = db.Users
+const {Op} = require('sequelize')
 
 function userLoggedMiddleware(req, res, next) {
 	res.locals.isLogged = false;
 
 	let emailInCookie = req.cookies.userEmail;
-	let userFromCookie = User.findByField('email', emailInCookie);
+	let userFromCookie = Users.findOne({
+		where:{
+			email: emailInCookie}
+		});
 
 	if (userFromCookie) {
 		req.session.userLogged = userFromCookie;

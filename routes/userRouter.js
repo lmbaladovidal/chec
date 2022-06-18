@@ -53,9 +53,9 @@ const validations = [
 	})
 ];
 //Form de login
-//router.get('/login',guestMiddleware, userController.login);
+router.get('/login',guestMiddleware, userController.login);
 //Process login
-//router.post('/login', userController.loginProcess);
+router.post('/login', userController.loginProcess);
 
 //Form de register
 router.get('/register', guestMiddleware, userController.register);
