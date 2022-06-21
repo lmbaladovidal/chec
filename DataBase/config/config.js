@@ -1,8 +1,8 @@
 module.exports = {
   "development": {
     "username": "root",
-    "password": 'camba',
-    "database": "checdiagrams",
+    "password": 'Dworkin1946',
+    "database": "chec_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
