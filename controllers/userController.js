@@ -7,10 +7,6 @@ const usuarios = JSON.parse(fs.readFileSync(usuariosFilePath,"utf-8"))
 const { validationResult } = require("express-validator");
 
 
-//const path = require('path');
-//const usuariosFilePath = path.join(__dirname,'../DataBase/BDUsuarios.json');
-//const usuarios = JSON.parse(fs.readFileSync(usuariosFilePath,"utf-8"))
-
 const userController = {
   login: (req, res) => {
     res.render("./users/login");
@@ -18,9 +14,7 @@ const userController = {
 
   loginProcess: (req, res) => {
     let userToLogin = User.findByField("email", req.body.email);
-    //res.send(bcryptjs.hashSync("q",10))
     if (userToLogin) {
-      //res.send( [userToLogin,userToLogin.password+" Aca estaba el pass"])
       let isOkThePassword = bcryptjs.compareSync(req.body.password,userToLogin.password);      
       if (isOkThePassword) {
         delete userToLogin.password;
@@ -28,7 +22,6 @@ const userController = {
         if (req.body.remember_user) {
           res.cookie("userEmail", req.body.email, { maxAge: 1000 * 60 * 60 });
         }
-        //return res.render("./users/profile", { user: userToLogin });
         return res.redirect('/users/profile');
       }
       return res.render("./users/login", {
