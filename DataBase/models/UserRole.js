@@ -21,12 +21,12 @@ module.exports = (sequelize, dataTypes) => {
 
 const UserRoles = sequelize.define(alias, cols, config);
 
-// UserRoles.associate= (models) =>{
-//     UserRoles.hasMany(models.Users,{
-//         as:"users",
-//         foreignKey:"userroles_id" //aca va la aclaracion de la FK que tiene la otra tabla conectandola con esta
-//     })
-// }
-// return UserRoles;
+UserRoles.associate= (models) =>{
+    UserRoles.hasMany(models.Users,{
+        as:"Users",  // tiene que ser el alias de la base Users
+        foreignKey:"userrole_id" //aca va la aclaracion de la FK que tiene la otra tabla conectandola con esta
+    })
+}
+return UserRoles;
 
 }

@@ -47,16 +47,15 @@ const userController = {
         ...req.body,
         password: bcryptjs.hashSync(req.body.password, 10), // encripta la contraseña y pisa la password que viene en body
         avatar: req.file ? req.file.filename : "default.png",
-        userroles_id: 1,
+        userrole_id: 1,
       };
       
-      return Users.create(userToCreate);
-     
-    },
-
-  )
+      return Users.create(userToCreate)
+           
+    })
   .then(response =>{
-    return  res.redirect("/");
+    console.log(response)
+    return  res.redirect("/login");
   })
 },
 login: (req, res) => {
