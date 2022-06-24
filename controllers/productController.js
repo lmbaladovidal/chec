@@ -1,11 +1,4 @@
-<<<<<<< HEAD
 const { response } = require('express');
-=======
-const db = require('../dataBase/models');
-const Op = db.Sequelize.Op; 
-const product = db.Product; 
-
->>>>>>> 5fdd17cfef120967057a2b4e16b5eae263bb9d93
 const fs = require('fs');
 const path = require('path');
 const cervezasFilePath = path.join(__dirname, '../DataBase/products/BDCervezas.json');
