@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 const { response } = require('express');
+=======
+const db = require('../dataBase/models');
+const Op = db.Sequelize.Op; 
+const product = db.Product; 
+
+>>>>>>> 5fdd17cfef120967057a2b4e16b5eae263bb9d93
 const fs = require('fs');
-const { restart } = require('nodemon');
 const path = require('path');
 const cervezasFilePath = path.join(__dirname, '../DataBase/products/BDCervezas.json');
 const cervezas = JSON.parse(fs.readFileSync(cervezasFilePath,"utf-8"));
@@ -8,8 +14,14 @@ const db = require('../DataBase/models')
 
 const productPage = (req,res)=>{
         const userLogged = req.session.userLogged;
-        const datos ={cervezas,userLogged}
-        res.render('./product/productPage',{datos})
+        product.findAll()
+        .then(resultado=>{
+            const cervezas = resultado
+            const datos ={cervezas,userLogged}
+            res.render('./product/productPage',{datos})
+            }
+        )
+        .catch(error=>{console.log(error)})
     }
 
 

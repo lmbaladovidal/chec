@@ -29,11 +29,18 @@ module.exports = (sequelize, dataTypes) => {
         updatedAt: 'updated_at',
         deletedAt: false
     }
+<<<<<<< HEAD
     const Detailsale = sequelize.define(alias,cols,config);
     
     Detailsale.associate = function (models) {
         Detailsale.belongsTo(models.Sale, { // models.Movie -> Movies es el valor de alias en movie.js
             as: "sale",
+=======
+    const Detailsale = sequelize.define(alias,cols,config);    
+    Detailsale.associate = function (models) {
+        Detailsale.belongsTo(models.Sale, { // models.Movie -> Movies es el valor de alias en movie.js
+            as: "Sale",
+>>>>>>> 5fdd17cfef120967057a2b4e16b5eae263bb9d93
             foreignKey: 'Sales_id',
         })
     }
