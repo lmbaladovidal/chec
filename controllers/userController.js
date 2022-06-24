@@ -40,71 +40,21 @@ const userController = {
       }})
       res.send(userInDb)
       
-  })
-  .catch(emailNotFound =>{
-    console.log(req.body);
+    })
+  .catch( async emailNotFound =>{
     let userToCreate = {    
         ...req.body,
         password: bcryptjs.hashSync(req.body.password, 10), // encripta la contraseña y pisa la password que viene en body
         avatar: req.file ? req.file.filename : "default.png",
         userrole_id: 1,
-      };
-      
-      return Users.create(userToCreate)
-           
+      };      
+      return await Users.create(userToCreate)           
     })
-  .then(response =>{
-    console.log(response)
-    return  res.redirect("/login");
-  })
-},
-login: (req, res) => {
-  res.render("./users/login");
-},
+    return  res.redirect("./login");
+  },
+  login: (req, res) => {
+    res.render("./users/login");
+  }
 
-// loginProcess: (req, res) => {
-//   let userToLogin = Users.findOne({
-//     where:{
-//       email: req.body.email}
-//     });
- 
-  
-//   if (userToLogin) {
-//     //res.send( [userToLogin,userToLogin.password+" Aca estaba el pass"])
-//     let isOkThePassword = bcryptjs.compareSync(req.body.password,userToLogin.password);      
-//     if (isOkThePassword) {
-//       delete userToLogin.password;
-//       req.session.userLogged = userToLogin;
-//       if (req.body.remember_user) {
-//         res.cookie("userEmail", req.body.email, { maxAge: 1000 * 60 * 60 });
-//       }
-//       //return res.render("./users/profile", { user: userToLogin });
-//       return res.redirect('/users/profile');
-//     }
-//     return res.render("./users/login", {
-//       errors: {
-//         email: {
-//           msg: "Las credenciales son inválidas",
-//         },
-//       },
-//     });
-//   }
-//   return res.render("./users/login", {
-//     errors: {
-//       email: {
-//         msg: "No se encuentra este email en nuestra base de datos",
-//       },
-//     },
-//   });
-// }
 }
-
-
-
-  
-
-
- 
-
-
 module.exports = userController;
