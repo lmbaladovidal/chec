@@ -1,5 +1,8 @@
+const db = require('../dataBase/models');
+const Op = db.Sequelize.Op; 
+const product = db.Product; 
+
 const fs = require('fs');
-const { restart } = require('nodemon');
 const path = require('path');
 const cervezasFilePath = path.join(__dirname, '../DataBase/products/BDCervezas.json');
 const cervezas = JSON.parse(fs.readFileSync(cervezasFilePath,"utf-8"));
@@ -7,8 +10,14 @@ const cervezas = JSON.parse(fs.readFileSync(cervezasFilePath,"utf-8"));
 
 const productPage = (req,res)=>{
         const userLogged = req.session.userLogged;
-        const datos ={cervezas,userLogged}
-        res.render('./product/productPage',{datos})
+        product.findAll()
+        .then(resultado=>{
+            const cervezas = resultado
+            const datos ={cervezas,userLogged}
+            res.render('./product/productPage',{datos})
+            }
+        )
+        .catch(error=>{console.log(error)})
     }
 const productCart=(req,res)=>{res.render('./product/productCart')}
 const productDetail=(req,res)=>{res.render('./product/productDetail',cervezas[req.params.id])}
