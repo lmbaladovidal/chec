@@ -1,14 +1,16 @@
 module.exports = (sequelize, dataTypes) => {
     let alias = "UserRoles";
     let cols = {
-        id:{ types: dataTypes.INT(4).UNSIGNED,
+        id:{ 
+            type: dataTypes.INTEGER(6).UNSIGNED,
             primaryKey : true,
             autoIncrement: true,
             allowNull:false,
         },
         roleName: {
-            types: dataTypes.STRING(45), 
-            allowNull: false
+            type: dataTypes.STRING(45), 
+            allowNull: false,
+            default: "user"
         },
         
     };
@@ -21,8 +23,10 @@ const UserRoles = sequelize.define(alias, cols, config);
 
 UserRoles.associate= (models) =>{
     UserRoles.hasMany(models.Users,{
-        as:"users",
-        foreignKey:"UserRoles_id" //aca va la aclaracion de la FK que tiene la otra tabla conectandola con esta
+        as:"Users",  // tiene que ser el alias de la base Users
+        foreignKey:"userrole_id" //aca va la aclaracion de la FK que tiene la otra tabla conectandola con esta
     })
 }
+return UserRoles;
+
 }

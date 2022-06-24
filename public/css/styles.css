@@ -766,22 +766,23 @@ color: #ff6200;
 }
 
 .pa-div-add-btn{
-  /*display: inline-block;
-  flex-wrap: nowrap;
-  */
   /*position: relative;
   float: right;*/
+  right: 100px;
+  align-content: right
 }
 
 .pa-add-btn{
-  /*width:100%;
-  position: fixed;
+  /*position: fixed;
   width:100%;
-  max-width:1200px;
-*/
+  max-width:1200px;*/
+  align-content: right
+
 }
 
-
+.pd-david{
+  right: 100px;
+}
 /* FIN Página Product Detail*/
 
 .fa-brands, .fab, .far {
