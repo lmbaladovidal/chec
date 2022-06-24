@@ -110,8 +110,9 @@ a { text-decoration: none;}
   display: block;
   justify-content: space-around;
   color: white;
-  padding: 15px;
+  padding: 5px;
   font-size: 12px;
+  margin: 1px auto;
 }
 .main-navbar ul .dropdown-menu-container li .dropdown-menu {
   position: absolute;
@@ -137,6 +138,10 @@ a { text-decoration: none;}
   color: #ff6200;
 }
 
+ul.dropdown-menu li a{
+  text-align: left;
+}
+
 .logo {
   margin: 10px 0;
   flex: 100%;
@@ -149,6 +154,7 @@ a { text-decoration: none;}
 .rigth-navbar {
   display: none;
 }
+
 
 .ps-div{
   display: flex;
@@ -489,6 +495,18 @@ color: #ff6200;
   flex-direction: column;
 }
 
+/*Pagina de Profile*/
+.pr-form{
+  background-color: rgba(102,102,102,0.32);
+  border-radius: 5px;
+  margin: 15px auto;
+  text-align: center;
+}
+.pr-form img{
+  max-width: 100px;
+  margin-top: 10px;
+}
+
 /* Página Product Page*/
 
 .pd-main {
@@ -748,34 +766,18 @@ color: #ff6200;
 }
 
 .pa-div-add-btn{
-<<<<<<< HEAD
   /*position: relative;
   float: right;*/
   right: 100px;
-  align: right
+  align-content: right
 }
 
 .pa-add-btn{
   /*position: fixed;
   width:100%;
   max-width:1200px;*/
-  align: right
+  align-content: right
 
-=======
-  /*display: inline-block;
-  flex-wrap: nowrap;
-  */
-  /*position: relative;
-  float: right;*/
-}
-
-.pa-add-btn{
-  /*width:100%;
-  position: fixed;
-  width:100%;
-  max-width:1200px;
-*/
->>>>>>> 746c63f433ad3abcc30256287fa384e517ec1069
 }
 
 .pd-david{
@@ -2052,6 +2054,9 @@ section.ind-top {
     margin: 0 15px;
     flex-direction: row;
     align-items: flex-end;
+  }
+  .rigth-navbar li {
+    text-align: center;
   }
 
   

@@ -265,27 +265,6 @@
  {
   "id": 26,
   "name": "David",
-<<<<<<< HEAD
-  "lastName": "Juncos",
-  "email": "davidjuncos@gmail.com",
-  "address": "Independencia 717",
-  "birthDate": "1982-12-08",
-  "password": "$2a$10$gLfGswrmfIlSGHkQ4mqaYejwMpRynZcSQBU/q9VxcdYOes1ep2V86",
-  "passVerify": "David.1234",
-  "avatar": "default.png",
-  "userRole": "Admin"
- },
- {
-  "id": 27,
-  "name": "David",
-  "lastName": "Juncos",
-  "email": "davidjuncos@joseguma.com",
-  "address": "Independencia 717",
-  "birthDate": "1982-12-08",
-  "password": "$2a$10$gzAjSwRiTWlZBv81pt1E3ex2XE3wQrszBjGFgCWshCrWhjx/8D01O",
-  "passVerify": "12345678",
-  "avatar": "default.png",
-=======
   "lastName": "juncos",
   "email": "davidjuncos@joseguma.com",
   "address": "dean funes",
@@ -293,7 +272,18 @@
   "password": "$2a$10$ie8rZHe21JvmU8P6K5icHuTUePtFAsEtGpSpv1aMCkskPAMfUV0Re",
   "passVerify": "12345678",
   "avatar": "1654094972307_img.png",
->>>>>>> 746c63f433ad3abcc30256287fa384e517ec1069
   "userRole": "Admin"
+ },
+ {
+  "id": 27,
+  "name": "Albita",
+  "lastName": "Moran",
+  "email": "albajuliamora@gmail.com",
+  "address": "SA Padua",
+  "birthDate": "1979-01-07",
+  "password": "$2a$10$N7MHMmIdj5FMErX.0wkqKuIfw1yK2y21W/VYEzUf/luEmsidhsyli",
+  "passVerify": "albajulia",
+  "avatar": "1654994006887_img.png",
+  "userRole": "user"
  }
 ]

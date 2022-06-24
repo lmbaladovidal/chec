@@ -29,7 +29,17 @@ Object.keys(db).forEach(modelName => {
   if (db[modelName].associate) {
     db[modelName].associate(db);
   }
+<<<<<<< HEAD
 });
+=======
+
+});
+sequelize.authenticate().then(() => {
+  console.log('conexion establecida con la Base de Datos chec_db')
+}).catch(error => {
+  console.log(error)
+})
+>>>>>>> c71b45f7900a02020a91674e4de641441eec5885
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
