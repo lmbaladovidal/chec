@@ -29,9 +29,6 @@ Object.keys(db).forEach(modelName => {
   if (db[modelName].associate) {
     db[modelName].associate(db);
   }
-<<<<<<< HEAD
-});
-=======
 
 });
 sequelize.authenticate().then(() => {
@@ -39,7 +36,6 @@ sequelize.authenticate().then(() => {
 }).catch(error => {
   console.log(error)
 })
->>>>>>> c71b45f7900a02020a91674e4de641441eec5885
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;

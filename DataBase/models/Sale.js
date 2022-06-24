@@ -24,7 +24,6 @@ module.exports = (sequelize, dataTypes) => {
         }
     };
     let config = {
-<<<<<<< HEAD
         timestamps: false,
     }
     const Sale = sequelize.define(alias,cols,config);
@@ -32,17 +31,6 @@ module.exports = (sequelize, dataTypes) => {
     Sale.associate = function (models) {
         Sale.hasMany(models.Detailsale, { // models.Movie -> Movies es el valor de alias en movie.js
             as: "Detailsale",
-=======
-        timestamps: true,
-        createdAt: 'created_at',
-        updatedAt: 'updated_at',
-        deletedAt: false
-    }
-    const Sale = sequelize.define(alias,cols,config);    
-    Sale.associate = function (models) {
-        Sale.hasMany(models.Detailsale, { // models.Movie -> Movies es el valor de alias en movie.js
-            as: "detailsale",
->>>>>>> 5fdd17cfef120967057a2b4e16b5eae263bb9d93
             foreignKey: 'Sales_id',
         })
     }

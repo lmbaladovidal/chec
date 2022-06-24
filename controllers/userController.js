@@ -5,8 +5,8 @@ const { validationResult } = require("express-validator");
 const db = require('../DataBase/models')
 const sequelize = db.Sequelize;
 const {Op} = require('sequelize')
+const Users = db.Users
 
-<<<<<<< HEAD
 
 const userController = {
   login: (req, res) => {
@@ -43,13 +43,6 @@ const userController = {
   },
 
   register: (req, res) => {
-=======
-const Users = db.Users;
-const UserRoles = db.UserRoles;
-
-const userController = {
-  register: (req, res)=>{
->>>>>>> c71b45f7900a02020a91674e4de641441eec5885
     res.render("./users/register");
   },
   userRegister: (req,res) => {
@@ -87,9 +80,10 @@ const userController = {
         avatar: req.file ? req.file.filename : "default.png",
         userrole_id: 1,
       };      
-      return await Users.create(userToCreate)           
+      return await Users.create(userToCreate)          
     })
-    return  res.redirect("./login");
+    console.log("Hasta aca Bien");
+    return res.redirect("./login");
   },
   login: (req, res) => {
     res.render("./users/login");
