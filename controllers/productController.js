@@ -7,7 +7,7 @@ const db = require('../DataBase/models')
 
 const productPage = (req,res)=>{
         const userLogged = req.session.userLogged;
-        product.findAll()
+        db.Product.findAll()
         .then(resultado=>{
             const cervezas = resultado
             const datos ={cervezas,userLogged}
