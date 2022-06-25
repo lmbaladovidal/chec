@@ -18,14 +18,16 @@ const userController = {
     .then(userToLogin =>{
       console.log(userToLogin);
         let isOkThePassword = bcryptjs.compareSync(req.body.password,userToLogin.password); 
+
         if (isOkThePassword) {
-        delete userToLogin.password;
-        req.session.userLogged = userToLogin};
-      })
-      .then(userToLogin =>{
+          delete userToLogin.password;
+          req.session.userLogged = userToLogin
+        };
+        
         if (req.body.remember_user) {
           res.cookie("userEmail", req.body.email, { maxAge: 1000 * 60 * 60 });
         }
+
         return res.redirect('/users/profile');
       })
       .catch(error=>{

@@ -5,23 +5,24 @@ const Users = db.Users
 const {Op} = require('sequelize')
 
 function userLoggedMiddleware(req, res, next) {
-	//res.locals.isLogged = false;
+	res.locals.isLogged = false;
+	console.log('variable sesion',req.session.userLogged)
+	let emailInCookie = req.cookies.userEmail;
 
-	// let emailInCookie = req.cookies.userEmail;
-	// let userFromCookie = Users.findOne({
-	// 	where:{
-	// 		email: emailInCookie}
-	// 	});
-
-	// if (userFromCookie) {
-	// 	req.session.userLogged = userFromCookie;
-	// }
-
-	// if (req.session.userLogged) {
-	// 	res.locals.isLogged = true;
-	// 	res.locals.userLogged = req.session.userLogged;
-	// }
-	next();
-}
+	if(emailInCookie){
+		Users.findOne({
+		where:{
+			email: emailInCookie}
+		}).then((userFromCookie) => {
+			req.session.userLogged = userFromCookie;
+			res.locals.isLogged = true;
+			res.locals.userLogged = req.session.userLogged;
+		}).catch((error) => {
+			console.log(error)
+			
+		})
+	}
+		next();
+	}
 
 module.exports = userLoggedMiddleware;
