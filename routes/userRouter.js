@@ -63,7 +63,7 @@ router.get('/register', guestMiddleware, userController.register);
 router.post('/register',uploadFile.single('avatar'), validations, userController.userRegister);
 
 //Profile
-//router.get('/profile', authMiddleware, userController.profile);
+router.get('/profile', authMiddleware, userController.profile);
 
 // Logout
 //router.get('/logout/', userController.logout);

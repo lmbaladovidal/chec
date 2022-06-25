@@ -5,7 +5,7 @@ const Users = db.Users
 const {Op} = require('sequelize')
 
 function userLoggedMiddleware(req, res, next) {
-	// res.locals.isLogged = false;
+	//res.locals.isLogged = false;
 
 	// let emailInCookie = req.cookies.userEmail;
 	// let userFromCookie = Users.findOne({
