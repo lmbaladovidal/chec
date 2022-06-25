@@ -63,11 +63,16 @@ module.exports = (sequelize, dataTypes) => {
     };
 
 const Users = sequelize.define(alias, cols, config);
+
 Users.associate =(models)=>{
-Users.belongsTo(models.UserRoles,{
-    as:"UserRoles",
-    foreignKey:"userrole_id"
-})
+    Users.belongsTo(models.UserRoles,{
+        as:"UserRoles",
+        foreignKey:"userrole_id"
+    })
+    Users.belongsToMany(models.Recipes,{
+        as:"Recipes",
+        foreignKey:"recipe_id"
+    })
 }
  return Users;
 }
