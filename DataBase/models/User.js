@@ -44,11 +44,17 @@ module.exports = (sequelize, dataTypes) => {
             allowNull: true, 
             
         },
-        // recipes_id: {
-        //     type: dataTypes.INTEGER(6),
-        //     allowNull: true, 
-        //     default: null
-        // }
+        password: {
+            type: dataTypes.STRING(250), 
+            allowNull: false,
+
+        },
+        recipe_id: {
+             type: dataTypes.INTEGER(6),
+             allowNull: true, 
+             default: null
+        }
+        
 
     };
     let config = {

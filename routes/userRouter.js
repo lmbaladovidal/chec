@@ -55,7 +55,7 @@ const validations = [
 //Form de login
 router.get('/login',guestMiddleware, userController.login);
 //Process login
-//router.post('/login', userController.loginProcess);
+router.post('/login', userController.loginProcess);
 
 //Form de register
 router.get('/register', guestMiddleware, userController.register);
@@ -63,7 +63,7 @@ router.get('/register', guestMiddleware, userController.register);
 router.post('/register',uploadFile.single('avatar'), validations, userController.userRegister);
 
 //Profile
-//router.get('/profile', authMiddleware, userController.profile);
+router.get('/profile', authMiddleware, userController.profile);
 
 // Logout
 //router.get('/logout/', userController.logout);

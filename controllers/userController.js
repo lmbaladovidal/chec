@@ -14,32 +14,27 @@ const userController = {
   },
 
   loginProcess: (req, res) => {
-    let userToLogin = User.findByField("email", req.body.email);
-    if (userToLogin) {
-      let isOkThePassword = bcryptjs.compareSync(req.body.password,userToLogin.password);      
-      if (isOkThePassword) {
-        delete userToLogin.password;
-        req.session.userLogged = userToLogin;
+    Users.findOne({where:{email: req.body.email}})
+    .then(userToLogin =>{
+      console.log(userToLogin);
+        let isOkThePassword = bcryptjs.compareSync(req.body.password,userToLogin.password); 
+
+        if (isOkThePassword) {
+          delete userToLogin.password;
+          req.session.userLogged = userToLogin
+        };
+        
         if (req.body.remember_user) {
           res.cookie("userEmail", req.body.email, { maxAge: 1000 * 60 * 60 });
         }
+
         return res.redirect('/users/profile');
-      }
-      return res.render("./users/login", {
-        errors: {
-          email: {
-            msg: "Las credenciales son inválidas",
-          },
-        },
-      });
-    }
-    return res.render("./users/login", {
-      errors: {
-        email: {
-          msg: "No se encuentra este email en nuestra base de datos",
-        },
-      },
-    });
+      })
+      .catch(error=>{
+        console.log(error)
+        res.render("./users/login", {errors:{email:{msg:'las credenciales no son validas'}}})
+      })
+    
   },
 
   register: (req, res) => {
@@ -85,9 +80,10 @@ const userController = {
     console.log("Hasta aca Bien");
     return res.redirect("./login");
   },
-  login: (req, res) => {
-    res.render("./users/login");
-  }
+  
+  profile: (req, res) => {
+    return res.render('./users/profile', {user: req.session.userLogged});  // pasar a la vista la variable userLogged
+},
 
 }
 module.exports = userController;

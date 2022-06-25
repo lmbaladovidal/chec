@@ -15,7 +15,7 @@
             </li>
             <li>
                 <ul class="dropdown-menu-container">
-                    <% if (locals.isLogged) { %>
+                    <% if (locals && locals.isLogged) { %>
                         <li>
                             <img src="/images/avatars/<%= locals.userLogged.avatar %>"> 
                             <a><%= locals.userLogged.name %></a>
@@ -25,9 +25,11 @@
                                 <li><a href="/users/logout">Salir</a></li>
                             </ul>
                         </li>
-                        <% } else { %>
-                            <li><a href="/users/login">Ingresá <i class="fas fa-sign-in-alt"></i></a></li>
-                        <% } %>
+                    <% } else if(locals && !locals.isLogged){ %>
+                        <li><a href="/users/login">Ingresá <i class="fas fa-sign-in-alt"></i></a></li>
+                    <% } else {%>
+                        <li><span>No hay locals!</span></li>
+                    <% } %>
                 </ul>
             </li>
         </ul>
