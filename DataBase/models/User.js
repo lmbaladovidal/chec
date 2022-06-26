@@ -39,7 +39,7 @@ module.exports = (sequelize, dataTypes) => {
             default:'images/avatar/default.png'
         },
 
-        userrole_id: {
+        userroles_id: {
             type: dataTypes.INTEGER(6),
             allowNull: true, 
             
@@ -49,11 +49,11 @@ module.exports = (sequelize, dataTypes) => {
             allowNull: false,
 
         },
-        recipe_id: {
-             type: dataTypes.INTEGER(6),
-             allowNull: true, 
-             default: null
-        }
+        // recipe_id: {
+        //      type: dataTypes.INTEGER(6),
+        //      allowNull: true, 
+        //      default: null
+        // }
         
 
     };
@@ -69,10 +69,15 @@ Users.associate =(models)=>{
         as:"UserRoles",
         foreignKey:"userrole_id"
     })
-    Users.belongsToMany(models.Recipes,{
-        as:"Recipes",
-        foreignKey:"recipe_id"
+
+    Users.belongsToMany(models.Recipes, { 
+        as: "Recipes",
+        through: 'Recipes_users',
+        foreignKey: 'user_id',
+        //otherKey: 'actor_id',
+        timestamps: false
     })
+   
 }
  return Users;
 }

@@ -12,7 +12,7 @@ const Recipes = db.Recipes
 
 const recetasDetail = (req,res) => {
     const userLogged = req.session.userLogged;
-    Recipes.findAll()
+    db.Recipes.findAll()
     .then(resultado => {
         const recetas = resultado
         const datos =  {recetas, userLogged}
