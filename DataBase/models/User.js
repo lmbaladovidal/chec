@@ -36,7 +36,7 @@ module.exports = (sequelize, dataTypes) => {
         avatar: {            
             type: dataTypes.STRING(200), 
             allowNull: false,
-            default:'images/avatar/default.png'
+            default:'images/avatar/default_img.png'
         },
 
         password: {
@@ -63,11 +63,11 @@ module.exports = (sequelize, dataTypes) => {
     };
 
 const Users = sequelize.define(alias, cols, config);
-Users.associate =(models)=>{
-Users.belongsTo(models.UserRoles,{
+    Users.associate =(models)=>{
+    Users.belongsTo(models.UserRoles,{
     as:"UserRoles",
     foreignKey:"userroles_id"
-})
-}
- return Users;
+    })
+    }
+    return Users;
 }

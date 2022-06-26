@@ -36,19 +36,18 @@ const userController = {
       })
     
   },
-
   register: (req, res) => {
     res.render("./users/register");
   },
   userRegister: (req,res) => {
 
-  //  const resultValidation = validationResult(req);
-  //   if (resultValidation.errors.length > 0) {
-  //     return res.render("./users/register", {
-  //       errors: resultValidation.mapped(),
-  //       oldData: req.body,
-  //     });
-  //   };
+   const resultValidation = validationResult(req);
+    if (resultValidation.errors.length > 0) {
+      return res.render("./users/register", {
+        errors: resultValidation.mapped(),
+        oldData: req.body,
+      });
+    };
   Users.findOne({
       where:{
         email : req.body.email
@@ -72,18 +71,84 @@ const userController = {
     let userToCreate = {    
         ...req.body,
         password: bcryptjs.hashSync(req.body.password, 10), // encripta la contraseña y pisa la password que viene en body
-        avatar: req.file ? req.file.filename : "default.png",
+        avatar: req.file ? req.file.filename : "default_img.png",
         userrole_id: 1,
       };      
       return await Users.create(userToCreate)          
     })
-    console.log("Hasta aca Bien");
+    //console.log("Hasta aca Bien");
     return res.redirect("./login");
   },
   
   profile: (req, res) => {
     return res.render('./users/profile', {user: req.session.userLogged});  // pasar a la vista la variable userLogged
+    
+  },
+  editProfile: (req, res) =>{
+    Users.findOne({
+        where:{
+          id: req.session.userLogged.id
+        }
+      })
+     
+    .then(user =>{
+      let userToEdit ={
+      id: user.id,  
+      name: user.name,
+      lastName: user.lastName,
+      birthDate: user.birthDate,
+      address: user.address,
+      email: user.email,
+        
+    }
+    console.log({userToEdit})
+    res.render('./users/editprofile',{userToEdit});
+ })
+  .catch(error => {
+       res.send(error)
+     })
 },
+  updateProfile: (req, res) =>{
+
+    Users.update({
+      name: req.body.name,
+      lastName: req.body.lastName,
+      birthDate: req.body.birthDate,
+      address: req.body.address,
+      email: req.body.email,
+      password: bcryptjs.hashSync(req.body.password, 10),
+      
+  },{
+      where:{
+        id: req.params.id,
+    
+      }
+    },
+   
+  )
+    .then(userEdited => {
+      console.log(userEdited);      
+      return res.redirect("./users/profile/"+ req.params.id);
+    }) 
+      .catch(error => {
+        res.send(error)
+    })         
+   
+  },
+  deleteProfile: (req, res)=>{
+    let id = parseInt(req.params.id);
+    Users.destroy({
+      where:{id: id}
+    })
+    .then(user =>{
+      res.clearCookie("userEmail");
+      req.session.destroy();
+      return res.redirect('/')
+    })
+    .catch(error => res.send(error))
+    
+  },
+
   logout: (req, res) => {
     res.clearCookie("userEmail");
     req.session.destroy();
