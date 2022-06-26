@@ -39,6 +39,10 @@ module.exports = (sequelize, dataTypes) => {
             default:'images/avatar/default_img.png'
         },
 
+<<<<<<< HEAD
+=======
+        
+>>>>>>> 096f766f0c0ad3d4b73fb96d4c8f5e84ed5fd96a
         password: {
             type: dataTypes.STRING(250), 
             allowNull: false,
@@ -63,11 +67,21 @@ module.exports = (sequelize, dataTypes) => {
     };
 
 const Users = sequelize.define(alias, cols, config);
-    Users.associate =(models)=>{
+
+Users.associate =(models)=>{
     Users.belongsTo(models.UserRoles,{
-    as:"UserRoles",
-    foreignKey:"userroles_id"
+        as:"UserRoles",
+        foreignKey:"userroles_id"
     })
-    }
-    return Users;
+
+    Users.belongsToMany(models.Recipes, { 
+        as: "Recipes",
+        through: "Recipes_users",
+        foreignKey: 'recipes_id',
+        otherKey: 'users_id',
+        timestamps: false
+    })
+   
+}
+ return Users;
 }
