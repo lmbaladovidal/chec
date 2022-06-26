@@ -66,6 +66,6 @@ router.post('/register',uploadFile.single('avatar'), validations, userController
 router.get('/profile', authMiddleware, userController.profile);
 
 // Logout
-//router.get('/logout/', userController.logout);
+router.get('/logout/', userController.logout);
 
 module.exports = router;

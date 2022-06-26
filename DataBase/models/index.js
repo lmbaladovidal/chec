@@ -32,7 +32,7 @@ Object.keys(db).forEach(modelName => {
 
 });
 sequelize.authenticate().then(() => {
-  console.log('conexion establecida con la Base de Datos chec_db')
+console.log('conexion establecida con la Base de Datos chec_db')
 }).catch(error => {
   console.log(error)
 })

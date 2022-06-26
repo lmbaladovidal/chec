@@ -16,7 +16,7 @@ const userController = {
   loginProcess: (req, res) => {
     Users.findOne({where:{email: req.body.email}})
     .then(userToLogin =>{
-      console.log(userToLogin);
+   //   console.log(userToLogin);
         let isOkThePassword = bcryptjs.compareSync(req.body.password,userToLogin.password); 
 
         if (isOkThePassword) {
@@ -84,6 +84,11 @@ const userController = {
   profile: (req, res) => {
     return res.render('./users/profile', {user: req.session.userLogged});  // pasar a la vista la variable userLogged
 },
+  logout: (req, res) => {
+    res.clearCookie("userEmail");
+    req.session.destroy();
+    return res.redirect("/");
+}
 
 }
 module.exports = userController;
