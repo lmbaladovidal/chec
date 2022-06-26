@@ -39,10 +39,6 @@ module.exports = (sequelize, dataTypes) => {
             default:'images/avatar/default_img.png'
         },
 
-<<<<<<< HEAD
-=======
-        
->>>>>>> 096f766f0c0ad3d4b73fb96d4c8f5e84ed5fd96a
         password: {
             type: dataTypes.STRING(250), 
             allowNull: false,
