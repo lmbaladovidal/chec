@@ -20,15 +20,6 @@ module.exports = (sequelize, dataTypes) => {
     }
     const Recipes_users = sequelize.define(alias,cols,config);
     
-    
-    Recipes_users.associate = function (models) {
-        Recipes_users.belongsTo(models.Recipes, { 
-            as: "Recipes",
-            foreignKey: '...',
-        })
-
-        
-    }
 
     return Recipes_users
 }

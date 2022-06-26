@@ -33,7 +33,8 @@ module.exports = (sequelize, dataTypes) => {
         yeast: { type: dataTypes.STRING(45), allowNull: false },
         yeastAmount:{ type: dataTypes.DECIMAL(6,2), allowNull: false },
         brewerTip: { type: dataTypes.STRING(500), allowNull: false },
-        foodPairing:{ type: dataTypes.STRING(500), allowNull: false }
+        foodPairing:{ type: dataTypes.STRING(500), allowNull: false },
+        recipes_users_id: { type:dataTypes.INTEGER(6), allowNull:true }
         
     };
     let config = {
@@ -42,14 +43,14 @@ module.exports = (sequelize, dataTypes) => {
 
 const Recipes = sequelize.define(alias, cols, config);
 
-Recipes.associate =(models)=>{
-    Recipes.belongsToMany(models.Users,{
-        as:"Users",
-        through:"recipes_users",
-        foreignKey:"users_id",
-        otherKey:"recipes_id",
-        timestamps: false
-    })
+Recipes.associate = function (models) {
+        Recipes.belongsToMany(models.Users, { 
+            as: "Users",
+            through: "Recipes_users",
+            foreignKey: 'users_id',
+            otherKey: 'recipes_id',
+            timestamps: false
+        })
 }
- return Recipes;
+return Recipes;
 }

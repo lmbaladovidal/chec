@@ -36,26 +36,27 @@ module.exports = (sequelize, dataTypes) => {
         avatar: {            
             type: dataTypes.STRING(200), 
             allowNull: false,
-            default:'images/avatar/default.png'
+            default:'images/avatar/default_img.png'
         },
 
-        userroles_id: {
-            type: dataTypes.INTEGER(6),
-            allowNull: true, 
-            
-        },
+        
         password: {
             type: dataTypes.STRING(250), 
             allowNull: false,
 
         },
-        // recipe_id: {
-        //      type: dataTypes.INTEGER(6),
-        //      allowNull: true, 
-        //      default: null
-        // }
+        userroles_id: {
+            type: dataTypes.INTEGER(6),
+            allowNull: true, 
+            default: 1
+            
+        },
+        recipes_users_id: {
+            type: dataTypes.INTEGER(6),
+            allowNull: true, 
+            default: null
+        }
         
-
     };
     let config = {
         timestamps: false,
@@ -67,14 +68,14 @@ const Users = sequelize.define(alias, cols, config);
 Users.associate =(models)=>{
     Users.belongsTo(models.UserRoles,{
         as:"UserRoles",
-        foreignKey:"userrole_id"
+        foreignKey:"userroles_id"
     })
 
     Users.belongsToMany(models.Recipes, { 
         as: "Recipes",
-        through: 'Recipes_users',
-        foreignKey: 'user_id',
-        //otherKey: 'actor_id',
+        through: "Recipes_users",
+        foreignKey: 'recipes_id',
+        otherKey: 'users_id',
         timestamps: false
     })
    
