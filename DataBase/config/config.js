@@ -1,7 +1,7 @@
 module.exports = {
   "development": {
     "username": "root",
-    "password": "camba",
+    "password": "",
     "database": "chec_db",
     "host": "127.0.0.1",
     "dialect": "mysql"

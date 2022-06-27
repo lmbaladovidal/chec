@@ -14,7 +14,9 @@ const userController = {
   },
 
   loginProcess: (req, res) => {
-    Users.findOne({where:{email: req.body.email}})
+    Users.findOne({
+      where:{email: req.body.email}
+    })
     .then(userToLogin =>{
       console.log(userToLogin);
         let isOkThePassword = bcryptjs.compareSync(req.body.password,userToLogin.password); 
@@ -51,7 +53,7 @@ const userController = {
   //   };
   Users.findOne({
       where:{
-        email : req.body.email
+        email: req.body.email
       }
     })
     .catch(error => {
@@ -72,18 +74,18 @@ const userController = {
     let userToCreate = {    
         ...req.body,
         password: bcryptjs.hashSync(req.body.password, 10), // encripta la contraseña y pisa la password que viene en body
-        avatar: req.file ? req.file.filename : "default.png",
-        userrole_id: 1,
+        avatar: req.file? req.file.filename: "default.png",
+        userroles_id: 1
       };      
       return await Users.create(userToCreate)          
     })
-    console.log("Hasta aca Bien");
     return res.redirect("./login");
   },
   
   profile: (req, res) => {
     return res.render('./users/profile', {user: req.session.userLogged});  // pasar a la vista la variable userLogged
 },
+
 
 }
 module.exports = userController;

@@ -7,6 +7,7 @@ module.exports =
                 primaryKey:true,
                 autoIncrement:true
             },
+            name:{type:DataTypes.STRING},
             description:{type:DataTypes.STRING},
             price:{type:DataTypes.DECIMAL(6,2)},
             bitterness:{type:DataTypes.INTEGER},
