@@ -76,8 +76,7 @@ const userController = {
       };      
       return await Users.create(userToCreate)          
     })
-    //console.log("Hasta aca Bien");
-    return res.redirect("./login");
+      return res.redirect("./login");
   },
   
   profile: (req, res) => {
@@ -101,8 +100,8 @@ const userController = {
       email: user.email,
         
     }
-    console.log({userToEdit})
-    res.render('./users/editprofile',{userToEdit});
+    //console.log({userToEdit})
+     return res.render('./users/editprofile',{userToEdit});
  })
   .catch(error => {
        res.send(error)
@@ -128,24 +127,30 @@ const userController = {
   )
     .then(userEdited => {
       console.log(userEdited);      
-      return res.redirect("./users/profile/"+ req.params.id);
+      return res.redirect("./users/profile");
     }) 
-      .catch(error => {
-        res.send(error)
-    })         
+      .catch(error => {res.send(error)})         
    
   },
   deleteProfile: (req, res)=>{
-    let id = parseInt(req.params.id);
-    Users.destroy({
-      where:{id: id}
+    Users.findOne({
+      where:{
+        id: req.session.userLogged.id
+      }
     })
+    .catch(error => console.log(error))
     .then(user =>{
+      console.log(user)
+      console.log("llego hasta ttraer el usuario pero no borro");
       res.clearCookie("userEmail");
-      req.session.destroy();
+      req.session.destroy()
+      Users.destroy({ where:{id: user.id} })
+   ;
       return res.redirect('/')
+
     })
-    .catch(error => res.send(error))
+     
+    .catch(error => console.log(error))
     
   },
 
