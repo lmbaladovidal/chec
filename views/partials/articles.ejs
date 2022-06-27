@@ -1,5 +1,5 @@
 
-<% for (i=1;i< datos.cervezas.length;i++){%>
+<% for (i=0;i< datos.cervezas.length;i++){%>
         <article class="col-12 col-sm-6 col-lg-3 pd-product">
             <img class="pd-img-product" src="/images/<%= datos.cervezas[i].image %>" width="360" alt="beer">
             <div class="pd-datos-cerveza">
@@ -7,7 +7,7 @@
                 <h4>$ <%= datos.cervezas[i].price %></h4>
                 <button class="pd-seleccionar"><a href="/product/productDetail/<%= datos.cervezas[i].id %>" class="lg-a">Seleccionar</a></button>
                 <button class="pd-add"><a href="/product/productCart" class="lg-a">Agregar al carrito</a></button>
-               <% if (datos.userLogged && datos.userLogged.userRole == "Admin"){ %> 
+               <% if (datos.userLogged && datos.userLogged.userroles_id == "2"){ %> 
                 <button class="pd-admin"><a href="/product/productAdmin/<%= datos.cervezas[i].id %>" class="pd-admin-a">Modificar </i></a></button>
                 <% } %>
             </div>
