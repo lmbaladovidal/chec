@@ -2,7 +2,7 @@ module.exports = (sequelize, dataTypes) => {
     let alias = 'Sale';
     let cols = {
         id: {
-            type: dataTypes.BIGINT(10).UNSIGNED,
+            type: dataTypes.INTEGER(6).UNSIGNED,
             primaryKey: true,
             autoIncrement: true
         },
@@ -11,7 +11,7 @@ module.exports = (sequelize, dataTypes) => {
             allowNull: false
         },
         discount: {
-            type: dataTypes.BIGINT(10).UNSIGNED,
+            type: dataTypes.INTEGER(6).UNSIGNED,
             allowNull: false
         },
         total: {
@@ -19,7 +19,11 @@ module.exports = (sequelize, dataTypes) => {
             allowNull: false
         },
         Users_id: {
-            type: dataTypes.BIGINT(10).UNSIGNED,
+            type: dataTypes.INTEGER(6).UNSIGNED,
+            allowNull: false
+        },
+        state: {
+            type: dataTypes.INTEGER(6),
             allowNull: false
         }
     };

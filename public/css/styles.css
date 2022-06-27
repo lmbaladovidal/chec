@@ -955,14 +955,43 @@ padding: 0 10px;
   justify-content: space-around;
   margin: 5px 5px;
 }
+.pc-counter-label-det-label
+{
+  padding: 3px 0px;
+ }
+.pc-counter-labelText-det-Label
+{
+  font-weight: bold;
+  padding: 3px 0px;
+  width: 50px;
+  margin: 1px 1px 1px 1px;
+}
 
 .pc-counter-label-det-valor{
   font-weight: bold;
-  padding: 3px 0 0 5px;
+  padding: 3px 0px;
   width: 80px;
-  margin: 8px 0;
+  margin: 1px 1px 1px 1px;
+  text-align: center;
 }
-
+.pc-counter-labelText-det-valor{
+  display: flex;
+  /*flex-direction: column;*/
+  flex-wrap: wrap;
+  align-items: flex-start;
+  width: 45%;
+  justify-content: space-around;
+  margin: 18px 26px;
+}
+.pc-counter-ResumenCompra{
+  display: flex;
+  /*flex-direction: column;*/
+  flex-wrap: wrap;
+  /*align-items: flex-start;*/
+  width: 100%;
+  justify-content: flex-end;
+  margin: 18px 26px;
+}
 .pc-product{
 display: flex;
 justify-content: space-around;
@@ -993,10 +1022,6 @@ margin: 20px 0;
 margin: 20px 5px;
 width: 300px;
 padding: 0 5px;
-}
-
-.pc-counter-label-det-valor{
-  padding: 3px 20px;
 }
 
 .pc-quantity-descripcion{
