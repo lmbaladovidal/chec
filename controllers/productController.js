@@ -1,13 +1,16 @@
 const { response } = require('express');
+const { Op } = require("sequelize");
 const fs = require('fs');
 const path = require('path');
 const cervezasFilePath = path.join(__dirname, '../DataBase/products/BDCervezas.json');
 const cervezas = JSON.parse(fs.readFileSync(cervezasFilePath,"utf-8"));
 const db = require('../DataBase/models')
+const Product = db.Product;
+
 
 const productPage = (req,res)=>{
         const userLogged = req.session.userLogged;
-        db.Product.findAll()
+        Product.findAll()
         .then(resultado=>{
             const cervezas = resultado
             const datos ={cervezas,userLogged}
@@ -17,29 +20,31 @@ const productPage = (req,res)=>{
         .catch(error=>{console.log(error)})
     }
 
-
 const productCart=(req,res)=>{
-   // console.log(db);
-    db.Sale.findAll(). then(response => { res.render('./product/productCart')} ) 
-   }
-const productDetail=(req,res)=>{res.render('./product/productDetail',cervezas[req.params.id])}
+    db.Sale.findAll().then(response => { res.render('./product/productCart')} ) //coregir esto, debe estar implementado con findOne
+}
 
-const productAdmin=(req,res)=>{
+const productDetail= async (req,res)=>{
+    const product = await Product.findOne({ 
+        where:{id:req.params.id}
+    });
+    res.render('./product/productDetail',{product})
+}
 
-    let id= parseInt(req.params.id);
-    let cervezaToEdit = cervezas.find(cerveza => {
-        return cerveza.id == id
+const productAdmin=async (req,res)=>{
+    let cervezaToEdit = await Product.findOne({
+        where:{id:req.params.id}
     }); 
     if(cervezaToEdit==undefined)  {
         res.render('enDesarrollo')
-    } else{
+    }else{
     res.render('product/productAdmin',{cervezaToEdit})}
 }
     
-const productCreate=(req,res)=>{
+const productCreatePage = (req,res)=>{res.render('product/productCreate')}
 
-    cerveza = {
-        id: cervezas[cervezas.length-1].id+1,
+const productCreate= async (req,res)=>{
+    await Product.create({
         name: req.body.name,
         description: req.body.description,
         price: req.body.price,
@@ -51,44 +56,42 @@ const productCreate=(req,res)=>{
         hop: req.body.hop,
         image:req.file.filename,
         category : req.body.category
-      }
-    cervezas.push(cerveza);
-    let cervezas_JSON= JSON.stringify(cervezas, null, 2);
-    let cervezasPath= path.join(__dirname, '../DataBase/products/BDCervezas.json');
-    fs.writeFileSync(cervezasPath, cervezas_JSON);
+      })
     res.redirect('/product/productPage')
 }
     
-const productUpdate = (req, res) =>{
+const productUpdate = async (req, res) =>{
     let id = parseInt(req.params.id);
-    cervezas.forEach(product =>{
-            if(product.id == id){            
-                product.name = req.body.name;
-                product.description = req.body.description;
-                product.price = req.body.price;
-                product.bitterness = req.body.bitterness;
-                product.color = req.body.color;
-                product.alcohol = req.body.alcohol;
-                product.carbonation = req.body.carbonation;
-                product.hop = req.body.hop;
-                product.category = req.body.category;
-                product.image = req.file?req.file.filename:req.body.image;                    
-            }
-            
-        })       
-        
-    let cervezas_JSON= JSON.stringify(cervezas, null, 2);
-    
-    let cervezasPath= path.join(__dirname, '../DataBase/products/BDCervezas.json');
-    fs.writeFileSync(cervezasPath, cervezas_JSON);
+    const cerveza = await Product.findOne({
+        where:{id:req.params.id}
+    }); 
+    cerveza.set({
+        name: req.body.name,
+        description: req.body.description,
+        price: req.body.price,
+        bitterness: req.body.bitterness,
+        color: req.body.color,
+        alcohol: req.body.alcohol,
+        carbonation: req.body.carbonation,
+        hop: req.body.hop,
+        category: req.body.category,
+        image: req.file?req.file.filename:req.body.image
+    })
+    await cerveza.save();                
     res.redirect('/product/productPage')
     
 }
-const productSearch=(req,res)=>{
+const productSearch=async (req,res)=>{
         let search = req.query.search
-        let result = cervezas.filter((cerveza)=>{return cerveza.name.includes(search.toUpperCase())})
-        result.unshift([])
-        res.render('./product/productSearch',{cervezas:result})}
+        const cervezas = await Product.findAll({
+            where:{  
+                name:{
+                    [Op.substring]: search
+                }
+            }
+        })
+        datos = {cervezas,userLogged:"userlogged va aca"}
+        res.render('./product/productSearch',{datos})}
 
 const productPack=(req,res)=>{res.render('./product/pack')}
 
@@ -96,13 +99,13 @@ const productPack=(req,res)=>{res.render('./product/pack')}
 function recargar () {
     window.location.href = window.location.href;
 }
-const productDelete = (req, res) => {
-    let id = parseInt(req.params.id);
-    
-    let nonDeletedCervezas = cervezas.filter(cerveza=>cerveza.id!==id);
-    let cervezas_JSON = JSON.stringify(nonDeletedCervezas, null, 2);   
-    let cervezasPath= path.join(__dirname, '../DataBase/products/BDCervezas.json');
-    fs.writeFileSync(cervezasPath, cervezas_JSON);
+
+const productDelete = async (req, res) => {
+    let id = parseInt(req.params.id);    
+    const cerveza = await Product.findOne({
+        where:{id:req.params.id}
+    });
+    await cerveza.destroy()
     res.redirect('/product/productPage');
 }
 
@@ -118,6 +121,7 @@ const productControler = {
     productSearch,
     productPack,
     productCreate,
+    productCreatePage,
     productDelete,
        
     cervezas:cervezas
