@@ -63,8 +63,11 @@ router.post('/register',uploadFile.single('avatar'), validations, userController
 
 //Profile
 router.get('/profile', authMiddleware, userController.profile);
-router.get('/profile/edit/:id', authMiddleware, userController.editProfile)
-router.put('/profile/edit/:id', authMiddleware, userController.updateProfile)
+
+router.get('/profile/:id', authMiddleware, userController.editProfile)
+router.put('/profile/:id', authMiddleware, uploadFile.single('avatar'),userController.updateProfile)
+
+//Delete
 router.delete('/profile/:id', authMiddleware, userController.deleteProfile)
 
 // Logout

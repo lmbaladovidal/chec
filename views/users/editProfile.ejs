@@ -8,14 +8,14 @@
     <%- include("../partials/header") %>
     <section> 
         <label><h3>MODIFICAR DATOS DE USUARIO</h3></label>
-        <form action="/profile/edit/<%=userToEdit.id%>?_method=PUT" class="rg-form" method="POST" enctype="multipart/form-data">
+        <form action="/users/profile/<%=userToEdit.id%>?_method=PUT" class="rg-form" method="POST" enctype="multipart/form-data">
             <div>
             <label><b>Nombre</b></label>
             <br>
             <input 
             type="text" 
             name="name"
-            class="rg-input"  <%= locals.errors && errors.name ? 'is-invalid' : null %>"
+            class="'rg-input' <%= locals.errors && errors.name ? 'is-invalid' : null %>"
             value="<%=userToEdit.name%>">
             <% if (locals.errors && errors.name) { %>
                 <div class="text-danger">
@@ -79,43 +79,15 @@
                         </div>
                     <% } %>
             </div>
-            <div>
-                <label><b>Contraseña</b></label>
-                <br>
-                <input 
-                    type="password" 
-                    id="password"
-                    name="password" 
-                    class="rg-input"<%= locals.errors && errors.password ? 'is-invalid' : null %>"
-                    >
-                    <% if (locals.errors && errors.password) { %>
-                        <div class="text-danger">
-                            <%= errors.password.msg %> 
-                        </div>
-                    <% } %>
-            </div>
-            <div>
-                <label><b>Confirmá tu contraseña</b></label>
-                <br>
-                <input 
-                    type="password" 
-                    class="rg-input"
-                    name="passVerify" 
-                    id="passVerify" 
-                    required >
-                <% if (locals.errors && errors.passVerify) { %>
-                    <div class="text-danger">
-                        <%= errors.passVerify.msg %> 
-                    </div>
-                <% } %>
-
-            </div>
-           
-                                 
+             
             <div>
                 <div >
                     <label><b>Imagen de perfil:</b></label>
                     <br>
+                    <div>
+                        <img src="/images/avatars/<%= userToEdit.avatar %> " width="150px">
+                    </div>
+                    <input type="hidden" name="oldAvatar" value="<%=userToEdit.avatar%>">
                     <input 
                         type="file" 
                         name="avatar"
@@ -129,7 +101,7 @@
                 <input type="reset" class="rg-reset" >
             </div>
         </form> 
-        <form action="/profile/<%= userToEdit.id %>?_method=DELETE" method="POST">
+        <form action="/users/profile/<%=userToEdit.id%>?_method=DELETE" class="rg-form" method="POST">
             <div class="pd-options">
                 <input type="submit" class="lg-submit " value="Eliminar">
             </div>
