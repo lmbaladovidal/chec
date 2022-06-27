@@ -39,6 +39,7 @@ module.exports = (sequelize, dataTypes) => {
             default:'images/avatar/default_img.png'
         },
 
+        
         password: {
             type: dataTypes.STRING(250), 
             allowNull: false,
@@ -47,15 +48,15 @@ module.exports = (sequelize, dataTypes) => {
         userroles_id: {
             type: dataTypes.INTEGER(6),
             allowNull: true, 
-            defaut: 1
+            default: 1
             
         },
         recipes_users_id: {
-             type: dataTypes.INTEGER(6),
-             allowNull: true, 
-             default: null
+            type: dataTypes.INTEGER(6),
+            allowNull: true, 
+            default: null
         }
-   
+        
     };
     let config = {
         timestamps: false,

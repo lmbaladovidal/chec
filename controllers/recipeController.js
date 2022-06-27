@@ -20,61 +20,137 @@ const recetasDetail = (req,res) => {
     })
     .catch(error=>{console.log(error)})
 };
-
-// const recetaAdmin =(req,res)=>{
-//     let id= parseInt(req.params.id);
-//     let recetaToEdit = recetas.find(receta => {
-//         return receta.id == id
-//     });
-//     res.render('./recetas/nuestrasRecetasAdmin',{recetaToEdit})
-// };
-
-// const recetaCreate = (req,res) => {
-//     receta = {
-//         id: recetas[recetas.length-1].id+1,
-//         name: req.body.name,
-//         volume: req.body.volume,
-//         boilvolume: req.body.boilvolume,
-//         alcohol: req.body.alcohol,
-//         targetFG: req.body.targetFG,
-//         targetOG: req.body.targetOG,
-//         initialPH: req.body.initialPH,
-//         finalPH: req.body.finalPH,
-//         mashTemp: req.body.mashTemp,
-//         mashTime:req.body.mashTime,
-//         boilTime: req.body.boilTime,
-//         fermentationTemp: req.body.fermentationTemp,
-//         malt1: req.body.malt1,
-//         malt1Amount: req.body.malt1Amount,
-//         malt2: req.body.malt2,
-//         malt2Amount: req.body.boilTime,
-//         malt3: req.body.malt3,
-//         malt3Amount: req.body.malt3Amount,
-//         malt4: req.body.malt4,
-//         malt4Amount: req.body.malt4Amount,
-//         malt5: req.body.malt5,
-//         malt5Amount: req.body.malt5Amount,
-//         hop1: req.body.hop1,
-//         hop1Amount: req.body.hop1Amount,
-//         hop2: req.body.hop2,
-//         hop2Amount: req.body.hop2Amount,
-//         hop3: req.body.hop3,
-//         hop3Amount: req.body.hop3Amount,
-//         hop4: req.body.hop4,
-//         hop4Amount: req.body.hop4Amount,
-//         yeast: req.body.yeast,
-//         yeastAmount: req.body.yeastAmount,
-//         brewerTip: req.body.brewerTip,
-//         foodPairing: req.body.foodPairing
-//       }
-//     recetas.push(receta);
-//     let recetas_JSON= JSON.stringify(recetas, null, 2);
-//     let recetasPath= path.join(__dirname, '../DataBase/bbddRecetas.json');
-//     fs.writeFileSync(recetasPath, recetas_JSON);
-//     res.redirect('/nuestrasRecetas')
-// };
+ const recetaCreate = (req, res) => {
+    recipe = {
+        name: req.body.name,
+        volume: req.body.volume,
+        boilvolume: req.body.boilvolume,
+        alcohol: req.body.alcohol,
+        targetFG: req.body.targetFG,
+        targetOG: req.body.targetOG,
+        initialPH: req.body.initialPH,
+        finalPH: req.body.finalPH,
+        mashTemp: req.body.mashTemp,
+        mashTime:req.body.mashTime,
+        boilTime: req.body.boilTime,
+        fermentationTemp: req.body.fermentationTemp,
+        malt1: req.body.malt1,
+        malt1Amount: req.body.malt1Amount,
+        malt2: req.body.malt2,
+        malt2Amount: req.body.boilTime,
+        malt3: req.body.malt3,
+        malt3Amount: req.body.malt3Amount,
+        malt4: req.body.malt4,
+        malt4Amount: req.body.malt4Amount,
+        malt5: req.body.malt5,
+        malt5Amount: req.body.malt5Amount,
+        hop1: req.body.hop1,
+        hop1Amount: req.body.hop1Amount,
+        hop2: req.body.hop2,
+        hop2Amount: req.body.hop2Amount,
+        hop3: req.body.hop3,
+        hop3Amount: req.body.hop3Amount,
+        yeast: req.body.yeast,
+        yeastAmount: req.body.yeastAmount,
+        brewerTip: req.body.brewerTip,
+        foodPairing: req.body.foodPairing
+        }
+        Recipes.create(recipe)
+        .then(res.redirect('/nuestrasRecetas'))
+        .catch(error => console.log(res.send(error)));
+ };
 
 
+const recetaAdmin =(req,res)=>{
+    let id= parseInt(req.params.id);
+    Recipes.findOne({
+        where: { id:id}
+    })
+    .then(recipe => {
+        let recetaToEdit = {
+        name: recipe.name,
+        volume: recipe.volume,
+        boilvolume: recipe.boilvolume,
+        alcohol: recipe.alcohol,
+        targetFG: recipe.targetFG,
+        targetOG: recipe.targetOG,
+        initialPH: recipe.initialPH,
+        finalPH: recipe.finalPH,
+        mashTemp: recipe.mashTemp,
+        mashTime:recipe.mashTime,
+        boilTime: recipe.boilTime,
+        fermentationTemp: recipe.fermentationTemp,
+        malt1: recipe.malt1,
+        malt1Amount: recipe.malt1Amount,
+        malt2: recipe.malt2,
+        malt2Amount: recipe.boilTime,
+        malt3: recipe.malt3,
+        malt3Amount: recipe.malt3Amount,
+        malt4: recipe.malt4,
+        malt4Amount: recipe.malt4Amount,
+        malt5: recipe.malt5,
+        malt5Amount: recipe.malt5Amount,
+        hop1: recipe.hop1,
+        hop1Amount: recipe.hop1Amount,
+        hop2: recipe.hop2,
+        hop2Amount: recipe.hop2Amount,
+        hop3: recipe.hop3,
+        hop3Amount: recipe.hop3Amount,
+        yeast: recipe.yeast,
+        yeastAmount: recipe.yeastAmount,
+        brewerTip: recipe.brewerTip,
+        foodPairing: recipe.foodPairing
+        }
+        res.render('./recetas/nuestrasRecetasAdmin',{recetaToEdit})
+    })
+    .catch(error => console.log(res.send(error)));
+};
+
+const recetaUpdate = (req, res) =>{
+   
+    Recipes.update({  
+        name: req.body.name,
+        volume: req.body.volume,
+        boilvolume: req.body.boilvolume,
+        alcohol: req.body.alcohol,
+        targetFG: req.body.targetFG,
+        targetOG: req.body.targetOG,
+        initialPH: req.body.initialPH,
+        finalPH: req.body.finalPH,
+        mashTemp: req.body.mashTemp,
+        mashTime:req.body.mashTime,
+        boilTime: req.body.boilTime,
+        fermentationTemp: req.body.fermentationTemp,
+        malt1: req.body.malt1,
+        malt1Amount: req.body.malt1Amount,
+        malt2: req.body.malt2,
+        malt2Amount: req.body.boilTime,
+        malt3: req.body.malt3,
+        malt3Amount: req.body.malt3Amount,
+        malt4: req.body.malt4,
+        malt4Amount: req.body.malt4Amount,
+        malt5: req.body.malt5,
+        malt5Amount: req.body.malt5Amount,
+        hop1: req.body.hop1,
+        hop1Amount: req.body.hop1Amount,
+        hop2: req.body.hop2,
+        hop2Amount: req.body.hop2Amount,
+        hop3: req.body.hop3,
+        hop3Amount: req.body.hop3Amount,
+        yeast: req.body.yeast,
+        yeastAmount: req.body.yeastAmount,
+        brewerTip: req.body.brewerTip,
+        foodPairing: req.body.foodPairing
+        }, 
+        {where:{id:parseInt(req.params.id)}
+    })
+    .then(resultado => { return res.redirect('/nuestrasRecetas')
+    })
+    .catch(error => console.log(res.send(error)));  
+} 
+        
+
+   
 
 // const recetaDelete = (req, res) => {
 //     let id = parseInt(req.params.id);
@@ -86,64 +162,15 @@ const recetasDetail = (req,res) => {
 //     res.redirect('/nuestrasRecetas');
 // };
 
-// const recetaUpdate = (req, res) =>{
-//     let id = parseInt(req.params.id);
-   
-//     recetas.forEach(receta =>{
-//         if(receta.id == id){   
-//         receta.name= req.body.name,
-//         receta.recetavolume= req.body.volume,
-//         receta.boilvolume= req.body.boilvolume,
-//         receta.alcohol= req.body.alcohol,
-//         receta.targetFG= req.body.targetFG,
-//         receta.targetOG= req.body.targetOG,
-//         receta.initialPH= req.body.initialPH,
-//         receta.finalPH= req.body.finalPH,
-//         receta.mashTemp= req.body.mashTemp,
-//         receta.mashTime=req.body.mashTime,
-//         receta.boilTime= req.body.boilTime,
-//         receta.fermentationTemp= req.body.fermentationTemp,
-//         receta.malt1= req.body.malt1,
-//         receta.malt1Amount= req.body.malt1Amount,
-//         receta.malt2= req.body.malt2,
-//         receta.malt2Amount= req.body.boilTime,
-//         receta.malt3= req.body.malt3,
-//         receta.malt3Amount= req.body.malt3Amount,
-//         receta.malt4= req.body.malt4,
-//         receta.malt4Amount= req.body.malt4Amount,
-//         receta.malt5= req.body.malt5,
-//         receta.malt5Amount= req.body.malt5Amount,
-//         receta.hop1= req.body.hop1,
-//         receta.hop1Amount= req.body.hop1Amount,
-//         receta.hop2= req.body.hop2,
-//         receta.hop2Amount= req.body.hop2Amount,
-//         receta.hop3= req.body.hop3,
-//         receta.hop3Amount= req.body.hop3Amount,
-//         receta.hop4= req.body.hop4,
-//         receta.hop4Amount= req.body.hop4Amount,
-//         receta.yeast= req.body.yeast,
-//         receta.yeastAmount= req.body.yeastAmount,
-//         receta.brewerTip= req.body.brewerTip,
-//         receta.foodPairing= req.body.foodPairing
-//         }    
-//     })   
-        
-        
-//     let recetas_JSON= JSON.stringify(recetas, null, 2);
-//     let recetasPath= path.join(__dirname, '../DataBase/bbddRecetas.json');
-//     fs.writeFileSync(recetasPath, recetas_JSON);
-//     res.redirect('/nuestrasRecetas')
-//}
-
 
 const recipeController = {
     recetasDetail,
+    recetaCreate,
+    recetaAdmin,
     // recetaDelete,
     // recetaAdmin,
-    // recetaCreate,
-    // recetaUpdate,  
-    recetas: Recipes     
-    //recetas:recetas
+    recetaUpdate,  
+    recetas: Recipes
 }
 
 module.exports = recipeController;
