@@ -2,8 +2,8 @@
 <html lang="es">
 <%- include('../partials/head') %>
 <body >
-	<%- include('../partials/header') %>
-	
+	<%- include("../partials/header") %>
+	<form action="/users/profile/<%= user.id %> " class="" method="POST" enctype="multipart/form-data">
 	<!-- Container -->
 	<div class="container" style="margin-top: 40px;">
 		<div class="pr-form lg-form rg-input" style="padding:15px 0">
@@ -14,9 +14,11 @@
 				<br>
 				<div class="alert alert-success"><%= user.email %> </div>
 				<div>
-					<button class="pd-add ">
-						<a href="#" > Modificar perfil</a>
+					
+					<button type="submit" class="pd-add " value="Modificar perfil">
+						<a href="/users/profile/<%=user.id%>" > Modificar perfil</a>
 					</button>
+	</form>
 				</div>
 			</div>
 		</div>

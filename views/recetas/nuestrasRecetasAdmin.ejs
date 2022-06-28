@@ -10,7 +10,7 @@
 
         <div class="ra-admin-container">
             <h3>Administración de Recetas</h3>
-            <% if (recetaToEdit.id == 0){%>
+            <% if (recetaToEdit.id == 1){%>
                 <form action="/recetas/nuestrasRecetasAdmin/" method="POST">
             <%}else{%>
                 <form action="/recetas/nuestrasRecetasAdmin/<%= recetaToEdit.id %>?_method=PUT" method="POST">

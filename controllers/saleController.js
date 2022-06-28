@@ -46,7 +46,7 @@ const salesController = {
                 where:{id:req.params.id}
             }); 
             if (sale === null) {
-                create
+               console.log(create)
             }else
             sale.set({
                 state: 2,
