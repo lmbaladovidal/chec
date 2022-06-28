@@ -14,11 +14,7 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.DECIMAL(6, 2).UNSIGNED,
             allowNull: false
         },
-        Users_id: {
-            type: dataTypes.BIGINT(10).UNSIGNED,
-            allowNull: false
-        },
-        Sales_Users_id: {
+        Sales_id: {
             type: dataTypes.BIGINT(10).UNSIGNED,
             allowNull: false
         }
