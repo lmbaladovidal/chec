@@ -55,18 +55,6 @@ const userController = {
         email: req.body.email,
       },
     })
-<<<<<<< HEAD
-  .catch( async emailNotFound =>{
-    let userToCreate = {    
-        ...req.body,
-        password: bcryptjs.hashSync(req.body.password, 10), // encripta la contraseña y pisa la password que viene en body
-        avatar: req.file ? req.file.filename : "default.png",
-        userroles_id: 1,
-      };      
-      return await Users.create(userToCreate)          
-    })
-    console.log("Hasta aca Bien");
-=======
       .catch((errors) => {console.log(errors);
       })
       .then((userInDb) => {
@@ -89,7 +77,6 @@ const userController = {
         };
         return await Users.create(userToCreate);
       });
->>>>>>> 4b5eda3c50553e7dcef22766d185965b57c57e84
     return res.redirect("./login");
   },
 

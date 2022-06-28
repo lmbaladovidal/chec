@@ -44,13 +44,8 @@ app.use("/", recipeRouter);
 app.use("/product", productRouter);
 app.use("/recetas", recipeRouter);
 app.use("/users", userRouter);
-<<<<<<< HEAD
 app.use("/sales",saleRouter)
 app.use(notFound)
-=======
-
-//app.use(notFound)
->>>>>>> 4b5eda3c50553e7dcef22766d185965b57c57e84
 
 
 

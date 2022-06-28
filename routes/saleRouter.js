@@ -11,7 +11,8 @@ const salesController = require('../controllers/saleController');
 //router.get('/nuestrasRecetasAdmin/',authMiddleware,nuestrasRecetasController.recetaCreate);
 router.post('/create', salesController.create);
 router.put('/create', salesController.create);
-router.put('/addShipingCart/:id', salesController.confirmShopingCart);
+router.get('/addShipingCart/:id', salesController.confirmShopingCart);
+
 
 //router.get('/nuestrasRecetasAdmin/:id',authMiddleware,nuestrasRecetasController.recetaAdmin);
 //router.put('/nuestrasRecetasAdmin/:id', authMiddleware,  nuestrasRecetasController.recetaUpdate);
