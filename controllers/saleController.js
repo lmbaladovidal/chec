@@ -10,15 +10,32 @@ const Detailsales = db.Detailsale;
 //const Shoppingcarts = db.Shoppingcart;
 //const Shoppingcart_products = db.Shoppingcart_product;
 
+
+     // db.Sale.findAll({
+        //     include: ['detailsale']
+        // })
+        //     .then(sales => {
+        //         //console.log(sales);
+        //         //res.render('moviesList.ejs', {sales})
+        //     })
+        //     return res.redirect("/product/productCart")
+        //res.render('/product/productCart',{SaleShippingUser})}
+        //include: ['detailsale'],
 const salesController = {
-    'list': (req, res) => {
-        db.Sale.findAll({
-            include: ['detailsale']
-        })
-            .then(sales => {
-                //console.log(sales);
-                //res.render('moviesList.ejs', {sales})
-            })
+   
+    list: async (req, res) => {
+      
+        let SaleShippingUser = await sale.findAll({
+            include: ["Detailsale"],
+              where:{Users_id:req.session.userLogged.id}
+        });
+        if(SaleShippingUser==undefined)  {
+            console.log("SALE")
+            //res.render('enDesarrollo')
+            
+        }else{
+            console.log("TENEMOS dATOS");
+        console.log( SaleShippingUser);}
     }, 
     createShopingCart: async function (req,res) {
         carrito = await sale.create({
@@ -31,19 +48,26 @@ const salesController = {
     addShopingCart: async function (req,res) {
         let Userid = parseInt(req.session.userLogged.id);
         const saleFinded = await sale.findOne({where:{Users_id:Userid}});
-        const idSale = saleFinded.id 
         if (saleFinded === null) {
             carrito = await sale.create({
                 Users_id: Userid,
                 state: 1,
             })  
             idSale = carrito.id            
+            
+        }else{
+            idSale =saleFinded.id
         }
+
         produc_sale = await db.Detailsale.create({
-            price:123,
+            price:3,
             quantity:1,
             Sales_id:idSale,
-        })       
+        })  
+
+        //console.log(produc_sale)
+        //return res.redirect("/product/productCart")
+
     },
     confirmShopingCart: async (req,res) => {
         let Userid = parseInt(req.session.userLogged.id);
