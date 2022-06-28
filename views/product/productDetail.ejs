@@ -11,32 +11,32 @@
     <section class="pd-product-area">
 
         <div class="pd-product-imgs">
-            <img src="/images/<%= image %>" alt="beer">
+            <img src="/images/<%= product.image %>" alt="beer">
         </div>
 
         <div class="pd-product-info">
-            <h4><%= name %></h4>
-            <p><%= description %></p>
+            <h4><%= product.name %></h4>
+            <p><%= product.description %></p>
             <ul class="pd-beer-attributes">
                 <li>
                     <h5>Amargor: </h5>
-                    <p><%= bitterness %></p>
+                    <p><%= product.bitterness %></p>
                 </li>
                 <li>
                     <h5>Alcohol: </h5>
-                    <p><%= alcohol %></p>
+                    <p><%= product.alcohol %></p>
                 </li>
                 <li>
                     <h5>Color: </h5>
-                    <p> <%= color %> SRM</p>
+                    <p> <%= product.color %> SRM</p>
                 </li>
                 <li>
                     <h5>Lúpulo/s: </h5>
-                    <p> <%=hop %></p>
+                    <p> <%=product.hop %></p>
                 </li>
                 <li>
                     <h5>Gasificaion: </h5>
-                    <p> <%= carbonation %></p>
+                    <p> <%= product.carbonation %></p>
                 </li>
             </ul>
 

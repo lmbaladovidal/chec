@@ -82,5 +82,18 @@
     "hop": "Cascade",
     "image": "beer-1652058793037.png",
     "category": "Estandar"
+  },
+  {
+    "id": 6,
+    "name": "chevecha",
+    "description": "chevechita",
+    "price": "1000",
+    "bitterness": "alto",
+    "color": "roja",
+    "alcohol": "10%",
+    "carbonation": "alta",
+    "hop": "no se que son",
+    "image": "beer-1656349878796.png",
+    "category": "Estandar"
   }
 ]
