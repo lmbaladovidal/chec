@@ -25,7 +25,7 @@
         <div class="nr-main-containter">
             <div class="add-receta-container">
             <% if (locals.datos && datos.userLogged && datos.userLogged.userroles_id == 2 ){ %>
-                <button class="pd-admin"><a href="/recetas/nuestrasRecetasAdmin/1">Agregar nueva receta</a></button>
+                <button class="pd-admin"><a href="/recetas/nuevaReceta/">Agregar nueva receta</a></button>
             <%}%>
          </div>
            
@@ -38,7 +38,7 @@
                     <div class="nr-buton-container">
                     <button id="display-hide-btn<%= datos.recetas[i].id %>" onclick="display('<%= datos.recetas[i].id %>');" class="nr-display-btn">Desplegar  <i class="fas fa-chevron-down"></i></button>
                     <% if (datos.userLogged && datos.userLogged.userroles_id == 2 ){ %>
-                        <button class="pd-admin nr-edit"><a href="/recetas/nuestrasRecetasAdmin/<%= datos.recetas[i].id %>" class="pd-admin-a">Modificar receta</a></button>
+                        <button class="pd-admin nr-edit"><a href="/recetas/recetasAdmin/<%= datos.recetas[i].id %>" class="pd-admin-a">Modificar receta</a></button>
                     <%}%>
                 </div>
                 </div>
