@@ -2,5 +2,5 @@
 .vscode
 node_modules
 package-lock-json
-Logs
-config
+/Logs/UserLog.js
+DataBase/config/config.js
