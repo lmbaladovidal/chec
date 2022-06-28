@@ -7,18 +7,13 @@
     <body>
         <!-- Header-->
         <%- include("../partials/header") %>
-
-        <!--PÁGINA AÚN NO TRABAJADA-->
         
             <div class="nr-main-containter">
-            <h3>Administracion de Recetas</h3>
-            <% if (recetaToEdit.id == 0){%>
-                <form action="/receta/recetaAdmin/" method="POST" >
-            <%}else{%>
-                <form action="/receta/recetaAdmin/<%= recetaToEdit.id %>?_method=PUT" method="POST">
-            <%}%>
+            <h3>Nueva receta</h3>
+            <form action="/recetas/nuevareceta" method="POST">
+         
             
-            <h5><%= recetas[2].name %></h5>
+            <h5><input type="text" name="name"></h5>
                  
                 <div class="nr-information-container">
                 <div class="nr-information">
@@ -26,35 +21,35 @@
                     <ul class="pd-beer-attributes">
                         <li>
                             <h6>Volumen: </h6>
-                            <p><%= recetas[2].volume %> lts.</p>
+                            <p><input type="text" name="volume"> lts.</p>
                         </li>
                         <li>
                             <h6>Volumen de hervor: </h6>
-                            <p><%= recetas[2].boilvolume %>lts.</p>
+                            <p><input type="text" name="boilvolume">lts.</p>
                         </li>
                         <li>
                             <h6>Duración del hervor: </h6>
-                            <p><%= recetas[2].boilTime %>lts.</p>
+                            <p><input type="text" name="boilTime">lts.</p>
                         </li>
                         <li>
                             <h6>Alcohol: </h6>
-                            <p><%= recetas[2].alcohol %> %</p>
+                            <p><input type="text" name="alcohol"> %</p>
                         </li>
                         <li>
                             <h6>Densidad final: </h6>
-                            <p><%= recetas[2].targetFG %></p>
+                            <p><input type="text" name="targetFG"></p>
                         </li>
                         <li>
                             <h6>Densidad inicial: </h6>
-                            <p><%= recetas[2].targetOG %></p>
+                            <p><input type="text" name="targetOG"></p>
                         </li>
                         <li>
                             <h6>PH inicial: </h6>
-                            <p><%= recetas[2].initialPH %></p>
+                            <p><input type="text" name="initialPH"></p>
                         </li>
                         <li>
                             <h6>PH final: </h6>
-                            <p><%= recetas[2].finalPH %></p>
+                            <p><input type="text" name="finalPH"></p>
                         </li>
                         
                     </ul>
@@ -65,11 +60,11 @@
                     <ul class="pd-beer-attributes">
                         <li>
                             <h6>Macerado: </h6>
-                            <p><%= recetas[2].mashTemp %>° - <%= recetas[2].mashTime %> min.</p>
+                            <p><input type="text" name="mashTemp">° - <input type="text" name="mashTime"> min.</p>
                         </li>
                         <li>
                             <h6>Fermentación: </h6>
-                            <p><%= recetas[2].fermentationTemp %>°</p>
+                            <p><input type="text" name="fermentationTemp">°</p>
                         </li>
                     </ul>
                 </div>
@@ -79,21 +74,22 @@
                     <ul class="pd-beer-attributes">
                         <li>
                             <h6>Maltas: </h6> </br>
-                            <p><%= recetas[2].malt1 %>: <%= recetas[2].malt1Amount %> </p></br>
-                            <p><%= recetas[2].malt2 %>: <%= recetas[2].malt2Amount %> </p></br>
-                            <p><%= recetas[2].malt3 %>: <%= recetas[2].malt3Amount %> </p></br>
-                            <p><%= recetas[2].malt4 %>: <%= recetas[2].malt4Amount %> </p></br>
-                            <p><%= recetas[2].malt5 %>: <%= recetas[2].malt5Amount %> </p></br>
+                            <p><input type="text" name="malt1">: <input type="text" name="malt1Amount"> </p></br>
+                            <p><input type="text" name="malt2">: <input type="text" name="malt2Amount"> </p></br>
+                            <p><input type="text" name="malt3">: <input type="text" name="malt3Amount"> </p></br>
+                            <p><input type="text" name="malt4">: <input type="text" name="malt4Amount"> </p></br>
+                            <p><input type="text" name="malt5">: <input type="text" name="malt5Amount"> </p></br>
+                            
                         </li>
                         <li>
                             <h6>Lúpulo/s: </h6>
-                            <p><%= recetas[2].hop1 %>: <%= recetas[2].hop1Amount %> <%= recetas[2].hop1Moment %> min.</p></br>
-                            <p><%= recetas[2].hop2 %>: <%= recetas[2].hop2Amount %> <%= recetas[2].hop2Moment %></p></br>
-                            <p><%= recetas[2].hop3 %>: <%= recetas[2].hop3Amount %> <%= recetas[2].hop3Moment %></p></br>
+                            <p><input type="text" name="hop1">: <input type="text" name="hop1Amount"> <input type="text" name="hop1Moment"> min.</p></br>
+                            <p><input type="text" name="hop2">: <input type="text" name="hop2Amount"> <input type="text" name="hop2Moment"> min.</p></br>
+                            <p><input type="text" name="hop3">: <input type="text" name="hop3Amount"> <input type="text" name="hop3Moment"> min.</p></br>
                         </li>
                         <li>
-                            <h6>Levadta: </h6> </br>
-                            <p><%= recetas[2].yeast %>: <%= recetas[2].yeastAmount %> gr. </p></br>
+                            <h6>Levadura: </h6> </br>
+                            <p><input type="text" name="yeast">: <input type="text" name="yeastAmount"> gr. </p></br>
                             
                         </li>
                     </ul>
@@ -102,16 +98,16 @@
                 <div class="nr-tip-container">
                 <div class="nr-tip">
                     <h4>Tip cervecero</h4>
-                    <p><%= recetas[2].brewerTip %></p>
+                    <p><input type="text" name="brewerTip"></p>
                 </div>
                 <div class="nr-tip">
                     <h4>Maridaje</h4>
-                    <p><%= recetas[2].foodPairing %></p>
+                    <p><input type="text" name="foodPairing"></p>
                 </div>
                 </div>
-            </section>
+                <input class="pd-admin" type="submit" value="Guardar">
 
-            </div>
+           </form>
 
             <!-- Footer-->
             <%- include("../partials/footer") %>
