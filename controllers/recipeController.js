@@ -61,8 +61,9 @@ const recetaCreate = (req, res) => {
         foodPairing: req.body.foodPairing
         }
         Recipes.create(recipe)
-        .then(res.redirect('/recetas/nuestrasRecetas'))
-        .catch(error => console.log(res.send(error)));
+        .then(()=>{ return res.redirect('./nuestrasRecetas')})
+                   
+        .catch(error => console.log(error));
  };
 
 
@@ -73,8 +74,9 @@ const recetaEdit =(req,res)=>{
     })
     
     .then(recipe => {
-        console.log( recipe );
+        //console.log( recipe );
         let recetaToEdit = {
+        id: id,
         name: recipe.name,
         volume: recipe.volume,
         boilvolume: recipe.boilvolume,
@@ -108,13 +110,16 @@ const recetaEdit =(req,res)=>{
         brewerTip: recipe.brewerTip,
         foodPairing: recipe.foodPairing
         }
-        res.render('./recetas/adminRecetas',{recetaToEdit})
+        res.render('./recetas/editRecetas',{recetaToEdit})
     })
     .catch(error => console.log(res.send(error)));
 };
+//*hasta aca funciona OK*//
 
 const recetaUpdate = async (req, res) =>{
-    let recetaToEdit = await Recipes.findOne( {where:{id:parseInt(req.params.id)}} )
+    req.body.id = req.params.id
+    let recetaToEdit = await Recipes.findOne( {where:{id:(req.params.id)}} )
+   // res.send(recetaToEdit)
     recetaToEdit.set({  
         name: req.body.name,
         volume: req.body.volume,
@@ -151,21 +156,21 @@ const recetaUpdate = async (req, res) =>{
         })
 
     await recetaToEdit.save()
-    res.redirect('./recetas/nuestrasRecetas')
-} 
+    res.redirect('/recetas/nuestrasRecetas')    
+}
       
 const recetaDelete = (req, res) => {
-    let id = parseInt(req.params.id);
-    console.log(res.send({id}));
+    let id = req.params.id;
+      
+    Recipes.findOne({where:{id:id}})
     
-    // Recipes.findOne({where:{id:id}})
-    // .then(recipeToDelete => {
+    .then(recipeToDelete => {
+        console.log(recipeToDelete)
 
-    //     console.log(recipeToDelete)
-    //     Recipes.destroy({where:{id:recipeToDelete.id}})
-    //     return res.redirect('/');
-    //})
-    //.catch(error => console.log(error)); 
+        Recipes.destroy({where:{id:recipeToDelete.id}})
+        return res.redirect('/');
+    })
+    .catch(error => console.log(error)); 
     
     
 };
