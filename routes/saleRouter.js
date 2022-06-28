@@ -9,9 +9,9 @@ const salesController = require('../controllers/saleController');
 //router.get('/sales/add',authMiddleware, salesController.add);
 
 //router.get('/nuestrasRecetasAdmin/',authMiddleware,nuestrasRecetasController.recetaCreate);
-router.post('/create', salesController.create);
-router.put('/create', salesController.create);
-router.get('/addShipingCart/:id', salesController.confirmShopingCart);
+//router.post('/create', salesController.create);
+//router.put('/create', salesController.create);
+router.get('/addShipingCart/:id', salesController.addShopingCart);
 
 
 //router.get('/nuestrasRecetasAdmin/:id',authMiddleware,nuestrasRecetasController.recetaAdmin);

@@ -20,22 +20,31 @@ const salesController = {
                 //res.render('moviesList.ejs', {sales})
             })
     }, 
-    add: function (req,res) {},
-    create: function (req,res) {
-       console.log(req.body)
-       carrito = sale.create({
-                shippingCost: req.body.priceBotella500,
-                quantity: req.body.quantity,
-                discount: req.body.discount,
-                total: req.body.total,
-                Users_id: req.session.userLogged.id,
+    createShopingCart: async function (req,res) {
+        carrito = await sale.create({
+            Users_id: req.session.userLogged.id,
+            state: 1,
+        })
+        res.send(carrito)
+        res.redirect('/sales')           
+    },
+    addShopingCart: async function (req,res) {
+        let Userid = parseInt(req.session.userLogged.id);
+        const saleFinded = await sale.findOne({where:{Users_id:Userid}});
+        const idSale = saleFinded.id 
+        if (saleFinded === null) {
+            carrito = await sale.create({
+                Users_id: Userid,
                 state: 1,
-            })
-            .then(()=> {
-             res.redirect('/sales')
-            })            
-            .catch(error => res.send(error))
-        },
+            })  
+            idSale = carrito.id            
+        }
+        produc_sale = await db.Detailsale.create({
+            price:123,
+            quantity:1,
+            Sales_id:idSale,
+        })       
+    },
     confirmShopingCart: async (req,res) => {
         let Userid = parseInt(req.session.userLogged.id);
         //console.log (Userid)
@@ -44,7 +53,7 @@ const salesController = {
                 where:{id:req.params.id}
             }); 
             if (saleFinded === null) {
-               return console.log(this.create)
+               return console.log(this.createShopingCart)
             }
             saleFinded.set({
                 state: 2,

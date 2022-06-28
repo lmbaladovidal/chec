@@ -8,15 +8,12 @@ module.exports = (sequelize, dataTypes) => {
         },
         shippingCost: {
             type: dataTypes.DECIMAL(6, 2).UNSIGNED,
-            allowNull: false
         },
         discount: {
             type: dataTypes.INTEGER(6).UNSIGNED,
-            allowNull: false
         },
         total: {
             type: dataTypes.DECIMAL(6, 2).UNSIGNED,
-            allowNull: false
         },
         Users_id: {
             type: dataTypes.INTEGER(6).UNSIGNED,
