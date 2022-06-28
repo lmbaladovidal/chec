@@ -959,6 +959,11 @@ padding: 0 10px;
 {
   padding: 3px 0px;
  }
+ .pc-counter-label-det-label2
+{
+  padding: 3px 1px;
+  font-weight: bold;
+ }
 .pc-counter-labelText-det-Label
 {
   font-weight: bold;
@@ -969,9 +974,9 @@ padding: 0 10px;
 
 .pc-counter-label-det-valor{
   font-weight: bold;
-  padding: 3px 0px;
+  padding: 2px 0px;
   width: 80px;
-  margin: 1px 1px 1px 1px;
+  margin: 1px 5px 1px 1px;
   text-align: center;
 }
 .pc-counter-labelText-det-valor{

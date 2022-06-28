@@ -126,6 +126,21 @@
                                     </div>
                                 
                                 </div>
+
+                                <div class="pc-options">
+                                    <button class="pc-options-button lg-button" >Calcular</button>
+                                </div>   
+                                 <div class="pc-direccionEnvio">
+                                    <div class="pc-direccionEnvio-detalle">
+                                        <label class="pc-direccionEnvio-detalle-texto" >Descuento</label> 
+                                    </div>
+                                    <div class="pc-direccionEnvio-valor">
+                                        <input type="text" class="pc-DireccionEnvio-Titulo-caja-texto" name="discount"
+                                            value="100" title="Cantidad" placeholder="" inputmode="text">
+                                    </div>
+                                
+                                </div>
+                                
                                 <div class="pc-options">
                                     <button class="pc-options-button lg-button" >Calcular</button>
                                 </div>   
@@ -143,38 +158,39 @@
                         <div class="pc-ResumenCompra-Subtotal">
                             <div class="pc-ResumenCompra-Subtotal-texto">
                                 <div class="pc-ResumenCompra-detalle">
-                                    <label class="pc-ResumenCompra-detalle-texto" >Subtotal</label> 
+                                    <label name="subtotal" class="pc-ResumenCompra-detalle-texto" >Subtotal</label> 
+                                </div>
+                                <div  class="pc-ResumenCompra-detalle">
+                                    <label name="descuento" class="pc-ResumenCompra-detalle-texto" required>Descuento</label> 
                                 </div>
                                 <div class="pc-ResumenCompra-detalle">
-                                    <label class="pc-ResumenCompra-detalle-texto" >Descuento</label> 
+                                    <label  name="envio"  class="pc-ResumenCompra-detalle-texto" >Envío</label> 
                                 </div>
-                                <div class="pc-ResumenCompra-detalle">
-                                    <label class="pc-ResumenCompra-detalle-texto" >Envío</label> 
-                                </div>
-                                <div class="pc-ResumenCompra-detalle">
-                                    <label class="pc-ResumenCompra-detalle-texto" >Total</label> 
+                                <div   class="pc-ResumenCompra-detalle">
+                                    <label name="total" class="pc-ResumenCompra-detalle-texto" >Total</label> 
                                 </div>
                                 
                             </div>
 
                             <div class="pc-ResumenCompra-Subtotal-valores">
                                 <div class="pc-counter-ResumenCompra">
-                                    <label class="pc-counter-label-det-label" >ARS</label>
-                                    <input type="text" class="pc-counter-label-det-valor" name="subTotal" id="" required>
+                                    <label class=".pc-counter-label-det-label2" >ARS</label>
+                                    <input type="text" class="pc-counter-label-det-valor" name="subtotal" value="900" title="subtotal" placeholder="" readonly="readonly">
                                 </div>
                                 <div class="pc-counter-ResumenCompra">
-                                    <label class="pc-counter-label-det-label" >ARS</label>
-                                    <input type="text" class="pc-counter-label-det-valor" name="discount" id="" required>
+                                    <label class=".pc-counter-label-det-label2" >ARS</label>
+                                    <input type="text" class="pc-counter-label-det-valor" name="totalDiscount" value="100" title="totalDiscount" placeholder="" readonly="readonly">
                                 </div>
                                 <div class="pc-counter-ResumenCompra">
-                                    <label class="pc-counter-label-det-label" >ARS</label>
-                                    <input type="text" class="pc-counter-label-det-valor" name="Shipping" id="" required>
+                                    <label class=".pc-counter-label-det-label2" >ARS</label>
+                                    <input type="text" class="pc-counter-label-det-valor" name="totalShipping" value="250" title="totalShipping" placeholder="" readonly="readonly">
                                 </div>
                                 <div class="pc-counter-ResumenCompra">
-                                    <label class="pc-counter-label-det-label" >ARS</label>
-                                    <input type="text" class="pc-counter-label-det-valor" name="total" id="" required>
+                                    <label class=".pc-counter-label-det-label2" >ARS</label>
+                                    <input type="text" class="pc-counter-label-det-valor" name="total" value="1250" title="total" placeholder="" readonly="readonly">
                                 </div>
-                                
+                                    
+                                   
                                 <!-- <input type="text" class="pc-ResumenCompra-Titulo-caja-texto" name="quantity"
                                             value="ARS 1050" title="Cantidad" placeholder="" inputmode="text"> -->
                             </div>  

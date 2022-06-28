@@ -9,7 +9,7 @@ const salesController = require('../controllers/saleController');
 //router.get('/sales/add',authMiddleware, salesController.add);
 
 //router.get('/nuestrasRecetasAdmin/',authMiddleware,nuestrasRecetasController.recetaCreate);
-router.post('/sales/create', salesController.create);
+router.post('/create', salesController.create);
 //router.get('/nuestrasRecetasAdmin/:id',authMiddleware,nuestrasRecetasController.recetaAdmin);
 //router.put('/nuestrasRecetasAdmin/:id', authMiddleware,  nuestrasRecetasController.recetaUpdate);
 //router.delete('/nuestrasRecetasAdmin/:id', authMiddleware,nuestrasRecetasController.recetaDelete);

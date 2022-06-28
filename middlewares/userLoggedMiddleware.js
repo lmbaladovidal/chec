@@ -6,7 +6,7 @@ const {Op} = require('sequelize')
 
 function userLoggedMiddleware(req, res, next) {
 	res.locals.isLogged = false;
-	console.log('variable sesion',req.session.userLogged)
+	//console.log('variable sesion',req.session.userLogged)
 	let emailInCookie = req.cookies.userEmail;
 
 	if(emailInCookie){
