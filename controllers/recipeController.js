@@ -168,7 +168,7 @@ const recetaDelete = (req, res) => {
         console.log(recipeToDelete)
 
         Recipes.destroy({where:{id:recipeToDelete.id}})
-        return res.redirect('/');
+        return res.redirect('/recetas/nuestrasRecetas');
     })
     .catch(error => console.log(error)); 
     
