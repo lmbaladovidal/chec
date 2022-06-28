@@ -2,9 +2,5 @@
 .vscode
 node_modules
 package-lock-json
-<<<<<<< HEAD
 /Logs/UserLog.js
-=======
-Logs
-config
->>>>>>> c71b45f7900a02020a91674e4de641441eec5885
+DataBase/config/config.js

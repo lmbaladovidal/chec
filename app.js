@@ -3,7 +3,7 @@ const path = require("path");
 const methodOverride= require('method-override')
 const rutaControllers = require("./routes/main.js");
 const productRouter = require("./routes/productRouter");
-const nuestrasRecetasRouter = require('./routes/nuestrasRecetasRouter');
+const recipeRouter = require('./routes/recipeRouter');
 const userRouter = require("./routes/userRouter");
 
 const notFound = require("./middlewares/notFound");
@@ -11,7 +11,7 @@ const notFound = require("./middlewares/notFound");
 const session = require('express-session');
 const cookies = require('cookie-parser');
 const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
-const logMiddleWare = require('./middlewares/logMiddleWare')
+//const logMiddleWare = require('./middlewares/logMiddleWare')
 
 
 
@@ -26,7 +26,7 @@ app.use(session({
 
 app.use(cookies());
 app.use(userLoggedMiddleware);
-app.use(logMiddleWare)
+//app.use(logMiddleWare)
 
 app.use(express.static("public"));
 app.set('view engine', 'ejs');
@@ -39,12 +39,12 @@ app.use(methodOverride('_method'));//Middleware de aplicación el cual se encarg
 app.use(express.urlencoded({ extended: false })); //URL encode  - Para que nos pueda llegar la información desde el formulario al req.body
 
 app.use("/", rutaControllers);
-app.use("/", nuestrasRecetasRouter);
+app.use("/", recipeRouter);
 app.use("/product", productRouter);
-app.use("/recetas", nuestrasRecetasRouter);
+app.use("/recetas", recipeRouter);
 app.use("/users", userRouter);
 
-app.use(notFound)
+//app.use(notFound)
 
 
 

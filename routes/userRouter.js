@@ -21,7 +21,7 @@ const uploadFile = multer({ storage });  // [3-MULTER] Crear la variable upload 
 // Middlewares
 const guestMiddleware = require('../middlewares/guestMiddleware');
 const authMiddleware = require('../middlewares/authMiddleware');
-
+const userLoggedMiddleware =require('../middlewares/userLoggedMiddleware')
 
 // Validation para express-validator
 const validations = [
@@ -47,7 +47,6 @@ const validations = [
 			if (!acceptedExtensions.includes(fileExtension)) {
 				throw new Error(`Las extensiones de archivo permitidas son ${acceptedExtensions.join(', ')}`);
 			}
-		
 		} 
 		return true;
 	})
@@ -65,7 +64,13 @@ router.post('/register',uploadFile.single('avatar'), validations, userController
 //Profile
 router.get('/profile', authMiddleware, userController.profile);
 
+router.get('/profile/:id', authMiddleware, userController.editProfile)
+router.put('/profile/:id', authMiddleware, uploadFile.single('avatar'),userController.updateProfile)
+
+//Delete
+router.delete('/profile/:id', authMiddleware, userController.deleteProfile)
+
 // Logout
-//router.get('/logout/', userController.logout);
+router.get('/logout/', userController.logout);
 
 module.exports = router;
