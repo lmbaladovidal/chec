@@ -5,8 +5,9 @@ const { Op } = require("sequelize");
 const express = require('express');
 
 //Aqui tienen otra forma de llamar a cada uno de los modelos
-const sale = db.Sale;
-const Detailsales = db.Detailsale;
+const sale = db.Sales;
+
+const Detailsale = db.Detailsales;
 //const Shoppingcarts = db.Shoppingcart;
 //const Shoppingcart_products = db.Shoppingcart_product;
 
@@ -22,20 +23,29 @@ const Detailsales = db.Detailsale;
         //res.render('/product/productCart',{SaleShippingUser})}
         //include: ['detailsale'],
 const salesController = {
-   
     list: async (req, res) => {
       
-        let SaleShippingUser = await sale.findAll({
-            include: ["Detailsale"],
+        let SaleShippingUser = await sale.findOne({
               where:{Users_id:req.session.userLogged.id}
         });
+        
+        SaleShippingUser.map(e => {console.log(e)})
+        return res.send(SaleShippingUser)
         if(SaleShippingUser==undefined)  {
             console.log("SALE")
             //res.render('enDesarrollo')
             
         }else{
             console.log("TENEMOS dATOS");
-        console.log( SaleShippingUser);}
+            //SaleShippingUser.map(element => {console.log(element.Detailsale[0])});}
+            let Products_Detail = await Detailsale.findAll({
+                    include: ["Products"],
+                    where:{Sales_id:SaleShippingUser[0].id}
+                    });
+            res.status(200).json(Products_Detail)
+            //res.sendStatus(SaleShippingUser);
+            }
+        //console.log( {SaleShippingUser});}
     }, 
     createShopingCart: async function (req,res) {
         carrito = await sale.create({
