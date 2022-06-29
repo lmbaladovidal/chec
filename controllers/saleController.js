@@ -26,11 +26,10 @@ const salesController = {
     list: async (req, res) => {
       
         let SaleShippingUser = await sale.findOne({
-              where:{Users_id:req.session.userLogged.id}
+              where:{Users_id:8}
+              //where:{Users_id:req.session.userLogged.id}
         });
         
-        SaleShippingUser.map(e => {console.log(e)})
-        return res.send(SaleShippingUser)
         if(SaleShippingUser==undefined)  {
             console.log("SALE")
             //res.render('enDesarrollo')
@@ -40,7 +39,7 @@ const salesController = {
             //SaleShippingUser.map(element => {console.log(element.Detailsale[0])});}
             let Products_Detail = await Detailsale.findAll({
                     include: ["Products"],
-                    where:{Sales_id:SaleShippingUser[0].id}
+                    where:{Sales_id:(JSON.parse(SaleShippingUser.id))}
                     });
             res.status(200).json(Products_Detail)
             //res.sendStatus(SaleShippingUser);
@@ -56,7 +55,8 @@ const salesController = {
         res.redirect('/sales')           
     },
     addShopingCart: async function (req,res) {
-        let Userid = parseInt(req.session.userLogged.id);
+        //let Userid = parseInt(req.session.userLogged.id);
+        let Userid = parseInt(8);
         const saleFinded = await sale.findOne({where:{Users_id:Userid}});
         if (saleFinded === null) {
             carrito = await sale.create({
@@ -68,11 +68,12 @@ const salesController = {
         }else{
             idSale =saleFinded.id
         }
-
-        produc_sale = await db.Detailsale.create({
+        console.log("soy la id: "+ idSale);
+        produc_sale = await Detailsale.create({
             price:3,
             quantity:1,
             Sales_id:idSale,
+            product_id:3
         })  
 
         //console.log(produc_sale)
