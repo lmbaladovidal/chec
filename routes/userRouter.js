@@ -62,7 +62,7 @@ router.get('/register', guestMiddleware, userController.register);
 router.post('/register',uploadFile.single('avatar'), validations, userController.userRegister);
 
 //Profile
-router.get('/profile', authMiddleware, userController.profile);
+router.get('/profile', userLoggedMiddleware , authMiddleware,  userController.profile);
 
 router.get('/profile/:id', authMiddleware, userController.editProfile)
 router.put('/profile/:id', authMiddleware, uploadFile.single('avatar'),userController.updateProfile)
