@@ -1,5 +1,5 @@
 function guestMiddleware(req, res, next) {
-	console.log("pase por aca GUESTMIDDLEWARE antes del moco")
+	console.log("Me pide que inicie sesion")
 	if (req.session.userLogged) {
 		return res.redirect('/users/profile');
 	}
