@@ -5,6 +5,7 @@ const rutaControllers = require("./routes/main.js");
 const productRouter = require("./routes/productRouter");
 const recipeRouter = require('./routes/recipeRouter');
 const userRouter = require("./routes/userRouter");
+const saleRouter = require("./routes/saleRouter");
 
 const notFound = require("./middlewares/notFound");
 
@@ -42,8 +43,8 @@ app.use("/", rutaControllers);
 app.use("/product", productRouter);
 app.use("/recetas", recipeRouter);
 app.use("/users", userRouter);
-
-//app.use(notFound)
+app.use("/sales",saleRouter)
+app.use(notFound)
 
 
 

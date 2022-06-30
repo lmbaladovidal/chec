@@ -2,8 +2,6 @@ const { response } = require('express');
 const { Op } = require("sequelize");
 const fs = require('fs');
 const path = require('path');
-const cervezasFilePath = path.join(__dirname, '../DataBase/products/BDCervezas.json');
-const cervezas = JSON.parse(fs.readFileSync(cervezasFilePath,"utf-8"));
 const db = require('../DataBase/models')
 const Product = db.Product;
 
@@ -109,9 +107,6 @@ const productDelete = async (req, res) => {
     res.redirect('/product/productPage');
 }
 
-
-
-
 const productControler = {
     productPage,
     productCart,
@@ -122,9 +117,7 @@ const productControler = {
     productPack,
     productCreate,
     productCreatePage,
-    productDelete,
-       
-    cervezas:cervezas
+    productDelete
 }
 
 module.exports=productControler;
