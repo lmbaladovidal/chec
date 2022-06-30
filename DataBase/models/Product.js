@@ -1,6 +1,6 @@
 module.exports = 
     (sequelize,DataTypes)=>{
-        let alias = "Product"
+        let alias = "Products"
         let columns = {
             id:{
                 type:DataTypes.INTEGER,
@@ -27,8 +27,8 @@ module.exports =
         const Product = sequelize.define(alias,columns,config);
         Product.associate = (models)=>{
             console.log(models)
-            Product.belongsToMany(models.Sale,{
-                as:"Sale",
+            Product.belongsToMany(models.Sales,{
+                as:"Sales",
                 through:"products_sales",
                 foreignKey:"products_id",
                 otherKey:"detailSales_id",
