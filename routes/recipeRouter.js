@@ -6,11 +6,13 @@ const guestMiddleware = require('../middlewares/guestMiddleware');
 const authMiddleware = require('../middlewares/authMiddleware');
 
 router.get('/nuestrasRecetas', recipeController.recetasDetail);
-router.get('/nuestrasRecetasAdmin/',authMiddleware,recipeController.recetaCreate);
-router.post('/nuestrasRecetasAdmin/',authMiddleware, recipeController.recetaCreate);
-router.get('/nuestrasRecetasAdmin/:id',authMiddleware,recipeController.recetaAdmin);
-router.put('/nuestrasRecetasAdmin/:id', authMiddleware,  recipeController.recetaUpdate);
-// router.delete('/nuestrasRecetasAdmin/:id', authMiddleware,recipeController.recetaDelete);
+router.get('/nuevaReceta/',authMiddleware,recipeController.recetaNew);
+router.post('/nuevaReceta/',authMiddleware, recipeController.recetaCreate);
+
+router.get('/recetasAdmin/:id',authMiddleware,recipeController.recetaEdit);
+router.put('/recetasAdmin/:id', authMiddleware,recipeController.recetaUpdate);
+
+router.delete('/:id', authMiddleware,recipeController.recetaDelete);
 
 module.exports = router;
 
