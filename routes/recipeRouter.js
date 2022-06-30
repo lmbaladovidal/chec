@@ -6,8 +6,8 @@ const guestMiddleware = require('../middlewares/guestMiddleware');
 const authMiddleware = require('../middlewares/authMiddleware');
 const userLoggedMiddleware =require('../middlewares/userLoggedMiddleware')
 
-router.get('/nuestrasRecetas', userLoggedMiddleware, authMiddleware,recipeController.recetasDetail);
-router.get('/nuevaReceta/',userLoggedMiddleware, authMiddleware,recipeController.recetaNew);
+router.get('/nuestrasRecetas', authMiddleware,recipeController.recetasDetail);
+router.get('/nuevaReceta/',authMiddleware, recipeController.recetaNew);
 router.post('/nuevaReceta/',authMiddleware, recipeController.recetaCreate);
 
 router.get('/recetasAdmin/:id',authMiddleware,recipeController.recetaEdit);

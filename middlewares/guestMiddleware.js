@@ -1,5 +1,5 @@
 function guestMiddleware(req, res, next) {
-	console.log("pase por GUESTMIDDLEWARE porque no recorde usuario")
+	console.log("Me pide que inicie sesion")
 	if (req.session.userLogged) {
 		return res.redirect('/users/profile');
 	}
