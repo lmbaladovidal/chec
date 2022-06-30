@@ -78,11 +78,11 @@
                                                 <h6>Macerado </h6>
 
                                                 <h6>Temperatura de maceración: </h6>
-                                                <p></p><input type="text" name="mashTemp"
+                                                <p></p><input type="number" min="1" max="100" step="0.1" name="mashTemp"
                                                     value="<%=recetaToEdit.mashTemp%>"> ° (grados celsius)
 
                                                 <h6>Tiempo de maceración: </h6>
-                                                <p></p><input type="text" name="mashTime"
+                                                <p></p><input type="number"  min="1" max="200" name="mashTime"
                                                     value="<%=recetaToEdit.mashTime%>"> minutos
 
                                             </li>
@@ -207,6 +207,7 @@
                     </div>
                 </form>
 
+            </div>
                 <!-- Footer-->
                 <%- include("../partials/footer") %>
     </body>
