@@ -25,7 +25,7 @@ router.get('/productAdmin/', authMiddleware,productController.productCreate);
 router.get('/productCreate/', authMiddleware,productController.productCreatePage);
 router.post('/productAdmin/', authMiddleware , upload.single('product-image'), productController.productCreate);
 router.get('/pack', productController.productPack);
-router.get('/productCart', productController.productCart);
+
 router.get('/search/',productController.productSearch);
 router.get('/productPage', productController.productPage);
 router.get('/productDetail/:id', productController.productDetail);

@@ -955,14 +955,48 @@ padding: 0 10px;
   justify-content: space-around;
   margin: 5px 5px;
 }
+.pc-counter-label-det-label
+{
+  padding: 3px 0px;
+ }
+ .pc-counter-label-det-label2
+{
+  padding: 3px 1px;
+  font-weight: bold;
+ }
+.pc-counter-labelText-det-Label
+{
+  font-weight: bold;
+  padding: 3px 0px;
+  width: 50px;
+  margin: 1px 1px 1px 1px;
+}
 
 .pc-counter-label-det-valor{
   font-weight: bold;
-  padding: 3px 0 0 5px;
+  padding: 2px 0px;
   width: 80px;
-  margin: 8px 0;
+  margin: 1px 5px 1px 1px;
+  text-align: center;
 }
-
+.pc-counter-labelText-det-valor{
+  display: flex;
+  /*flex-direction: column;*/
+  flex-wrap: wrap;
+  align-items: flex-start;
+  width: 45%;
+  justify-content: space-around;
+  margin: 18px 26px;
+}
+.pc-counter-ResumenCompra{
+  display: flex;
+  /*flex-direction: column;*/
+  flex-wrap: wrap;
+  /*align-items: flex-start;*/
+  width: 100%;
+  justify-content: flex-end;
+  margin: 18px 26px;
+}
 .pc-product{
 display: flex;
 justify-content: space-around;
@@ -993,10 +1027,6 @@ margin: 20px 0;
 margin: 20px 5px;
 width: 300px;
 padding: 0 5px;
-}
-
-.pc-counter-label-det-valor{
-  padding: 3px 20px;
 }
 
 .pc-quantity-descripcion{
@@ -1317,10 +1347,11 @@ section .pd-quienes-somos-right, section .pd-quienes-somos-left {
   border-bottom: 2px solid #ffda4d;
 }
 .nr-main-containter {
-  display: flex;
+  display: block;
   justify-content: space-between;
   flex-wrap: wrap;
   margin: 20px;
+  margin-bottom: 20px;
 }
 .receta-name {
   text-align: left;
@@ -1463,14 +1494,15 @@ div .ra-receta-container {
 .ra-information-attributes li p {
   width: 100px;
   justify-content: left;
-  margin-left: 10px;
   font-size: 13px;
+  margin: 0 5px 0 5px;
 }
 .ra-information-attributes li input, .ra-information .ra-beer-attributes li p input, .ra-name p input {
   border-radius: 3px;
   margin-right: 20px;
   border: 1px solid #c4c4c4;
   padding:2px;
+  width: 30%;
 }
 .ra-tip-container {
   display: flex;

@@ -107,9 +107,6 @@ const productDelete = async (req, res) => {
     res.redirect('/product/productPage');
 }
 
-
-
-
 const productControler = {
     productPage,
     productCart,
