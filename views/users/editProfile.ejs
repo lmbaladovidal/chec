@@ -99,13 +99,19 @@
         
             <div class="rg-btn-div rg-input" >
                 <input type="submit" name="" id="rg-submit" class="rg-submit" value="Modificar">
-                <input type="reset" class="rg-reset" >
+                <input type="reset" class="rg-reset" value="Deshacer" >
+                
+                <button type="submit" class="pd-add " >
+                    <a href="#" class=" " > Password</a>
+                </button>
             </div>
+            
         </form> 
         <form action="/users/profile/<%=userToEdit.id%>?_method=DELETE" class="rg-form" method="POST">
-            <div class="pd-options">
-                <input type="submit" class="lg-submit " value="Eliminar">
+            <div class="pd-add">
+                <input type="submit" class=" " value="Borrar Perfil">
             </div>
+            
         </form>        
     </section>
     <!-- Footer-->
