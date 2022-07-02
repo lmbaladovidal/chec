@@ -27,11 +27,9 @@ module.exports =
         const Product = sequelize.define(alias,columns,config);
         Product.associate = (models)=>{
             console.log(models)
-            Product.belongsToMany(models.Detailsales,{
+            Product.hasMany(models.Detailsales,{
                 as:"Detailsales",
-                through:"products_sales",
-                foreignKey:"products_id",
-                otherKey:"detailSales_id",
+                foreignKey:"product_id",
                 timestamps: false
             })
             

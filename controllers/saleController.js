@@ -26,7 +26,7 @@ const salesController = {
     list: async (req, res) => {
       
         let SaleShippingUser = await sale.findOne({
-              where:{Users_id:8}
+              where:{users_id:req.session.userLogged.id}
               //where:{Users_id:req.session.userLogged.id}
         });
         
@@ -48,7 +48,7 @@ const salesController = {
     }, 
     createShopingCart: async function (req,res) {
         carrito = await sale.create({
-            Users_id: req.session.userLogged.id,
+            users_id: req.session.userLogged.id,
             state: 1,
         })
         res.send(carrito)
@@ -56,11 +56,15 @@ const salesController = {
     },
     addShopingCart: async function (req,res) {
         //let Userid = parseInt(req.session.userLogged.id);
-        let Userid = parseInt(8);
-        const saleFinded = await sale.findOne({where:{Users_id:Userid}});
+        //let Userid = parseInt(8);
+        let Userid = req.session.userLogged.id;
+        
+         res.redirect('/sales')           
+
+        const saleFinded = await sale.findOne({where:{users_id:Userid}});
         if (saleFinded === null) {
             carrito = await sale.create({
-                Users_id: Userid,
+                users_id: Userid,
                 state: 1,
             })  
             idSale = carrito.id            
@@ -77,8 +81,6 @@ const salesController = {
         })  
 
         //console.log(produc_sale)
-        //return res.redirect("/product/productCart")
-
     },
     confirmShopingCart: async (req,res) => {
         let Userid = parseInt(req.session.userLogged.id);

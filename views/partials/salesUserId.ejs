@@ -1,0 +1,15 @@
+
+<% for (i=0;i< datos.sale.length;i++){%>
+    <article class="col-12 col-sm-6 col-lg-3 pd-product">
+        <img class="pd-img-product" src="/images/<%= datos.sale[i].image %>" width="360" alt="beer">
+        <div class="pd-datos-cerveza">
+            <h4><%= datos.sale[i].name %></h4>
+            <h4>$ <%= datos.sale[i].price %></h4>
+            <% if (datos.userLogged && datos.userLogged.userroles_id == 2){ %> 
+            <!--<button class="pd-admin"><a href="/product/productAdmin/<%= datos.cervezas[i].id %>" class="pd-admin-a">Quitar </i></a></button> -->
+            <button class="pd-admin"><a href="" class="pd-admin-a">Quitar </i></a></button>
+            <% } %>
+        </div>
+    </article>
+
+<%}%>
