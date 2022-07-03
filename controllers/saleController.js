@@ -81,10 +81,10 @@ const salesController = {
         }
         
         produc_sale = await Detailsale.create({
-            price:req.body.price,
-            quantity:req.body.quantity,
+            price:500,
+            quantity:2,
             Sales_id:idSale,
-            product_id:Product.id
+            product_id:4
         })  
         console.log(produc_sale);
         res.redirect("/product/productPage")

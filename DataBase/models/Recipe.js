@@ -34,8 +34,6 @@ module.exports = (sequelize, dataTypes) => {
         yeastAmount:{ type: dataTypes.DECIMAL(6,2), allowNull: false },
         brewerTip: { type: dataTypes.STRING(500), allowNull: false },
         foodPairing:{ type: dataTypes.STRING(500), allowNull: false },
-        recipes_users_id: { type:dataTypes.INTEGER(6), allowNull:true }
-        
     };
     let config = {
         timestamps: false,
