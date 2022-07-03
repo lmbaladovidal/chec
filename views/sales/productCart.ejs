@@ -14,23 +14,23 @@
                         <div class="pc-product-group">
                             <div class="pc-product-cantidad">
                                
-                               <% for (i=0;i< Products_Detail.length;i++){%>
-                                <article class="col-12 col-sm-6 col-lg-3 pd-product">
-                                    <img class="pd-img-product" src="/images/<%= Products_Detail[i].image %>" width="360" alt="beer"> 
-                                    <div class="pd-datos-cerveza">
-                                        <h4><%= Products_Detail[i].name %></h4>
-                                        <input type="hidden" name="idProductInCart" value="<%= Products_Detail[i].id %>" > 
-                                        <h4>$ <%= Products_Detail[i].price %></h4>
-                                        <p>Cantidad:
-                                        <input type="number" name="quantity" value="<%= Products_Detail[i].quantity %>" > </p>
+                                <div class="pd-tienda">
+                                    <% for (i=0;i< datos.products_Detail.length;i++){%>
+                                        <article class="col-12 col-sm-6 col-lg-3 pd-product">
+                                            <img class="pd-img-product" src="/images/<%= datos.product[i].image %>" width="360" alt="beer"> 
+                                            <div class="pd-datos-cerveza">
+                                                <h4><%= products_Detail[i].name %></h4>
+                                                <input type="hidden" name="idProductInCart" value="<%= datos.products_Detail[i].id %>" > 
+                                                <h4>$ <%= datos.products_Detail[i].price %></h4>
+                                                <p>Cantidad:
+                                                <input type="number" name="quantity" value="<%= datos.products_Detail[i].quantity %>" > </p>
+                                            </div>
+                                        </article>
+                                    <%}%>
+                               </div>
 
-                                    </div>
-                                     
-                                    <button type="submit" class="pd-admin"><a href="/sales/productCart" class="pd-admin-a">Quitar </i></a></button>
-                                    
-                                </article>
-                                <%}%>
-
+                               
+    
 
                                     <div class="pc-direccionEnvio">
                                         <div class="pc-direccionEnvio-detalle">

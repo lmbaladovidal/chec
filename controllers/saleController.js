@@ -1,12 +1,12 @@
 const path = require('path');
 const db = require('../database/models');
 const sequelize = db.sequelize;
-const { Op } = require("sequelize");
+const { Op, Association } = require("sequelize");
 const express = require('express');
 
 //Aqui tienen otra forma de llamar a cada uno de los modelos
 const sale = db.Sales;
-
+const Product = db.Product;
 const Detailsale = db.Detailsales;
 //const Shoppingcarts = db.Shoppingcart;
 //const Shoppingcart_products = db.Shoppingcart_product;
@@ -38,16 +38,22 @@ const salesController = {
             
         }else{
             
-            //SaleShippingUser.map(element => {console.log(element.Detailsale[0])});}
-            let Products_Detail = await Detailsale.findAll({
-                    include: ["Products"],
-                    where:{Sales_id:(JSON.parse(SaleShippingUser.id))}
-                    });
-            res.render('./sales/productCart',{Products_Detail})
-            
+            //SaleShippingUser.map(element => {console.log(element.Detailsale[0])});}}
+            Detailsale.findAll({
+                    include: [{association:'Product'}],
+                    where:{Sales_id:(JSON.parse(SaleShippingUser.id))
+                    }
+                    })
+                    .then( resultado => {
+                        const products_Detail = resultado
+                        const product = Product.findOne({
+                            where:{id:products_Detail.product_id}
+                        })
+                        let datos = {products_Detail,product}
+                        res.render('./sales/productCart',{datos})
+                    })
+            .catch(error=>{console.log(error)})
         }
-       
-        
     }, 
     createShopingCart: async function (req,res) {
         carrito = await sale.create({
@@ -75,13 +81,14 @@ const salesController = {
         }else{
             idSale =saleFinded.id
         }
-        console.log("soy la id: "+ idSale);
+        
         produc_sale = await Detailsale.create({
-            price:3,
-            quantity:1,
+            price:req.body.price,
+            quantity:req.body.quantity,
             Sales_id:idSale,
-            product_id:3
+            product_id:Product.id
         })  
+        console.log(produc_sale);
         res.redirect("/product/productPage")
     },
     confirmShopingCart: async (req,res) => {

@@ -3,7 +3,7 @@ const { Op } = require("sequelize");
 const fs = require('fs');
 const path = require('path');
 const db = require('../DataBase/models')
-const Product = db.Products;
+const Product = db.Product;
 
 
 const productPage = (req,res)=>{
