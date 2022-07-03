@@ -4,6 +4,7 @@ const path = require('path');
 //const cervezas = JSON.parse(fs.readFileSync(cervezasFilePath,"utf-8"));
 
 const db = require('../DataBase/models')
+
 const controllerMain = {
     index: (req,res) => {        
         const userLogged = req.session.userLogged;
