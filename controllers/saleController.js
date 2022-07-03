@@ -8,20 +8,7 @@ const express = require('express');
 const sale = db.Sales;
 const Product = db.Product;
 const Detailsale = db.Detailsales;
-//const Shoppingcarts = db.Shoppingcart;
-//const Shoppingcart_products = db.Shoppingcart_product;
 
-
-     // db.Sale.findAll({
-        //     include: ['detailsale']
-        // })
-        //     .then(sales => {
-        //         //console.log(sales);
-        //         //res.render('moviesList.ejs', {sales})
-        //     })
-        //     return res.redirect("/product/productCart")
-        //res.render('/product/productCart',{SaleShippingUser})}
-        //include: ['detailsale'],
 const salesController = {
     list: async (req, res) => {
         console.log("CON Usuario: " + req.session.userLogged.id);
@@ -29,8 +16,8 @@ const salesController = {
               where:{users_id:req.session.userLogged.id}
         });
         if(SaleShippingUser==undefined)  {
-            console.log("SALE")
-            //res.render('enDesarrollo')
+           
+            res.render('enDesarrollo')
         }else{
             const json = JSON.stringify(JSON.parse(SaleShippingUser.id));
             console.log("ID_SALE" + json)
@@ -54,10 +41,13 @@ const salesController = {
         }
     }, 
     createShopingCart: async function (req,res) {
+
         carrito = await sale.create({
             users_id: req.session.userLogged.id,
             state: 1,
+            product_id: 1
         })
+        console.log(carrito)
         res.send(carrito)
         res.redirect('/sales')           
     },
@@ -86,7 +76,7 @@ const salesController = {
             Sales_id:idSale,
             product_id:4
         })  
-        console.log(produc_sale);
+        console.log(product_sale);
         res.redirect("/product/productPage")
     },
     confirmShopingCart: async (req,res) => {

@@ -8,11 +8,11 @@ module.exports = (sequelize, dataTypes) => {
         },
         price: {
             type: dataTypes.DECIMAL(6, 2).UNSIGNED,
-            allowNull: false
+            allowNull: true
         },
         quantity: {
             type: dataTypes.DECIMAL(6, 2).UNSIGNED,
-            allowNull: false
+            allowNull: true
         },
         Sales_id: {
             type: dataTypes.BIGINT(10).UNSIGNED,
