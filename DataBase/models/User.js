@@ -80,7 +80,7 @@ Users.associate =(models)=>{
     Users.belongsToMany(models.Recipes, { 
         as: "Recipes",
         through: "Recipes_users",
-        foreignKey: 'recipes_id',
+        foreignKey: 'recipes_users_id',
         otherKey: 'users_id',
         timestamps: false
     })
