@@ -14,16 +14,15 @@
                         <div class="pc-product-group">
                             <div class="pc-product-cantidad">
                                
+
                                 <div class="pd-tienda">
-                                    <% for (i=0;i< datos.products_Detail.length;i++){%>
+                                    <% for (i=0;i< products_Detail.length;i++){%>
                                         <article class="col-12 col-sm-6 col-lg-3 pd-product">
-                                            <img class="pd-img-product" src="/images/<%= datos.product[i].image %>" width="360" alt="beer"> 
+                                            <img class="pd-img-product" src="/images/<%= products_Detail[i].Product.image %>" width="100" alt="beer"> 
                                             <div class="pd-datos-cerveza">
-                                                <h4><%= products_Detail[i].name %></h4>
-                                                <input type="hidden" name="idProductInCart" value="<%= datos.products_Detail[i].id %>" > 
-                                                <h4>$ <%= datos.products_Detail[i].price %></h4>
-                                                <p>Cantidad:
-                                                <input type="number" name="quantity" value="<%= datos.products_Detail[i].quantity %>" > </p>
+                                                <h4><%= products_Detail[i].Product.name %></h4>
+                                                <h4> Cantidad: <input type="number" value="<%= products_Detail[i].quantity %>" class=""> </h4>
+                                                <h4>$ <%= products_Detail[i].Product.price %></h4>
                                             </div>
                                         </article>
                                     <%}%>

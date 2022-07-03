@@ -24,35 +24,33 @@ const Detailsale = db.Detailsales;
         //include: ['detailsale'],
 const salesController = {
     list: async (req, res) => {
-
-        console.log("Usuario: " + req.session.userLogged.id);
+        console.log("CON Usuario: " + req.session.userLogged.id);
         let SaleShippingUser = await sale.findOne({
               where:{users_id:req.session.userLogged.id}
-              //where:{Users_id:req.session.userLogged.id}
-           
         });
-        
         if(SaleShippingUser==undefined)  {
             console.log("SALE")
             //res.render('enDesarrollo')
-            
         }else{
-            
-            //SaleShippingUser.map(element => {console.log(element.Detailsale[0])});}}
-            Detailsale.findAll({
-                    include: [{association:'Product'}],
-                    where:{Sales_id:(JSON.parse(SaleShippingUser.id))
-                    }
-                    })
-                    .then( resultado => {
-                        const products_Detail = resultado
-                        const product = Product.findOne({
-                            where:{id:products_Detail.product_id}
-                        })
-                        let datos = {products_Detail,product}
-                        res.render('./sales/productCart',{datos})
-                    })
-            .catch(error=>{console.log(error)})
+            const json = JSON.stringify(JSON.parse(SaleShippingUser.id));
+            console.log("ID_SALE" + json)
+            // //SaleShippingUser.map(element => {console.log(element.Detailsale[0])});}}
+             const products_Detail = await Detailsale.findAll({
+                     include: ['Product'],
+                     where:{Sales_id:(json)
+                     }
+                     })
+                     console.log(JSON.stringify(products_Detail));
+                    //let products_Deatil = JSON.parse({products_Detail})}
+                     //res.render('./sales/productCart',JSON.render({products_Detail}))
+                     //res.send('./sales/productCart',products_Detail)
+
+                     //res.status(200).send(products_Detail)
+
+                     res.render('./sales/productCart',{products_Detail})
+
+                     
+            // .catch(error=>{console.log(error)})
         }
     }, 
     createShopingCart: async function (req,res) {
