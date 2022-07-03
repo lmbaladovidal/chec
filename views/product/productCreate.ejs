@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head-->
+<%- include("../partials/head") %>
+
+<body>
+    <!-- Header-->
+    <%- include("../partials/header") %>
+
+    <section class="pd-product-area">
+        
+        <div class="pd-product-info">
+            
+                <div class="pc-ResumenCompra">
+                    <h3>Administracion de Producto</h3>
+                    <form action="/product/productAdmin/" method="POST" enctype="multipart/form-data">
+                    <div class="pd-product-imgs">
+                        <img src="" alt="beer">
+                    </div>
+                        <ul class="lg-form-login rg-form" >
+                            <li class='pa-li-element'>
+                                <h5>Nombre</h5>
+                                <p><input type="text" name="name"  class='rg-input'></p>
+                            </li>
+                            <li class='pa-li-element'>
+                                <h5>Descripción</h5>
+                                <p><input type="text" name="description" value="" class='rg-input'></p>
+                            </li>
+                            <li class='pa-li-element'>
+                                <h5>Amargor </h5>
+                                <p><input type="text" name="bitterness" value="" class='rg-input'></p>
+                            </li>                  
+                            <li class='pa-li-element'>
+                                <h5>Alcohol </h5>
+                                <p><input type="text" name="alcohol" value="" class='rg-input'></p>
+                            </li>
+                            <li class='pa-li-element'>
+                                <h5>Color </h5>
+                                <p><input type="text" name="color" value="" class='rg-input'></p>
+                            </li>
+                            <li class='pa-li-element'>
+                                <h5>Lúpulo/s </h5>
+                                <p><input type="text" name="hop" value="" class='rg-input'></p>
+                            </li>
+                            <li class='pa-li-element'>
+                                <h5>Gasificación </h5>
+                                <p><input type="text" name="carbonation" value=""class='rg-input' ></p>
+                            </li>
+                            <li class='pa-li-element'>
+                                <h5>Precio </h5>
+                                <p><input type="text" name="price" value=""class='rg-input' ></p>
+                            </li>
+                            <li class='pa-li-element'>
+                                <h5>Categoría </h5> 
+                            <select name="category" >
+                                    <% let categories=['Estandar', 'Especial' , 'Merchandising']; %>
+                                    <% for (const oneCategory of categories) { %>
+                                        <option 
+                                            value="<%= oneCategory %>"
+                                            <%= locals.oldData && (oneCategory === oldData.oneCategory) ? 'selected' : null %>> <%= oneCategory %> </option>
+                                        </option>
+                                        <% } %>
+                            </select>
+                            </li>
+        
+                        </ul>
+        
+                        <input type="file" name="product-image" class='rg-input'>
+                        <input type="text" name="image" style="opacity: 0;" value="" class='rg-input'>
+
+                
+                    <div class="pd-options rg-input">
+                        <input type="submit" class="lg-submit" value="Guardar">
+                        <input type="reset" class="lg-submit" name="limpiar" value="Limpiar">
+                    </div>                
+            </form> 
+        </div>
+
+    </section>
+    </div>
+    <!-- Footer-->
+    <%- include("../partials/footer") %>
+</body>
+
+</html>

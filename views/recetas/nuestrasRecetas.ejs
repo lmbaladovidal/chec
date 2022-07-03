@@ -24,21 +24,21 @@
 
         <div class="nr-main-containter">
             <div class="add-receta-container">
-            <% if (locals.datos && datos.userLogged && datos.userLogged.userRole=="Admin" ){ %>
-                <button class="pd-admin"><a href="/recetas/nuestrasRecetasAdmin/0">Agregar nueva receta</a></button>
+            <% if (locals.datos && datos.userLogged && datos.userLogged.users_roles_id == 2 ){ %>
+                <button class="pd-admin"><a href="/recetas/nuevaReceta/">Agregar nueva receta</a></button>
             <%}%>
          </div>
            
-            <% for (let i=1;i< datos.recetas.length;i++){%>
+            <% for (let i=0;i< datos.recetas.length;i++){%>
                 <section class="nr-details-container">
                 <div class="receta-name-container">
                     <h5 class="receta-name">
                         <%= datos.recetas[i].name %>
                     </h5>
                     <div class="nr-buton-container">
-                    <button id="display-hide-btn<%= datos.recetas[i].id %>" onclick="display('<%= datos.recetas[i].id %>');" class="pd-admin nr-display-btn">Desplegar  <i class="fas fa-chevron-down"></i></button>
-                    <% if (datos.userLogged && datos.userLogged.userRole=="Admin" ){ %>
-                        <button class="pd-admin nr-edit"><a href="/recetas/nuestrasRecetasAdmin/<%= datos.recetas[i].id %>" class="pd-admin-a">Modificar receta</a></button>
+                    <button id="display-hide-btn<%= datos.recetas[i].id %>" onclick="display('<%= datos.recetas[i].id %>');" class="nr-display-btn">Desplegar  <i class="fas fa-chevron-down"></i></button>
+                    <% if (datos.userLogged && datos.userLogged.users_roles_id == 2 ){ %>
+                        <button class="pd-admin nr-edit"><a href="/recetas/recetasAdmin/<%= datos.recetas[i].id %>" class="pd-admin-a">Modificar receta</a></button>
                     <%}%>
                 </div>
                 </div>
@@ -46,7 +46,7 @@
                             <div id="receta-container<%= datos.recetas[i].id %>" class="receta-container">
                         
                             <div class="nr-buton-container">                               
-                                <button id="display-hide-btn<%= datos.recetas[i].id %>"  onclick="hide('<%= datos.recetas[i].id %>')" class="pd-admin">Ocultar  <i class="fas fa-chevron-up"></i></button>
+                                <button id="display-hide-btn<%= datos.recetas[i].id %>"  onclick="hide('<%= datos.recetas[i].id %>')" class="nr-display-btn">Ocultar  <i class="fas fa-chevron-up"></i></button>
                             </div>
                             <div class="nr-information-container">
                             <div class="nr-information-block">                               

@@ -27,7 +27,7 @@
             <input 
                 type="text" 
                 name="name"
-                class="rg-input"  <%= locals.errors && errors.name ? 'is-invalid' : null %>"
+                class="rg-input"  <%= locals.errors && errors.name ? 'is-invalid' : null %>
                 value="<%= locals.oldData ? oldData.name : null %>">
                 <% if (locals.errors && errors.name) { %>
                     <div class="text-danger">
@@ -41,7 +41,7 @@
                 <input 
                     type="text"
                     name="lastName" 
-                    class="rg-input"<%= locals.errors && errors.lastName ? 'is-invalid' : null %>"
+                    class="rg-input"<%= locals.errors && errors.lastName ? 'is-invalid' : null %>
                     value="<%= locals.oldData ? oldData.lastName : null %>">
                     <% if (locals.errors && errors.lastName) { %>
                         <div class="text-danger">
@@ -55,7 +55,7 @@
             <input 
                 type="text" 
                 name="email" 
-                class="rg-input" <%= locals.errors && errors.email ? 'is-invalid' : null %>"
+                class="rg-input" <%= locals.errors && errors.email ? 'is-invalid' : null %>
                 value="<%= locals.oldData ? oldData.email : null %>">
                 <% if (locals.errors && errors.email) { %>
                     <div class="text-danger">

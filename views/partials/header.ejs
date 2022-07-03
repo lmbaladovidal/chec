@@ -4,18 +4,18 @@
         <ul class="left-navbar">                
             <li><a href="/">Home </a></li>
             <li><a href="/quienesSomos">Quienes somos </a></li>
-            <li><a href="/nuestrasRecetas">Nuestras Recetas </a></li>
+            <li><a href="/recetas/nuestrasRecetas">Nuestras Recetas </a></li>
         </ul>
         <ul class="rigth-navbar">
             <li>
                 <div class="pd-pc-links">
                     <a href="/product/productPage" class="tienda-botton">Tienda</a>
-                    <a href="/product/productCart"><i class="fas fa-shopping-cart"></i></a>
+                    <a href="/enDesarrollo"><i class="fas fa-shopping-cart"></i></a>
                 </div>
             </li>
             <li>
                 <ul class="dropdown-menu-container">
-                    <% if (locals.isLogged) { %>
+                    <% if (locals && locals.isLogged) { %>
                         <li>
                             <img src="/images/avatars/<%= locals.userLogged.avatar %>"> 
                             <a><%= locals.userLogged.name %></a>
@@ -25,9 +25,11 @@
                                 <li><a href="/users/logout">Salir</a></li>
                             </ul>
                         </li>
-                        <% } else { %>
-                            <li><a href="/users/login">Ingresá <i class="fas fa-sign-in-alt"></i></a></li>
-                        <% } %>
+                    <% } else if(locals && !locals.isLogged){ %>
+                        <li><a href="/users/login">Ingresá <i class="fas fa-sign-in-alt"></i></a></li>
+                    <% } else {%>
+                        <li><span>No hay locals!</span></li>
+                    <% } %>
                 </ul>
             </li>
         </ul>

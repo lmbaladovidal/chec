@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<%- include('../partials/head') %>
+
+<body>
+    <!-- Header-->
+    <%- include("../partials/header") %>
+    <section> 
+        <label><h3>MODIFICAR DATOS DE USUARIO</h3></label>
+        <form action="/users/profile/<%=userToEdit.id%>?_method=PUT" class="rg-form" method="POST" enctype="multipart/form-data">
+            <div>
+            <label><b>Nombre</b></label>
+            <br>
+            <input 
+            type="text" 
+            name="name"
+            class="rg-input <%= locals.errors && errors.name ? 'is-invalid' : null %>"
+            value="<%=userToEdit.name%>">
+
+            <% if (locals.errors && errors.name) { %>
+                <div class="text-danger">
+                    <%= errors.name.msg %> 
+                </div>
+            <% } %>
+        </div>
+            <div>
+                <label><b>Apellido</b></label>
+                <br>
+                <input 
+                    type="text"
+                    name="lastName" 
+                    class="rg-input <%= locals.errors && errors.lastName ? 'is-invalid' : null %>"
+                    value="<%= userToEdit.lastName  %>">
+                    <% if (locals.errors && errors.lastName) { %>
+                        <div class="text-danger">
+                            <%= errors.lastName.msg %> 
+                        </div>
+                    <% } %>
+            </div>
+           <div>
+            <label><b>Email</b></label>
+            <br>
+            <input 
+                type="text" 
+                name="email" 
+                class="rg-input" <%= locals.errors && errors.email ? 'is-invalid' : null %>"
+                value="<%= userToEdit.email  %>">
+                <% if (locals.errors && errors.email) { %>
+                    <div class="text-danger">
+                        <%= errors.email.msg %> 
+                    </div>
+                <% } %>
+           </div>
+           <div>
+            <label><b>Dirección</b></label>
+            <br>
+               <input 
+                    type="text" 
+                    name="address" 
+                    class="rg-input" <%= locals.errors && errors.address ? 'is-invalid' : null %>"
+                    value="<%= userToEdit.address%>">
+                    <% if (locals.errors && errors.address) { %>
+                        <div class="text-danger">
+                            <%= errors.address.msg %> 
+                        </div>
+                    <% } %>
+            </div>
+            <div>
+                <label><b>Fecha de nacimiento</b></label>
+                <br>
+                <input 
+                    type="date"
+                    name="birthDate" 
+                    class="rg-input" <%= locals.errors && errors.birthDate ? 'is-invalid' : null %>"
+                    value="<%= userToEdit.birthDate  %>">
+                    <% if (locals.errors && errors.birthDate) { %>
+                        <div class="text-danger">
+                            <%= errors.birthDate.msg %> 
+                        </div>
+                    <% } %>
+            </div>
+             
+            <div>
+                <div >
+                    <label><b>Imagen de perfil:</b></label>
+                    <br>
+                    <div>
+                        <img src="/images/avatars/<%= userToEdit.avatar %> " width="150px">
+                    </div>
+                    <input type="hidden" name="oldAvatar" value="<%=userToEdit.avatar%>">
+                    <input 
+                        type="file" 
+                        name="avatar"
+                        class="rg-input"
+                        value="<%= locals.oldData ? oldData.name : null %>">                  
+                </div>
+            </div>
+        
+            <div class="rg-btn-div rg-input" >
+                <input type="submit" name="" id="rg-submit" class="rg-submit" value="Modificar">
+                <input type="reset" class="rg-reset" value="Deshacer" >
+                
+                <button type="submit" class="pd-add " >
+                    <a href="#" class=" " > Password</a>
+                </button>
+            </div>
+            
+        </form> 
+        <form action="/users/profile/<%=userToEdit.id%>?_method=DELETE" class="rg-form" method="POST">
+            <div class="pd-add">
+                <input type="submit" class=" " value="Borrar Perfil">
+            </div>
+            
+        </form>        
+    </section>
+    <!-- Footer-->
+    <%- include("../partials/footer") %>
+</body>
+</html>

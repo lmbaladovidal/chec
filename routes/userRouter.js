@@ -21,7 +21,7 @@ const uploadFile = multer({ storage });  // [3-MULTER] Crear la variable upload 
 // Middlewares
 const guestMiddleware = require('../middlewares/guestMiddleware');
 const authMiddleware = require('../middlewares/authMiddleware');
-
+const userLoggedMiddleware =require('../middlewares/userLoggedMiddleware')
 
 // Validation para express-validator
 const validations = [
@@ -31,6 +31,7 @@ const validations = [
 		.notEmpty().withMessage('Tienes que escribir un correo electrónico').bail() //bail corta la validación si está vacío
 		.isEmail().withMessage('Debes escribir un formato de correo válido'),
 	body('address').notEmpty().withMessage('Tienes que escribir tu dirección'),
+	body('birthDate').notEmpty().withMessage('Tienes que escribir tu fecha de nacimiento'),
 	body('password').notEmpty().withMessage('Tienes que escribir una contraseña'),
 	body('passVerify').notEmpty().withMessage('Repite tu contraseña').bail()
 		.custom((value,{req}) =>{
@@ -47,7 +48,6 @@ const validations = [
 			if (!acceptedExtensions.includes(fileExtension)) {
 				throw new Error(`Las extensiones de archivo permitidas son ${acceptedExtensions.join(', ')}`);
 			}
-		
 		} 
 		return true;
 	})
@@ -63,7 +63,13 @@ router.get('/register', guestMiddleware, userController.register);
 router.post('/register',uploadFile.single('avatar'), validations, userController.userRegister);
 
 //Profile
-router.get('/profile', authMiddleware, userController.profile);
+router.get('/profile', userLoggedMiddleware , authMiddleware,  userController.profile);
+
+router.get('/profile/:id', authMiddleware, userController.editProfile)
+router.put('/profile/:id', authMiddleware, uploadFile.single('avatar'),userController.updateProfile)
+
+//Delete
+router.delete('/profile/:id', authMiddleware, userController.deleteProfile)
 
 // Logout
 router.get('/logout/', userController.logout);
