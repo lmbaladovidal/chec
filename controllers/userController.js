@@ -73,7 +73,8 @@ const userController = {
           ...req.body,
           password: bcryptjs.hashSync(req.body.password, 10), // encripta la contraseña y pisa la password que viene en body
           avatar: req.file ? req.file.filename : "default_img.png",
-          userrole_id: 1,
+          users_roles_id: 1,
+          state: 1
         };
         return await Users.create(userToCreate);
       });
@@ -135,8 +136,8 @@ const userController = {
    
       //.catch((errors) => {console.log(errors)})
   },
-  deleteProfile: (req, res) => {
-     let usuario=  Users.findOne( {
+  deleteProfile: async (req, res) => {
+     let usuario= await  Users.findOne( {
       where: { id: req.session.userLogged.id},
     })
     
@@ -145,8 +146,11 @@ const userController = {
          //console.log("llego hasta traer el usuario pero no borro");
          res.clearCookie("userEmail");
          req.session.destroy();
-         Users.destroy({ where: { id: user.id } });
-         return res.redirect("/");
+    //     Users.destroy({ where: { id: user.id } });
+         user.set(  { state:0 } )
+         user.save()
+        res.redirect("/" );      
+
        })
 
          .catch((errors) => console.log(errors));

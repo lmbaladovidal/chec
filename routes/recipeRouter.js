@@ -4,9 +4,10 @@ const path = require('path');
 const recipeController = require('../controllers/recipeController');
 const guestMiddleware = require('../middlewares/guestMiddleware');
 const authMiddleware = require('../middlewares/authMiddleware');
+const userLoggedMiddleware =require('../middlewares/userLoggedMiddleware')
 
 router.get('/nuestrasRecetas', recipeController.recetasDetail);
-router.get('/nuevaReceta/',authMiddleware,recipeController.recetaNew);
+router.get('/nuevaReceta/',authMiddleware, recipeController.recetaNew);
 router.post('/nuevaReceta/',authMiddleware, recipeController.recetaCreate);
 
 router.get('/recetasAdmin/:id',authMiddleware,recipeController.recetaEdit);

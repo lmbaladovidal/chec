@@ -31,6 +31,7 @@ const validations = [
 		.notEmpty().withMessage('Tienes que escribir un correo electrónico').bail() //bail corta la validación si está vacío
 		.isEmail().withMessage('Debes escribir un formato de correo válido'),
 	body('address').notEmpty().withMessage('Tienes que escribir tu dirección'),
+	body('birthDate').notEmpty().withMessage('Tienes que escribir tu fecha de nacimiento'),
 	body('password').notEmpty().withMessage('Tienes que escribir una contraseña'),
 	body('passVerify').notEmpty().withMessage('Repite tu contraseña').bail()
 		.custom((value,{req}) =>{
@@ -62,7 +63,7 @@ router.get('/register', guestMiddleware, userController.register);
 router.post('/register',uploadFile.single('avatar'), validations, userController.userRegister);
 
 //Profile
-router.get('/profile', authMiddleware, userController.profile);
+router.get('/profile', userLoggedMiddleware , authMiddleware,  userController.profile);
 
 router.get('/profile/:id', authMiddleware, userController.editProfile)
 router.put('/profile/:id', authMiddleware, uploadFile.single('avatar'),userController.updateProfile)
