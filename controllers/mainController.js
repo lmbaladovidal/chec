@@ -1,7 +1,8 @@
 const fs = require('fs');
 const path = require('path');
-const cervezasFilePath = path.join(__dirname, '../DataBase/products/BDCervezas.json');
-const cervezas = JSON.parse(fs.readFileSync(cervezasFilePath,"utf-8"));
+//const cervezasFilePath = path.join(__dirname, '../DataBase/products/BDCervezas.json');
+//const cervezas = JSON.parse(fs.readFileSync(cervezasFilePath,"utf-8"));
+
 const db = require('../DataBase/models')
 const controllerMain = {
     index: (req,res) => {        

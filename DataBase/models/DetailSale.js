@@ -1,5 +1,5 @@
 module.exports = (sequelize, dataTypes) => {
-    let alias = 'Detailsale';
+    let alias = 'Detailsales';
     let cols = {
         id: {
             type: dataTypes.BIGINT(10).UNSIGNED,
@@ -17,6 +17,10 @@ module.exports = (sequelize, dataTypes) => {
         Sales_id: {
             type: dataTypes.BIGINT(10).UNSIGNED,
             allowNull: false
+        },
+        product_id: {
+            type: dataTypes.BIGINT(10).UNSIGNED,
+            allowNull: false
         }
     };
     let config = {
@@ -26,12 +30,20 @@ module.exports = (sequelize, dataTypes) => {
         deletedAt: false
     }
     const Detailsale = sequelize.define(alias,cols,config);    
+
     Detailsale.associate = function (models) {
-        Detailsale.belongsTo(models.Sale, { // models.Movie -> Movies es el valor de alias en movie.js
-            as: "Sale",
+        
+        Detailsale.belongsTo(models.Sales, { // models.Movie -> Movies es el valor de alias en movie.js
+            as: "Sales",
             foreignKey: 'Sales_id',
         })
+        Detailsale.belongsTo(models.Product,{
+            as:"Product",
+            foreignKey:"product_id",
+            timestamps: false
+        })
+     
+        
     }
-
     return Detailsale
 }

@@ -1,12 +1,13 @@
 const path = require('path');
 const db = require('../database/models');
 const sequelize = db.sequelize;
-const { Op } = require("sequelize");
+const { Op, Association } = require("sequelize");
 const express = require('express');
 
 //Aqui tienen otra forma de llamar a cada uno de los modelos
-const sale = db.Sale;
-const Detailsales = db.Detailsale;
+const sale = db.Sales;
+const Product = db.Product;
+const Detailsale = db.Detailsales;
 //const Shoppingcarts = db.Shoppingcart;
 //const Shoppingcart_products = db.Shoppingcart_product;
 
@@ -22,35 +23,55 @@ const Detailsales = db.Detailsale;
         //res.render('/product/productCart',{SaleShippingUser})}
         //include: ['detailsale'],
 const salesController = {
-   
     list: async (req, res) => {
-      
-        let SaleShippingUser = await sale.findAll({
-            include: ["Detailsale"],
-              where:{Users_id:req.session.userLogged.id}
+        console.log("CON Usuario: " + req.session.userLogged.id);
+        let SaleShippingUser = await sale.findOne({
+              where:{users_id:req.session.userLogged.id}
         });
         if(SaleShippingUser==undefined)  {
             console.log("SALE")
             //res.render('enDesarrollo')
-            
         }else{
-            console.log("TENEMOS dATOS");
-        console.log( SaleShippingUser);}
+            const json = JSON.stringify(JSON.parse(SaleShippingUser.id));
+            console.log("ID_SALE" + json)
+            // //SaleShippingUser.map(element => {console.log(element.Detailsale[0])});}}
+             const products_Detail = await Detailsale.findAll({
+                     include: ['Product'],
+                     where:{Sales_id:(json)
+                     }
+                     })
+                     console.log(JSON.stringify(products_Detail));
+                    //let products_Deatil = JSON.parse({products_Detail})}
+                     //res.render('./sales/productCart',JSON.render({products_Detail}))
+                     //res.send('./sales/productCart',products_Detail)
+
+                     //res.status(200).send(products_Detail)
+
+                     res.render('./sales/productCart',{products_Detail})
+
+                     
+            // .catch(error=>{console.log(error)})
+        }
     }, 
     createShopingCart: async function (req,res) {
         carrito = await sale.create({
-            Users_id: req.session.userLogged.id,
+            users_id: req.session.userLogged.id,
             state: 1,
         })
         res.send(carrito)
         res.redirect('/sales')           
     },
     addShopingCart: async function (req,res) {
-        let Userid = parseInt(req.session.userLogged.id);
-        const saleFinded = await sale.findOne({where:{Users_id:Userid}});
+        //let Userid = parseInt(req.session.userLogged.id);
+        //let Userid = parseInt(8);
+        let Userid = req.session.userLogged.id;
+        
+        //res.redirect('/sales')           
+
+        const saleFinded = await sale.findOne({where:{users_id:Userid}});
         if (saleFinded === null) {
             carrito = await sale.create({
-                Users_id: Userid,
+                users_id: Userid,
                 state: 1,
             })  
             idSale = carrito.id            
@@ -58,16 +79,15 @@ const salesController = {
         }else{
             idSale =saleFinded.id
         }
-
-        produc_sale = await db.Detailsale.create({
-            price:3,
-            quantity:1,
+        
+        produc_sale = await Detailsale.create({
+            price:req.body.price,
+            quantity:req.body.quantity,
             Sales_id:idSale,
+            product_id:Product.id
         })  
-
-        //console.log(produc_sale)
-        //return res.redirect("/product/productCart")
-
+        console.log(produc_sale);
+        res.redirect("/product/productPage")
     },
     confirmShopingCart: async (req,res) => {
         let Userid = parseInt(req.session.userLogged.id);
@@ -83,8 +103,23 @@ const salesController = {
                 state: 2,
             })
             await saleFinded.save();                
-            res.redirect('/sale')
-        }
+            return res.redirect('/sale')
+            
+    },
+    deleteShoppingCart : async (req,res) => {
+        
+        let id = req.body.idProductInCart;
+        console.log("TENEMOS dATOSSSSSS");
+        const itemToDelete = await Detailsale.findOne({
+            where:{id:id}
+
+        })
+        console.log("LLEGA" + itemToDelete)
+        await Detailsale.destroy(itemToDelete)
+
+        res.redirect('./sales/productCart');
+
+    }
    
 }
 module.exports = salesController;
