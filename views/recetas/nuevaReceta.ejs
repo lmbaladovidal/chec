@@ -8,106 +8,164 @@
         <!-- Header-->
         <%- include("../partials/header") %>
         
-            <div class="nr-main-containter">
-            <h3>Nueva receta</h3>
+        <div class="nr-main-containter">
+            <h3>Nueva receta</h3> <br>
             <form action="/recetas/nuevareceta" method="POST">
-         
-            
-            <h5><input type="text" name="name"></h5>
-                 
-                <div class="nr-information-container">
-                <div class="nr-information">
-                    <h4>Básicos</h4>
-                    <ul class="pd-beer-attributes">
-                        <li>
-                            <h6>Volumen: </h6>
-                            <p><input type="text" name="volume"> lts.</p>
-                        </li>
-                        <li>
-                            <h6>Volumen de hervor: </h6>
-                            <p><input type="text" name="boilvolume">lts.</p>
-                        </li>
-                        <li>
-                            <h6>Duración del hervor: </h6>
-                            <p><input type="text" name="boilTime">lts.</p>
-                        </li>
-                        <li>
-                            <h6>Alcohol: </h6>
-                            <p><input type="text" name="alcohol"> %</p>
-                        </li>
-                        <li>
-                            <h6>Densidad final: </h6>
-                            <p><input type="text" name="targetFG"></p>
-                        </li>
-                        <li>
-                            <h6>Densidad inicial: </h6>
-                            <p><input type="text" name="targetOG"></p>
-                        </li>
-                        <li>
-                            <h6>PH inicial: </h6>
-                            <p><input type="text" name="initialPH"></p>
-                        </li>
-                        <li>
-                            <h6>PH final: </h6>
-                            <p><input type="text" name="finalPH"></p>
-                        </li>
-                        
-                    </ul>
-                </div>
 
-                <div class="nr-information">
-                    <h4>Método y tiempos</h4>
-                    <ul class="pd-beer-attributes">
-                        <li>
-                            <h6>Macerado: </h6>
-                            <p><input type="text" name="mashTemp">° - <input type="text" name="mashTime"> min.</p>
-                        </li>
-                        <li>
-                            <h6>Fermentación: </h6>
-                            <p><input type="text" name="fermentationTemp">°</p>
-                        </li>
-                    </ul>
-                </div>
+                <section class="ra-details-container">
 
-                <div class="nr-information">
-                    <h4>Ingredientes</h4>
-                    <ul class="pd-beer-attributes">
-                        <li>
-                            <h6>Maltas: </h6> </br>
-                            <p><input type="text" name="malt1">: <input type="text" name="malt1Amount"> </p></br>
-                            <p><input type="text" name="malt2">: <input type="text" name="malt2Amount"> </p></br>
-                            <p><input type="text" name="malt3">: <input type="text" name="malt3Amount"> </p></br>
-                            <p><input type="text" name="malt4">: <input type="text" name="malt4Amount"> </p></br>
-                            <p><input type="text" name="malt5">: <input type="text" name="malt5Amount"> </p></br>
-                            
-                        </li>
-                        <li>
-                            <h6>Lúpulo/s: </h6>
-                            <p><input type="text" name="hop1">: <input type="text" name="hop1Amount"> <input type="text" name="hop1Moment"> min.</p></br>
-                            <p><input type="text" name="hop2">: <input type="text" name="hop2Amount"> <input type="text" name="hop2Moment"> min.</p></br>
-                            <p><input type="text" name="hop3">: <input type="text" name="hop3Amount"> <input type="text" name="hop3Moment"> min.</p></br>
-                        </li>
-                        <li>
-                            <h6>Levadura: </h6> </br>
-                            <p><input type="text" name="yeast">: <input type="text" name="yeastAmount"> gr. </p></br>
-                            
-                        </li>
-                    </ul>
-                </div>
-                </div>
-                <div class="nr-tip-container">
-                <div class="nr-tip">
-                    <h4>Tip cervecero</h4>
-                    <p><input type="text" name="brewerTip"></p>
-                </div>
-                <div class="nr-tip">
-                    <h4>Maridaje</h4>
-                    <p><input type="text" name="foodPairing"></p>
-                </div>
-                </div>
-                <input class="pd-admin" type="submit" value="Guardar">
+                    <div class="ra-name">
+                        <h5 class="receta-name">Nombre</h5>
+                        <p><input type="text" name="name"></p>
+                    </div>
 
-           </form>
+                    <div class="ra-receta-container">
+
+                        <div class="ra-information-container">
+                            <div class="ra-information-block">
+                                <div class="ra-information">
+                                    <h4>Completá los datos básicos</h4>
+                                    <ul class="ra-beer-attributes">
+                                        <li>
+                                            <h6>Volumen: </h6>
+                                            <p><input type="text" name="volume"> lts.</p>
+                                        </li>
+                                        <li>
+                                            <h6>Volumen de hervor: </h6>
+                                            <p><input type="text" name="boilvolume">lts.</p>
+                                        </li>
+                                        <li>
+                                            <h6>Duración del hervor: </h6>
+                                            <p><input type="text" name="boilTime">lts.</p>
+
+                                        </li>
+                                        <li>
+                                            <h6>Alcohol: </h6>
+                                            <p><input type="text" name="alcohol"> %</p>
+                                        </li>
+                                        <li>
+                                            <h6>Densidad final: </h6>
+                                            <p><input type="text" name="targetFG"></p>
+                                        </li>
+                                        <li>
+                                            <h6>Densidad inicial: </h6>
+                                            <p><input type="text" name="targetOG"></p>
+                                        </li>
+                                        <li>
+                                            <h6>PH inicial: </h6>
+                                            <p><input type="text" name="initialPH"></p>
+                                        </li>
+                                        <li>
+                                            <h6>PH final: </h6>
+                                            <p><input type="text" name="finalPH"></p>
+                                        </li>
+                                    </ul>
+                                </div><br>
+
+                                <div class="ra-information">
+                                    <h4>Completa los datos de método y tiempos</h4>
+                                    <ul class="ra-information-attributes">
+                                        <li class="ra-li-malt">
+                                            <h6>Macerado </h6>
+
+                                            <h6>Temperatura de maceración: </h6>
+                                            <p></p><input type="text" name="mashTemp"> ° (grados celsius)</p>
+
+                                            <h6>Tiempo de maceración: </h6>
+                                            <p></p><input type="text" name="mashTime"> minutos
+
+                                        </li>
+                                        <li class="ra-li-malt">
+                                            <h6>Fermentación </h6>
+                                            <h6>Temperatura de fermentación: </h6>
+                                            <p></p><input type="text" name="fermentationTemp"> grados
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="ra-information">
+                                    <h4>Ingredientes</h4>
+                                    <p>Completá solo los campos aplicables.</p><br>
+                                    <ul class="ra-information-attributes">
+                                        <li class="ra-li-malt">
+                                            <h6>Maltas</h6>
+                                            <h6>Malta principal: </h6>
+                                            <div>
+                                                <p>Tipo de malta:</p><p><input type="text" name="malt1">
+                                                <p>Cantidad:</p><input type="text" name="malt1Amount">
+                                            </div>
+                                            <h6>Malta adicional: </h6>
+                                            <div>
+                                                <p>Tipo de malta:</p><p><input type="text" name="malt2">
+                                                    <p>Cantidad:</p><input type="text" name="malt2Amount">
+                                            </div>
+                                            <h6>Malta adicional: </h6>
+                                            <div>
+                                                <p>Tipo de malta:</p><p><input type="text" name="malt3">
+                                                <p>Cantidad:</p><input type="text" name="malt3Amount">
+                                            </div>
+                                            <h6>Malta adicional: </h6>
+                                            <div>
+                                                <p>Tipo de malta:</p><p><input type="text" name="malt4">
+                                                    <p>Cantidad:</p><input type="text" name="malt4Amount">
+                                            </div>
+                                            <h6>Malta adicional: </h6>
+                                            <div>
+                                                <p>Tipo de malta:</p><p><input type="text" name="malt5">
+                                                    <p>Cantidad:</p><input type="text" name="malt5Amount">
+                                            </div>
+                                        </li>
+                                        <li class="ra-li-hop">
+                                            <h6>Lúpulo/s: </h6>
+
+                                            <h6>Lúpulo principal: </h6>
+                                            <div>
+                                                <p>Tipo de lúpulo:</p><input type="text" name="hop1">
+                                                <p>Cantidad: </p> <input type="text" name="hop1Amount">
+                                                <p>Momento de adición:</p><input type="text" name="hop1Moment">
+                                            </div>
+                                            <h6>Lúpulo adicional: </h6>
+                                            <div>
+                                                <p>Tipo de lúpulo:</p><input type="text" name="hop2">
+                                                <p>Cantidad: </p> <input type="text" name="hop2Amount">
+                                                <p>Momento de adición:</p><input type="text" name="hop2Moment">
+                                            </div>
+                                            <h6>Lúpulo adicional: </h6>
+                                            <div>
+                                                <p>Tipo de lúpulo:</p><input type="text" name="hop3">
+                                                <p>Cantidad: </p> <input type="text" name="hop3Amount">
+                                                <p>Momento de adición:</p><input type="text" name="hop3Moment">
+                                            </div>
+                                        </li>
+                                        <li class="ra-li-malt">
+                                            <h6>Levadura: </h6>
+                                            <div>
+                                                <p>Tipo de levadura:</p><input type="text" name="yeast">
+                                                <p>Cantidad:</p><input type="text" name="yeastAmount">
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="ra-tip-container">
+                                <div class="ra-tip">
+                                    <h4>Tip cervecero</h4>
+                                    <p>Redactá una recmendación <input type="text" name="brewerTip"></p>
+                                </div>
+                                <div class="ra-tip">
+                                    <h4>Maridaje</h4>
+                                    <p>¿Combina bien con qué comida/s?
+                                        <input type="text" name="foodPairing">
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="pd-admin" type="submit">Guardar</button>
+                        <button class="pd-admin ra-edit" type="reset"></a>Cancelar cambios</a></button>
+                    </div>
+                </section>
+            </form>
+        </div>
 
             <!-- Footer-->
             <%- include("../partials/footer") %>

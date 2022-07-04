@@ -2,26 +2,28 @@ module.exports = (sequelize, dataTypes) => {
     let alias = 'Sales';
     let cols = {
         id: {
-            type: dataTypes.BIGINT(10).UNSIGNED,
+            type: dataTypes.INTEGER(6).UNSIGNED,
             primaryKey: true,
             autoIncrement: true
         },
         shippingCost: {
             type: dataTypes.DECIMAL(6, 2).UNSIGNED,
-            allowNull: false
         },
         discount: {
-            type: dataTypes.BIGINT(10).UNSIGNED,
-            allowNull: false
+            type: dataTypes.INTEGER(6).UNSIGNED,
         },
         total: {
             type: dataTypes.DECIMAL(6, 2).UNSIGNED,
+        },
+        state: {
+            type: dataTypes.INTEGER(6),
             allowNull: false
         },
-        Users_id: {
-            type: dataTypes.BIGINT(10).UNSIGNED,
+        users_id: {
+            type: dataTypes.INTEGER(6).UNSIGNED,
             allowNull: false
         }
+        
     };
     let config = {
         timestamps: false,
@@ -29,10 +31,11 @@ module.exports = (sequelize, dataTypes) => {
     const Sale = sequelize.define(alias,cols,config);
     
     Sale.associate = function (models) {
-        Sale.hasMany(models.Detailsale, { // models.Movie -> Movies es el valor de alias en movie.js
-            as: "Detailsale",
+        Sale.hasMany(models.Detailsales, { // models.Movie -> Movies es el valor de alias en movie.js
+            as: "Detailsales",
             foreignKey: 'Sales_id',
         })
+
     }
     return Sale
 }
