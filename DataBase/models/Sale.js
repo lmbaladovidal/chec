@@ -15,14 +15,15 @@ module.exports = (sequelize, dataTypes) => {
         total: {
             type: dataTypes.DECIMAL(6, 2).UNSIGNED,
         },
-        Users_id: {
-            type: dataTypes.INTEGER(6).UNSIGNED,
-            allowNull: false
-        },
         state: {
             type: dataTypes.INTEGER(6),
             allowNull: false
+        },
+        users_id: {
+            type: dataTypes.INTEGER(6).UNSIGNED,
+            allowNull: false
         }
+        
     };
     let config = {
         timestamps: false,

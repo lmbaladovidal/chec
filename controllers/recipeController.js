@@ -20,7 +20,12 @@ const recetasDetail = (req,res) => {
     })
     .catch(error=>{console.log(error)})
 };
- const recetaCreate = (req, res) => {
+
+const recetaNew = (req, res) => {
+    res.render('./recetas/nuevaReceta')
+};
+
+const recetaCreate = (req, res) => {
     recipe = {
         name: req.body.name,
         volume: req.body.volume,
@@ -56,18 +61,22 @@ const recetasDetail = (req,res) => {
         foodPairing: req.body.foodPairing
         }
         Recipes.create(recipe)
-        .then(res.redirect('/nuestrasRecetas'))
-        .catch(error => console.log(res.send(error)));
+        .then(()=>{ return res.redirect('./nuestrasRecetas')})
+                   
+        .catch(error => console.log(error));
  };
 
 
-const recetaAdmin =(req,res)=>{
+const recetaEdit =(req,res)=>{
     let id= parseInt(req.params.id);
     Recipes.findOne({
         where: { id:id}
     })
+    
     .then(recipe => {
+        //console.log( recipe );
         let recetaToEdit = {
+        id: id,
         name: recipe.name,
         volume: recipe.volume,
         boilvolume: recipe.boilvolume,
@@ -101,14 +110,17 @@ const recetaAdmin =(req,res)=>{
         brewerTip: recipe.brewerTip,
         foodPairing: recipe.foodPairing
         }
-        res.render('./recetas/nuestrasRecetasAdmin',{recetaToEdit})
+        res.render('./recetas/editRecetas',{recetaToEdit})
     })
     .catch(error => console.log(res.send(error)));
 };
+//*hasta aca funciona OK*//
 
-const recetaUpdate = (req, res) =>{
-   
-    Recipes.update({  
+const recetaUpdate = async (req, res) =>{
+    req.body.id = req.params.id
+    let recetaToEdit = await Recipes.findOne( {where:{id:(req.params.id)}} )
+   // res.send(recetaToEdit)
+    recetaToEdit.set({  
         name: req.body.name,
         volume: req.body.volume,
         boilvolume: req.body.boilvolume,
@@ -141,34 +153,35 @@ const recetaUpdate = (req, res) =>{
         yeastAmount: req.body.yeastAmount,
         brewerTip: req.body.brewerTip,
         foodPairing: req.body.foodPairing
-        }, 
-        {where:{id:parseInt(req.params.id)}
-    })
-    .then(resultado => { return res.redirect('/nuestrasRecetas')
-    })
-    .catch(error => console.log(res.send(error)));  
-} 
-        
+        })
 
-   
-
-// const recetaDelete = (req, res) => {
-//     let id = parseInt(req.params.id);
+    await recetaToEdit.save()
+    res.redirect('/recetas/nuestrasRecetas')    
+}
+      
+const recetaDelete = (req, res) => {
+    let id = req.params.id;
+      
+    Recipes.findOne({where:{id:id}})
     
-//     let nonDeletedRecetas = recetas.filter(receta=>receta.id!==id);
-//     let recetas_JSON = JSON.stringify(nonDeletedRecetas, null, 2);   
-//     let recetasPath= path.join(__dirname, '../DataBase/bbddRecetas.json');
-//     fs.writeFileSync(recetasPath, recetas_JSON);
-//     res.redirect('/nuestrasRecetas');
-// };
+    .then(recipeToDelete => {
+        console.log(recipeToDelete)
+
+        Recipes.destroy({where:{id:recipeToDelete.id}})
+        return res.redirect('/recetas/nuestrasRecetas');
+    })
+    .catch(error => console.log(error)); 
+    
+    
+};
 
 
 const recipeController = {
     recetasDetail,
+    recetaNew,
     recetaCreate,
-    recetaAdmin,
-    // recetaDelete,
-    // recetaAdmin,
+    recetaEdit,
+    recetaDelete,
     recetaUpdate,  
     recetas: Recipes
 }

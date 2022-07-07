@@ -8,11 +8,11 @@ module.exports = (sequelize, dataTypes) => {
         },
         price: {
             type: dataTypes.DECIMAL(6, 2).UNSIGNED,
-            allowNull: false
+            allowNull: true
         },
         quantity: {
             type: dataTypes.DECIMAL(6, 2).UNSIGNED,
-            allowNull: false
+            allowNull: true
         },
         Sales_id: {
             type: dataTypes.BIGINT(10).UNSIGNED,
@@ -37,11 +37,9 @@ module.exports = (sequelize, dataTypes) => {
             as: "Sales",
             foreignKey: 'Sales_id',
         })
-        Detailsale.belongsToMany(models.Products,{
-            as:"Products",
-            through:"products_sales",
-            foreignKey:"detailSales_id",
-            otherKey:"products_id",
+        Detailsale.belongsTo(models.Product,{
+            as:"Product",
+            foreignKey:"product_id",
             timestamps: false
         })
      
