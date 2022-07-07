@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<meta name="google-signin-client_id" content="654446761891-94el9afoph3rne3p950dsv8pcvns6024.apps.googleusercontent.com">
 <!-- Head-->
 <%- include("../partials/head") %>
 
@@ -12,6 +14,7 @@
             <label><h3>LOGIN DE USUARIO</h3></label>
             <div class="lg-div-login lg-input">
                 <button class="lg-button"><i class="fa-brands fa-google"> Ingresar con Google </i></button>
+                <div class="g-signin2" data-onsuccess="onSignIn"></div>
                 <button class="lg-button"><i class="fa-brands fa-facebook-f"> Ingresar con Facebook </i></button>
             </div>
             <form action="/users/login" method="POST" class="lg-form-login rg-form">
@@ -49,5 +52,14 @@
     <!-- Footer-->
     <div style="margin-top:175px"> </div>
     <%- include("../partials/footer") %>
+    <script>
+        function onSignIn(googleUser) {
+            var profile = googleUser.getBasicProfile();
+            console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+            console.log('Name: ' + profile.getName());
+            console.log('Image URL: ' + profile.getImageUrl());
+            console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+            }
+    </script>
 </body>
 </html>
