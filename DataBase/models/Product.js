@@ -26,7 +26,7 @@ module.exports =
         }
         const Product = sequelize.define(alias,columns,config);
         Product.associate = (models)=>{
-            console.log(models)
+       //     console.log(models)
             Product.hasMany(models.Detailsales,{
                 as:"Detailsales",
                 foreignKey:"product_id",
