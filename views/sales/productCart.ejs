@@ -21,8 +21,9 @@
                                             <img class="pd-img-product" src="/images/<%= products_Detail[i].Product.image %>" width="100" alt="beer"> 
                                             <div class="pd-datos-cerveza">
                                                 <h4><%= products_Detail[i].Product.name %></h4>
-                                                <h4> Cantidad: <input type="number" value="<%= products_Detail[i].quantity %>" class=""> </h4>
-                                                <h4>$ <%= products_Detail[i].Product.price %></h4>
+                                                <h4 > Cantidad: <input type="number" id="spinButton<%= products_Detail[i].Product.id %>"  value="<%= products_Detail[i].quantity %>" onclick="calculate(<%= products_Detail[i].Product.id %>)" class=""> </h4>
+                                                
+                                                <h4 name="<%= products_Detail[i].Product.id %>" id="price<%= products_Detail[i].Product.id %>">$ <%= products_Detail[i].Product.price %></h4>
                                             </div>
                                         </article>
                                     <%}%>
@@ -127,6 +128,19 @@
             <%- include("../partials/footer") %>
         </form>
     <!-- </section> -->
+    <script>
+        const a = []
+        
+
+        function calculate(id){  
+
+            elemento = document.getElementById("price" + id);
+            counter = document.getElementById("spinButton" + id).value;
+            console.log(counter)
+            const price = document.getElementById("price" + id).textContent
+
+            elemento.textContent = "$ " + price.slice(2,price.length)*counter}
+   </script>
 </body>
 
 </html>
