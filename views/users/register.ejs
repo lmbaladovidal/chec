@@ -3,18 +3,6 @@
     
 <%- include('../partials/head') %>
 
-    <script>
-        function validar(){
-            if(document.getElementById("password").value == document.getElementById("passVerify").value){
-                document.getElementById("passVerify").style.backgroundColor = 'green'
-                document.getElementById("pwsd-error-msg").innerHTML = ''
-            }else{
-                document.getElementById("passVerify").style.backgroundColor = 'pink'
-                document.getElementById("pwsd-error-msg").innerHTML = 'Error'
-            }
-        }
-    </script>
-
 <body>
     <!-- Header-->
     <%- include("../partials/header") %>
@@ -125,12 +113,14 @@
                     class="rg-input"
                     name="passVerify" 
                     id="passVerify" 
-                    required onkeyup="validar()">
+                    required 
+                    onkeyup="return validar()">
                 <% if (locals.errors && errors.passVerify) { %>
                     <div class="text-danger">
                         <%= errors.passVerify.msg %> 
                     </div>
                 <% } %>
+                <div class="text-danger" id="msgFront_passVerify"> </div>
 
             </div>
            
@@ -139,14 +129,17 @@
                 <div >
                     <label><b>Imagen de perfil:</b></label>
                     <br>
+                    
                     <input 
                         type="file" 
                         name="avatar"
                         id="avatar"
                         class="rg-input"
-                        onchange="return valExtFile()"
-                    >
+                        onkeyup="return valExtFile()">
+                        
+                    
                 </div>
+                
                 <div class="text-danger" id="msgFront_avatar"> </div>
             </div>
         

@@ -1,11 +1,11 @@
 window.onload = (() => {
-    const name = document.querySelector('#name');
-    const lastName = document.querySelector('#lastName');
-    const email = document.querySelector('#email');
-    const address = document.querySelector('#address');
-    const birthDate = document.querySelector('#birthDate');
-    const password = document.querySelector('#password');
-    const passVerify = document.querySelector('#passVerify');
+    // const name = document.querySelector('#name');
+    // const lastName = document.querySelector('#lastName');
+    // const email = document.querySelector('#email');
+    // const address = document.querySelector('#address');
+    // const birthDate = document.querySelector('#birthDate');
+    // const password = document.querySelector('#password');
+    // const passVerify = document.querySelector('#passVerify');
     const formRegister= document.querySelector('#formRegister')
     const inputs = document.querySelectorAll('#formRegister input');
     const avatar= document.getElementById('avatar')
@@ -19,7 +19,7 @@ window.onload = (() => {
         email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
         birthDate: /^\d{8,14}$/, // numeros
         address: /^[A-Za-z0-9\s°]{8,256}$/, // Letras, numeros, guion y guion_bajo
-        avatar: /^(.png|.jpg|.jpeg|.gif)$/
+        avatar: /(.jpg|.jpeg|.png|.gif)$/i
     }
   
     const campos = {
@@ -42,9 +42,9 @@ window.onload = (() => {
             break;
             case "password":
                 validarCampo(expresiones.password, 'minimo 8 caracteres', e.target, 'password');
-                validarPassword2();
+                validar();
             break;
-            case "passwordVerify":
+            case "passVerify":
                 validar();
             break;
             case "email":
@@ -61,16 +61,19 @@ window.onload = (() => {
             break;
         }
     }
-
+// funcion para validad cada campo//
     const validarCampo = (expresion, texto ,input, campo) => {
         if(expresion.test(input.value)){
             document.getElementById(`msgFront_${campo}`).innerHTML = "" ;
             document.getElementById(`msgFront_${campo}`).classList.remove('text-danger') 
-                
+            document.getElementById(`msgFront_${campo}`).classList.add('rg-imput') 
+            document.getElementById(`${campo}`).classList.remove('is-invalid')
             campos[campo] = true;
         } else {
             document.getElementById(`msgFront_${campo}`).innerHTML = texto ;
             document.getElementById(`msgFront_${campo}`).classList.add('text-danger')
+            document.getElementById(`msgFront_${campo}`).classList.remove('rg-imput') 
+            document.getElementById(`${campo}`).classList.add('is-invalid')
             campos[campo] = false;
                 }    
         }
@@ -78,41 +81,46 @@ window.onload = (() => {
     inputs.forEach((input) => {
                 input.addEventListener('keyup', validarFormulario);
                 input.addEventListener('blur', validarFormulario);
-                input.addEventListener('change', valExtFile);
+                input.addEventListener('keyup', valExtFile);
     });
+// función para validad la imagen//
+    function valExtFile(expresion, campo){
+        const filePath= avatar.value
+        console.log("Extension INCORRECTA"+ avatar.value);
 
-    function valExtFile (expresion, campo){
-        if(!expresion.exec(avatar.value)){
-            console.log("FALSE"+ avatar.value);
-            document.getElementById(`msgFront_${campo}`).innerHTML = "" ;
-            document.getElementById(`msgFront_${campo}`).classList.remove('text-danger') 
-            campos[campo] = false;
-            
-
-        }else {
-            console.log("Trueee");
+        if(!expresion.exec(filePath)){
             document.getElementById(`msgFront_${campo}`).innerHTML = `Los formatos permitidos son .png,jpg, jpeg y gif` ;
             document.getElementById(`msgFront_${campo}`).classList.add('text-danger')
+            campos[campo] = false;
+            return false
+
+        }else {
+            console.log("EXTENSION CORRECTA" + avatar.value);
+            document.getElementById(`msgFront_${campo}`).innerHTML ="Extensión permitida"
+            document.getElementById(`msgFront_${campo}`).classList.remove('text-danger') 
+                      
             campos[campo] = true;
+            return true
             }    
     }
 
+// funcion para validad coincidencias entre ambas contraseñas//
     function validar(){
         if(document.getElementById("password").value == document.getElementById("passVerify").value){
-            document.getElementById("passVerify").style.backgroundColor = 'green'
-            document.getElementById("pwsd-error-msg").innerHTML = ''
+            document.getElementById("passVerify").style.backgroundColor = '#119200'
+            document.getElementById("msgFront_passVerify").innerHTML = ''
         }else{
             document.getElementById("passVerify").style.backgroundColor = 'pink'
-            document.getElementById("pwsd-error-msg").innerHTML = 'Error'
+            document.getElementById("msgFront_passVerify").innerHTML = 'Error'
         }
     }
 
     })
 
-    formulario.addEventListener('submit', (e) => {
+    formRegister.addEventListener('submit', (e) => {
         e.preventDefault();
     
-        if(campos.name && campos.lastName && campos.password && campos.email && campos.birthDate && campos.birthDate ){
+        if(campos.name && campos.lastName && campos.email && campos.birthDate && campos.adress &&  campos.passwordcampos.avatar){
             formulario.submit()}else{
                 formulario.reset()
             }
