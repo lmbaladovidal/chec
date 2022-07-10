@@ -436,6 +436,7 @@ max-width: 500px;
 
 .text-danger {
   color: #dc3545 !important;
+  font-size: 12px;
 }
 
 section label h3{
