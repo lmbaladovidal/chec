@@ -20,7 +20,7 @@
     <%- include("../partials/header") %>
     <section> 
         <label><h3>REGISTRO NUEVO USUARIO</h3></label>
-        <form action="/users/register" class="rg-form" method="POST" enctype="multipart/form-data">
+        <form action="/users/register" class="rg-form" method="POST" enctype="multipart/form-data" id="formRegister">
             <div>
             <label><b>Nombre</b></label>
             <br>
@@ -35,6 +35,7 @@
                         <%= errors.name.msg %> 
                     </div>
                 <% } %>
+                <div class="text-danger" id="msgFront_name"> </div>
             </div>
             <div>
                 <label><b>Apellido</b></label>
@@ -50,6 +51,7 @@
                             <%= errors.lastName.msg %> 
                         </div>
                     <% } %>
+                    <div class="text-danger" id="msgFront_lastName"> </div>
             </div>
            <div>
             <label><b>Email</b></label>
@@ -80,6 +82,7 @@
                             <%= errors.address.msg %> 
                         </div>
                     <% } %>
+                    <div class="text-danger" id="msgFront_address"> </div>
             </div>
             <div>
                 <label><b>Fecha de nacimiento</b></label>
@@ -95,6 +98,7 @@
                             <%= errors.birthDate.msg %> 
                         </div>
                     <% } %>
+                    <div class="text-danger" id="msgFront_birthDate"> </div>
             </div>
             <div>
                 <label><b>Contraseña</b></label>
@@ -110,6 +114,7 @@
                             <%= errors.password.msg %> 
                         </div>
                     <% } %>
+                    <div class="text-danger" id="msgFront_password"> </div>
             </div>
             <div>
                 <label><b>Confirmá tu contraseña</b></label>
@@ -138,9 +143,10 @@
                         name="avatar"
                         id="avatar"
                         class="rg-input"
-                        
+                        onchange="return valExtFile()"
                     >
                 </div>
+                <div class="text-danger" id="msgFront_avatar"> </div>
             </div>
         
             <div class="rg-btn-div rg-input" >
