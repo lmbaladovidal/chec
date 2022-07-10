@@ -48,7 +48,7 @@ window.onload = (() => {
                 validar();
             break;
             case "email":
-                validarCampo(expresiones.email, e.target, 'email');
+                validarCampo(expresiones.email,"Debes escribir un formato válido de Email", e.target, 'email');
             break;
             case "birthDate":
                 validarCampo(expresiones.birthDate, e.target, 'birthDate');
@@ -69,7 +69,7 @@ window.onload = (() => {
                 
             campos[campo] = true;
         } else {
-            document.getElementById(`msgFront_${campo}`).innerHTML = `Minimo de` + texto ;
+            document.getElementById(`msgFront_${campo}`).innerHTML = texto ;
             document.getElementById(`msgFront_${campo}`).classList.add('text-danger')
             campos[campo] = false;
                 }    
@@ -97,7 +97,6 @@ window.onload = (() => {
             }    
     }
 
-  
     function validar(){
         if(document.getElementById("password").value == document.getElementById("passVerify").value){
             document.getElementById("passVerify").style.backgroundColor = 'green'
@@ -110,7 +109,7 @@ window.onload = (() => {
 
     })
 
-formulario.addEventListener('submit', (e) => {
+    formulario.addEventListener('submit', (e) => {
         e.preventDefault();
     
         if(campos.name && campos.lastName && campos.password && campos.email && campos.birthDate && campos.birthDate ){
