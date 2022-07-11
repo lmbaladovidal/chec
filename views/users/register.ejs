@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-    
+
 <%- include('../partials/head') %>
 
 <body>
@@ -10,7 +10,7 @@
         <label><h3>REGISTRO NUEVO USUARIO</h3></label>
         <form action="/users/register" class="rg-form" method="POST" enctype="multipart/form-data" id="formRegister">
             <div>
-            <label><b>Nombre</b></label>
+            <label><b>Nombre *</b></label>
             <br>
             <input 
                 type="text" 
@@ -26,7 +26,7 @@
                 <div class="text-danger" id="msgFront_name"> </div>
             </div>
             <div>
-                <label><b>Apellido</b></label>
+                <label><b>Apellido *</b></label>
                 <br>
                 <input 
                     type="text"
@@ -42,7 +42,7 @@
                     <div class="text-danger" id="msgFront_lastName"> </div>
             </div>
            <div>
-            <label><b>Email</b></label>
+            <label><b>Email *</b></label>
             <br>
             <input 
                 type="text" 
@@ -58,7 +58,7 @@
                 <div class="text-danger" id="msgFront_email"> </div>
            </div>
            <div>
-            <label><b>Dirección</b></label>
+            <label><b>Dirección (para envíos) *</b></label>
             <br>
                <input 
                     type="text" 
@@ -74,7 +74,7 @@
                     <div class="text-danger" id="msgFront_address"> </div>
             </div>
             <div>
-                <label><b>Fecha de nacimiento</b></label>
+                <label><b>Fecha de nacimiento *</b></label>
                 <br>
                 <input 
                     type="date"
@@ -90,7 +90,7 @@
                     <div class="text-danger" id="msgFront_birthDate"> </div>
             </div>
             <div>
-                <label><b>Contraseña</b></label>
+                <label><b>Contraseña *</b></label>
                 <br>
                 <input 
                     type="password" 
@@ -106,7 +106,7 @@
                     <div class="text-danger" id="msgFront_password"> </div>
             </div>
             <div>
-                <label><b>Confirmá tu contraseña</b></label>
+                <label><b>Confirmá tu contraseña *</b></label>
                 <br>
                 <input 
                     type="password" 
@@ -127,7 +127,7 @@
                                  
             <div>
                 <div >
-                    <label><b>Imagen de perfil:</b></label>
+                    <label><b>Imagen de perfil (opcional)</b></label>
                     <br>
                     
                     <input 
@@ -143,7 +143,7 @@
                 
                 <div class="text-danger" id="msgFront_avatar"> </div>
             </div>
-        
+            <p>* Campos requeridos.</p>
             <div class="rg-btn-div rg-input" >
                 <input type="submit" name="" id="rg-submit" class="rg-submit">
                 <input type="reset" class="rg-reset">
