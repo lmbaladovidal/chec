@@ -14,9 +14,10 @@ window.onload = () => {
     //name: /^[a-zA-Z0-9\_\-]{2,16}$/, // Letras, numeros, guion y guion_bajo
     name: /^[a-zA-ZÀ-ÿ\s]{2,256}$/, // minimo 2 caracteres, Letras y espacios, pueden llevar acentos.
     lastName: /^[a-zA-ZÀ-ÿ\s]{2,256}$/, // minimo 2 caracteres, Letras y espacios, pueden llevar acentos.
-    password: /^[a-zA-Z0-9ñ!¿¡°"#$%&'()*,-./:;=?@_`{}~¬¨]{8,256}$/, // minimo 8 caracteres.
+   // password: /^[a-zA-Z0-9ñ!¿¡°"#$%&'()*,-./:;=?@_`{}~¬¨]{8,256}$/, // minimo 8 caracteres.
+    password: /^(?=.\d)(?=.[\u0021-\u002b\u003c-\u0040])(?=.[A-Z])(?=.[a-z])\S{8,256}$/, // minimo 8 y 256 caracteres, al menos un dígito, al menos una minúscula, al menos una mayúscula y al menos un caracter no alfanumérico.
    // password: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})$/, // Validación opcional => No funciona (Ara).
-  // password: /^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[$@$!%?&])([A-Za-z\d$@$!%?&]|[^ ]){8,15}$/, Validación opcional => No funciona (Alba)
+   // password: /^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[$@$!%?&])([A-Za-z\d$@$!%?&]|[^ ]){8,15}$/, Validación opcional => No funciona (Alba)
     email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
     birthDate: /^\d{8,14}$/, // numeros
     address: /^[A-Za-z0-9\s°]{8,256}$/, // Letras, numeros, guion y guion_bajo
