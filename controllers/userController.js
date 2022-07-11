@@ -15,21 +15,19 @@ const userController = {
   loginProcess: (req, res) => {
     Users.findOne({ where: { email: req.body.email } })
       .then((userToLogin) => {
-        //   console.log(userToLogin);
         let isOkThePassword = bcryptjs.compareSync(
           req.body.password,
-          userToLogin.password
+          userToLogin.password          
         );
-
+        console.log("Esta ok el pwsd: ");
+        console.log( isOkThePassword?"si":"no");
         if (isOkThePassword) {
           delete userToLogin.password;
           req.session.userLogged = userToLogin;
         }
-
         if (req.body.remember_user) {
           res.cookie("userEmail", req.body.email, { maxAge: 1000 * 60 * 60 });
         }
-
         return res.redirect("/users/profile");
       })
       .catch((error) => {
