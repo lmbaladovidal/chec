@@ -114,7 +114,7 @@
                     name="passVerify" 
                     id="passVerify" 
                     required 
-                    onkeyup="return validar()">
+                    onkeyup="validar()">
                 <% if (locals.errors && errors.passVerify) { %>
                     <div class="text-danger">
                         <%= errors.passVerify.msg %> 
@@ -135,7 +135,8 @@
                         name="avatar"
                         id="avatar"
                         class="rg-input"
-                        onkeyup="return valExtFile()">
+                        accept=".jpg,.png,.jpeg,.gif"
+                        onchange="valExtFile()">
                         
                     
                 </div>
