@@ -3,18 +3,6 @@
     
 <%- include('../partials/head') %>
 
-    <script>
-        function validar(){
-            if(document.getElementById("password").value == document.getElementById("passVerify").value){
-                document.getElementById("passVerify").style.backgroundColor = 'green'
-                document.getElementById("pwsd-error-msg").innerHTML = ''
-            }else{
-                document.getElementById("passVerify").style.backgroundColor = 'pink'
-                document.getElementById("pwsd-error-msg").innerHTML = 'Error'
-            }
-        }
-    </script>
-
 <body>
     <!-- Header-->
     <%- include("../partials/header") %>
@@ -67,6 +55,7 @@
                         <%= errors.email.msg %> 
                     </div>
                 <% } %>
+                <div class="text-danger" id="msgFront_email"> </div>
            </div>
            <div>
             <label><b>Dirección</b></label>
@@ -124,12 +113,14 @@
                     class="rg-input"
                     name="passVerify" 
                     id="passVerify" 
-                    required onkeyup="validar()">
+                    required 
+                    onkeyup="validar()">
                 <% if (locals.errors && errors.passVerify) { %>
                     <div class="text-danger">
                         <%= errors.passVerify.msg %> 
                     </div>
                 <% } %>
+                <div class="text-danger" id="msgFront_passVerify"> </div>
 
             </div>
            
@@ -138,14 +129,18 @@
                 <div >
                     <label><b>Imagen de perfil:</b></label>
                     <br>
+                    
                     <input 
                         type="file" 
                         name="avatar"
                         id="avatar"
                         class="rg-input"
-                        onchange="return valExtFile()"
-                    >
+                        accept=".jpg,.png,.jpeg,.gif"
+                        onchange="valExtFile()">
+                        
+                    
                 </div>
+                
                 <div class="text-danger" id="msgFront_avatar"> </div>
             </div>
         
