@@ -42,7 +42,7 @@ const userController = {
   register:  (req, res) => {
     res.render("./users/register");
   },
-  userRegister: (req, res) => {
+  userRegister: async(req, res) => {
     const resultValidation = validationResult(req);
     if (resultValidation.errors.length > 0) {
       return res.render("./users/register", {
@@ -50,25 +50,28 @@ const userController = {
         oldData: req.body,
       });
     }
-    Users.findOne({
+    await Users.findOne({
       where: {
         email: req.body.email,
       },
     })
-      .catch((errors) => {console.log(errors);
-      })
+      
       .then((userInDb) => {
-        res.render("./users/register", {
+       res.render("./users/register", {
+          oldData: req.body,
           errors: {
             email: {
               msg: "Este email ya está registrado.",
             },
-            oldData: req.body,
+          
           },
-        });
-        res.send(userInDb);
+        })
+           
       })
-      .catch(async (emailNotFound) => {
+     
+      
+
+      .then(async (emailNotFound) => {
         let userToCreate = {
           ...req.body,
           password: bcryptjs.hashSync(req.body.password, 10), // encripta la contraseña y pisa la password que viene en body
