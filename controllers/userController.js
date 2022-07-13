@@ -15,21 +15,19 @@ const userController = {
   loginProcess: (req, res) => {
     Users.findOne({ where: { email: req.body.email } })
       .then((userToLogin) => {
-        //   console.log(userToLogin);
         let isOkThePassword = bcryptjs.compareSync(
           req.body.password,
-          userToLogin.password
+          userToLogin.password          
         );
-
+        console.log("Esta ok el pwsd: ");
+        console.log( isOkThePassword?"si":"no");
         if (isOkThePassword) {
           delete userToLogin.password;
           req.session.userLogged = userToLogin;
         }
-
         if (req.body.remember_user) {
           res.cookie("userEmail", req.body.email, { maxAge: 1000 * 60 * 60 });
         }
-
         return res.redirect("/users/profile");
       })
       .catch((error) => {
@@ -54,24 +52,18 @@ const userController = {
       where: {
         email: req.body.email,
       },
-    })
-      
-      .then((userInDb) => {
-       res.render("./users/register", {
-          oldData: req.body,
-          errors: {
-            email: {
-              msg: "Este email ya está registrado.",
+    })      
+    .then((result) => {
+      if(result != null){
+        res.render("./users/register", {
+            oldData: req.body,
+            errors: {
+              email: {
+                msg: "Este email ya está registrado.",
+              },          
             },
-          
-          },
-        })
-           
-      })
-     
-      
-
-      .then(async (emailNotFound) => {
+          })                     
+      }else{
         let userToCreate = {
           ...req.body,
           password: bcryptjs.hashSync(req.body.password, 10), // encripta la contraseña y pisa la password que viene en body
@@ -79,10 +71,11 @@ const userController = {
           users_roles_id: 1,
           state: 1
         };
-        return await Users.create(userToCreate);
-      });
-    return res.redirect("./login");
-  },
+        Users.create(userToCreate)
+        .then((result)=> res.redirect("./login"));        
+      };      
+    })
+    },
 
   profile: (req, res) => {
     return res.render("./users/profile", { user: req.session.userLogged }); // pasar a la vista la variable userLogged
