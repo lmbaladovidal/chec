@@ -8,7 +8,7 @@
     <!-- Header-->
     <%- include("../partials/header") %>
     <!-- <section id="formulario" > -->
-        <form action="/sales/shoppingCart" method="POST">
+        <form action="/sales/shoppingCart" method="POST" id="formProductCart>
             <main class="pc-main">
                 <section class="pc-cart"> 
                         <div class="pc-product-group">
@@ -131,6 +131,16 @@
     <script>
         const a = []
         
+        //const inputs = document.querySelectorAll("#formRegister input");
+        const inputs = document.querySelectorAll("#formProductCart input");
+        
+        inputs.forEach((input) => {
+       
+        input.addEventListener("keyup", validarFormulario);
+        input.addEventListener("blur", validarFormulario);
+        input.addEventListener("change", valExtFile);
+
+  });
 
         function calculate(id){  
 
