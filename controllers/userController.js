@@ -40,7 +40,7 @@ const userController = {
   register:  (req, res) => {
     res.render("./users/register");
   },
-  userRegister: (req, res) => {
+  userRegister: async(req, res) => {
     const resultValidation = validationResult(req);
     if (resultValidation.errors.length > 0) {
       return res.render("./users/register", {
@@ -52,21 +52,18 @@ const userController = {
       where: {
         email: req.body.email,
       },
-    })
-      .catch((errors) => {console.log(errors);
-      })
-      .then((userInDb) => {
+    })      
+    .then((result) => {
+      if(result != null){
         res.render("./users/register", {
-          errors: {
-            email: {
-              msg: "Este email ya está registrado.",
-            },
             oldData: req.body,
-          },
-        });
-        res.send(userInDb);
-      })
-      .catch(async (emailNotFound) => {
+            errors: {
+              email: {
+                msg: "Este email ya está registrado.",
+              },          
+            },
+          })                     
+      }else{
         let userToCreate = {
           ...req.body,
           password: bcryptjs.hashSync(req.body.password, 10), // encripta la contraseña y pisa la password que viene en body
@@ -74,10 +71,11 @@ const userController = {
           users_roles_id: 1,
           state: 1
         };
-        return await Users.create(userToCreate);
-      });
-    return res.redirect("./login");
-  },
+        Users.create(userToCreate)
+        .then((result)=> res.redirect("./login"));        
+      };      
+    })
+    },
 
   profile: (req, res) => {
     return res.render("./users/profile", { user: req.session.userLogged }); // pasar a la vista la variable userLogged
