@@ -1,59 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <!-- Head-->
 <%- include("../partials/head") %>
-
 <body>
     <!-- Header-->
     <%- include("../partials/header") %>
-
-    <section class="pd-product-area">
-        
-        <div class="pd-product-info">
-            
+    <section class="pd-product-area">        
+        <div class="pd-product-info">            
                 <div class="pc-ResumenCompra">
-                    <h3>Administracion de Producto</h3>
-                    <% if (cervezaToEdit.id == 0){%>
-                        <form action="/product/productAdmin/" method="POST" enctype="multipart/form-data">
-                    <%}else{%>
-                        <form action="/product/productAdmin/<%= cervezaToEdit.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
-                    <%}%>
-                    <div class="pd-product-imgs">
-                        <img src="/images/<%= cervezaToEdit.image %>" alt="beer">
-                    </div>
+                    <h3 id="title">Administracion de Producto</h3>
+                    <form action="/product/productAdmin/<%= cervezaToEdit.id %>?_method=PUT" method="POST" enctype="multipart/form-data" id="form">
+                        <div class="pd-product-imgs">
+                            <img src="/images/<%= cervezaToEdit.image %>" alt="beer">
+                        </div>
                         <ul class="lg-form-login rg-form" >
                             <li class='pa-li-element'>
                                 <h5>Nombre</h5>
-                                <p><input type="text" name="name" value="<%=cervezaToEdit.name%>" class='rg-input'></p>
+                                <div class="text-danger" id="msgFront_name"> </div>
+                                <p><input type="text" name="name" id="name" value="<%=cervezaToEdit.name%>" class='rg-input'></p>
                             </li>
                             <li class='pa-li-element'>
                                 <h5>Descripción</h5>
-                                <p><input type="text" name="description" value="<%=cervezaToEdit.description%>" class='rg-input'></p>
+                                <div class="text-danger" id="msgFront_description"> </div>
+                                <p><input type="text" name="description" id="description" value="<%=cervezaToEdit.description%>" class='rg-input'></p>
                             </li>
                             <li class='pa-li-element'>
                                 <h5>Amargor </h5>
-                                <p><input type="text" name="bitterness" value="<%=cervezaToEdit.bitterness%>" class='rg-input'></p>
+                                <div class="text-danger" id="msgFront_bitterness"> </div>
+                                <p><input type="text" name="bitterness" id="bitterness" value="<%=cervezaToEdit.bitterness%>" class='rg-input'></p>
                             </li>                  
                             <li class='pa-li-element'>
                                 <h5>Alcohol </h5>
-                                <p><input type="text" name="alcohol" value="<%=cervezaToEdit.alcohol%>" class='rg-input'></p>
+                                <div class="text-danger" id="msgFront_alcohol"> </div>
+                                <p><input type="text" name="alcohol" value="<%=cervezaToEdit.alcohol%>" id="alcohol" class='rg-input'></p>
                             </li>
                             <li class='pa-li-element'>
                                 <h5>Color </h5>
-                                <p><input type="text" name="color" value="<%=cervezaToEdit.color%>" class='rg-input'></p>
+                                <div class="text-danger" id="msgFront_color"> </div>
+                                <p><input type="text" name="color" id="color" value="<%=cervezaToEdit.color%>" class='rg-input'></p>
                             </li>
                             <li class='pa-li-element'>
                                 <h5>Lúpulo/s </h5>
-                                <p><input type="text" name="hop" value="<%=cervezaToEdit.hop%>" class='rg-input'></p>
+                                <div class="text-danger" id="msgFront_hop"> </div>
+                                <p><input type="text" name="hop" id="hop" value="<%=cervezaToEdit.hop%>" class='rg-input'></p>
                             </li>
                             <li class='pa-li-element'>
                                 <h5>Gasificación </h5>
-                                <p><input type="text" name="carbonation" value="<%=cervezaToEdit.carbonation%>"class='rg-input' ></p>
+                                <div class="text-danger" id="msgFront_carbonation"> </div>
+                                <p><input type="text" name="carbonation" id="carbonation" value="<%=cervezaToEdit.carbonation%>"class='rg-input' ></p>
                             </li>
                             <li class='pa-li-element'>
                                 <h5>Precio </h5>
-                                <p><input type="text" name="price" value="<%=cervezaToEdit.price%>"class='rg-input' ></p>
+                                <div class="text-danger" id="msgFront_price"> </div>
+                                <p><input type="text" name="price" id="price" value="<%=cervezaToEdit.price%>"class='rg-input' ></p>
                             </li>
                             <li class='pa-li-element'>
                                 <h5>Categoría </h5> 
@@ -68,12 +67,11 @@
                             </select>
                             </li>
         
-                        </ul>
-        
-                        <input type="file" name="product-image" class='rg-input'>
-                        <input type="text" name="image" style="opacity: 0;" value="<%=cervezaToEdit.image%>" class='rg-input'>
-
-                
+                        </ul> 
+                        <h5>Imagen de Producto</h5>        
+                        <input type="file" name="productImage"  class='rg-input'>
+                        <input type="text" name="image" id="productImage" style="opacity: 0;" id="inputImg" value="<%=cervezaToEdit.image%>" class='rg-input'>                
+                        <div class="text-danger" id="msgFront_image"> </div>
                     <div class="pd-options rg-input">
                         <input type="submit" class="lg-submit" value="Guardar">
                         <input type="reset" class="lg-submit" name="limpiar" value="Limpiar">
@@ -90,6 +88,6 @@
     </div>
     <!-- Footer-->
     <%- include("../partials/footer") %>
+    <script src="/Js/productFront.js"></script>
 </body>
-
 </html>

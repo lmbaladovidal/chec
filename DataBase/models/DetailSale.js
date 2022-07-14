@@ -32,13 +32,17 @@ module.exports = (sequelize, dataTypes) => {
     const Detailsale = sequelize.define(alias,cols,config);    
 
     Detailsale.associate = function (models) {
-        
+        console.log(models);
         Detailsale.belongsTo(models.Sales, { // models.Movie -> Movies es el valor de alias en movie.js
             as: "Sales",
             foreignKey: 'Sales_id',
         })
         Detailsale.belongsTo(models.Products,{
+<<<<<<< HEAD
             as:"Product",
+=======
+            as:"Products",
+>>>>>>> 3ab0d8dcc25c79a95d445f06d043df51e4a39d8a
             foreignKey:"product_id",
             timestamps: false
         })
