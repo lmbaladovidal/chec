@@ -53,7 +53,7 @@ window.onload = () => {
       case "password":
         validarCampo(
           expresiones.password,
-          "Mínimo 8 caracteres",
+          "Mínimo 8 caracteres, 1 mayúscula, 1 minúscula, 1 número, y 1 caracter especial.",
           e.target,
           "password"
         );
@@ -166,6 +166,9 @@ window.onload = () => {
       campos.password
     ) {
       formRegister.submit();
+    }else{
+      formRegister.reset();
+      document.getElementById("msgFront_submit").innerHTML = "Debes completar correctamente el formulario."
     }
   });
 };
