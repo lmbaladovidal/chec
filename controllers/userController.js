@@ -75,7 +75,7 @@ const userController = {
         .then((result)=> res.redirect("./login"));        
       };      
     })
-    },
+  },
 
   profile: (req, res) => {
     return res.render("./users/profile", { user: req.session.userLogged }); // pasar a la vista la variable userLogged
