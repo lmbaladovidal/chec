@@ -38,11 +38,7 @@ module.exports = (sequelize, dataTypes) => {
             foreignKey: 'Sales_id',
         })
         Detailsale.belongsTo(models.Products,{
-<<<<<<< HEAD
-            as:"Product",
-=======
             as:"Products",
->>>>>>> 3ab0d8dcc25c79a95d445f06d043df51e4a39d8a
             foreignKey:"product_id",
             timestamps: false
         })

@@ -45,7 +45,7 @@ const userController = {
     if (resultValidation.errors.length > 0) {
       return res.render("./users/register", {
         errors: resultValidation.mapped(),
-        oldData: req.body,
+        //oldData: req.body,
       });
     }
     Users.findOne({
@@ -55,8 +55,9 @@ const userController = {
     })      
     .then((result) => {
       if(result != null){
+        result.email = null;
         res.render("./users/register", {
-            oldData: req.body,
+            //oldData: req.body,
             errors: {
               email: {
                 msg: "Este email ya está registrado.",
