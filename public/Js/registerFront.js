@@ -157,18 +157,30 @@ window.onload = () => {
   formRegister.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    if (
+    if (!
       campos.name &&
       campos.lastName &&
       campos.email &&
       campos.birthDate &&
       campos.address &&
       campos.password
-    ) {
-      formRegister.submit();
-    }else{
-      formRegister.reset();
+    ) 
+    {
       document.getElementById("msgFront_submit").innerHTML = "Debes completar correctamente el formulario."
-    }
+      setTimeout(() => {
+        document.getElementById("msgFront_submit").innerHTML = ""
+        document.getElementById('email').classList.remove("is-invalid");
+      },6000)
+
+    return formRegister.reset();
+    } else
+      
+    {
+     return formRegister.submit();
+    } 
+    
+        
+    
+        
   });
 };
