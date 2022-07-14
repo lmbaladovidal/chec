@@ -41,7 +41,7 @@ const salesController = {
         }
     }, 
     createShopingCart: async function (req,res) {
-
+        console.log("AGREGA CARRITO VENTA")
         carrito = await sale.create({
             users_id: req.session.userLogged.id,
             state: 1,
@@ -69,14 +69,15 @@ const salesController = {
         }else{
             idSale =saleFinded.id
         }
-        
-        product_sale = await Detailsale.create({
-            price:req.body.price,
-            quantity:req.body.quantity,
+        const product = await Product.findOne({
+            where:{id:req.params.id}
+        })
+        const produc_sale = await Detailsale.create({
+            price:product.price,
+            quantity:1,
             Sales_id:idSale,
-            product_id:Product.id
+            product_id:product.id
         })  
-        console.log(product_sale);
         res.redirect("/product/productPage")
     },
     confirmShopingCart: async (req,res) => {
