@@ -156,9 +156,9 @@ window.onload = () => {
 
   formRegister.addEventListener("submit", (e) => {
     e.preventDefault();
-
+    console.log(campos);
     if (
-      campos.name &&
+      campos.name  &&
       campos.lastName &&
       campos.email &&
       campos.birthDate &&
@@ -166,9 +166,23 @@ window.onload = () => {
       campos.password
     ) {
       formRegister.submit();
-    }else{
-      formRegister.reset();
-      document.getElementById("msgFront_submit").innerHTML = "Debes completar correctamente el formulario."
+    }else
+    {
+      const bname = req.body.name;
+      const blastName = req.body.lastName;
+      const bemail = req.body.email;
+      const bbirthDate = req.body.birthDate;
+      const baddress = req.body.address;
+      
+      console.log(bname);
+      //document.getElementById("msgFront_submit").innerHTML = "Debes completar correctamente el formulario."
+      //setTimeout(() => {
+      //  document.getElementById("msgFront_submit").innerHTML = ""
+      //},3000)
+
+      //formRegister.reset(),
+      //console.log(cache);
+      //req.body = cache
     }
   });
 };
