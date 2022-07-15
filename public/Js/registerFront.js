@@ -87,9 +87,7 @@ window.onload = () => {
   const validarCampo = (expresion, texto, input, campo) => {
     if (expresion.test(input.value)) {
       document.getElementById(`msgFront_${campo}`).innerHTML = "";
-      document
-        .getElementById(`msgFront_${campo}`)
-        .classList.remove("text-danger");
+      document.getElementById(`msgFront_${campo}`).classList.remove("text-danger");
       document.getElementById(`msgFront_${campo}`).classList.add("rg-imput");
       document.getElementById(`${campo}`).classList.remove("is-invalid");
       campos[campo] = true;
