@@ -45,18 +45,29 @@ const userController = {
     if (resultValidation.errors.length > 0) {
       return res.render("./users/register", {
         errors: resultValidation.mapped(),
-        oldData: req.body,
+    //  oldData: req.body,
       });
     }
-    Users.findOne({
+    await Users.findOne({
       where: {
         email: req.body.email,
       },
     })      
     .then((result) => {
+      console.log(result);
       if(result != null){
+        result.email="";
         res.render("./users/register", {
+<<<<<<< HEAD
             
+=======
+            oldData:{
+              name:req.body.name,
+              lastName: req.body.lastName,
+              address: req.body.address,
+              birthDate:req.body.birthDate
+            } ,
+>>>>>>> 8903392219b879cfcccf60403bd0fe258e45a9e4
             errors: {
               email: {
                 msg: "Este email ya está registrado.",
