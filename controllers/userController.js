@@ -56,12 +56,13 @@ const userController = {
     .then((result) => {
       if(result != null){
         res.render("./users/register", {
-            oldData: req.body,
+            
             errors: {
               email: {
                 msg: "Este email ya está registrado.",
               },          
             },
+            oldData: req.body,
           })                     
       }else{
         let userToCreate = {
