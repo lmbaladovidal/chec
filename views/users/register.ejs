@@ -80,6 +80,7 @@
                     type="date"
                     name="birthDate" 
                     id="birthDate"
+                    onkeyup="birthValidate()"
                     class="rg-input" <%= locals.errors && errors.birthDate ? 'is-invalid' : null %>"
                     value="<%= locals.oldData ? oldData.birthDate : null %>">
                     <% if (locals.errors && errors.birthDate) { %>
@@ -153,5 +154,8 @@
     <!-- Footer-->
     <%- include("../partials/footer") %>
     <script src="/js/registerFront.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+    <script moment().format()></script>
 </body>
 </html>
