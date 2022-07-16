@@ -6,7 +6,7 @@ const express = require('express');
 
 //Aqui tienen otra forma de llamar a cada uno de los modelos
 const sale = db.Sales;
-const Product = db.Product;
+const Product = db.Products;
 const Detailsale = db.Detailsales;
 
 const salesController = {
@@ -23,7 +23,7 @@ const salesController = {
             console.log("ID_SALE" + json)
             // //SaleShippingUser.map(element => {console.log(element.Detailsale[0])});}}
              const products_Detail = await Detailsale.findAll({
-                     include: ['Product'],
+                     include: ['Products'],
                      where:{Sales_id:(json)
                      }
                      })
