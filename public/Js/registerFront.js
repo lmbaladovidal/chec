@@ -96,11 +96,16 @@ window.onload = () => {
 
   // Recorre todos los INPUTS del formulario, escuchando métodos de acción//
   inputs.forEach((input) => {
+    console.log(input)  // 1* ACA ESTA EL PROBLEMA DE LA VALIDACION DE FECHA. Todos los inputs tienen todas las validaciones
     input.addEventListener("keyup", validarFormulario);
     input.addEventListener("blur", validarFormulario);
     input.addEventListener("change", valExtFile);
-    input.addEventListener("keyup", birthValidate)
+    
   });
+  
+  //2* Por eso lo separé:
+  document.getElementbyID('birthDate').addEventListener("blur", birthValidate)
+ 
   // función para validad la imagen//
 
   function valExtFile() {

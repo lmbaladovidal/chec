@@ -80,7 +80,7 @@
                     type="date"
                     name="birthDate" 
                     id="birthDate"
-                    onkeyup="birthValidate()"
+                    onblur="birthValidate()"
                     class="rg-input" <%= locals.errors && errors.birthDate ? 'is-invalid' : null %>"
                     value="<%= locals.oldData ? oldData.birthDate : null %>">
                     <% if (locals.errors && errors.birthDate) { %>
