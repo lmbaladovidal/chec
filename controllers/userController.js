@@ -6,6 +6,7 @@ const db = require("../DataBase/models");
 const sequelize = db.Sequelize;
 const { Op } = require("sequelize");
 const Users = db.Users;
+const moment = require('moment')
 
 const userController = {
   login: (req, res) => {
@@ -45,18 +46,25 @@ const userController = {
     if (resultValidation.errors.length > 0) {
       return res.render("./users/register", {
         errors: resultValidation.mapped(),
-        oldData: req.body,
+      oldData: req.body,
       });
     }
-    Users.findOne({
+    await Users.findOne({
       where: {
         email: req.body.email,
       },
     })      
     .then((result) => {
+      console.log(result);
       if(result != null){
+        result.email="";
         res.render("./users/register", {
-            oldData: req.body,
+            oldData:{
+              name:req.body.name,
+              lastName: req.body.lastName,
+              address: req.body.address,
+              birthDate:req.body.birthDate
+            } ,
             errors: {
               email: {
                 msg: "Este email ya está registrado.",

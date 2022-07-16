@@ -80,6 +80,7 @@
                     type="date"
                     name="birthDate" 
                     id="birthDate"
+                    onkeyup="birthValidate()"
                     class="rg-input" <%= locals.errors && errors.birthDate ? 'is-invalid' : null %>"
                     value="<%= locals.oldData ? oldData.birthDate : null %>">
                     <% if (locals.errors && errors.birthDate) { %>
@@ -137,8 +138,6 @@
                         class="rg-input"
                         accept=".jpg,.png,.jpeg,.gif"
                         onchange="valExtFile()">
-                        
-                    
                 </div>
                 
                 <div class="text-danger" id="msgFront_avatar"> </div>
@@ -149,10 +148,14 @@
                 <input type="reset" class="rg-reset">
             </div>
             
+            <div class="text-danger" id="msgFront_submit"> </div>
         </form>       
     </section>
     <!-- Footer-->
     <%- include("../partials/footer") %>
     <script src="/js/registerFront.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+    <script moment().format()></script>
 </body>
 </html>

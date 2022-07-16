@@ -10,15 +10,18 @@
         
         <div class="nr-main-containter">
             <h3>Nueva receta</h3> <br>
-            <form action="/recetas/nuevareceta" method="POST">
+            <form action="/recetas/nuevareceta" method="POST" id="formRecipes">
 
                 <section class="ra-details-container">
 
                     <div class="ra-name">
                         <h5 class="receta-name">Nombre</h5>
-                        <p><input type="text" name="name"></p>
+                        <div class="text-danger" id="msgFront_name"> </div>
+                        <input type="text" name="name" id="msgFront_name">
+                       
+                        
                     </div>
-
+                    
                     <div class="ra-receta-container">
 
                         <div class="ra-information-container">
@@ -28,36 +31,46 @@
                                     <ul class="ra-beer-attributes">
                                         <li>
                                             <h6>Volumen: </h6>
-                                            <p><input type="text" name="volume"> lts.</p>
+                                            <p class="text-danger" id="msgFront_volume"> </p>
+                                            <p> <input type="text" name="volume" id="msgFront_volume"> lts.</p>
+                                          
                                         </li>
+                                       
                                         <li>
                                             <h6>Volumen de hervor: </h6>
-                                            <p><input type="text" name="boilvolume">lts.</p>
+                                            <p class="text-danger" id="msgFront_boilvolume"></p>
+                                            <p><input type="text" name="boilvolume" id="msgFront_boilvolume">lts.</p>
                                         </li>
                                         <li>
                                             <h6>Duración del hervor: </h6>
-                                            <p><input type="text" name="boilTime">lts.</p>
+                                            <p class="text-danger" id="msgFront_boilTime"></p>
+                                            <p><input type="text" name="boilTime" id="msgFront_boilTime">lts.</p>
 
                                         </li>
                                         <li>
                                             <h6>Alcohol: </h6>
-                                            <p><input type="text" name="alcohol"> %</p>
+                                            <p class="text-danger" id="msgFront_alcohol"></p>
+                                            <p><input type="text" name="alcohol" id="msgFront_alcohol"> %</p>
                                         </li>
                                         <li>
                                             <h6>Densidad final: </h6>
-                                            <p><input type="text" name="targetFG"></p>
+                                            <p class="text-danger" id="msgFront_targetFG"></p>
+                                            <p><input type="text" name="targetFG" id="msgFront_targetFG"></p>
                                         </li>
                                         <li>
                                             <h6>Densidad inicial: </h6>
-                                            <p><input type="text" name="targetOG"></p>
+                                            <p class="text-danger" id="msgFront_targetOG"></p>
+                                            <p><input type="text" name="targetOG"  id="msgFront_targetOG"></p>
                                         </li>
                                         <li>
                                             <h6>PH inicial: </h6>
-                                            <p><input type="text" name="initialPH"></p>
+                                            <p class="text-danger" id="msgFront_initialPH"></p>
+                                            <p><input type="text" name="initialPH" id="msgFront_initialPH"></p>
                                         </li>
                                         <li>
                                             <h6>PH final: </h6>
-                                            <p><input type="text" name="finalPH"></p>
+                                            <p class="text-danger" id="msgFront_finalPH"></p>
+                                            <p><input type="text" name="finalPH" id="msgFront_finalPH"></p>
                                         </li>
                                     </ul>
                                 </div><br>
@@ -69,16 +82,16 @@
                                             <h6>Macerado </h6>
 
                                             <h6>Temperatura de maceración: </h6>
-                                            <p></p><input type="text" name="mashTemp"> ° (grados celsius)</p>
+                                        <p> <input type="text" name="mashTemp"> ° (grados celsius)</p>
 
                                             <h6>Tiempo de maceración: </h6>
-                                            <p></p><input type="text" name="mashTime"> minutos
+                                        <p>  <input type="text" name="mashTime"> minutos</p>
 
                                         </li>
                                         <li class="ra-li-malt">
                                             <h6>Fermentación </h6>
                                             <h6>Temperatura de fermentación: </h6>
-                                            <p></p><input type="text" name="fermentationTemp"> grados
+                                            <p><input type="text" name="fermentationTemp"> grados
                                         </li>
                                     </ul>
                                 </div>
@@ -160,8 +173,8 @@
                                 </div>
                             </div>
                         </div>
-                        <button class="pd-admin" type="submit">Guardar</button>
-                        <button class="pd-admin ra-edit" type="reset"></a>Cancelar cambios</a></button>
+                        <button class="pd-admin" type="submit" id="msgFront_submit">Guardar</button>
+                        <button class="pd-admin ra-edit" type="reset" id="msgFront_reset"></a>Cancelar cambios</a></button>
                     </div>
                 </section>
             </form>
@@ -169,6 +182,7 @@
 
             <!-- Footer-->
             <%- include("../partials/footer") %>
+            <script src="/js/recipesFront.js"></script>
     </body>
 
 </html>
