@@ -6,6 +6,7 @@ const db = require("../DataBase/models");
 const sequelize = db.Sequelize;
 const { Op } = require("sequelize");
 const Users = db.Users;
+const moment = require('moment')
 
 const userController = {
   login: (req, res) => {
@@ -45,7 +46,7 @@ const userController = {
     if (resultValidation.errors.length > 0) {
       return res.render("./users/register", {
         errors: resultValidation.mapped(),
-    //  oldData: req.body,
+      oldData: req.body,
       });
     }
     await Users.findOne({
