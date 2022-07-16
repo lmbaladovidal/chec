@@ -10,14 +10,24 @@
 
 
             <div class="nr-main-containter">
-                <h3>Administración de Recetas</h3> <br>
+                <h3 id="title">Administración de Recetas</h3> <br>
                 <form action="/recetas/recetasAdmin/<%=recetaToEdit.id%>?_method=PUT" method="POST">
 
                     <section class="ra-details-container">
 
                         <div class="ra-name">
                             <h5 class="receta-name">Nombre</h5>
-                            <p><input type="text" name="name" value="<%=recetaToEdit.name%>"></p>
+                            <input 
+                                    type="text" 
+                                    name="name" 
+                                    value="<%= locals.oldData ? oldData.name : recetaToEdit.name%>"
+                                    class=" <%= locals.errors && errors.name ? 'is-invalid' : null %>">
+                                    <% if (locals.errors && errors.name) { %>
+                                        <div class="text-danger">
+                                            <%= errors.name.msg %> 
+                                        </div>
+                                    <% } %>
+                                    <div class="text-danger" id="msgFront_name"> </div>
                         </div>
 
                         <div class="ra-receta-container">
@@ -29,44 +39,62 @@
                                         <ul class="ra-beer-attributes">
                                             <li>
                                                 <h6>Volumen: </h6>
-                                                <p><input type="text" name="volume" value="<%=recetaToEdit.volume%>">
-                                                    lts.</p>
+                                                <input 
+                                                    type="text" 
+                                                    name="volume" 
+                                                    value="<%=recetaToEdit.volume%>"> lts.
+                                                    
                                             </li>
                                             <li>
                                                 <h6>Volumen de hervor: </h6>
-                                                <p><input type="text" name="boilvolume"
-                                                        value="<%=recetaToEdit.boilvolume%>"> lts.</p>
+                                                <input 
+                                                    type="text" 
+                                                    name="boilvolume"
+                                                    value="<%=recetaToEdit.boilvolume%>"> lts.
                                             </li>
                                             <li>
                                                 <h6>Duración del hervor: </h6>
-                                                <p><input type="text" name="boilTime"
-                                                        value="<%=recetaToEdit.boilTime%>"> min.</p>
+                                                <input 
+                                                    type="text" 
+                                                    name="boilTime"
+                                                    value="<%=recetaToEdit.boilTime%>"> min.
 
                                             </li>
                                             <li>
                                                 <h6>Alcohol: </h6>
-                                                <p><input type="text" name="alcohol" value="<%=recetaToEdit.alcohol%>">
-                                                    min.</p>
+                                                <input 
+                                                    type="text" 
+                                                    name="alcohol" 
+                                                    value="<%=recetaToEdit.alcohol%>"> %
                                             </li>
                                             <li>
                                                 <h6>Densidad final: </h6>
-                                                <p><input type="text" name="targetFG"
-                                                        value="<%=recetaToEdit.targetFG%>"> min.</p>
+                                                <input 
+                                                    type="text" 
+                                                    name="targetFG"
+                                                    value="<%=recetaToEdit.targetFG%>"> 
                                             </li>
                                             <li>
                                                 <h6>Densidad inicial: </h6>
-                                                <p><input type="text" name="targetOG"
-                                                        value="<%=recetaToEdit.targetOG%>"> min.</p>
+                                                <input 
+                                                    type="text" 
+                                                    name="targetOG"
+                                                    value="<%=recetaToEdit.targetOG%>"> 
                                             </li>
                                             <li>
                                                 <h6>PH inicial: </h6>
-                                                <p><input type="text" name="initialPH"
-                                                        value="<%=recetaToEdit.initialPH%>"> min.</p>
+                                                <input 
+                                                    type="text" 
+                                                    name="initialPH"
+                                                    value="<%=recetaToEdit.initialPH%>"> 
                                             </li>
                                             <li>
                                                 <h6>PH final: </h6>
-                                                <p><input type="text" name="finalPH" value="<%=recetaToEdit.finalPH%>">
-                                                    min.</p>
+                                                <input 
+                                                    type="text" 
+                                                    name="finalPH" 
+                                                    value="<%=recetaToEdit.finalPH%>"> 
+                                                    
                                             </li>
                                         </ul>
                                     </div><br>
@@ -78,18 +106,24 @@
                                                 <h6>Macerado </h6>
 
                                                 <h6>Temperatura de maceración: </h6>
-                                                <p></p><input type="number" min="1" max="100" step="0.1" name="mashTemp"
+                                                <input 
+                                                    type="number" min="1" max="100" step="0.1" 
+                                                    name="mashTemp"
                                                     value="<%=recetaToEdit.mashTemp%>"> ° (grados celsius)
 
                                                 <h6>Tiempo de maceración: </h6>
-                                                <p></p><input type="number"  min="1" max="200" name="mashTime"
-                                                    value="<%=recetaToEdit.mashTime%>"> minutos
+                                                <input 
+                                                    type="number"  min="1" max="200" 
+                                                    name="mashTime"
+                                                    value="<%=recetaToEdit.mashTime%>"> min.
 
                                             </li>
                                             <li class="ra-li-malt">
                                                 <h6>Fermentación </h6>
                                                 <h6>Temperatura de fermentación: </h6>
-                                                <p></p><input type="text" name="fermentationTemp"
+                                                <input 
+                                                    type="text" 
+                                                    name="fermentationTemp"
                                                     value="<%=recetaToEdit.fermentationTemp%>"> grados
                                             </li>
                                         </ul>
@@ -103,10 +137,16 @@
                                                 <h6>Maltas</h6>
                                                 <h6>Malta principal: </h6>
                                                 <div>
-                                                    <p>Tipo de malta:</p><input type="text" name="malt1"
+                                                    <p>Tipo de malta:</p>
+                                                    <input 
+                                                        type="text" 
+                                                        name="malt1"
                                                         value="<%=recetaToEdit.malt1%>">
-                                                    <p>Cantidad:</p><input type="text" name="malt1Amount"
-                                                        value="<%=recetaToEdit.malt1Amount%>">
+                                                    <p>Cantidad:</p>
+                                                        <input 
+                                                            type="text" 
+                                                            name="malt1Amount"
+                                                            value="<%=recetaToEdit.malt1Amount%>">
                                                 </div>
                                                 <h6>Malta adicional: </h6>
                                                 <div>
@@ -142,11 +182,20 @@
 
                                                 <h6>Lúpulo principal: </h6>
                                                 <div>
-                                                    <p>Tipo de lúpulo:</p><input type="text" name="hop1"
+                                                    <p>Tipo de lúpulo:</p>
+                                                    <input 
+                                                        type="text" 
+                                                        name="hop1"
                                                         value="<%=recetaToEdit.hop1%>">
-                                                    <p>Cantidad: </p> <input type="text" name="hop1Amount"
+                                                    <p>Cantidad: </p> 
+                                                    <input 
+                                                        type="text" 
+                                                        name="hop1Amount"
                                                         value="<%=recetaToEdit.hop1Amount%>">
-                                                    <p>Momento de adición:</p><input type="text" name="hop1Moment"
+                                                    <p>Momento de adición:</p>
+                                                    <input 
+                                                        type="text" 
+                                                        name="hop1Moment"
                                                         value="<%=recetaToEdit.hop1Moment%>">
                                                 </div>
                                                 <h6>Lúpulo adicional: </h6>
@@ -171,9 +220,15 @@
                                             <li class="ra-li-malt">
                                                 <h6>Levadura: </h6>
                                                 <div>
-                                                    <p>Tipo de levadura:</p><input type="text" name="yeast"
-                                                        value="<%=recetaToEdit.yeast%>">
-                                                    <p>Cantidad:</p><input type="text" name="yeastAmount"
+                                                    <p>Tipo de levadura:</p>
+                                                        <input 
+                                                            type="text" 
+                                                            name="yeast"
+                                                            value="<%=recetaToEdit.yeast%>">
+                                                    <p>Cantidad:</p>
+                                                    <input 
+                                                        type="text" 
+                                                        name="yeastAmount"
                                                         value="<%=recetaToEdit.yeastAmount%>">
                                                 </div>
                                             </li>
@@ -210,6 +265,7 @@
             </div>
                 <!-- Footer-->
                 <%- include("../partials/footer") %>
+                <script src="/js/recipesFront.js"></script>
     </body>
 
 </html>

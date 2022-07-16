@@ -26,7 +26,6 @@ const recetaNew = (req, res) => {
 const recetaCreate = async (req, res) => {
   const resultValidation = validationResult(req);
   if (resultValidation.errors.length > 0) {
-   //return res.send(resultValidation.mapped())
         return res.render("./recetas/nuevaReceta", {
             errors: resultValidation.mapped(),
             oldData: req.body,
@@ -122,9 +121,21 @@ const recetaEdit = (req, res) => {
 //*hasta aca funciona OK*//
 
 const recetaUpdate = async (req, res) => {
+
+  
+
   req.body.id = req.params.id;
+  
   let recetaToEdit = await Recipes.findOne({ where: { id: req.params.id } });
-  // res.send(recetaToEdit)
+  // const resultValidation = validationResult(req);
+  // if (resultValidation.errors.length > 0) {
+  //       return res.render("./recetas/recetasAdmin", {
+  //           errors: resultValidation.mapped(),
+  //           oldData: req.body,
+  //       })
+  //     };
+
+      
   recetaToEdit.set({
     name: req.body.name,
     volume: req.body.volume,

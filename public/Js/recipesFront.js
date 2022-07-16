@@ -3,7 +3,9 @@ window.onload = () => {
     const inputs = document.querySelectorAll("#formRecipes input");
     const buttons = document.querySelectorAll('#formRecipes button')
 
-    const fields = {
+    let fields = null 
+    if (document.getElementById("title").innerText=="Nueva receta"){        
+     fields = {
         name: false,
         volume: false,
         boilvolume: false,
@@ -22,6 +24,29 @@ window.onload = () => {
         hop1Moment: false,
         yeast: false,
         yeastAmount: false
+    }
+    } else {
+        fields = {
+            name: true,
+            volume: true,
+            boilvolume: true,
+            boilTime: true,
+            alcohol: true,
+            targetFG: true,
+            targetOG: true,
+            initialPH: true,
+            finalPH: true,
+            mashTemp: true,
+            mashTime: true,
+            malt1: true,
+            malt1Amount: true,
+            hop1: true,
+            hop1Amount: true,
+            hop1Moment: true,
+            yeast: true,
+            yeastAmount: true
+        }
+
     }
 
     const regEx = {
@@ -155,7 +180,7 @@ window.onload = () => {
     inputs.forEach((input) => {
       input.addEventListener("keyup", validarFormulario);
       input.addEventListener("blur", validarFormulario);
-      input.addEventListener("change", validarFormulario);          
+               
     });
 
 

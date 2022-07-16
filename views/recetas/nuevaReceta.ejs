@@ -9,7 +9,7 @@
         <%- include("../partials/header") %>
         
         <div class="nr-main-containter">
-            <h3>Nueva receta</h3> <br>
+            <h3 id="title">Nueva receta</h3> <br>
             <form action="/recetas/nuevareceta" method="POST" id="formRecipes">
 
                 <section class="ra-details-container">
@@ -123,7 +123,7 @@
                                                 name="targetOG"  
                                                 id="targetOG"
                                                 class="" <%= locals.errors && errors.targetOG ? 'is-invalid' : null %>
-                                                value="<%= locals.oldData ? oldData.targetOG : null %>"> %                                            
+                                                value="<%= locals.oldData ? oldData.targetOG : null %>">                                            
                                                     <% if (locals.errors && errors.targetOG) { %>
                                                         <div class="text-danger">
                                                             <%= errors.targetOG.msg %> 
@@ -138,7 +138,7 @@
                                                 name="initialPH" 
                                                 id="initialPH"
                                                 class="" <%= locals.errors && errors.initialPH ? 'is-invalid' : null %>
-                                                value="<%= locals.oldData ? oldData.initialPH : null %>"> %                                            
+                                                value="<%= locals.oldData ? oldData.initialPH : null %>">                                          
                                                     <% if (locals.errors && errors.initialPH) { %>
                                                         <div class="text-danger">
                                                             <%= errors.initialPH.msg %> 
@@ -153,7 +153,7 @@
                                                 name="finalPH" 
                                                 id="finalPH"
                                                 class="" <%= locals.errors && errors.finalPH ? 'is-invalid' : null %>
-                                                value="<%= locals.oldData ? oldData.finalPH : null %>"> %                                          
+                                                value="<%= locals.oldData ? oldData.finalPH : null %>">                                          
                                                     <% if (locals.errors && errors.finalPH) { %>
                                                         <div class="text-danger">
                                                             <%= errors.finalPH.msg %> 
