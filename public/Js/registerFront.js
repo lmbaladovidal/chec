@@ -1,11 +1,4 @@
 window.onload = () => {
-  // const name = document.querySelector('#name');
-  // const lastName = document.querySelector('#lastName');
-  // const email = document.querySelector('#email');
-  // const address = document.querySelector('#address');
-  // const birthDate = document.querySelector('#birthDate');
-  // const password = document.querySelector('#password');
-  // const passVerify = document.querySelector('#passVerify');
   const formRegister = document.querySelector("#formRegister");
   const inputs = document.querySelectorAll("#formRegister input");
   const avatar = document.getElementById("avatar");

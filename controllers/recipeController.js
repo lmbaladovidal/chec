@@ -1,9 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-
-//const recetasFilePath = path.join(__dirname, '../DataBase/bbddRecetas.json');
-//const recetas = JSON.parse(fs.readFileSync(recetasFilePath,"utf-8"));
-
+const { validationResult } = require("express-validator");
 const db = require('../DataBase/models')
 const sequelize = db.Sequelize;
 const {Op} = require('sequelize')
@@ -25,8 +22,14 @@ const recetaNew = (req, res) => {
     res.render('./recetas/nuevaReceta')
 };
 
-const recetaCreate = (req, res) => {
-    recipe = {
+const recetaCreate = async (req, res) => {
+    const resultValidation = validationResult(req);
+    if (resultValidation.errors.length > 0) {
+      return res.render("./recetas/nuevaReceta", {
+        errors: resultValidation.mapped(),
+        oldData: req.body,
+      })}
+    await Recipes.create({
         name: req.body.name,
         volume: req.body.volume,
         boilvolume: req.body.boilvolume,
@@ -59,11 +62,11 @@ const recetaCreate = (req, res) => {
         yeastAmount: req.body.yeastAmount,
         brewerTip: req.body.brewerTip,
         foodPairing: req.body.foodPairing
-        }
-        Recipes.create(recipe)
-        .then(()=>{ return res.redirect('./nuestrasRecetas')})
+        })
+        res.redirect('./nuestrasRecetas')
+        //.then(()=>{ return res.redirect('./nuestrasRecetas')})
                    
-        .catch(error => console.log(error));
+       // .catch(error => console.log(error));
  };
 
 
