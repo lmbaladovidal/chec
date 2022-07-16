@@ -1,11 +1,4 @@
 window.onload = () => {
-  // const name = document.querySelector('#name');
-  // const lastName = document.querySelector('#lastName');
-  // const email = document.querySelector('#email');
-  // const address = document.querySelector('#address');
-  // const birthDate = document.querySelector('#birthDate');
-  // const password = document.querySelector('#password');
-  // const passVerify = document.querySelector('#passVerify');
   const formRegister = document.querySelector("#formRegister");
   const inputs = document.querySelectorAll("#formRegister input");
   const avatar = document.getElementById("avatar");
@@ -16,7 +9,8 @@ window.onload = () => {
     lastName: /^[a-zA-ZÀ-ÿ\s]{2,256}$/, // minimo 2 caracteres, Letras y espacios, pueden llevar acentos.
     password: /^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,256}$/, // minimo 8 y 256 caracteres, al menos un dígito, al menos una minúscula, al menos una mayúscula y al menos un caracter no alfanumérico.
     email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-    birthDate: /^\d{8,14}$/, // numeros
+    //birthDate: /^\d{8,14}$/, // numeros
+    birthDate:/^(?:3[01]|[12][0-9]|0?[1-9])(0?[1-9]|1[1-2])\1\d{3}$/,
     address: /^[A-Za-z0-9\s°]{8,256}$/, // Letras, numeros, guion y guion_bajo
     avatar: /(.jpg|.jpeg|.png|.gif)$/i,
   };
@@ -26,7 +20,7 @@ window.onload = () => {
     lastName: false,
     password: false,
     email: false,
-    birthDate: true,
+    birthDate: false,
     address: false,
     avatar: true,
   };
@@ -71,7 +65,7 @@ window.onload = () => {
         );
         break;
       case "birthDate":
-        validarCampo(expresiones.birthDate, e.target, "birthDate");
+        birthValidate( "Debes ser mayor de 18 Años");
         break;
       case "address":
         validarCampo(
@@ -87,9 +81,7 @@ window.onload = () => {
   const validarCampo = (expresion, texto, input, campo) => {
     if (expresion.test(input.value)) {
       document.getElementById(`msgFront_${campo}`).innerHTML = "";
-      document
-        .getElementById(`msgFront_${campo}`)
-        .classList.remove("text-danger");
+      document.getElementById(`msgFront_${campo}`).classList.remove("text-danger");
       document.getElementById(`msgFront_${campo}`).classList.add("rg-imput");
       document.getElementById(`${campo}`).classList.remove("is-invalid");
       campos[campo] = true;
@@ -102,10 +94,12 @@ window.onload = () => {
     }
   };
 
+  // Recorre todos los INPUTS del formulario, escuchando métodos de acción//
   inputs.forEach((input) => {
     input.addEventListener("keyup", validarFormulario);
     input.addEventListener("blur", validarFormulario);
     input.addEventListener("change", valExtFile);
+    input.addEventListener("keyup", birthValidate)
   });
   // función para validad la imagen//
 
@@ -140,7 +134,7 @@ window.onload = () => {
     }
   }
 
-  // funcion para validad coincidencias entre ambas contraseñas//
+  // funcion para validar coincidencias entre ambas contraseñas//
   function validar() {
     if (
       document.getElementById("password").value ==
@@ -153,36 +147,63 @@ window.onload = () => {
       document.getElementById("msgFront_passVerify").innerHTML = "Error";
     }
   }
+   // función para validar la EDAD//
+  function birthValidate( texto, input  ) {
+      
+        const expresion = birthDate.value;
+        const m = moment(expresion, "YYYY-MM-DD");
+        const ageUser= parseInt(m.fromNow());
+        const ageUser2=ageUser
+        
+        console.log(ageUser2);
+       
+        if(ageUser2 < 18 ){
+          document.getElementById(`msgFront_birthDate`).innerHTML = texto
+          document.getElementById(`msgFront_birthDate`).classList.add("text-danger")
+          document.getElementById(`msgFront_birthDate`).classList.remove("rg-imput")
+          document.getElementById('birthDate').classList.add("is-invalid")
+          campos.birthDate= false;
+          console.log(campos.birthDate);
+          } else {
+          document.getElementById(`msgFront_birthDate`).innerHTML = ""
+          document.getElementById(`msgFront_birthDate`).classList.remove("text-danger")
+          document.getElementById(`msgFront_birthDate`).classList.add("rg-imput")
+          document.getElementById('birthDate').classList.remove("is-invalid");
+          campos.birthDate= true;
+          console.log(campos.birthDate);
+          
+          }
+    }
+
+
 
   formRegister.addEventListener("submit", (e) => {
     e.preventDefault();
-    console.log(campos);
-    if (
-      campos.name  &&
+
+    if (!
+      campos.name &&
       campos.lastName &&
       campos.email &&
       campos.birthDate &&
       campos.address &&
       campos.password
-    ) {
-      formRegister.submit();
-    }else
+    ) 
     {
-      const bname = req.body.name;
-      const blastName = req.body.lastName;
-      const bemail = req.body.email;
-      const bbirthDate = req.body.birthDate;
-      const baddress = req.body.address;
-      
-      console.log(bname);
-      //document.getElementById("msgFront_submit").innerHTML = "Debes completar correctamente el formulario."
-      //setTimeout(() => {
-      //  document.getElementById("msgFront_submit").innerHTML = ""
-      //},3000)
+      document.getElementById("msgFront_submit").innerHTML = "Debes completar correctamente el formulario."
+      setTimeout(() => {
+        document.getElementById("msgFront_submit").innerHTML = ""
+        document.getElementById('email').classList.remove("is-invalid");
+      },6000)
 
-      //formRegister.reset(),
-      //console.log(cache);
-      //req.body = cache
-    }
+    return formRegister.reset();
+    } else
+      
+    {
+     return formRegister.submit();
+    } 
+    
+        
+    
+        
   });
 };
