@@ -1,33 +1,39 @@
 window.onload = () => {
-
-    const formCart = document.getElementById("formProductCart");
-    const inputs = document.querySelectorAll(".spinButton");
-    const buttons = document.querySelectorAll('#formProductCart button')
-    const add = document.getElementById('add')
-
-    const price5 = parseInt(document.getElementById('price5'))
-    const quantity5 = parseInt(document.getElementById('quantity5'))
-    
-
-    const quantity = quantity5.value
-    const price = price5.value 
-        console.log(price5);
-        console.log(quantity);
+    const add = document.querySelectorAll('#add5');
+    add.forEach(addButton => {
+        //addButton.addEventListener('click', function calcular(){
+        addButton.addEventListener('click', calcular);
         
-        add.addEventListener('click', function calcular(){
+    })
+function calcular(){
+
+const itemPrice = document.querySelector('#msgFront_Cart')
+const PrecioCart = itemPrice.textContent
+
+console.log(PrecioCart);
+}
+    
+    // // // const formCart = document.getElementById("formProductCart");
+    // // // const inputs = document.querySelectorAll(".spinButton");
+    // // // const buttons = document.querySelectorAll('#formProductCart button')
+    // // // const add = document.getElementById('add')
+
+    // // // //const price5 = parseInt(document.getElementById('price5'))
+    // // // //const quantity5 = parseInt(document.getElementById('quantity5'))
+
+    // // // const quantity = quantity5.value
+    // // // const price = price5.value 
+    // // //     console.log(price5);
+    // // //     console.log(quantity);
+        
+    // // //     add.addEventListener('click', function calcular(){
       
 
 
-            let quantitySub= quantity + 1
-            let priceSub = quantitySub * price
-             return priceSub
-            })
-             
-        //console.log(price);
-
-        // const input = event.target;
-        // input.value <= 0 ? (input.value = 1) : null;
-        
+    // // //         let quantitySub= quantity + 1
+    // // //         let priceSub = quantitySub * price
+    // // //          return priceSub
+    // // //         })
     }
    
       

@@ -3,7 +3,7 @@ const router = express.Router();
 //const path = require('path');
 const salesController = require('../controllers/saleController');
 //const guestMiddleware = require('../middlewares/guestMiddleware');
-//const authMiddleware = require('../middlewares/authMiddleware');
+const authMiddleware = require('../middlewares/authMiddleware');
 
 //router.get('/nuestrasRecetas', nuestrasRecetasController.recetasDetail);
 //router.get('/sales/add',authMiddleware, salesController.add);
