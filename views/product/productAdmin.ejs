@@ -16,42 +16,74 @@
                         <ul class="lg-form-login rg-form" >
                             <li class='pa-li-element'>
                                 <h5>Nombre</h5>
-                                <div class="text-danger" id="msgFront_name"> </div>
+                                <div class="text-danger" id="msgFront_name"> 
+                                    <% if (locals.errors && errors.name) { %>
+                                        <%= errors.name.msg %> 
+                                    <% } %>
+                                </div>
                                 <p><input type="text" name="name" id="name" value="<%=cervezaToEdit.name%>" class='rg-input'></p>
                             </li>
                             <li class='pa-li-element'>
                                 <h5>Descripción</h5>
-                                <div class="text-danger" id="msgFront_description"> </div>
+                                <div class="text-danger" id="msgFront_description"> 
+                                    <% if (locals.errors && errors.description) { %>
+                                        <%= errors.name.msg %> 
+                                    <% } %>
+                                </div>
                                 <p><input type="text" name="description" id="description" value="<%=cervezaToEdit.description%>" class='rg-input'></p>
                             </li>
                             <li class='pa-li-element'>
                                 <h5>Amargor </h5>
-                                <div class="text-danger" id="msgFront_bitterness"> </div>
+                                <div class="text-danger" id="msgFront_bitterness">
+                                    <% if (locals.errors && errors.bitterness) { %>
+                                        <%= errors.name.msg %> 
+                                    <% } %>
+                                </div>
                                 <p><input type="text" name="bitterness" id="bitterness" value="<%=cervezaToEdit.bitterness%>" class='rg-input'></p>
                             </li>                  
                             <li class='pa-li-element'>
                                 <h5>Alcohol </h5>
-                                <div class="text-danger" id="msgFront_alcohol"> </div>
+                                <div class="text-danger" id="msgFront_alcohol"> 
+                                    <% if (locals.errors && errors.alcohol) { %>
+                                        <%= errors.name.msg %> 
+                                    <% } %>
+                                </div>
                                 <p><input type="text" name="alcohol" value="<%=cervezaToEdit.alcohol%>" id="alcohol" class='rg-input'></p>
                             </li>
                             <li class='pa-li-element'>
                                 <h5>Color </h5>
-                                <div class="text-danger" id="msgFront_color"> </div>
+                                <div class="text-danger" id="msgFront_color">
+                                    <% if (locals.errors && errors.color) { %>
+                                        <%= errors.name.msg %> 
+                                    <% } %>
+                                </div>
                                 <p><input type="text" name="color" id="color" value="<%=cervezaToEdit.color%>" class='rg-input'></p>
                             </li>
                             <li class='pa-li-element'>
                                 <h5>Lúpulo/s </h5>
-                                <div class="text-danger" id="msgFront_hop"> </div>
+                                <div class="text-danger" id="msgFront_hop"> 
+                                    <% if (locals.errors && errors.hop) { %>
+                                        <%= errors.name.msg %> 
+                                    <% } %>
+                                </div>
                                 <p><input type="text" name="hop" id="hop" value="<%=cervezaToEdit.hop%>" class='rg-input'></p>
                             </li>
                             <li class='pa-li-element'>
                                 <h5>Gasificación </h5>
-                                <div class="text-danger" id="msgFront_carbonation"> </div>
+                                <div class="text-danger" id="msgFront_carbonation"> 
+                                    <% if (locals.errors && errors.carbonation) { %>
+                                        <%= errors.name.msg %> 
+                                    <% } %>
+                                </div>
                                 <p><input type="text" name="carbonation" id="carbonation" value="<%=cervezaToEdit.carbonation%>"class='rg-input' ></p>
                             </li>
                             <li class='pa-li-element'>
                                 <h5>Precio </h5>
-                                <div class="text-danger" id="msgFront_price"> </div>
+                                <div class="text-danger" id="msgFront_price">
+                                    <% if (locals.errors && errors.price) { %>
+                                        <%= errors.name.msg %> 
+                                    <% } %>
+                                </div>
                                 <p><input type="text" name="price" id="price" value="<%=cervezaToEdit.price%>"class='rg-input' ></p>
                             </li>
                             <li class='pa-li-element'>
@@ -69,9 +101,13 @@
         
                         </ul> 
                         <h5>Imagen de Producto</h5>        
-                        <input type="file" name="productImage"  class='rg-input'>
-                        <input type="text" name="image" id="productImage" style="opacity: 0;" id="inputImg" value="<%=cervezaToEdit.image%>" class='rg-input'>                
-                        <div class="text-danger" id="msgFront_image"> </div>
+                        <input type="file" name="productImage"  id="productImage"  class='rg-input'>
+                        <input type="text" name="image" style="opacity: 0;" id="inputImg" value="<%=cervezaToEdit.image%>" class='rg-input'>                
+                        <div class="text-danger" id="msgFront_image"> 
+                            <% if (locals.errors && errors.productImage) { %>
+                                <%= errors.name.msg %> 
+                            <% } %>
+                        </div>
                     <div class="pd-options rg-input">
                         <input type="submit" class="lg-submit" value="Guardar">
                         <input type="reset" class="lg-submit" name="limpiar" value="Limpiar">

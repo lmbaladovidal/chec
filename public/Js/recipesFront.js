@@ -60,7 +60,7 @@ window.onload = () => {
         console.log(e)
         switch (e.target.name) {
             case "name":
-                validarCampo(regEx.alfanumeric,"Mínimo 3 caracteres",e.target,"name");
+                validarCampo(regEx.alfanumeric,"Mínimo 3 caracteres.",e.target,"name");
                 break;
             case "volume":
                 validarCampo(regEx.number,"Solo números",e.target,"volume");
@@ -186,7 +186,7 @@ window.onload = () => {
 
     formRecipes.addEventListener("submit", (e) => {
         e.preventDefault();
-    
+        console.log(fields)
         if (!
             fields.name &&
             fields.volume &&
