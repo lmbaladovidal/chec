@@ -1,5 +1,6 @@
 const { response } = require('express');
 const { Op } = require("sequelize");
+const { validationResult } = require("express-validator");
 const fs = require('fs');
 const path = require('path');
 const db = require('../DataBase/models')
@@ -8,6 +9,7 @@ const Product = db.Products;
 
 const productPage = (req,res)=>{
         const userLogged = req.session.userLogged;
+     //   console.log(userLogged)
         Product.findAll()
         .then(resultado=>{
             const cervezas = resultado
@@ -42,6 +44,13 @@ const productAdmin=async (req,res)=>{
 const productCreatePage = (req,res)=>{res.render('product/productCreate')}
 
 const productCreate= async (req,res)=>{
+    const resultValidation = validationResult(req);
+    if (resultValidation.errors.length > 0) {
+      return res.render("./product/productCreate", {
+        errors: resultValidation.mapped(),
+        oldData: req.body,
+      });
+    }
     await Product.create({
         name: req.body.name,
         description: req.body.description,
@@ -59,6 +68,15 @@ const productCreate= async (req,res)=>{
 }
     
 const productUpdate = async (req, res) =>{
+    const resultValidation = validationResult(req);
+    return res.send(resultValidation.mapped())
+    let cervezaToEdit = req.body
+    if (resultValidation.errors.length > 0) {
+      return res.render("./product/productPage", {
+        errors: resultValidation.mapped(),
+        oldData: req.body,
+      });
+    }
     let id = parseInt(req.params.id);
     const cerveza = await Product.findOne({
         where:{id:req.params.id}

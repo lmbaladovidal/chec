@@ -4,7 +4,8 @@ window.onload = () => {
     const buttons = document.querySelectorAll('#formRecipes button')
 
     let fields = null 
-    if (document.getElementById("title").innerText=="Nueva receta"){        
+    if (document.getElementById("title").innerText=="Nueva receta"){    
+
      fields = {
         name: false,
         volume: false,
@@ -60,7 +61,7 @@ window.onload = () => {
         console.log(e)
         switch (e.target.name) {
             case "name":
-                validarCampo(regEx.alfanumeric,"Mínimo 3 caracteres",e.target,"name");
+                validarCampo(regEx.alfanumeric,"Mínimo 3 caracteres.",e.target,"name");
                 break;
             case "volume":
                 validarCampo(regEx.number,"Solo números",e.target,"volume");
@@ -185,45 +186,12 @@ window.onload = () => {
 
 
     formRecipes.addEventListener("submit", (e) => {
-        e.preventDefault();
-    
-        if (!
-            fields.name &&
-            fields.volume &&
-            fields.boilvolume &&
-            fields.boilTime &&
-            fields.alcohol &&
-            fields.targetFG &&
-            fields.targetOG &&
-            fields.initialPH &&
-            fields.finalPH &&
-            fields.mashTemp &&
-            fields.mashTime &&
-            fields.malt1 &&
-            fields.malt1Amount &&
-            fields.hop1 &&
-            fields.hop1Amount &&
-            fields.hop1Moment &&
-            fields.yeast &&
-            fields.yeastAmount
-        ) 
-    
-        {
-            
-          document.getElementById("msgFront_submit").innerHTML = "Debes completar correctamente el formulario."
-          setTimeout(() => {
-            document.getElementById("msgFront_submit").innerHTML = ""
-            //document.getElementById('email').classList.remove("is-invalid");
-          },6000)
-    
-        return buttons.reset();
-        } else
-          
-        {
-         return formRecipes.submit();
-        }    
-            
-        
+       // e.preventDefault();
+        Object.values(fields).filter(value=>{return !value}).length == 0?formRecipes.submit()
+        :document.getElementById("msgFront_submit").innerHTML="Debes completar correctamente el formulario.";
+        console.log('CAMPOS')
+      
+       
             
       });
 }

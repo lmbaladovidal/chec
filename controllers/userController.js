@@ -6,7 +6,6 @@ const db = require("../DataBase/models");
 const sequelize = db.Sequelize;
 const { Op } = require("sequelize");
 const Users = db.Users;
-const moment = require('moment')
 
 const userController = {
   login: (req, res) => {
@@ -29,7 +28,6 @@ const userController = {
           delete userToLogin.password;
           req.session.userLogged = userToLogin;
         }
-
         if (req.body.remember_user) {
           res.cookie("userEmail", req.body.email, { maxAge: 1000 * 60 * 60 });
         }
@@ -53,22 +51,15 @@ const userController = {
         oldData: req.body,
       });
     }
-    await Users.findOne({
+    Users.findOne({
       where: {
         email: req.body.email,
       },
     })      
     .then((result) => {
-      console.log(result);
       if(result != null){
-        result.email="";
         res.render("./users/register", {
-            oldData:{
-              name:req.body.name,
-              lastName: req.body.lastName,
-              address: req.body.address,
-              birthDate:req.body.birthDate
-            } ,
+            oldData: req.body,
             errors: {
               email: {
                 msg: "Este email ya está registrado.",

@@ -73,10 +73,7 @@ const recetaEdit = (req, res) => {
   let id = parseInt(req.params.id);
   Recipes.findOne({
     where: { id: id },
-  })
-
-    .then((recipe) => {
-      //console.log( recipe );
+  }).then((recipe) => {
       let recetaToEdit = {
         id: id,
         name: recipe.name,
@@ -116,12 +113,20 @@ const recetaEdit = (req, res) => {
     })
     .catch((error) => console.log(res.send(error)));
 };
-//*hasta aca funciona OK*//
+
 
 const recetaUpdate = async (req, res) => {
+   const resultValidation = validationResult(req);
+   let recetaTtoEdit = req.body
+   if (resultValidation.errors.length > 0) {
+     return res.render("./recetas/editRecetas", {
+            recetaTtoEdit,
+            errors: resultValidation.mapped(),
+            oldData: req.body,
+        })
+      };
   req.body.id = req.params.id;  
-  let recetaToEdit = await Recipes.findOne({ where: { id: req.params.id } });
-
+  const recetaToEdit = await Recipes.findOne({ where: { id: req.params.id } });
 
   recetaToEdit.set({
     name: req.body.name,
@@ -158,13 +163,7 @@ const recetaUpdate = async (req, res) => {
     foodPairing: req.body.foodPairing,
   });
 
-  // const resultValidation = validationResult(req);
-  // if (resultValidation.errors.length > 0) {
-  //    return res.render("/", {
-  //           errors: resultValidation.mapped(),
-  //           oldData: req.body,
-  //       })
-  //     };
+ 
 
   await recetaToEdit.save();
 

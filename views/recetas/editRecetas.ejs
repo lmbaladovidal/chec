@@ -20,6 +20,7 @@
                             <input 
                                     type="text" 
                                     name="name" 
+                                    id="name"
                                     class="" <%= locals.errors && errors.name ? 'is-invalid' : null %>
                                     value="<%= locals.oldData ? oldData.name : recetaToEdit.name %>">
                                     <% if (locals.errors && errors.name) { %>
@@ -42,7 +43,14 @@
                                                 <input 
                                                     type="text" 
                                                     name="volume" 
-                                                    value="<%=recetaToEdit.volume%>"> lts.
+                                                    id="volume" 
+                                                    class="" <%= locals.errors && errors.volume ? 'is-invalid' : null %>
+                                                    value="<%= locals.oldData ? oldData.volume : recetaToEdit.volume %>"> lts.
+                                                    <% if (locals.errors && errors.volume) { %>
+                                                        <div class="text-danger">
+                                                            <%= errors.volume.msg %> 
+                                                        </div>
+                                                    <% } %>
                                                     <div class="text-danger" id="msgFront_volume"> </div>
                                             </li>
                                             <li>
@@ -50,7 +58,14 @@
                                                 <input 
                                                     type="text" 
                                                     name="boilvolume"
-                                                    value="<%=recetaToEdit.boilvolume%>"> lts.
+                                                    id="boilvolume"
+                                                    class="" <%= locals.errors && errors.boilvolume ? 'is-invalid' : null %>
+                                                    value="<%= locals.oldData ? oldData.boilvolume : recetaToEdit.boilvolume %>"> lts.
+                                                    <% if (locals.errors && errors.boilvolume) { %>
+                                                        <div class="text-danger">
+                                                            <%= errors.boilvolume.msg %> 
+                                                        </div>
+                                                    <% } %>
                                                     <div class="text-danger" id="msgFront_boilvolume"> </div>
                                             </li>
                                             <li>
@@ -58,7 +73,13 @@
                                                 <input 
                                                     type="text" 
                                                     name="boilTime"
-                                                    value="<%=recetaToEdit.boilTime%>"> min.
+                                                    id="boilTime"
+                                                    value="<%= locals.oldData ? oldData.boilTime : recetaToEdit.boilTime %>"> lts.
+                                                    <% if (locals.errors && errors.boilTime) { %>
+                                                        <div class="text-danger">
+                                                            <%= errors.boilTime.msg %> 
+                                                        </div>
+                                                    <% } %>
                                                     <div class="text-danger" id="msgFront_boilTime"> </div>
 
                                             </li>
@@ -67,7 +88,13 @@
                                                 <input 
                                                     type="text" 
                                                     name="alcohol" 
-                                                    value="<%=recetaToEdit.alcohol%>"> %
+                                                    id="alcohol" 
+                                                    value="<%= locals.oldData ? oldData.alcohol : recetaToEdit.alcohol %>"> %
+                                                    <% if (locals.errors && errors.alcohol) { %>
+                                                        <div class="text-danger">
+                                                            <%= errors.alcohol.msg %> 
+                                                        </div>
+                                                    <% } %>
                                                     <div class="text-danger" id="msgFront_alcohol"> </div>
                                             </li>
                                             <li>
@@ -75,7 +102,13 @@
                                                 <input 
                                                     type="text" 
                                                     name="targetFG"
-                                                    value="<%=recetaToEdit.targetFG%>"> 
+                                                    id="targetFG"
+                                                    value="<%= locals.oldData ? oldData.targetFG : recetaToEdit.targetFG %>"> 
+                                                    <% if (locals.errors && errors.targetFG) { %>
+                                                        <div class="text-danger">
+                                                            <%= errors.targetFG.msg %> 
+                                                        </div>
+                                                    <% } %>
                                                     <div class="text-danger" id="msgFront_targetFG"> </div>
                                             </li>
                                             <li>
@@ -83,7 +116,13 @@
                                                 <input 
                                                     type="text" 
                                                     name="targetOG"
-                                                    value="<%=recetaToEdit.targetOG%>"> 
+                                                    id="targetOG"
+                                                    value="<%= locals.oldData ? oldData.targetOG : recetaToEdit.targetOG %>"> 
+                                                    <% if (locals.errors && errors.targetOG) { %>
+                                                        <div class="text-danger">
+                                                            <%= errors.targetOG.msg %> 
+                                                        </div>
+                                                    <% } %>
                                                     <div class="text-danger" id="msgFront_targetOG"> </div>
                                             </li>
                                             <li>
@@ -91,7 +130,13 @@
                                                 <input 
                                                     type="text" 
                                                     name="initialPH"
-                                                    value="<%=recetaToEdit.initialPH%>"> 
+                                                    id="initialPH"
+                                                    value="<%= locals.oldData ? oldData.initialPH : recetaToEdit.initialPH %>"> 
+                                                    <% if (locals.errors && errors.initialPH) { %>
+                                                        <div class="text-danger">
+                                                            <%= errors.initialPH.msg %> 
+                                                        </div>
+                                                    <% } %>
 
                                                     <div class="text-danger" id="msgFront_initialPH"> </div>
                                             </li>
@@ -100,7 +145,13 @@
                                                 <input 
                                                     type="text" 
                                                     name="finalPH" 
-                                                    value="<%=recetaToEdit.finalPH%>"> 
+                                                    id="finalPH" 
+                                                    value="<%= locals.oldData ? oldData.finalPH : recetaToEdit.finalPH %>"> 
+                                                    <% if (locals.errors && errors.finalPH) { %>
+                                                        <div class="text-danger">
+                                                            <%= errors.finalPH.msg %> 
+                                                        </div>
+                                                    <% } %>
                                                     <div class="text-danger" id="msgFront_finalPH"> </div>
                                             </li>
                                         </ul>
@@ -116,13 +167,25 @@
                                                 <input 
                                                     type="number" min="1" max="100" step="0.1" 
                                                     name="mashTemp"
-                                                    value="<%=recetaToEdit.mashTemp%>"> ° (grados celsius)
+                                                    id="mashTemp"
+                                                    value="<%= locals.oldData ? oldData.mashTemp : recetaToEdit.mashTemp %>"> ° (grados celsius)
+                                                    <% if (locals.errors && errors.mashTemp) { %>
+                                                        <div class="text-danger">
+                                                            <%= errors.mashTemp.msg %> 
+                                                        </div>
+                                                    <% } %>
                                                     <div class="text-danger" id="msgFront_mashTemp"> </div>
                                                 <h6>Tiempo de maceración: </h6>
                                                 <input 
                                                     type="number"  min="1" max="200" 
                                                     name="mashTime"
-                                                    value="<%=recetaToEdit.mashTime%>"> min.
+                                                    id="mashTime"
+                                                    value="<%= locals.oldData ? oldData.mashTime : recetaToEdit.mashTime %>"> min.
+                                                    <% if (locals.errors && errors.mashTime) { %>
+                                                        <div class="text-danger">
+                                                            <%= errors.mashTime.msg %> 
+                                                        </div>
+                                                    <% } %>
                                                     <div class="text-danger" id="msgFront_mashTime"> </div>
                                             </li>
                                             <li class="ra-li-malt">
@@ -131,7 +194,13 @@
                                                 <input 
                                                     type="text" 
                                                     name="fermentationTemp"
-                                                    value="<%=recetaToEdit.fermentationTemp%>"> grados
+                                                    id="fermentationTemp"
+                                                    value="<%= locals.oldData ? oldData.fermentationTemp : recetaToEdit.fermentationTemp %>"> ° (grados celsius)
+                                                    <% if (locals.errors && errors.fermentationTemp) { %>
+                                                        <div class="text-danger">
+                                                            <%= errors.fermentationTemp.msg %> 
+                                                        </div>
+                                                    <% } %>
                                                     <div class="text-danger" id="msgFront_fermentationTemp"> </div>
                                             </li>
                                         </ul>
@@ -149,13 +218,25 @@
                                                     <input 
                                                         type="text" 
                                                         name="malt1"
-                                                        value="<%=recetaToEdit.malt1%>">
+                                                        id="malt1"
+                                                        value="<%= locals.oldData ? oldData.malt1 : recetaToEdit.malt1 %>"> 
+                                                        <% if (locals.errors && errors.malt1) { %>
+                                                            <div class="text-danger">
+                                                                <%= errors.malt1.msg %> 
+                                                            </div>
+                                                        <% } %>
                                                         <div class="text-danger" id="msgFront_malt1"> </div>
                                                     <p>Cantidad:</p>
                                                         <input 
                                                             type="text" 
                                                             name="malt1Amount"
-                                                            value="<%=recetaToEdit.malt1Amount%>">
+                                                            id="malt1Amount"
+                                                            value="<%= locals.oldData ? oldData.malt1Amount : recetaToEdit.malt1Amount %>"> 
+                                                            <% if (locals.errors && errors.malt1Amount) { %>
+                                                                <div class="text-danger">
+                                                                    <%= errors.malt1Amount.msg %> 
+                                                                </div>
+                                                            <% } %>
                                                             <div class="text-danger" id="msgFront_malt1Amount"> </div>
                                                 </div>
                                                 <h6>Malta adicional: </h6>
@@ -204,19 +285,37 @@
                                                     <input 
                                                         type="text" 
                                                         name="hop1"
-                                                        value="<%=recetaToEdit.hop1%>">
+                                                        id="hop1"
+                                                        value="<%= locals.oldData ? oldData.hop1 : recetaToEdit.hop1 %>"> 
+                                                            <% if (locals.errors && errors.hop1) { %>
+                                                                <div class="text-danger">
+                                                                    <%= errors.hop1.msg %> 
+                                                                </div>
+                                                            <% } %>
                                                         <div class="text-danger" id="msgFront_hop1"> </div>
                                                     <p>Cantidad: </p> 
                                                     <input 
                                                         type="text" 
                                                         name="hop1Amount"
-                                                        value="<%=recetaToEdit.hop1Amount%>">
+                                                        id="hop1Amount"
+                                                        value="<%= locals.oldData ? oldData.hop1Amount : recetaToEdit.hop1Amount %>"> 
+                                                            <% if (locals.errors && errors.hop1Amount) { %>
+                                                                <div class="text-danger">
+                                                                    <%= errors.hop1Amount.msg %> 
+                                                                </div>
+                                                            <% } %>
                                                         <div class="text-danger" id="msgFront_hop1Amount"> </div>
                                                     <p>Momento de adición:</p>
                                                     <input 
                                                         type="text" 
                                                         name="hop1Moment"
-                                                        value="<%=recetaToEdit.hop1Moment%>">
+                                                        id="hop1Moment"
+                                                        value="<%= locals.oldData ? oldData.hop1Moment : recetaToEdit.hop1Moment %>"> 
+                                                            <% if (locals.errors && errors.hop1Moment) { %>
+                                                                <div class="text-danger">
+                                                                    <%= errors.hop1Moment.msg %> 
+                                                                </div>
+                                                            <% } %>
                                                         <div class="text-danger" id="msgFront_hop1Moment"> </div>
                                                 </div>
                                                 <h6>Lúpulo adicional: </h6>
@@ -251,13 +350,25 @@
                                                         <input 
                                                             type="text" 
                                                             name="yeast"
-                                                            value="<%=recetaToEdit.yeast%>">
+                                                            id="yeast"
+                                                            value="<%= locals.oldData ? oldData.yeast : recetaToEdit.yeast %>"> 
+                                                            <% if (locals.errors && errors.yeast) { %>
+                                                                <div class="text-danger">
+                                                                    <%= errors.yeast.msg %> 
+                                                                </div>
+                                                            <% } %>
                                                             <div class="text-danger" id="msgFront_yeast"> </div>
                                                     <p>Cantidad:</p>
                                                     <input 
                                                         type="text" 
                                                         name="yeastAmount"
-                                                        value="<%=recetaToEdit.yeastAmount%>">
+                                                        id="yeastAmount"
+                                                        value="<%= locals.oldData ? oldData.yeastAmount : recetaToEdit.yeastAmount %>"> 
+                                                            <% if (locals.errors && errors.yeastAmount) { %>
+                                                                <div class="text-danger">
+                                                                    <%= errors.yeastAmount.msg %> 
+                                                                </div>
+                                                            <% } %>
                                                         <div class="text-danger" id="msgFront_yeastAmount"> </div>
                                                 </div>
                                             </li>
@@ -281,6 +392,7 @@
                                 </div>
                             </div>
                             <button class="pd-admin" type="submit">Guardar</button>
+                            <div class="text-danger" id="msgFront_submit"> </div>
                             <button class="pd-admin ra-edit" type="reset"></a>Cancelar cambios</a></button>
                         </div>
 
