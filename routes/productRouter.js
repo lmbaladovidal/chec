@@ -10,24 +10,24 @@ const { body, validationResult, check } = require('express-validator'); // Reque
 
 const validations = [
     body('name').notEmpty().withMessage('El campo nombre es obligatorio').bail()
-        .isLength(),
+        .isLength({min:3}).withMessage('Minimo 3 caracteres'),
     body('description').notEmpty().withMessage('El campo descripcion es obligatorio').bail()
-        .isLength(),
+        .isLength({min:3}).withMessage('Minimo 3 caracteres'),
 	body('bitterness')
 		.notEmpty().withMessage('El campo amargor es obligatorio').bail() //bail corta la validación si está vacío
 		.isNumeric().withMessage('El amargor solo puede tener valores numericos'),
 	body('alcohol')
-        .notEmpty().withMessage('Tienes que escribir tu dirección').bail()
+        .notEmpty().withMessage('Debes indicar la gradacion').bail()
         .isNumeric("La graduacion de alcohol solo puede ser numerica"),
 	body('color')
-        .notEmpty().withMessage('Tienes que escribir tu fecha de nacimiento').bail()
+        .notEmpty().withMessage('Se debe indicar el SRM').bail()
         .isNumeric().withMessage('El color debe ser un valor numerico'),
 	body('hop')
         .notEmpty().withMessage('El campo lupulo es obligatorio').bail()
-        .isLength(),
-	body('carbonation').notEmpty().withMessage('Repite tu contraseña').bail()
-        .isLength(),
-    body('price').notEmpty().withMessage('Repite tu contraseña').bail()
+        .isLength({min:3}).withMessage('Minimo 3 caracteres'),
+	body('carbonation').notEmpty().withMessage('Debes indicar la gasificacion').bail()
+        .isLength({min:3}).withMessage('Minimo 3 caracteres'),
+    body('price').notEmpty().withMessage('Se debe indicar el precio').bail()
         .isNumeric().withMessage(),
 	body('productImage').custom((value, { req }) => {
 		let file = req.file;

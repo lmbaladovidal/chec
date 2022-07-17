@@ -26,70 +26,70 @@
                                         <%= errors.name.msg %> 
                                     <% } %>
                                 </div>
-                                <p><input type="text" name="name" id="name"  class='rg-input'></p>
+                                <p><input type="text" name="name" id="name"  class='rg-input' value="<%= locals.oldData ? oldData.name : null %>"></p>
                             </li>
                             <li class='pa-li-element'>
                                 <h5>Descripción</h5>
                                 <div class="text-danger" id="msgFront_description"> 
                                     <% if (locals.errors && errors.description) { %>
-                                        <%= errors.name.msg %> 
+                                        <%= errors.description.msg %> 
                                     <% } %>
                                 </div>
-                                <p><input type="text" name="description" id="description" value="" class='rg-input'></p>
+                                <p><input type="text" name="description" id="description" value="" class='rg-input' value="<%= locals.oldData ? oldData.description : null %>"></p>
                             </li>
                             <li class='pa-li-element'>
                                 <h5>Amargor </h5>
                                 <div class="text-danger" id="msgFront_bitterness">
                                     <% if (locals.errors && errors.bitterness) { %>
-                                        <%= errors.name.msg %> 
+                                        <%= errors.bitterness.msg %> 
                                     <% } %>
                                 </div>
-                                <p><input type="text" name="bitterness" id="bitterness" value="" class='rg-input'></p>
+                                <p><input type="text" name="bitterness" id="bitterness" value="" class='rg-input' value="<%= locals.oldData ? oldData.bitterness : null %>"></p>
                             </li>                  
                             <li class='pa-li-element'>
                                 <h5>Alcohol </h5>
                                 <div class="text-danger" id="msgFront_alcohol">
                                     <% if (locals.errors && errors.alcohol) { %>
-                                        <%= errors.name.msg %> 
+                                        <%= errors.alcohol.msg %> 
                                     <% } %>
                                 </div>
-                                <p><input type="text" name="alcohol" id="alcohol" value="" class='rg-input'></p>
+                                <p><input type="text" name="alcohol" id="alcohol" value="" class='rg-input' value="<%= locals.oldData ? oldData.alcohol : null %>"></p>
                             </li>
                             <li class='pa-li-element'>
                                 <h5>Color </h5>
                                 <div class="text-danger" id="msgFront_color"> 
                                     <% if (locals.errors && errors.color) { %>
-                                        <%= errors.name.msg %> 
+                                        <%= errors.color.msg %> 
                                     <% } %>
                                 </div>
-                                <p><input type="text" name="color" id="color" value="" class='rg-input'></p>
+                                <p><input type="text" name="color" id="color" value="" class='rg-input' value="<%= locals.oldData ? oldData.color : null %>"></p>
                             </li>
                             <li class='pa-li-element'>
                                 <h5>Lúpulo/s </h5>
                                 <div class="text-danger" id="msgFront_hop">
                                     <% if (locals.errors && errors.hop) { %>
-                                        <%= errors.name.msg %> 
+                                        <%= errors.hop.msg %> 
                                     <% } %>
                                 </div>
-                                <p><input type="text" name="hop" id="hop" value="" class='rg-input'></p>
+                                <p><input type="text" name="hop" id="hop" value="" class='rg-input' value="<%= locals.oldData ? oldData.hop : null %>"></p>
                             </li>
                             <li class='pa-li-element'>
                                 <h5>Gasificación </h5>
                                 <div class="text-danger" id="msgFront_carbonation"> 
                                     <% if (locals.errors && errors.carbonation) { %>
-                                        <%= errors.name.msg %> 
+                                        <%= errors.carbonation.msg %> 
                                     <% } %>
                                 </div>
-                                <p><input type="text" name="carbonation" id="carbonation" value=""class='rg-input' ></p>
+                                <p><input type="text" name="carbonation" id="carbonation" value=""class='rg-input' value="<%= locals.oldData ? oldData.carbonation : null %>"></p>
                             </li>
                             <li class='pa-li-element'>
                                 <h5>Precio </h5>
                                 <div class="text-danger" id="msgFront_price"> 
                                     <% if (locals.errors && errors.price) { %>
-                                        <%= errors.name.msg %> 
+                                        <%= errors.price.msg %> 
                                     <% } %> 
                                 </div>
-                                <p><input type="text" name="price" id="price" value=""class='rg-input' ></p>
+                                <p><input type="text" name="price" id="price" value=""class='rg-input' value="<%= locals.oldData ? oldData.price : null %>"></p>
                             </li>
                             <li class='pa-li-element'>
                                 <h5>Categoría </h5> 
@@ -104,7 +104,7 @@
                             </select>
                             </li>        
                         </ul>        
-                        <input type="file" name="product-image" id="productImage" class='rg-input'>
+                        <input type="file" name="product-image" id="productImage" class='rg-input' value="<%= locals.oldData ? oldData.productImage : null %>">
                         <input type="text" name="image"  style="opacity: 0;" value="" class='rg-input'>
                         <div class="text-danger" id="msgFront_image"> 
                             <% if (locals.errors && errors.productImage) { %>
