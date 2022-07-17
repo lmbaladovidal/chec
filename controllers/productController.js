@@ -9,7 +9,7 @@ const Product = db.Products;
 
 const productPage = (req,res)=>{
         const userLogged = req.session.userLogged;
-        console.log(userLogged)
+     //   console.log(userLogged)
         Product.findAll()
         .then(resultado=>{
             const cervezas = resultado
@@ -70,7 +70,7 @@ const productCreate= async (req,res)=>{
 const productUpdate = async (req, res) =>{
     const resultValidation = validationResult(req);
     if (resultValidation.errors.length > 0) {
-      return res.render("./users/register", {
+      return res.render("./product/productPage", {
         errors: resultValidation.mapped(),
         oldData: req.body,
       });

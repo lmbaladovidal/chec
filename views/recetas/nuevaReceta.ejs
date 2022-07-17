@@ -171,18 +171,45 @@
                                             <h6>Macerado </h6>
 
                                             <h6>Temperatura de maceración: </h6>
-                                        <input type="text" name="mashTemp" id="mashTemp"> ° (grados celsius)
+                                        <input 
+                                            type="text" 
+                                            name="mashTemp" 
+                                            id="mashTemp"
+                                            value="<%= locals.oldData ? oldData.mashTemp : null %>"> ° (grados celsius)                                       
+                                                    <% if (locals.errors && errors.mashTemp) { %>
+                                                        <div class="text-danger">
+                                                            <%= errors.mashTemp.msg %> 
+                                                        </div>
+                                                    <% } %>
                                         <div class="text-danger" id="msgFront_mashTemp"> </div>
 
                                             <h6>Tiempo de maceración: </h6>
-                                          <input type="text" name="mashTime" id="mashTime"> minutos
+                                          <input 
+                                            type="text" 
+                                            name="mashTime" 
+                                            id="mashTime"
+                                            value="<%= locals.oldData ? oldData.mashTime : null %>"> min.                                       
+                                                    <% if (locals.errors && errors.mashTime) { %>
+                                                        <div class="text-danger">
+                                                            <%= errors.mashTime.msg %> 
+                                                        </div>
+                                                    <% } %>
                                           <div class="text-danger" id="msgFront_mashTime"> </div>
 
                                         </li>
                                         <li class="ra-li-malt">
                                             <h6>Fermentación </h6>
                                             <h6>Temperatura de fermentación: </h6>
-                                            <input type="text" name="fermentationTemp" id="fermentationTemp"> grados
+                                            <input 
+                                                type="text" 
+                                                name="fermentationTemp" 
+                                                id="fermentationTemp"
+                                                value="<%= locals.oldData ? oldData.fermentationTemp : null %>"> ° (grados celsius)                                       
+                                                    <% if (locals.errors && errors.fermentationTemp) { %>
+                                                        <div class="text-danger">
+                                                            <%= errors.fermentationTemp.msg %> 
+                                                        </div>
+                                                    <% } %>
                                             <div class="text-danger" id="msgFront_fermentationTemp"> </div>
                                         </li>
                                     </ul>
@@ -362,7 +389,7 @@
                         <button class="pd-admin" type="submit" >Guardar</button>
                         <div class="text-danger" id="msgFront_submit"> </div>
                         <button class="pd-admin ra-edit" type="reset"></a>Cancelar cambios</a></button>
-                        <div class="text-danger" id="msgFront_submit"> </div>
+                       
                     </div>
                 </section>
             </form>
