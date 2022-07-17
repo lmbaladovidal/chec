@@ -20,14 +20,14 @@ const salesController = {
             res.render('enDesarrollo')
         }else{
             const json = JSON.stringify(JSON.parse(SaleShippingUser.id));
-            console.log("ID_SALE" + json)
+     //       console.log("ID_SALE" + json)
             // //SaleShippingUser.map(element => {console.log(element.Detailsale[0])});}}
              const products_Detail = await Detailsale.findAll({
                      include: ['Products'],
                      where:{Sales_id:(json)
                      }
                      })
-                     console.log(JSON.stringify(products_Detail));
+                   //  console.log(JSON.stringify(products_Detail));
                     //let products_Deatil = JSON.parse({products_Detail})}
                      //res.render('./sales/productCart',JSON.render({products_Detail}))
                      //res.send('./sales/productCart',products_Detail)
@@ -47,7 +47,7 @@ const salesController = {
             state: 1,
             product_id: 1
         })
-        console.log(carrito)
+     //   console.log(carrito)
         res.send(carrito)
         res.redirect('/sales')           
     },
@@ -105,7 +105,7 @@ const salesController = {
             where:{id:id}
 
         })
-        console.log("LLEGA" + itemToDelete)
+     //   console.log("LLEGA" + itemToDelete)
         await Detailsale.destroy(itemToDelete)
 
         res.redirect('./sales/productCart');

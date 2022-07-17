@@ -84,14 +84,20 @@ const userController = {
         .then((result)=> res.redirect("./login"));        
       };      
     })
-    },
+  },
 
   profile: (req, res) => {
     return res.render("./users/profile", { user: req.session.userLogged }); // pasar a la vista la variable userLogged
   },
 
   editProfile: (req, res) => {
-
+    const resultValidation = validationResult(req);
+    if (resultValidation.errors.length > 0) {
+      return res.render("./users/editprofile/" + req.params.id, {
+        errors: resultValidation.mapped(),
+        oldData: req.body,
+      });
+    }
     Users.findOne({
       where: {
         id: req.session.userLogged.id,

@@ -25,7 +25,8 @@ const userLoggedMiddleware =require('../middlewares/userLoggedMiddleware')
 
 // Validation para express-validator
 const validations = [
-    body('name').notEmpty().withMessage('Tienes que escribir tu nombre'),
+    body('name').notEmpty().withMessage('Tienes que escribir tu nombre').bail()
+		.isLength({min:3}).withMessage("Mínimo 3 caracteres."),
     body('lastName').notEmpty().withMessage('Tienes que escribir tu apellido'),
 	body('email')
 		.notEmpty().withMessage('Tienes que escribir un correo electrónico').bail() //bail corta la validación si está vacío
@@ -66,7 +67,7 @@ router.post('/register',uploadFile.single('avatar'), validations, userController
 router.get('/profile', userLoggedMiddleware , authMiddleware,  userController.profile);
 
 router.get('/profile/:id', authMiddleware, userController.editProfile)
-router.put('/profile/:id', authMiddleware, uploadFile.single('avatar'),userController.updateProfile)
+router.put('/profile/:id', authMiddleware, uploadFile.single('avatar'), validations, userController.updateProfile)
 
 //Delete
 router.delete('/profile/:id', authMiddleware, userController.deleteProfile)

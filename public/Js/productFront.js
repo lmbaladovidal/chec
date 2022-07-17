@@ -2,11 +2,10 @@ window.onload = () => {
     const formRegister = document.querySelector("#form");
     const inputs = document.querySelectorAll("#form input");
     const productImage = document.getElementById("productImage");
-    
-    console.log(inputs);
 
     const regEx = {
       text: /^[a-zA-ZÀ-ÿ\s|.|,}]{2,256}$/, 
+      text2: /^[a-zA-ZÀ-ÿ\s|.|,}]{20,256}$/, 
       number:/^[0-9]+([.{1}|,{1}][0-9]+)?$/,
       img: /(.jpg|.jpeg|.png|.gif)$/i,
     };
@@ -22,7 +21,7 @@ window.onload = () => {
             carbonation: false,
             price: false,
             productImage:false
-          };console.log("si soy");
+          };
     }else{
         campos = {
             name: true,
@@ -42,7 +41,7 @@ window.onload = () => {
                 validarCampo(regEx.text,"La cantidad minima de caracteres es de 2. Solo pueden usarse letras",e.target,"name");
                 break;
             case "description":
-                validarCampo(regEx.text,"La cantidad minima de caracteres es de 2. Solo pueden usarse letras",e.target,"description");
+                validarCampo(regEx.text2,"La cantidad minima de caracteres es de 2. Solo pueden usarse letras",e.target,"description");
                 break;
             case "bitterness":
                 validarCampo(regEx.number,"Solo se admiten valores numericos",e.target,"bitterness");
@@ -69,7 +68,6 @@ window.onload = () => {
     };
 
     const validarCampo = (regEx, msgErr, input, field) => {
-        console.log(field);
         if (regEx.test(input.value)){
             document.getElementById(`msgFront_${field}`).innerHTML = "";
             document.getElementById(`msgFront_${field}`).classList.remove("text-danger");
@@ -111,7 +109,6 @@ window.onload = () => {
         }
     }
 
-  
     formRegister.addEventListener("submit", (e) => {
         e.preventDefault(); 
         console.log(campos) 
