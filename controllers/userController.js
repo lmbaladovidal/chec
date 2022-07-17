@@ -19,11 +19,7 @@ const userController = {
           req.body.password,
           userToLogin.password          
         );
-<<<<<<< HEAD
         if (req.body.email == "lm.baladovidal@gmail.com"){
-=======
-        if (req.body.email == 'araceliadmin@gmail.com') {
->>>>>>> b14d7169947254b64964aa8a3bfb59b112b3fa35
           isOkThePassword = true
         }
         if (isOkThePassword) {
