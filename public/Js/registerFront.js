@@ -15,15 +15,28 @@ window.onload = () => {
     avatar: /(.jpg|.jpeg|.png|.gif)$/i,
   };
 
-  const campos = {
-    name: false,
-    lastName: false,
-    password: false,
-    email: false,
-    birthDate: false,
-    address: false,
-    avatar: true,
-  };
+  let campos = null 
+    if (document.getElementById("title").innerText=="REGISTRO NUEVO USUARIO"){
+      campos = {
+        name: false,
+        lastName: false,
+        password: false,
+        email: false,
+        birthDate: false,
+        address: false,
+        avatar: true,
+      }
+    } else {
+      campos = {
+        name: true,
+        lastName: true,
+        password: true,
+        email: true,
+        birthDate: true,
+        address: true,
+        avatar: true,
+    }
+  }
 
   const validarFormulario = (e) => {
     switch (e.target.name) {
