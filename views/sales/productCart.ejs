@@ -8,7 +8,7 @@
     <!-- Header-->
     <%- include("../partials/header") %>
     <!-- <section id="formulario" > -->
-        <form action="/sales/shoppingCart" method="POST" id="formProductCart>
+      <!--  <form action="/sales/shoppingCart" method="POST" id="formProductCart">  -->
             <main class="pc-main">
                 <section class="pc-cart"> 
                         <div class="pc-product-group">
@@ -18,12 +18,21 @@
                                 <div class="pd-tienda">
                                     <% for (i=0;i< products_Detail.length;i++){%>
                                         <article class="col-12 col-sm-6 col-lg-3 pd-product">
-                                            <img class="pd-img-product" src="/images/<%= products_Detail[i].Product.image %>" width="100" alt="beer"> 
+                                            <img class="pd-img-product" src="/images/<%= products_Detail[i].Products.image %>" width="100" alt="beer"> 
                                             <div class="pd-datos-cerveza">
-                                                <h4><%= products_Detail[i].Product.name %></h4>
-                                                <h4 > Cantidad: <input type="number" id="spinButton<%= products_Detail[i].Product.id %>"  value="<%= products_Detail[i].quantity %>" onclick="calculate(<%= products_Detail[i].Product.id %>)" class=""> </h4>
-                                                
-                                                <h4 name="<%= products_Detail[i].Product.id %>" id="price<%= products_Detail[i].Product.id %>">$ <%= products_Detail[i].Product.price %></h4>
+                                                <h4><%= products_Detail[i].Products.name %></h4>
+                                                <h4> ID: <input type="text" id="<%= products_Detail[i].Products.id %>" value="<%= products_Detail[i].Products.id %>"> </h4>
+                                                <h4><%= products_Detail[i].Products.id %></h4>
+                                                <h4>
+                                                <!-- <button type="button" id="buttonMinus<%= products_Detail[i].Products.id %>"  class="far fa-minus-square" > </button> -->
+                                                <button  id="add"  class="far fa-plus-square" ></button>
+                                                <input type="text" id="quantity5" value="10" class="quantity">
+                                                <button  id="subtrat"  class="far fa-minus-square" ></button>
+                                                <!-- <button type="button" id="buttonPlus<%= products_Detail[i].Products.id %>"  class="far fa-plus-square"  >  -->
+                                                </h4>
+                                                <!-- <h4 name="price<%= products_Detail[i].Products.id %>" id="price<%= products_Detail[i].Products.id %>" >$ <%= products_Detail[i].Products.price %></h4> -->
+                                                <h4> <input  type="hidden" id="price<%= products_Detail[i].Products.id %>" value="<%= products_Detail[i].Products.price %>" class="price">  </h4>
+                                                <div type="text" id="msgFront_Cart" > "<%= products_Detail[i].Products.price %>" </div>
                                             </div>
                                         </article>
                                     <%}%>
@@ -78,6 +87,7 @@
                                 <div class="pc-ResumenCompra-Subtotal-texto">
                                     <div class="pc-ResumenCompra-detalle">
                                         <label name="subtotal" class="pc-ResumenCompra-detalle-texto" >Subtotal</label> 
+                                        <h4 > Subtotal: <input type="text" id="subtotal" > </h4>
                                     </div>
                                     <div  class="pc-ResumenCompra-detalle">
                                         <label name="descuento" class="pc-ResumenCompra-detalle-texto" required>Descuento</label> 
@@ -126,31 +136,10 @@
             </main>
             <!-- Footer-->
             <%- include("../partials/footer") %>
-        </form>
+        <!-- </form>  -->
     <!-- </section> -->
-    <script>
-        const a = []
-        
-        //const inputs = document.querySelectorAll("#formRegister input");
-        //const inputs = document.querySelectorAll("#formProductCart input");
-        
-        //inputs.forEach((input) => {
-       
-        //input.addEventListener("keyup", validarFormulario);
-        //input.addEventListener("blur", validarFormulario);
-        //input.addEventListener("change", valExtFile);
-
-  //});
-
-        function calculate(id){  
-
-            elemento = document.getElementById("price" + id);
-            counter = document.getElementById("spinButton" + id).value;
-            console.log(counter)
-            const price = document.getElementById("price" + id).textContent
-
-            elemento.textContent = "$ " + price.slice(2,price.length)*counter}
-   </script>
+    <script src="/Js/cartFront.js"> 
+    </script> 
 </body>
 
 </html>
