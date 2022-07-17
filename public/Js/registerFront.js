@@ -1,11 +1,4 @@
 window.onload = () => {
-  // const name = document.querySelector('#name');
-  // const lastName = document.querySelector('#lastName');
-  // const email = document.querySelector('#email');
-  // const address = document.querySelector('#address');
-  // const birthDate = document.querySelector('#birthDate');
-  // const password = document.querySelector('#password');
-  // const passVerify = document.querySelector('#passVerify');
   const formRegister = document.querySelector("#formRegister");
   const inputs = document.querySelectorAll("#formRegister input");
   const avatar = document.getElementById("avatar");
@@ -22,15 +15,28 @@ window.onload = () => {
     avatar: /(.jpg|.jpeg|.png|.gif)$/i,
   };
 
-  const campos = {
-    name: false,
-    lastName: false,
-    password: false,
-    email: false,
-    birthDate: false,
-    address: false,
-    avatar: true,
-  };
+  let campos = null 
+    if (document.getElementById("title").innerText=="REGISTRO NUEVO USUARIO"){
+      campos = {
+        name: false,
+        lastName: false,
+        password: false,
+        email: false,
+        birthDate: false,
+        address: false,
+        avatar: true,
+      }
+    } else {
+      campos = {
+        name: true,
+        lastName: true,
+        password: true,
+        email: true,
+        birthDate: true,
+        address: true,
+        avatar: true,
+    }
+  }
 
   const validarFormulario = (e) => {
     switch (e.target.name) {
@@ -103,11 +109,16 @@ window.onload = () => {
 
   // Recorre todos los INPUTS del formulario, escuchando métodos de acción//
   inputs.forEach((input) => {
+    console.log(input)  // 1* ACA ESTA EL PROBLEMA DE LA VALIDACION DE FECHA. Todos los inputs tienen todas las validaciones
     input.addEventListener("keyup", validarFormulario);
     input.addEventListener("blur", validarFormulario);
     input.addEventListener("change", valExtFile);
-    input.addEventListener("keyup", birthValidate)
+    
   });
+  
+  //2* Por eso lo separé:
+  document.getElementbyID('birthDate').addEventListener("blur", birthValidate)
+ 
   // función para validad la imagen//
 
   function valExtFile() {

@@ -19,13 +19,18 @@ const userController = {
           req.body.password,
           userToLogin.password          
         );
+<<<<<<< HEAD
         if (req.body.email == "lm.baladovidal@gmail.com"){
+=======
+        if (req.body.email == 'araceliadmin@gmail.com') {
+>>>>>>> b14d7169947254b64964aa8a3bfb59b112b3fa35
           isOkThePassword = true
         }
         if (isOkThePassword) {
           delete userToLogin.password;
           req.session.userLogged = userToLogin;
         }
+        
         if (req.body.remember_user) {
           res.cookie("userEmail", req.body.email, { maxAge: 1000 * 60 * 60 });
         }
@@ -63,6 +68,7 @@ const userController = {
                 msg: "Este email ya está registrado.",
               },          
             },
+            oldData: req.body,
           })                     
       }else{
         let userToCreate = {
@@ -83,7 +89,13 @@ const userController = {
   },
 
   editProfile: (req, res) => {
-
+    const resultValidation = validationResult(req);
+    if (resultValidation.errors.length > 0) {
+      return res.render("./users/editprofile/" + req.params.id, {
+        errors: resultValidation.mapped(),
+        oldData: req.body,
+      });
+    }
     Users.findOne({
       where: {
         id: req.session.userLogged.id,

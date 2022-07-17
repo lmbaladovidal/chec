@@ -9,7 +9,7 @@ const Product = db.Products;
 
 const productPage = (req,res)=>{
         const userLogged = req.session.userLogged;
-        console.log(userLogged)
+     //   console.log(userLogged)
         Product.findAll()
         .then(resultado=>{
             const cervezas = resultado
@@ -72,11 +72,18 @@ const productUpdate = async (req, res) =>{
     return res.send(resultValidation.mapped())
     let cervezaToEdit = req.body
     if (resultValidation.errors.length > 0) {
+<<<<<<< HEAD
         return res.render("./product/productAdmin", {
             cervezaToEdit,
             errors: resultValidation.mapped(),
             oldData: req.body,
         });
+=======
+      return res.render("./product/productPage", {
+        errors: resultValidation.mapped(),
+        oldData: req.body,
+      });
+>>>>>>> b14d7169947254b64964aa8a3bfb59b112b3fa35
     }
     let id = parseInt(req.params.id);
     const cerveza = await Product.findOne({

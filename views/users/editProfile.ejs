@@ -7,8 +7,8 @@
     <!-- Header-->
     <%- include("../partials/header") %>
     <section> 
-        <label><h3>MODIFICAR DATOS DE USUARIO</h3></label>
-        <form action="/users/profile/<%=userToEdit.id%>?_method=PUT" class="rg-form" method="POST" enctype="multipart/form-data">
+        <label><h3 id="title">MODIFICAR DATOS DE USUARIO</h3></label>
+        <form action="/users/profile/<%=userToEdit.id%>?_method=PUT" class="rg-form" method="POST" enctype="multipart/form-data" id="formRegister">
             <div>
             <label><b>Nombre</b></label>
             <br>
@@ -23,6 +23,7 @@
                     <%= errors.name.msg %> 
                 </div>
             <% } %>
+            <div class="text-danger" id="msgFront_name"> </div>
         </div>
             <div>
                 <label><b>Apellido</b></label>
@@ -37,6 +38,7 @@
                             <%= errors.lastName.msg %> 
                         </div>
                     <% } %>
+                    <div class="text-danger" id="msgFront_lastName"> </div>
             </div>
            <div>
             <label><b>Email</b></label>
@@ -51,6 +53,7 @@
                         <%= errors.email.msg %> 
                     </div>
                 <% } %>
+                <div class="text-danger" id="msgFront_email"> </div>
            </div>
            <div>
             <label><b>Dirección</b></label>
@@ -65,6 +68,7 @@
                             <%= errors.address.msg %> 
                         </div>
                     <% } %>
+                    <div class="text-danger" id="msgFront_address"> </div>
             </div>
             <div>
                 <label><b>Fecha de nacimiento</b></label>
@@ -72,6 +76,7 @@
                 <input 
                     type="date"
                     name="birthDate" 
+                    onblur="birthValidate()"
                     class="rg-input" <%= locals.errors && errors.birthDate ? 'is-invalid' : null %>"
                     value="<%= userToEdit.birthDate  %>">
                     <% if (locals.errors && errors.birthDate) { %>
@@ -79,6 +84,8 @@
                             <%= errors.birthDate.msg %> 
                         </div>
                     <% } %>
+
+                    <div class="text-danger" id="msgFront_birthDate"> </div>
             </div>
              
             <div>
@@ -93,7 +100,8 @@
                         type="file" 
                         name="avatar"
                         class="rg-input"
-                        value="<%= locals.oldData ? oldData.name : null %>">                  
+                        value="<%= locals.oldData ? oldData.name : null %>">   
+                    <div class="text-danger" id="msgFront_avatar"> </div>               
                 </div>
             </div>
         
@@ -116,5 +124,9 @@
     </section>
     <!-- Footer-->
     <%- include("../partials/footer") %>
+    <script src="/js/registerFront.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+    <script moment().format()></script>
 </body>
 </html>
