@@ -51,6 +51,8 @@ const productCreate= async (req,res)=>{
         oldData: req.body,
       });
     }
+
+    
     await Product.create({
         name: req.body.name,
         description: req.body.description,
@@ -69,15 +71,16 @@ const productCreate= async (req,res)=>{
     
 const productUpdate = async (req, res) =>{
     const resultValidation = validationResult(req);
-    return res.send(resultValidation.mapped())
+   
     let cervezaToEdit = req.body
     if (resultValidation.errors.length > 0) {
       return res.render("./product/productPage", {
+        cervezaToEdit,
         errors: resultValidation.mapped(),
         oldData: req.body,
       });
     }
-    let id = parseInt(req.params.id);
+   // let id = parseInt(req.params.id);
     const cerveza = await Product.findOne({
         where:{id:req.params.id}
     }); 
