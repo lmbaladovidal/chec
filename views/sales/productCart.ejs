@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 
@@ -132,4 +133,138 @@
     </script>
 </body>
 
+=======
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head-->
+<%- include("../partials/head") %>
+
+<body>
+    <!-- Header-->
+    <%- include("../partials/header") %>
+    
+       <form action="/sales/shoppingCart" method="POST" id="formProductCart">
+           
+                <section class="pc-cart"> 
+                        <div class="pc-product-group">
+                            <div class="pc-product-cantidad">
+                               
+                                <div class="shopping-cart-items" id="shoppingCartItemsContainer" >
+                                    <% for (i=0;i< products_Detail.length;i++){%>
+                                        <div class="pc-row shoppingCartItem" id="shoppingCartItem">                                         
+                                                <div class="shopping-cart-item">
+                                                    <img src="/images/<%= products_Detail[i].Products.image %>" class="pc-shopping-cart-image" id="product-image">
+                                                    <h6 class="shopping-cart-item-title shoppingCartItemTitle " id="product-name"><%= products_Detail[i].Products.name %></h6>
+                                                    <h4 type="hidden" id="price<%= products_Detail[i].Products.id %>">  </h4>
+                                                    <p class="shopping-cart-price" id="shoppingCartItemPrice"><%= products_Detail[i].Products.price %></p>
+                                                </div>
+                                                <div class="shopping-cart-quantity">
+                                                    <input class="pc-shopping-cart-quantity-input " id="shoppingCartItemQuantity" type="number" value="1">
+                                                    <button class="btn pc-btn-danger" id="buttonDelete" type="button">X</button>
+                                                </div>                                          
+                                        </div>                                       
+                                    <%}%>
+
+                                    <div class="subtotal">
+                                        <label name="subtotal" class="pc-ResumenCompra-detalle-texto" >Subtotal</label>                
+                                        <label class=".pc-counter-label-det-label2" >ARS</label>
+                                        <p type="number" class="pc-counter-label-det-valor" name="subtotal" id="subtotal" value="" > 0 </p>       
+                                    </div>
+                               </div>
+
+
+                                    <div class="pc-direccionEnvio">
+                                        <div class="pc-direccionEnvio-detalle">
+                                            <label class="pc-direccionEnvio-detalle-texto" >Dirección envío</label> 
+                                            <label class="pc-direccionEnvio-detalle-texto" >Código Postal</label> 
+                                        </div>
+                                        <div class="pc-direccionEnvio-valor">
+                                            <input type="text" class="pc-DireccionEnvio-Titulo-caja-texto" name="quantity"
+                                                value="Julio A. Roca 1826" title="Cantidad" placeholder="" inputmode="text">
+                                            <input type="text" class="pc-DireccionEnvio-Titulo-caja-texto" name="quantity"
+                                                value="B6237" title="Cantidad" placeholder="" inputmode="text">
+                                        </div>
+                                    
+                                    </div>
+
+                                    <div class="pc-options">
+                                        <button class="pc-options-button lg-button" >Calcular</button>
+                                    </div>   
+                                    <div class="pc-direccionEnvio">
+                                        <div class="pc-direccionEnvio-detalle">
+                                            <label class="pc-direccionEnvio-detalle-texto" >Descuento</label> 
+                                        </div>
+                                        <div class="pc-direccionEnvio-valor">
+                                            <input type="text" class="pc-DireccionEnvio-Titulo-caja-texto" name="discount"
+                                                value="100" title="Cantidad" placeholder="" inputmode="text">
+                                        </div>
+                                    
+                                    </div>
+                                    
+                                    <div class="pc-options">
+                                        <button class="pc-options-button lg-button" >Calcular</button>
+                                    </div>   
+                                    
+                            </div>
+
+                        </div>
+
+
+                        <div class="pc-ResumenCompra">
+                            <div class="pc-ResumenCompra-Titulo">
+                                <label class="pc-quantity-label-det" >Resumen de Compra</label>
+                            </div>
+                            <div class="pc-ResumenCompra-Subtotal">
+                                <div class="pc-ResumenCompra-Subtotal-texto">
+                                    
+                                    <div  class="pc-ResumenCompra-detalle">
+                                        <label name="descuento" class="pc-ResumenCompra-detalle-texto" required>Descuento</label> 
+                                    </div>
+                                    <div class="pc-ResumenCompra-detalle">
+                                        <label  name="envio"  class="pc-ResumenCompra-detalle-texto" >Envío</label> 
+                                    </div>
+                                    <div   class="pc-ResumenCompra-detalle">
+                                        <label name="total" class="pc-ResumenCompra-detalle-texto" >Total</label> 
+                                    </div>
+                                    
+                                </div>
+
+                                <div class="pc-ResumenCompra-Subtotal-valores">
+                                    
+                                    <div class="pc-counter-ResumenCompra">
+                                        <label class=".pc-counter-label-det-label2" >ARS</label>
+                                        <input type="text" class="pc-counter-label-det-valor" name="totalDiscount" value="100" title="totalDiscount" placeholder="" readonly="readonly">
+                                    </div>
+                                    <div class="pc-counter-ResumenCompra">
+                                        <label class=".pc-counter-label-det-label2" >ARS</label>
+                                        <input type="text" class="pc-counter-label-det-valor" name="totalShipping" value="250" title="totalShipping" placeholder="" readonly="readonly">
+                                    </div>
+                                    <div class="pc-counter-ResumenCompra">
+                                        <label class=".pc-counter-label-det-label2" >ARS</label>
+                                        <input type="text" class="pc-counter-label-det-valor" name="total" value="1250" title="total" placeholder="" readonly="readonly">
+                                    </div>                                   
+                                </div>  
+                                
+                            </div>
+                            <div class="pc-ResumenCompra-Subtotal"></div>
+                            <div class="pc-options">
+                                <button class="pc-options-button lg-button" type="submit">Finalizar Compra</button>
+                            </div> 
+                                 
+                        </div>
+                    
+                </section>
+          
+        </form> 
+            <!-- Footer-->
+            <%- include("../partials/footer") %>
+        
+    
+    <script src="/Js/cartFront.js"> </script> 
+  
+
+</body>
+
+>>>>>>> b7e454b6aeaef5944f2341d1e21f31e81be91ddf
 </html>

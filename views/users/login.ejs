@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <script src="https://apis.google.com/js/platform.js" async defer></script>
@@ -62,4 +63,145 @@
     <%- include("../partials/footer") %>
 
 </body>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<script src="https://apis.google.com/js/api:client.js"></script>
+<script>
+  var googleUser = {};
+  var startApp = function() {
+    gapi.load('auth2', function(){
+      // Retrieve the singleton for the GoogleAuth library and set up the client.
+      auth2 = gapi.auth2.init({
+        client_id: "654446761891-94el9afoph3rne3p950dsv8pcvns6024.apps.googleusercontent.com",
+        cookiepolicy: 'single_host_origin',
+        // Request scopes in addition to 'profile' and 'email'
+        //scope: 'additional_scope'
+      });
+      attachSignin(document.getElementById('customBtn'));
+    });
+  };
+
+  function attachSignin(element) {
+    console.log(element.id);
+    auth2.attachClickHandler(element, {},
+        function(googleUser) {
+          document.getElementById('name').innerText = "Signed in: " +
+              googleUser.getBasicProfile().getName();
+              alert( googleUser.getBasicProfile().getName())
+        }, function(error) {
+          alert(JSON.stringify(error, undefined, 2));
+        });
+  }
+  </script>
+
+<script>
+    window.fbAsyncInit = function() {
+        FB.init({
+        appId      : '{your-app-id}',
+        cookie     : true,
+        xfbml      : true,
+        version    : '{api-version}'
+        });        
+        FB.AppEvents.logPageView();           
+    };
+
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+    
+    
+    
+    FB.getLoginStatus(function(response) {
+        statusChangeCallback(response);
+    });
+
+    
+    
+    let response = {
+        status: 'connected',
+        authResponse: {
+            accessToken: '...',
+            expiresIn:'...',
+            signedRequest:'...',
+            userID:'...'
+        }
+    }
+
+    function checkLoginState() {
+        FB.getLoginStatus(function(response) {
+        statusChangeCallback(response);
+    });
+}
+</script>
+<!-- Head-->
+<%- include("../partials/head") %>
+
+<body>
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v14.0&appId=1022422761737928&autoLogAppEvents=1" nonce="0ExacROH"></script>
+    <!-- Header-->
+    <%- include("../partials/header") %>
+    <section>
+       
+        <div>
+            <label><h3>LOGIN DE USUARIO</h3></label>
+            <div class="lg-div-login lg-input">
+                <div id="gSignInWrapper">
+                    <button class="lg-button g-signin2" style="width: 100%" id="customBtn" data-onsuccess="onSignIn"><i class="fa-brands fa-google customGPlusSignIn"> Ingresar con Google </i></button>
+                </div>
+                <div id="name"></div>
+                <script>startApp();</script>
+                <button class="lg-button " style="width: 100%"><i class="fa-brands fa-facebook-f"> Ingresar con Facebook </i></button>
+                <fb:login-button 
+                    scope="public_profile,email"
+                    onlogin="checkLoginState();">
+                </fb:login-button>
+                <div class="fb-login-button lg-button" data-width="" data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="true" data-use-continue-as="true"></div>
+            </div>
+            
+            <form action="/users/login" method="POST" class="lg-form-login rg-form">
+                <div>
+                    <label>Email</label>
+                    <input type="email" name="email" id="email" class="lg-input">                    
+                    <div class="text-danger" id="msgFront_email">
+                            <% if (locals.errors && errors.email) { %>
+                                <%= errors.email.msg %>
+                            <% } %>
+                    </div>
+                </div>
+                <div>
+                    <label>Constraseña</label>
+                    <input type="password" name="password" id="password" class="lg-input">
+                    <div class="text-danger" id="msgFront_password">
+                </div>
+                </div>
+                <div>
+                    <label>
+                        <input type="checkbox" name="remember_user"> Recordar mi usuario
+                    </label>
+                </div>
+                
+                <button type="submit" class="lg-submit">Ingresar</button>
+            </form>
+           
+            <div class="lg-input">
+            <h4>¿No tenés cuenta?
+            <a href="/users/register" class="lg-a">Registrate acá</a></h4>
+        </div>
+        </div>
+    </section>
+
+
+    
+    <!-- Footer-->
+    <div style="margin-top:175px"> </div>
+    <%- include("../partials/footer") %>
+    <script src="/Js/loginFront.js"></script>
+</body>
+>>>>>>> b7e454b6aeaef5944f2341d1e21f31e81be91ddf
 </html>
