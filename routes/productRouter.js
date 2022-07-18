@@ -54,11 +54,11 @@ router.get('/productCreate/', authMiddleware, productController.productCreatePag
 router.get('/pack', productController.productPack);
 router.get('/search/',productController.productSearch);
 router.get('/productPage', productController.productPage);
-router.post('/productAdmin/', authMiddleware ,validations, upload.single('product-image'), productController.productCreate);
+router.post('/productAdmin/', authMiddleware , upload.single('product-image'),validations, productController.productCreate);
 
 router.get('/productDetail/:id', productController.productDetail);
 router.get('/productAdmin/:id',authMiddleware,productController.productAdmin);
-router.put('/productAdmin/:id',authMiddleware, validations, upload.single('product-image'), productController.productUpdate);
+router.put('/productAdmin/:id',authMiddleware, upload.single('product-image'), validations, productController.productUpdate);
 router.delete('/:id',productController.productDelete);
 
 

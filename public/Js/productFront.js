@@ -118,7 +118,7 @@ window.onload = () => {
     }
 
     formRegister.addEventListener("submit", (e) => {
-       // e.preventDefault(); 
+        //e.preventDefault(); 
         console.log(campos) 
         Object.values(campos).filter(value=>{return !value}).length == 0?formRegister.submit():null;
     });

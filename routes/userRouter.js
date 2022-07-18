@@ -53,6 +53,31 @@ const validations = [
 		return true;
 	})
 ];
+
+const validationsProfile = [
+    body('name').notEmpty().withMessage('Tienes que escribir tu nombre').bail()
+		.isLength({min:3}).withMessage("Mínimo 3 caracteres."),
+    body('lastName').notEmpty().withMessage('Tienes que escribir tu apellido'),
+	body('email')
+		.notEmpty().withMessage('Tienes que escribir un correo electrónico').bail() //bail corta la validación si está vacío
+		.isEmail().withMessage('Debes escribir un formato de correo válido'),
+	body('address').notEmpty().withMessage('Tienes que escribir tu dirección'),
+	body('birthDate').notEmpty().withMessage('Tienes que escribir tu fecha de nacimiento'),
+	body('avatar').custom((value, { req }) => {       //custom validation xq no hay una validación para files. 
+		let file = req.file;                          //Custom val. requiere cb para pasar el campo a validar
+		let acceptedExtensions = ['.jpg', '.png', '.gif'];
+		
+		if (file) {
+			let fileExtension = path.extname(file.originalname);
+			if (!acceptedExtensions.includes(fileExtension)) {
+				throw new Error(`Las extensiones de archivo permitidas son ${acceptedExtensions.join(', ')}`);
+			}
+		} 
+		return true;
+	})
+];
+
+
 //Form de login
 router.get('/login',guestMiddleware, userController.login);
 //Process login
@@ -67,7 +92,7 @@ router.post('/register',uploadFile.single('avatar'), validations, userController
 router.get('/profile', userLoggedMiddleware , authMiddleware,  userController.profile);
 
 router.get('/profile/:id', authMiddleware, userController.editProfile)
-router.put('/profile/:id', authMiddleware, uploadFile.single('avatar'), validations, userController.updateProfile)
+router.put('/profile/:id', authMiddleware, uploadFile.single('avatar'), validationsProfile, userController.updateProfile)
 
 //Delete
 router.delete('/profile/:id', authMiddleware, userController.deleteProfile)
