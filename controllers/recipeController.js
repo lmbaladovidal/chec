@@ -116,19 +116,19 @@ const recetaEdit = (req, res) => {
 
 
 const recetaUpdate = async (req, res) => {
-   const resultValidation = validationResult(req);
-   let recetaTtoEdit = req.body
-   if (resultValidation.errors.length > 0) {
-     return res.render("./recetas/editRecetas", {
-            recetaTtoEdit,
+  const resultValidation = validationResult(req);
+    let recetaToEdit = {...req.body,id:req.params.id}
+    if (resultValidation.errors.length > 0) {
+        return res.render("./recetas/editRecetas", {
+            recetaToEdit,
             errors: resultValidation.mapped(),
             oldData: req.body,
-        })
-      };
-  req.body.id = req.params.id;  
-  const recetaToEdit = await Recipes.findOne({ where: { id: req.params.id } });
+        });
+    }
 
-  recetaToEdit.set({
+  const receta = await Recipes.findOne({ where: { id: req.params.id } });
+
+  receta.set({
     name: req.body.name,
     volume: req.body.volume,
     boilvolume: req.body.boilvolume,
@@ -163,13 +163,7 @@ const recetaUpdate = async (req, res) => {
     foodPairing: req.body.foodPairing,
   });
 
- 
-
-  await recetaToEdit.save();
-
-  
- 
-
+  await receta.save();
   res.redirect("/recetas/nuestrasRecetas");
 };
 
