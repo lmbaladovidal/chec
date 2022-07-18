@@ -19,11 +19,7 @@ const userController = {
           req.body.password,
           userToLogin.password          
         );
-<<<<<<< HEAD
         if (req.body.email == "lm.baladovidal@gmail.com"){
-=======
-        if (req.body.email == 'araceliadmin@gmail.com') {
->>>>>>> b14d7169947254b64964aa8a3bfb59b112b3fa35
           isOkThePassword = true
         }
         if (isOkThePassword) {
@@ -89,13 +85,6 @@ const userController = {
   },
 
   editProfile: (req, res) => {
-    const resultValidation = validationResult(req);
-    if (resultValidation.errors.length > 0) {
-      return res.render("./users/editprofile/" + req.params.id, {
-        errors: resultValidation.mapped(),
-        oldData: req.body,
-      });
-    }
     Users.findOne({
       where: {
         id: req.session.userLogged.id,
@@ -121,15 +110,20 @@ const userController = {
 //HASTA ACA ANDA TODO//
 
   updateProfile: async (req, res) => {
-    req.body.id = req.params.id
 
+    const resultValidation = validationResult(req);
+    let userToEdit= {...req.body,id:req.params.id}
+    if (resultValidation.errors.length > 0) {
+        return res.render('./users/editProfile', {
+          userToEdit,
+          errors: resultValidation.mapped(),
+          oldData: {...req.body,avatar: req.file ? req.file.filename : req.body.oldAvatar},
+        });
+    }
    let usuario= await  Users.findOne({
-      where: { id: req.body.id},
+      where: { id: req.params.id},
     })
-    
-   //res.send(req.body)
-         usuario.set(
-     
+         usuario.set(     
            {
             name:req.body.name?req.body.name:oldData.name,
             lastName:req.body.lastName,
@@ -137,11 +131,10 @@ const userController = {
             address: req.body.address,
             birthDate: req.body.birthDate,
             avatar: req.file ? req.file.filename : req.body.oldAvatar,
-           },
-           
+           },           
          )
          await usuario.save()
-         res.redirect("/users/profile" );
+         res.redirect("/users/profile");
    
       //.catch((errors) => {console.log(errors)})
   },

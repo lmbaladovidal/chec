@@ -11,24 +11,14 @@ const { body, validationResult, check } = require('express-validator'); // Reque
 const validations = [
     body('name').notEmpty().withMessage('El campo nombre es obligatorio').bail()
         .isLength({min:3}).withMessage('Minimo 3 caracteres'),
-    body('description').notEmpty().withMessage('El campo descripcion es obligatorio').bail()
-        .isLength({min:3}).withMessage('Minimo 3 caracteres'),
-	body('bitterness')
-		.notEmpty().withMessage('El campo amargor es obligatorio').bail() //bail corta la validación si está vacío
+    body('description').notEmpty().withMessage('El campo descripcion es obligatorio').bail().isLength({min:3}).withMessage('Minimo 3 caracteres'),
+	body('bitterness').notEmpty().withMessage('El campo amargor es obligatorio').bail() //bail corta la validación si está vacío
 		.isNumeric().withMessage('El amargor solo puede tener valores numericos'),
-	body('alcohol')
-        .notEmpty().withMessage('Debes indicar la gradacion').bail()
-        .isNumeric("La graduacion de alcohol solo puede ser numerica"),
-	body('color')
-        .notEmpty().withMessage('Se debe indicar el SRM').bail()
-        .isNumeric().withMessage('El color debe ser un valor numerico'),
-	body('hop')
-        .notEmpty().withMessage('El campo lupulo es obligatorio').bail()
-        .isLength({min:3}).withMessage('Minimo 3 caracteres'),
-	body('carbonation').notEmpty().withMessage('Debes indicar la gasificacion').bail()
-        .isLength({min:3}).withMessage('Minimo 3 caracteres'),
-    body('price').notEmpty().withMessage('Se debe indicar el precio').bail()
-        .isNumeric().withMessage(),
+	body('alcohol').notEmpty().withMessage('Debes indicar la gradacion').bail().isNumeric("La graduacion de alcohol solo puede ser numerica"),
+	body('color').notEmpty().withMessage('Se debe indicar el SRM').bail().isNumeric().withMessage('El color debe ser un valor numerico'),
+	body('hop').notEmpty().withMessage('El campo lupulo es obligatorio').bail().isLength({min:3}).withMessage('Minimo 3 caracteres'),
+	body('carbonation').notEmpty().withMessage('Debes indicar la gasificacion').bail().isLength({min:3}).withMessage('Minimo 3 caracteres'),
+    body('price').notEmpty().withMessage('Se debe indicar el precio').bail().isNumeric().withMessage(),
 	body('productImage').custom((value, { req }) => {
 		let file = req.file;
 		let acceptedExtensions = ['.jpg', '.png', '.gif'];		
@@ -58,11 +48,11 @@ router.get('/productCreate/', authMiddleware, productController.productCreatePag
 router.get('/pack', productController.productPack);
 router.get('/search/',productController.productSearch);
 router.get('/productPage', productController.productPage);
-router.post('/productAdmin/', authMiddleware ,validations, upload.single('product-image'), productController.productCreate);
+router.post('/productAdmin/', authMiddleware , upload.single('product-image'),validations, productController.productCreate);
 
 router.get('/productDetail/:id', productController.productDetail);
 router.get('/productAdmin/:id',authMiddleware,productController.productAdmin);
-router.put('/productAdmin/:id',authMiddleware, validations, upload.single('product-image'), productController.productUpdate);
+router.put('/productAdmin/:id',authMiddleware, upload.single('product-image'), validations, productController.productUpdate);
 router.delete('/:id',productController.productDelete);
 
 
