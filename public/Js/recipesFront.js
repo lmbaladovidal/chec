@@ -186,7 +186,7 @@ window.onload = () => {
 
 
     formRecipes.addEventListener("submit", (e) => {
-       // e.preventDefault();
+        e.preventDefault();
         Object.values(fields).filter(value=>{return !value}).length == 0?formRecipes.submit()
         :document.getElementById("msgFront_submit").innerHTML="Debes completar correctamente el formulario.";
         console.log('CAMPOS')

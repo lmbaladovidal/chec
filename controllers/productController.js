@@ -79,7 +79,7 @@ const productUpdate = async (req, res) =>{
             oldData: req.body,
         });
     }
-   // let id = parseInt(req.params.id);
+   
     const cerveza = await Product.findOne({
         where:{id:req.params.id}
     }); 

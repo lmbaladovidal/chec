@@ -196,7 +196,7 @@ window.onload = () => {
 
 
   formRegister.addEventListener("submit", (e) => {
-    //e.preventDefault();
+    e.preventDefault();
 
     if (!
       campos.name &&
