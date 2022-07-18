@@ -15,6 +15,7 @@
             <input 
             type="text" 
             name="name"
+            id="name"
             class="rg-input <%= locals.errors && errors.name ? 'is-invalid' : null %>"
             value="<%=userToEdit.name%>">
 
@@ -31,6 +32,7 @@
                 <input 
                     type="text"
                     name="lastName" 
+                    id="lastName"
                     class="rg-input <%= locals.errors && errors.lastName ? 'is-invalid' : null %>"
                     value="<%= userToEdit.lastName  %>">
                     <% if (locals.errors && errors.lastName) { %>
@@ -46,6 +48,7 @@
             <input 
                 type="text" 
                 name="email" 
+                id="email"
                 class="rg-input" <%= locals.errors && errors.email ? 'is-invalid' : null %>"
                 value="<%= userToEdit.email  %>">
                 <% if (locals.errors && errors.email) { %>
@@ -61,6 +64,7 @@
                <input 
                     type="text" 
                     name="address" 
+                    id="address"
                     class="rg-input" <%= locals.errors && errors.address ? 'is-invalid' : null %>"
                     value="<%= userToEdit.address%>">
                     <% if (locals.errors && errors.address) { %>
@@ -76,6 +80,7 @@
                 <input 
                     type="date"
                     name="birthDate" 
+                    id="birthDate"
                     onblur="birthValidate()"
                     class="rg-input" <%= locals.errors && errors.birthDate ? 'is-invalid' : null %>"
                     value="<%= userToEdit.birthDate  %>">
@@ -93,14 +98,15 @@
                     <label><b>Imagen de perfil:</b></label>
                     <br>
                     <div>
-                        <img src="/images/avatars/<%= userToEdit.avatar %> " width="150px">
+                        <img src="/images/avatars/<%= userToEdit.avatar?userToEdit.avatar: oldData.avatar %> " width="150px">
                     </div>
                     <input type="hidden" name="oldAvatar" value="<%=userToEdit.avatar%>">
                     <input 
                         type="file" 
                         name="avatar"
+                        id="avatar"
                         class="rg-input"
-                        value="<%= locals.oldData ? oldData.name : null %>">   
+                        value="<%= locals.oldData ? oldData.avatar : null %>">   
                     <div class="text-danger" id="msgFront_avatar"> </div>               
                 </div>
             </div>

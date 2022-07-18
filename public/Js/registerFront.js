@@ -117,7 +117,7 @@ window.onload = () => {
   });
   
   //2* Por eso lo separé:
-  document.getElementbyID('birthDate').addEventListener("blur", birthValidate)
+  document.getElementById('birthDate').addEventListener("blur", birthValidate)
  
   // función para validad la imagen//
 
@@ -196,7 +196,7 @@ window.onload = () => {
 
 
   formRegister.addEventListener("submit", (e) => {
-    e.preventDefault();
+    //e.preventDefault();
 
     if (!
       campos.name &&

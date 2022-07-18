@@ -69,13 +69,13 @@ const productCreate= async (req,res)=>{
     
 const productUpdate = async (req, res) =>{
     const resultValidation = validationResult(req);
-    return res.send(resultValidation.mapped())
-    let cervezaToEdit = req.body
+    let cervezaToEdit = {...req.body,id:req.params.id}
     if (resultValidation.errors.length > 0) {
-      return res.render("./product/productPage", {
-        errors: resultValidation.mapped(),
-        oldData: req.body,
-      });
+        return res.render("./product/productAdmin", {
+            cervezaToEdit,
+            errors: resultValidation.mapped(),
+            oldData: req.body,
+        });
     }
     let id = parseInt(req.params.id);
     const cerveza = await Product.findOne({
