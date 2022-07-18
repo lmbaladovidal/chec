@@ -1,4 +1,8 @@
 window.onload = () => {
+    const formCart = document.getElementById("formRecipes");
+    const inputs = document.querySelectorAll("#formRecipes input");
+    const buttons = document.querySelectorAll('#formRecipes button')
+
         const a = []
         
         //const inputs = document.querySelectorAll("#formRegister input");
