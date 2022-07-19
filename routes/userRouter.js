@@ -27,7 +27,8 @@ const userLoggedMiddleware =require('../middlewares/userLoggedMiddleware')
 const validations = [
     body('name').notEmpty().withMessage('Tienes que escribir tu nombre').bail()
 		.isLength({min:3}).withMessage("Mínimo 3 caracteres."),
-    body('lastName').notEmpty().withMessage('Tienes que escribir tu apellido'),
+    body('lastName').notEmpty().withMessage('Tienes que escribir tu apellido').bail()
+		.isLength({min:3}).withMessage("Mínimo 3 caracteres."),
 	body('email')
 		.notEmpty().withMessage('Tienes que escribir un correo electrónico').bail() //bail corta la validación si está vacío
 		.isEmail().withMessage('Debes escribir un formato de correo válido'),
@@ -56,8 +57,9 @@ const validations = [
 
 const validationsProfile = [
     body('name').notEmpty().withMessage('Tienes que escribir tu nombre').bail()
-		.isLength({min:3}).withMessage("Mínimo 3 caracteres."),
-    body('lastName').notEmpty().withMessage('Tienes que escribir tu apellido'),
+		.isLength({min:2}).withMessage("Mínimo 3 caracteres."),
+    body('lastName').notEmpty().withMessage('Tienes que escribir tu apellido').bail()
+		.isLength({min:2}).withMessage("Mínimo 3 caracteres."),
 	body('email')
 		.notEmpty().withMessage('Tienes que escribir un correo electrónico').bail() //bail corta la validación si está vacío
 		.isEmail().withMessage('Debes escribir un formato de correo válido'),
@@ -72,10 +74,10 @@ const validationsProfile = [
 			let fileExtension = path.extname(file.originalname);
 			console.log(fileExtension);
 			if (!acceptedExtensions.includes(fileExtension)) {
-				console.log(!acceptedExtensions.includes(fileExtension));
+				//console.log(!acceptedExtensions.includes(fileExtension));
 				
 				throw new Error(`Las extensiones de archivo permitidas son ${acceptedExtensions.join(', ')}`);
-				console.log(Error());
+				//console.log(Error());
 			}
 			return false
 		} 

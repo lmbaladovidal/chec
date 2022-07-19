@@ -81,7 +81,7 @@
                     type="date"
                     name="birthDate" 
                     id="birthDate"
-                    onblur="birthValidate()"
+                    
                     class="rg-input" <%= locals.errors && errors.birthDate ? 'is-invalid' : null %>"
                     value="<%= userToEdit.birthDate  %>">
                     <% if (locals.errors && errors.birthDate) { %>
