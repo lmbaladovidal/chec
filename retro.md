@@ -15,6 +15,8 @@
   <li>Demoramos en ponernos de acuerdo para elegir la aplicación para realizar los wireframes y duplicamos trabajo probando herramientas.</li>
 </ul>
 
+<hr/>
+
 <h2>Retro Sprint 2</h2>
 
 <h3>Qué hicimos bien</h3>
@@ -42,6 +44,8 @@
 <li>Requerir el concenso del equipo completo para realizar cambios en el código de css para poder avanzar con mayor flexibilidad.</li>
 </ul>
 
+<hr/>
+
 <h2>Retro Sprint 3</h2>
 
 <h3>Qué hicimos bien</h3>
@@ -65,6 +69,8 @@
 <ul>
 <li> En este sprint no hay puntos que ameriten tratamiento.</li>
 </ul>
+
+<hr/>
 
 <h2>Retro Sprint 4</h2>
 
@@ -90,6 +96,7 @@
 <li> En este sprint no hay puntos que ameriten tratamiento.</li>
 </ul>
 
+<hr/>
 
 <h2>Retro Sprint 5</h2>
 
@@ -116,6 +123,8 @@
 <ul>
 <li> No acumular muchos commits en las ramas individuales sin subirlas a desarrollo. Esto requiere mantener fluida la conversación grupal para consensuar lo que subimos a desarrollo y resolver conflictos a medida que sucedan.</li>
 </ul>
+
+<hr/>
 
 <h2>Retro Sprint 6</h2>
 
@@ -172,6 +181,6 @@
 <li> En este sprint no detectamos prácticas que debamos suspender</li>
 </ul>
 
-
+<hr/>
 
 
