@@ -105,8 +105,14 @@
                         type="file" 
                         name="avatar"
                         id="avatar"
+                        accept=".jpg,.png,.jpeg,.gif"
                         class="rg-input"
-                        value="<%= locals.oldData ? oldData.avatar : null %>">   
+                        value="<%= locals.oldData ? oldData.avatar : null %>">
+                <% if (locals.errors && errors.avatar) { %>
+                    <div class="text-danger">
+                        <%= errors.avatar.msg %> 
+                    </div>
+                <% } %>
                     <div class="text-danger" id="msgFront_avatar"> </div>               
                 </div>
             </div>

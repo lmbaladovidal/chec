@@ -42,16 +42,16 @@ const validations = [
 			return true}),
 	body('avatar').custom((value, { req }) => {       //custom validation xq no hay una validación para files. 
 		let file = req.file;                          //Custom val. requiere cb para pasar el campo a validar
-		let acceptedExtensions = ['.jpg', '.png', '.gif'];
-		
+		//let acceptedExtensions = /(.jpg|.jpeg|.png|.gif)$/i;
+		let acceptedExtensions = ['.jpg','.jpeg','.png','.gif'];
 		if (file) {
 			let fileExtension = path.extname(file.originalname);
 			if (!acceptedExtensions.includes(fileExtension)) {
-				throw new Error(`Las extensiones de archivo permitidas son ${acceptedExtensions.join(', ')}`);
+				throw new Error(`Solo Formatos ${acceptedExtensions.join(', ')}`);
 			}
 		} 
 		return true;
-	})
+	}).withMessage("Avatar con FORMATO incorrecto")
 ];
 
 const validationsProfile = [
@@ -64,14 +64,20 @@ const validationsProfile = [
 	body('address').notEmpty().withMessage('Tienes que escribir tu dirección'),
 	body('birthDate').notEmpty().withMessage('Tienes que escribir tu fecha de nacimiento'),
 	body('avatar').custom((value, { req }) => {       //custom validation xq no hay una validación para files. 
-		let file = req.file;                          //Custom val. requiere cb para pasar el campo a validar
-		let acceptedExtensions = ['.jpg', '.png', '.gif'];
+		let file = req.file;                       //Custom val. requiere cb para pasar el campo a validar
+		let acceptedExtensions = ['.jpg','.jpeg','.png','.gif'];
 		
 		if (file) {
+			console.log(file);
 			let fileExtension = path.extname(file.originalname);
+			console.log(fileExtension);
 			if (!acceptedExtensions.includes(fileExtension)) {
+				console.log(!acceptedExtensions.includes(fileExtension));
+				
 				throw new Error(`Las extensiones de archivo permitidas son ${acceptedExtensions.join(', ')}`);
+				console.log(Error());
 			}
+			return false
 		} 
 		return true;
 	})
@@ -86,7 +92,7 @@ router.post('/login', userController.loginProcess);
 //Form de register
 router.get('/register', guestMiddleware, userController.register);
 // Proces user register
-router.post('/register',uploadFile.single('avatar'), validations, userController.userRegister);
+router.post('/register', uploadFile.single('avatar'),validations, userController.userRegister);
 
 //Profile
 router.get('/profile', userLoggedMiddleware , authMiddleware,  userController.profile);
