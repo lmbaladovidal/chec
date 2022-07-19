@@ -145,6 +145,33 @@
 <li> Deberíamos consultar más documentación oficial cuando el contenido de la plataforma no es suficiente.</li>
 </ul>
 
+<hr/>
+
+<h2>Retro Sprint 7</h2>
+
+<h3>Qué hicimos bien</h3>
+<ul> 
+<li> Trabajamos más colaborativamente con tareas asignadas a otros compañeros, para resolver más rápido algunos desafíos.   </li>
+<li> Consultamos documetnación oficial y videos con tutoriales con mayor frecuencia para cumplir con algunas implementaciones.</li>
+</ul>
+
+<h3>Qué hicimos mal</h3>
+<ul>
+<li> Nos costó nuevamente reorgnizarnos con los tiempos para cumplir los entregables. </li>
+<li> No tuvimos celeridad para resolver algunos errores que se nos fueron presentando, y eso atrasó mucho en algunas tareas fundamentales.  </li>
+</ul>
+
+<h3>Qué deberíamos empezar a hacer</h3>
+<ul>
+<li> Reunirnos mas el grupo completo, al menos 2 veces por semana. </li>
+<li> Dedicar mas tiempo a profundizar conceptos sobre React con material extra. </li>
+</ul>
+
+<h3>Qué deberíamos dejar de hacer</h3>
+<ul>
+<li> En este sprint no detectamos prácticas que debamos suspender</li>
+</ul>
+
 
 
 
