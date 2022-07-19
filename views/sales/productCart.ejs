@@ -7,29 +7,36 @@
 <body>
     <!-- Header-->
     <%- include("../partials/header") %>
-    <!-- <section id="formulario" > -->
-        <form action="/sales/shoppingCart" method="POST">
-            <main class="pc-main">
+    
+       <form action="/sales/shoppingCart" method="POST" id="formProductCart">
+           
                 <section class="pc-cart"> 
                         <div class="pc-product-group">
                             <div class="pc-product-cantidad">
                                
-
-                                <div class="pd-tienda">
+                                <div class="shopping-cart-items shoppingCartItemsContainer" id="shoppingCartItemsContainer" >
                                     <% for (i=0;i< products_Detail.length;i++){%>
-                                        <article class="col-12 col-sm-6 col-lg-3 pd-product">
-                                            <img class="pd-img-product" src="/images/<%= products_Detail[i].Product.image %>" width="100" alt="beer"> 
-                                            <div class="pd-datos-cerveza">
-                                                <h4><%= products_Detail[i].Product.name %></h4>
-                                                <h4> Cantidad: <input type="number" value="<%= products_Detail[i].quantity %>" class=""> </h4>
-                                                <h4>$ <%= products_Detail[i].Product.price %></h4>
-                                            </div>
-                                        </article>
+                                        <div class="shoppingCartItem pc-row" id="shoppingCartItem">                                         
+                                                <div class="shopping-cart-item">
+                                                    <img src="/images/<%= products_Detail[i].Products.image %>" class="pc-shopping-cart-image" id="product-image">
+                                                    <h6 class="shopping-cart-item-title shoppingCartItemTitle " id="product-name"><%= products_Detail[i].Products.name %></h6>
+                                                    <h4 type="hidden" id="price<%= products_Detail[i].Products.id %>">  </h4>
+                                                    <p class="shopping-cart-price" id="shoppingCartItemPrice"><%= products_Detail[i].Products.price %></p>
+                                                </div>
+                                                <div class="shopping-cart-quantity">
+                                                    <input class="pc-shopping-cart-quantity-input " id="shoppingCartItemQuantity" type="number" value="1">
+                                                    <button class="btn pc-btn-danger" id="buttonDelete" type="button">X</button>
+                                                </div>                                          
+                                        </div>                                       
                                     <%}%>
+
+                                    <div class="subtotal">
+                                        <label name="subtotal" class="pc-ResumenCompra-detalle-texto" >Subtotal</label>                
+                                        <label class=".pc-counter-label-det-label2" >ARS</label>
+                                        <p type="number" class="pc-counter-label-det-valor" name="subtotal" id="subtotal" value="" > 0 </p>       
+                                    </div>
                                </div>
 
-                               
-    
 
                                     <div class="pc-direccionEnvio">
                                         <div class="pc-direccionEnvio-detalle">
@@ -67,7 +74,6 @@
 
                         </div>
 
-                    
 
                         <div class="pc-ResumenCompra">
                             <div class="pc-ResumenCompra-Titulo">
@@ -75,9 +81,7 @@
                             </div>
                             <div class="pc-ResumenCompra-Subtotal">
                                 <div class="pc-ResumenCompra-Subtotal-texto">
-                                    <div class="pc-ResumenCompra-detalle">
-                                        <label name="subtotal" class="pc-ResumenCompra-detalle-texto" >Subtotal</label> 
-                                    </div>
+                                    
                                     <div  class="pc-ResumenCompra-detalle">
                                         <label name="descuento" class="pc-ResumenCompra-detalle-texto" required>Descuento</label> 
                                     </div>
@@ -91,10 +95,7 @@
                                 </div>
 
                                 <div class="pc-ResumenCompra-Subtotal-valores">
-                                    <div class="pc-counter-ResumenCompra">
-                                        <label class=".pc-counter-label-det-label2" >ARS</label>
-                                        <input type="text" class="pc-counter-label-det-valor" name="subtotal" value="900" title="subtotal" placeholder="" readonly="readonly">
-                                    </div>
+                                    
                                     <div class="pc-counter-ResumenCompra">
                                         <label class=".pc-counter-label-det-label2" >ARS</label>
                                         <input type="text" class="pc-counter-label-det-valor" name="totalDiscount" value="100" title="totalDiscount" placeholder="" readonly="readonly">
@@ -106,11 +107,7 @@
                                     <div class="pc-counter-ResumenCompra">
                                         <label class=".pc-counter-label-det-label2" >ARS</label>
                                         <input type="text" class="pc-counter-label-det-valor" name="total" value="1250" title="total" placeholder="" readonly="readonly">
-                                    </div>
-                                        
-                                    
-                                    <!-- <input type="text" class="pc-ResumenCompra-Titulo-caja-texto" name="quantity"
-                                                value="ARS 1050" title="Cantidad" placeholder="" inputmode="text"> -->
+                                    </div>                                   
                                 </div>  
                                 
                             </div>
@@ -118,15 +115,19 @@
                             <div class="pc-options">
                                 <button class="pc-options-button lg-button" type="submit">Finalizar Compra</button>
                             </div> 
-                            </div>     
+                                 
                         </div>
-                    </div>
+                    
                 </section>
-            </main>
+          
+        </form> 
             <!-- Footer-->
             <%- include("../partials/footer") %>
-        </form>
-    <!-- </section> -->
+        
+    
+    <script src="/Js/cartFront.js"> </script> 
+  
+
 </body>
 
 </html>

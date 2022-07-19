@@ -433,9 +433,13 @@ max-width: 500px;
 
 
 /*Pagina Register*/
+.is-invalid {
+  border: 1px red solid;
 
+}
 .text-danger {
   color: #dc3545 !important;
+  font-size: 12px;
 }
 
 section label h3{
@@ -534,9 +538,7 @@ main h2 .pd-titulo {
   padding: 10px;
   max-width: 250px;
 }
-.pc-img-product {
-  width: 50%;
-}
+
 
 .pd-datos-cerveza {
   border-top: 1px solid #ebebeb;
@@ -902,6 +904,45 @@ padding: 0 10px;
     margin: 0 20px 30px 0;
 }
 
+.pc-shopping-cart-image {
+  max-width: 80px;
+  border-radius: 20px;
+}
+
+.pc-shopping-cart-quantity-input {
+  max-width: 45px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background: #eee;
+  padding: 5px;
+}
+.pc-btn-danger {
+  color: #fff;
+  background-color: #ff5200;
+  border-color: #ff5200;
+}
+.pc-row, .subtotal {
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+ justify-content: space-between;
+ align-self: baseline;
+ margin-top: 10px;
+}
+
+.shopping-cart-item, .shopping-cart-quantity {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+}
+.shopping-cart-item-title {
+  margin: 20px;
+}
+
+.shopping-cart-item-title {
+ align-self: right;
+}
 
 
 .fa-brands, .fab, .far {
@@ -1497,7 +1538,7 @@ div .ra-receta-container {
   font-size: 13px;
   margin: 0 5px 0 5px;
 }
-.ra-information-attributes li input, .ra-information .ra-beer-attributes li p input, .ra-name p input {
+input, .ra-name p input {
   border-radius: 3px;
   margin-right: 20px;
   border: 1px solid #c4c4c4;

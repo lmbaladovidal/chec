@@ -63,3 +63,26 @@
   <li>Reunirnos una vez mas antes de la entrega final del Sprint.</li>
 </ul>
 
+<h2>Weeky Semanas 23/2022 a 25/2022</h2>
+<h3>Qué se hizo</h3>
+<ul>
+  <li>Alba: Creé módulo de users.</li>
+  <li>Araceli: Creé módulo de recetas.</li>
+  <li>Leandro: Creé módulo de productos.</li>
+  <li>David: Creé módulo de carro de compras.</li>
+  <li>Alba, David, Leandro, Araceli: Diagrama y base de datos.</li>
+</ul>
+<h3>Qué impedimentos encontramos</h3>
+<ul>
+  <li> Trasladar el diagrama a Schemas con las relaciones planificadas.</li>
+  <li> Trabajar con la base de datos local no nos permite unificar cambios y nos pisamos los datos y las correcciones.</li>
+  <li> Crear de manera correcta las relaciones en Workbench dado que desconocíamos que deben realizarse en un orden específico.</li>
+  <li> No supimos resolver la adaptación del userlog middleware al implementar los modelos por base de datos, y tuvimos que recurrir a la ayuda del profesor.</li>
+</ul>
+
+<h3>Qué se va a hacer</h3>
+<ul>
+  <li> Corregir la base de datos con los cambios necesarios para que funcionen los modelos.</li>  
+  <li> Corregir el diagrama final para entregar en el sprint.</li>
+</ul>
+

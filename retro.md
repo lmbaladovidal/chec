@@ -117,6 +117,34 @@
 <li> No acumular muchos commits en las ramas individuales sin subirlas a desarrollo. Esto requiere mantener fluida la conversación grupal para consensuar lo que subimos a desarrollo y resolver conflictos a medida que sucedan.</li>
 </ul>
 
+<h2>Retro Sprint 6</h2>
+
+<h3>Qué hicimos bien</h3>
+<ul> 
+<li> Atomizamos las tareas para repartirlas claramente.  </li>
+<li> Investigamos conceptos para poder resolver los entregables, más allá del contenido de las clases.</li>
+<li> Mejoramos la experiencia en resolver conflictos en GitHub.</li>
+<li> Mejoramos en la forma de migrar la información a la rama de desarrollo a medida que teníamos las partes funcionales.</li>
+</ul>
+
+<h3>Qué hicimos mal</h3>
+<ul>
+<li> Subestimamos los tiempos del sprint. Planificamos bien, nos demoramos un poco en comenzar las tareas y nos costó reorganizar los tiempos de todos los integrantes. </li>
+ <li> Nos tendríamos que haber reunido más veces hasta conseguir tener una base de datos armada y funcional entre todos. Al trabajarlas por separado tuvimos que ir corriguendo los errores que surgían todo el tiempo. </li>
+</ul>
+
+<h3>Qué deberíamos empezar a hacer</h3>
+<ul>
+<li> Trabajar los detalles que dejamos para cerrar al final como por ejemplo, revisar el header, imágenes finales, el login con FaceBook y Gmail, los estilos css en general. </li>
+<li> Darle funcionalidad a algunos botones del sitio que quedaron pendientes. </li>
+</ul>
+
+<h3>Qué deberíamos dejar de hacer</h3>
+<ul>
+<li> Deberíamos no demorar tanto tiempo en consultar al profesor las dudas conceptuales cuando nos trabamos.</li>
+<li> Deberíamos consultar más documentación oficial cuando el contenido de la plataforma no es suficiente.</li>
+</ul>
+
 
 
 

@@ -1,32 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-    
-<%- include('../partials/head') %>
 
-    <script>
-        function validar(){
-            if(document.getElementById("password").value == document.getElementById("passVerify").value){
-                document.getElementById("passVerify").style.backgroundColor = 'green'
-                document.getElementById("pwsd-error-msg").innerHTML = ''
-            }else{
-                document.getElementById("passVerify").style.backgroundColor = 'pink'
-                document.getElementById("pwsd-error-msg").innerHTML = 'Error'
-            }
-        }
-    </script>
+<%- include('../partials/head') %>
 
 <body>
     <!-- Header-->
     <%- include("../partials/header") %>
     <section> 
-        <label><h3>REGISTRO NUEVO USUARIO</h3></label>
-        <form action="/users/register" class="rg-form" method="POST" enctype="multipart/form-data">
+        <label><h3 id="title">REGISTRO NUEVO USUARIO</h3></label>
+        <form action="/users/register" class="rg-form" method="POST" enctype="multipart/form-data" id="formRegister">
             <div>
-            <label><b>Nombre</b></label>
+            <label><b>Nombre *</b></label>
             <br>
             <input 
                 type="text" 
                 name="name"
+                id="name"
                 class="rg-input"  <%= locals.errors && errors.name ? 'is-invalid' : null %>
                 value="<%= locals.oldData ? oldData.name : null %>">
                 <% if (locals.errors && errors.name) { %>
@@ -34,13 +23,15 @@
                         <%= errors.name.msg %> 
                     </div>
                 <% } %>
+                <div class="text-danger" id="msgFront_name"> </div>
             </div>
             <div>
-                <label><b>Apellido</b></label>
+                <label><b>Apellido *</b></label>
                 <br>
                 <input 
                     type="text"
                     name="lastName" 
+                    id="lastName" 
                     class="rg-input"<%= locals.errors && errors.lastName ? 'is-invalid' : null %>
                     value="<%= locals.oldData ? oldData.lastName : null %>">
                     <% if (locals.errors && errors.lastName) { %>
@@ -48,13 +39,15 @@
                             <%= errors.lastName.msg %> 
                         </div>
                     <% } %>
+                    <div class="text-danger" id="msgFront_lastName"> </div>
             </div>
            <div>
-            <label><b>Email</b></label>
+            <label><b>Email *</b></label>
             <br>
             <input 
                 type="text" 
                 name="email" 
+                id="email"
                 class="rg-input" <%= locals.errors && errors.email ? 'is-invalid' : null %>
                 value="<%= locals.oldData ? oldData.email : null %>">
                 <% if (locals.errors && errors.email) { %>
@@ -62,13 +55,15 @@
                         <%= errors.email.msg %> 
                     </div>
                 <% } %>
+                <div class="text-danger" id="msgFront_email"> </div>
            </div>
            <div>
-            <label><b>Dirección</b></label>
+            <label><b>Dirección (para envíos) *</b></label>
             <br>
                <input 
                     type="text" 
                     name="address" 
+                    id="address" 
                     class="rg-input" <%= locals.errors && errors.address ? 'is-invalid' : null %>"
                     value="<%= locals.oldData ? oldData.address : null %>">
                     <% if (locals.errors && errors.address) { %>
@@ -76,13 +71,16 @@
                             <%= errors.address.msg %> 
                         </div>
                     <% } %>
+                    <div class="text-danger" id="msgFront_address"> </div>
             </div>
             <div>
-                <label><b>Fecha de nacimiento</b></label>
+                <label><b>Fecha de nacimiento *</b></label>
                 <br>
                 <input 
                     type="date"
                     name="birthDate" 
+                    id="birthDate"
+                    onblur="birthValidate()"
                     class="rg-input" <%= locals.errors && errors.birthDate ? 'is-invalid' : null %>"
                     value="<%= locals.oldData ? oldData.birthDate : null %>">
                     <% if (locals.errors && errors.birthDate) { %>
@@ -90,9 +88,10 @@
                             <%= errors.birthDate.msg %> 
                         </div>
                     <% } %>
+                    <div class="text-danger" id="msgFront_birthDate"> </div>
             </div>
             <div>
-                <label><b>Contraseña</b></label>
+                <label><b>Contraseña *</b></label>
                 <br>
                 <input 
                     type="password" 
@@ -105,46 +104,62 @@
                             <%= errors.password.msg %> 
                         </div>
                     <% } %>
+                    <div class="text-danger" id="msgFront_password"> </div>
             </div>
             <div>
-                <label><b>Confirmá tu contraseña</b></label>
+                <label><b>Confirmá tu contraseña *</b></label>
                 <br>
                 <input 
                     type="password" 
                     class="rg-input"
                     name="passVerify" 
                     id="passVerify" 
-                    required onkeyup="validar()">
+                    onkeyup="validar()">
                 <% if (locals.errors && errors.passVerify) { %>
                     <div class="text-danger">
                         <%= errors.passVerify.msg %> 
                     </div>
                 <% } %>
+                <div class="text-danger" id="msgFront_passVerify"> </div>
 
             </div>
            
                                  
             <div>
                 <div >
-                    <label><b>Imagen de perfil:</b></label>
+                    <label><b>Imagen de perfil (opcional)</b></label>
                     <br>
+                    
                     <input 
                         type="file" 
                         name="avatar"
+                        id="avatar"
                         class="rg-input"
-                        
-                    >
+                        accept=".jpg,.png,.jpeg,.gif"
+                        class="rg-input"<%= locals.errors && errors.password ? 'is-invalid' : null %>"
+                        value="<%= locals.oldData ? oldData.avatar : null %>">
+                <% if (locals.errors && errors.avatar) { %>
+                    <div class="text-danger">
+                        <%= errors.avatar.msg %> 
+                    </div>
+                <% } %>
                 </div>
+                <div class="text-danger" id="msgFront_avatar"> </div>
             </div>
-        
+            <p>* Campos requeridos.</p>
             <div class="rg-btn-div rg-input" >
                 <input type="submit" name="" id="rg-submit" class="rg-submit">
                 <input type="reset" class="rg-reset">
             </div>
             
+            <div class="text-danger" id="msgFront_submit"> </div>
         </form>       
     </section>
     <!-- Footer-->
     <%- include("../partials/footer") %>
+    <script src="/js/registerFront.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+    <script moment().format()></script>
 </body>
 </html>

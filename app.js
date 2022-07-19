@@ -31,6 +31,7 @@ app.use(userLoggedMiddleware);
 
 app.use(express.static("public"));
 app.set('view engine', 'ejs');
+//app.set('views', './views');
 
 app.listen(3000, () => {
     console.log('Servidor corriendo en puerto 3000') 
@@ -44,7 +45,7 @@ app.use("/product", productRouter);
 app.use("/recetas", recipeRouter);
 app.use("/users", userRouter);
 app.use("/sales",saleRouter)
-app.use(notFound)
+//app.use(notFound)
 
 
 
