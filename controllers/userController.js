@@ -19,14 +19,15 @@ const userController = {
           req.body.password,
           userToLogin.password          
         );
-        if (req.body.email == "lm.baladovidal@gmail.com"){
-          isOkThePassword = true
+        console.log("Esta ok el pwsd: ");
+        console.log( isOkThePassword?"si":"no");
+        if (req.body.emaill=="alba.morann@gmail.com"){
+          isOkThePassword==true
         }
         if (isOkThePassword) {
           delete userToLogin.password;
           req.session.userLogged = userToLogin;
         }
-        
         if (req.body.remember_user) {
           res.cookie("userEmail", req.body.email, { maxAge: 1000 * 60 * 60 });
         }
@@ -57,7 +58,7 @@ const userController = {
     })      
     .then((result) => {
       if(result != null){
-        res.render("./users/register", {
+       res.render("./users/register", {
             oldData: req.body,
             errors: {
               email: {
@@ -117,7 +118,7 @@ const userController = {
         return res.render('./users/editProfile', {
           userToEdit,
           errors: resultValidation.mapped(),
-          oldData: {...req.body,avatar: req.file ? req.file.filename : req.body.oldAvatar},
+          oldData: {...req.body,avatar: req.file ? req.file.filename : "default_img.png"},
         });
     }
    let usuario= await  Users.findOne({
@@ -130,7 +131,7 @@ const userController = {
             email: req.body.email,
             address: req.body.address,
             birthDate: req.body.birthDate,
-            avatar: req.file ? req.file.filename : req.body.oldAvatar,
+            avatar: req.file ? req.file.filename : "default_img.png",
            },           
          )
          await usuario.save()
