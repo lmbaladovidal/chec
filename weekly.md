@@ -6,6 +6,8 @@
   <li>Alba: creamos tablero en Trello para Sprint 3.</li>
 </ul>
 
+<hr/>
+
 <h2>Weeky Semana 15/2022</h2>
 
 <h3>Qué se hizo</h3>
@@ -27,6 +29,8 @@
   <li>Generar motor de templates.</li>
 </ul>
 
+<hr/>
+
 <h2>Weeky Semana 17/2022</h2>
 <h3>Qué se hizo</h3>
 <ul>
@@ -45,6 +49,8 @@
   <li>Reunirnos una vez mas antes de la entrega final del Sprint.</li>
 </ul>
 
+<hr/>
+
 <h2>Weeky Semana 20/2022</h2>
 <h3>Qué se hizo</h3>
 <ul>
@@ -62,6 +68,8 @@
   <li>Araceli va a trabajar en el CRUD y CSS de la sección Nuestras Recetas</li>  
   <li>Reunirnos una vez mas antes de la entrega final del Sprint.</li>
 </ul>
+
+<hr/>
 
 <h2>Weeky Semanas 23/2022 a 25/2022</h2>
 <h3>Qué se hizo</h3>
@@ -85,4 +93,29 @@
   <li> Corregir la base de datos con los cambios necesarios para que funcionen los modelos.</li>  
   <li> Corregir el diagrama final para entregar en el sprint.</li>
 </ul>
+
+<hr/>
+
+<h2>Weeky Semanas 26/2022 a 29/2022</h2>
+<h3>Qué se hizo</h3>
+<ul>
+  <li>Alba: Creé validaciones de back y front de register users.</li>
+  <li>Araceli: Creé validaciones de back y front de recetas.</li>
+  <li>Leandro: Creé validaciones de back y front de productos y login.</li>
+  <li>David: Creé validaciones de back y front de carro de compras.</li>
+  <li>Alba, David, Leandro, Araceli: control de validaciones de todas las secciones en forma conjunta.</li>
+</ul>
+<h3>Qué impedimentos encontramos</h3>
+<ul>
+  <li> El comportamiento de validaciones de imágenes desde el back end en Users y Products. No temrina de resolverse la funcionalidad.</li>
+  <li> Los tiempos para asimilar los comportamientos de las nuevas herramientas, no son suficientes para construir los entregables antes de comenzar con los temas del siguiente módulo del curso </li>
+  
+</ul>
+
+<h3>Qué se va a hacer</h3>
+<ul>
+  <li> Implementar las Apis del proyecto para completar la funcionalidad del carrito de compras. </li>
+  <li> Terminar de dar funcionalidades del sitio con React y estilos con Css.</li>
+</ul>
+
 
