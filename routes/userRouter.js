@@ -13,8 +13,17 @@ const storage = multer.diskStorage({      // [2-MULTER]  Crear el storage
 		cb(null, './public/images/avatars');
 	},
 	filename: (req, file, cb) => {
-		let fileName = `${Date.now()}_img${path.extname(file.originalname)}`;
-		cb(null, fileName);
+	    const filetypes = /jpeg|jpg|png|gif/;
+		const extname = filetypes.test(path.extname(req.file.originalname).toLowerCase());
+		const mimetype = filetypes.test(req.file.mimetype);
+
+		if(!(mimetype && extname)){
+			throw new Error('Las extensiones permitidas son jpeg|jpg|png|gif');
+		  } else  {
+			let fileName = `${Date.now()}_img${path.extname(file.originalname)}`;
+			cb(null, fileName);
+		}
+		
 	}
 })
 const uploadFile = multer({ storage });  // [3-MULTER] Crear la variable upload para usar el storage
@@ -34,15 +43,15 @@ const validations = [
 		.notEmpty().withMessage('Tienes que escribir un correo electrónico').bail() //bail corta la validación si está vacío
 		.isEmail().withMessage('Debes escribir un formato de correo válido'),
 	body('address').notEmpty().withMessage('Tienes que escribir tu dirección'),
-	body('birthDate').exists().withMessage('Tienes que escribir tu fecha de nacimiento').bail()
-		.custom((value, {req}) => {			
-			const m = moment(value, "YYYY-MM-DD");
-			const ageUser= parseInt(m.fromNow());
-			const ageUser2=ageUser
-			if(ageUser2 < 18) {
-				throw new Error("Debes ser mayor de 18 años")
-			}
-		}),
+	body('birthDate').exists().withMessage('Tienes que escribir tu fecha de nacimiento'), // .bail()
+	// 	.custom((value, {req}) => {			
+	// 		const m = moment(value, "YYYY-MM-DD");
+	// 		const ageUser= parseInt(m.fromNow());
+	// 		const ageUser2=ageUser
+	// 		if(ageUser2 < 18) {
+	// 			throw new Error("Debes ser mayor de 18 años")
+	// 		}
+	// 	}),
 	body('password').notEmpty().withMessage('Tienes que escribir una contraseña'),
 	body('passVerify').notEmpty().withMessage('Repite tu contraseña').bail()
 		.custom((value,{req}) => {
@@ -50,18 +59,31 @@ const validations = [
 				throw new Error('Las contraseñas no coinciden')
 			}
 			return true}),
-	body('avatar').custom((value, { req }) => {       //custom validation xq no hay una validación para files. 
-		let file = req.file;                          //Custom val. requiere cb para pasar el campo a validar
-		//let acceptedExtensions = /(.jpg|.jpeg|.png|.gif)$/i;
-		let acceptedExtensions = ['.jpg','.jpeg','.png','.gif'];
-		if (file) {
-			let fileExtension = path.extname(file.originalname);
-			if (!acceptedExtensions.includes(fileExtension)) {
-				throw new Error(`Solo Formatos ${acceptedExtensions.join(', ')}`);
+	body('avatar').custom((file, { req }) => {       //custom validation xq no hay una validación para files. 
+			// Allowed ext
+			const filetypes = /jpeg|jpg|png|gif/;
+			// Check ext
+			const extname = filetypes.test(path.extname(req.file.originalname).toLowerCase());
+			// Check mime
+			const mimetype = filetypes.test(req.file.mimetype);
+
+			if(!(mimetype && extname)){
+				throw new Error('Las extensiones permitidas son jpeg|jpg|png|gif');
+  			} else  {
+				return true
 			}
-		} 
-		return true;
-	}).withMessage("Avatar con FORMATO incorrecto")
+	})
+	// 	let file = req.file;                          //Custom val. requiere cb para pasar el campo a validar
+	// 	//let acceptedExtensions = /(.jpg|.jpeg|.png|.gif)$/i;
+	// 	let acceptedExtensions = ['.jpg','.jpeg','.png','.gif'];
+	// 	if (file) {
+	// 		let fileExtension = path.extname(file.originalname);
+	// 		if (!acceptedExtensions.includes(fileExtension)) {
+	// 			throw new Error(`Solo Formatos ${acceptedExtensions.join(', ')}`);
+	// 		}
+	// 	} 
+	// 	return true;
+	// }).withMessage("Avatar con FORMATO incorrecto")
 ];
 
 const validationsProfile = [
@@ -73,15 +95,15 @@ const validationsProfile = [
 		.notEmpty().withMessage('Tienes que escribir un correo electrónico').bail() //bail corta la validación si está vacío
 		.isEmail().withMessage('Debes escribir un formato de correo válido'),
 	body('address').notEmpty().withMessage('Tienes que escribir tu dirección'),
-	body('birthDate').notEmpty().withMessage('Tienes que escribir tu fecha de nacimiento').bail()
-		.custom((value, {req}) => {			
-			const m = moment(value, "YYYY-MM-DD");
-			const ageUser= parseInt(m.fromNow());
-			const ageUser2=ageUser
-			if(ageUser2 < 18) {
-				throw new Error("Debes ser mayor de 18 años")
-			}
-		}),
+	body('birthDate').notEmpty().withMessage('Tienes que escribir tu fecha de nacimiento'), //.bail()
+		// .custom((value, {req}) => {			
+		// 	const m = moment(value, "YYYY-MM-DD");
+		// 	const ageUser= parseInt(m.fromNow());
+		// 	const ageUser2=ageUser
+		// 	if(ageUser2 < 18) {
+		// 		throw new Error("Debes ser mayor de 18 años")
+		// 	}
+		// }),
 	body('avatar').custom((value, { req }) => {       //custom validation xq no hay una validación para files. 
 		let file = req.file;                       //Custom val. requiere cb para pasar el campo a validar
 		let acceptedExtensions = ['.jpg','.jpeg','.png','.gif'];

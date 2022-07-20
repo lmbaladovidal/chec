@@ -188,7 +188,7 @@ window.onload = () => {
           document.getElementById(`msgFront_birthDate`).classList.add("rg-imput")
           document.getElementById('birthDate').classList.remove("is-invalid");
           campos.birthDate= true;
-          //console.log(campos.birthDate);
+          
           
           }
     }
@@ -196,9 +196,8 @@ window.onload = () => {
 
 
   formRegister.addEventListener("submit", (e) => {
-   
-    console.log(campos);
-    e.preventDefault();
+  
+    //e.preventDefault();
    
 
     if (!
