@@ -2,6 +2,7 @@ const express = require('express');
 const userController = require('../controllers/userController');
 const router = express.Router();
 const path = require('path');
+const moment = require('moment');
 const { body, validationResult, check } = require('express-validator'); // Requerir la función body de express validator (funciona como check)
 
 //Multer configuration
@@ -33,10 +34,18 @@ const validations = [
 		.notEmpty().withMessage('Tienes que escribir un correo electrónico').bail() //bail corta la validación si está vacío
 		.isEmail().withMessage('Debes escribir un formato de correo válido'),
 	body('address').notEmpty().withMessage('Tienes que escribir tu dirección'),
-	body('birthDate').notEmpty().withMessage('Tienes que escribir tu fecha de nacimiento'),
+	body('birthDate').exists().withMessage('Tienes que escribir tu fecha de nacimiento').bail()
+		.custom((value, {req}) => {			
+			const m = moment(value, "YYYY-MM-DD");
+			const ageUser= parseInt(m.fromNow());
+			const ageUser2=ageUser
+			if(ageUser2 < 18) {
+				throw new Error("Debes ser mayor de 18 años")
+			}
+		}),
 	body('password').notEmpty().withMessage('Tienes que escribir una contraseña'),
 	body('passVerify').notEmpty().withMessage('Repite tu contraseña').bail()
-		.custom((value,{req}) =>{
+		.custom((value,{req}) => {
 			if(value !== req.body.password){
 				throw new Error('Las contraseñas no coinciden')
 			}
@@ -64,7 +73,15 @@ const validationsProfile = [
 		.notEmpty().withMessage('Tienes que escribir un correo electrónico').bail() //bail corta la validación si está vacío
 		.isEmail().withMessage('Debes escribir un formato de correo válido'),
 	body('address').notEmpty().withMessage('Tienes que escribir tu dirección'),
-	body('birthDate').notEmpty().withMessage('Tienes que escribir tu fecha de nacimiento'),
+	body('birthDate').notEmpty().withMessage('Tienes que escribir tu fecha de nacimiento').bail()
+		.custom((value, {req}) => {			
+			const m = moment(value, "YYYY-MM-DD");
+			const ageUser= parseInt(m.fromNow());
+			const ageUser2=ageUser
+			if(ageUser2 < 18) {
+				throw new Error("Debes ser mayor de 18 años")
+			}
+		}),
 	body('avatar').custom((value, { req }) => {       //custom validation xq no hay una validación para files. 
 		let file = req.file;                       //Custom val. requiere cb para pasar el campo a validar
 		let acceptedExtensions = ['.jpg','.jpeg','.png','.gif'];

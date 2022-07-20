@@ -198,7 +198,7 @@ window.onload = () => {
   formRegister.addEventListener("submit", (e) => {
    
     console.log(campos);
-   // e.preventDefault();
+    e.preventDefault();
    
 
     if (!
