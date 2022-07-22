@@ -4,7 +4,7 @@ window.onload = () => {
     const productImage = document.getElementById("productImage");
 
     const regEx = {
-      text: /^[a-zA-ZÀ-ÿ\s|.|,}]{2,256}$/, 
+      text: /^[a-zA-ZÀ-ÿ\s|.|,|/}]{2,256}$/, 
       text2: /^[a-zA-ZÀ-ÿ\s|.|,}]{20,256}$/, 
       number:/^[0-9]+([.{1}|,{1}][0-9]+)?$/,
       img: /(.jpg|.jpeg|.png|.gif)$/i,
@@ -41,7 +41,7 @@ window.onload = () => {
                 validarCampo(regEx.text,"La cantidad minima de caracteres es de 2. Solo pueden usarse letras",e.target,"name");
                 break;
             case "description":
-                validarCampo(regEx.text2,"La cantidad minima de caracteres es de 2. Solo pueden usarse letras",e.target,"description");
+                validarCampo(regEx.text2,"La cantidad minima de caracteres es de 20. Solo pueden usarse letras",e.target,"description");
                 break;
             case "bitterness":
                 validarCampo(regEx.number,"Solo se admiten valores numericos",e.target,"bitterness");
@@ -61,8 +61,8 @@ window.onload = () => {
             case "price":
                 validarCampo(regEx.number,"Solo se admiten valores numericos",e.target,"price");
                 break;
-            case "image":
-                validarCampo(regEx.img,"Solo se admiten archivos de imagen jpg, jpeg, png o gif",e.target,"image");
+            case "productImage":
+                valExtFile(regEx.img,"Solo se admiten archivos de imagen jpg, jpeg, png o gif",e.target,"image");
                 break;
         }
     };
@@ -91,16 +91,24 @@ window.onload = () => {
 
     document.getElementById("productImage").addEventListener("change", valExtFile);
      
-    function valExtFile() {
+    function valExtFile(regEx,msgErr) {
         console.log("estoy en extension de archivo");
         const filePath = productImage.value;
-        let extension = filePath.substring(filePath.lastIndexOf("."),filePath.length);  
-        if (productImage == null) {
-        return true;
-        }else if(document.getElementById("productImage").getAttribute("accept").split(",").indexOf(extension) > 0){
+        let extension = filePath.substring(filePath.lastIndexOf("."),filePath.length); 
+        console.log("regEx");
+        console.log(regEx);
+        console.log("regEx test");
+        console.log(regEx.test);
+        console.log("regEx test png");
+        console.log(regEx.test('.png'));
+        console.log("regEx test extension");
+        console.log(regEx.test(extension));
+        if(regEx.test(extension)){
             document.getElementById(`msgFront_productImage`).innerHTML = "";
             document.getElementById(`msgFront_productImage`).classList.remove("text-danger");
+            campos.productImage = true
             return true;
+        //if(document.getElementById("productImage").getAttribute(regEx.img).split(".").indexOf(extension) > 0){
         }else{
             document.getElementById(`msgFront_productImage`).innerHTML = `Los formatos permitidos son .png,jpg, jpeg y gif`;
             document.getElementById(`msgFront_productImage`).classList.add("text-danger");

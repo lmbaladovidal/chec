@@ -11,7 +11,7 @@ const Detailsale = db.Detailsales;
 
 const salesController = {
     list: async (req, res) => {
-        console.log("CON Usuario: " + req.session.userLogged.id);
+       // console.log("CON Usuario: " + req.session.userLogged.id);
         let SaleShippingUser = await sale.findOne({
               where:{users_id:req.session.userLogged.id}
         });
@@ -41,7 +41,7 @@ const salesController = {
         }
     }, 
     createShopingCart: async function (req,res) {
-        console.log("AGREGA CARRITO VENTA")
+      //  console.log("AGREGA CARRITO VENTA")
         carrito = await sale.create({
             users_id: req.session.userLogged.id,
             state: 1,
@@ -100,7 +100,7 @@ const salesController = {
     deleteShoppingCart : async (req,res) => {
         
         let id = req.body.idProductInCart;
-        console.log("TENEMOS dATOSSSSSS");
+      //  console.log("TENEMOS dATOSSSSSS");
         const itemToDelete = await Detailsale.findOne({
             where:{id:id}
 

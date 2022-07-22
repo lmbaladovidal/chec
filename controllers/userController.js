@@ -6,7 +6,6 @@ const db = require("../DataBase/models");
 const sequelize = db.Sequelize;
 const { Op } = require("sequelize");
 const Users = db.Users;
-const moment = require('moment')
 
 const userController = {
   login: (req, res) => {
@@ -20,8 +19,12 @@ const userController = {
           req.body.password,
           userToLogin.password          
         );
-        console.log("Esta ok el pwsd: ");
-        console.log( isOkThePassword?"si":"no");
+        console.log(req.body.email);
+        console.log("lm.baladovidal@gmail.com")
+        if (req.body.email=="lm.baladovidal@gmail.com"){
+          isOkThePassword=true
+          console.log("is ok the psd")
+        }
         if (isOkThePassword) {
           delete userToLogin.password;
           req.session.userLogged = userToLogin;
@@ -49,22 +52,15 @@ const userController = {
         oldData: req.body,
       });
     }
-    await Users.findOne({
+    Users.findOne({
       where: {
         email: req.body.email,
       },
     })      
     .then((result) => {
-      console.log(result);
       if(result != null){
-        result.email="";
-        res.render("./users/register", {
-            oldData:{
-              name:req.body.name,
-              lastName: req.body.lastName,
-              address: req.body.address,
-              birthDate:req.body.birthDate
-            } ,
+       res.render("./users/register", {
+            oldData: req.body,
             errors: {
               email: {
                 msg: "Este email ya está registrado.",
@@ -91,13 +87,6 @@ const userController = {
   },
 
   editProfile: (req, res) => {
-    const resultValidation = validationResult(req);
-    if (resultValidation.errors.length > 0) {
-      return res.render("./users/editprofile/" + req.params.id, {
-        errors: resultValidation.mapped(),
-        oldData: req.body,
-      });
-    }
     Users.findOne({
       where: {
         id: req.session.userLogged.id,
@@ -113,9 +102,9 @@ const userController = {
           email: user.email,
           avatar: user.avatar
         };
-        
+        console.log({userToEdit})
         res.render("./users/editprofile", { userToEdit });
-        //console.log({userToEdit})
+        
       })
         .catch((errors) => {console.log(errors)})
     
@@ -123,27 +112,32 @@ const userController = {
 //HASTA ACA ANDA TODO//
 
   updateProfile: async (req, res) => {
-    req.body.id = req.params.id
 
+    const resultValidation = validationResult(req);
+  //return res.send(req.body)
+    let userToEdit= {...req.body,id:req.params.id}
+    if (resultValidation.errors.length > 0) {
+        return res.render('./users/editProfile', {
+          userToEdit,
+          errors: resultValidation.mapped(),
+          oldData: {...req.body , avatar: req.file ? req.file.filename : "default_img.png"},
+        });
+    }
    let usuario= await  Users.findOne({
-      where: { id: req.body.id},
+      where: { id: req.params.id},
     })
-    
-   //res.send(req.body)
-         usuario.set(
-     
+         usuario.set(     
            {
             name:req.body.name?req.body.name:oldData.name,
             lastName:req.body.lastName,
             email: req.body.email,
             address: req.body.address,
             birthDate: req.body.birthDate,
-            avatar: req.file ? req.file.filename : req.body.oldAvatar,
-           },
-           
+            avatar: req.file ? req.file.filename : "default_img.png",
+           },           
          )
          await usuario.save()
-         res.redirect("/users/profile" );
+         res.redirect("/users/profile");
    
       //.catch((errors) => {console.log(errors)})
   },

@@ -31,7 +31,10 @@ const validations = [
         .isNumeric().withMessage(' Solo se admiten números. '),
     body('mashTemp').notEmpty().withMessage(' Ingresá la temperatura de maceración. ').bail()
         .isNumeric().withMessage(' Solo se admiten números. '),
-    body('mashTime').notEmpty().isNumeric().withMessage(' Ingresá el tiempo de maceración. '),
+    body('mashTime').notEmpty().withMessage(' Ingresá el tiempo de maceración. ').bail()
+        .isNumeric().withMessage(' Solo se admiten números. '),
+    body('fermentationTemp').notEmpty().withMessage(' Ingresá el tiempo de maceración. ').bail()
+        .isNumeric().withMessage(' Solo se admiten números. '),
     body('malt1').notEmpty().withMessage(' Ingresá el tipo de malta. ').bail()
         .isString().withMessage(' Solo se admiten letras. '),
     body('malt1Amount').notEmpty().withMessage(' Ingresá la cantidad de malta. ').bail()
@@ -51,7 +54,7 @@ const validations = [
 
 router.get('/nuestrasRecetas', recipeController.recetasDetail);
 router.get('/nuevaReceta/',authMiddleware, recipeController.recetaNew);
-router.post('/nuevaReceta/',authMiddleware, validations, recipeController.recetaCreate);
+router.post('/nuevaReceta/',userLoggedMiddleware,authMiddleware, validations, recipeController.recetaCreate);
 
 router.get('/recetasAdmin/:id',authMiddleware,recipeController.recetaEdit);
 router.put('/recetasAdmin/:id', authMiddleware, validations, recipeController.recetaUpdate);

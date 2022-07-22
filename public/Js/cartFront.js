@@ -1,7 +1,6 @@
 //window.onload = () => {
 window.addEventListener("load", function() { 
     const formCart = document.getElementById("formProductCart"); // console.log OK
-   // const productImage = document.querySelectorAll('#product-image');  // console.log OK
     const shoppingCartItemsContainer = document.querySelector('#shoppingCartItemsContainer');  // console.log OK
     const shoppingCartItem = document.querySelectorAll('#shoppingCartItem')
     
@@ -15,7 +14,7 @@ window.addEventListener("load", function() {
             const shoppingCartItemQuantity = Number(shoppingCartItem.querySelector('#shoppingCartItemQuantity').value);
         
         subtotal = subtotal + shoppingCartItemPrice * shoppingCartItemQuantity
-        console.log(subtotal)
+       
         });
 
         shoppingCartSubotal.innerHTML = `${subtotal.toFixed(2)}`
@@ -38,11 +37,9 @@ window.addEventListener("load", function() {
 
     // Función actualizar cantidad de los elementos del carrito
     const changeQuantity = document.querySelectorAll('#shoppingCartItemQuantity')
-    console.log(changeQuantity);
     changeQuantity.forEach(itemQuantity => {
         itemQuantity.addEventListener('change', quantityChanged)
     })
-
 
     function quantityChanged(event) {
         const input = event.target;
@@ -50,7 +47,19 @@ window.addEventListener("load", function() {
         updateShoppingCartSubtotal(shoppingCartItemsContainer);
       }
 
-
+    const cervezaInCart = shoppingCartItemsContainer.getElementsByClassName('shoppingCartItem')
+      console.log(cervezaInCart);
+    // for (let i = 0; i < cervezaInCart.length; i++) {
+    //     if (cervezaInCart[i].innerText === itemTitle) {
+    //       let elementQuantity = cervezaInCart[i].parentElement.querySelector(
+    //         '.shoppingCartItemQuantity'
+    //       );
+    //       elementQuantity.value++;
+    //       $('.toast').toast('show');
+    //       updateShoppingCartTotal();
+    //       return;
+    //     }
+    //   }
 
 });
 

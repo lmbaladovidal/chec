@@ -113,8 +113,7 @@
                     type="password" 
                     class="rg-input"
                     name="passVerify" 
-                    id="passVerify" 
-                    onkeyup="validar()">
+                    id="passVerify" >
                 <% if (locals.errors && errors.passVerify) { %>
                     <div class="text-danger">
                         <%= errors.passVerify.msg %> 
@@ -136,9 +135,14 @@
                         id="avatar"
                         class="rg-input"
                         accept=".jpg,.png,.jpeg,.gif"
-                        onchange="valExtFile()">
+                        class="rg-input"<%= locals.errors && errors.password ? 'is-invalid' : null %>"
+                        value="<%= locals.oldData ? oldData.avatar : null %>">
+                <% if (locals.errors && errors.avatar) { %>
+                    <div class="text-danger">
+                        <%= errors.avatar.msg %> 
+                    </div>
+                <% } %>
                 </div>
-                
                 <div class="text-danger" id="msgFront_avatar"> </div>
             </div>
             <p>* Campos requeridos.</p>

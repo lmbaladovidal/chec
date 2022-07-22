@@ -109,15 +109,14 @@ window.onload = () => {
 
   // Recorre todos los INPUTS del formulario, escuchando métodos de acción//
   inputs.forEach((input) => {
-    console.log(input)  // 1* ACA ESTA EL PROBLEMA DE LA VALIDACION DE FECHA. Todos los inputs tienen todas las validaciones
+    //console.log(input)  
     input.addEventListener("keyup", validarFormulario);
     input.addEventListener("blur", validarFormulario);
-    input.addEventListener("change", valExtFile);
     
   });
-  
-  //2* Por eso lo separé:
-  document.getElementbyID('birthDate').addEventListener("blur", birthValidate)
+  console.log(document.getElementById('avatar'))
+  document.getElementById('avatar').addEventListener("change", valExtFile);
+  document.getElementById('birthDate').addEventListener("blur", birthValidate("Debes ser mayor de 18 Años"))
  
   // función para validad la imagen//
 
@@ -181,23 +180,21 @@ window.onload = () => {
           document.getElementById(`msgFront_birthDate`).classList.remove("rg-imput")
           document.getElementById('birthDate').classList.add("is-invalid")
           campos.birthDate= false;
-          console.log(campos.birthDate);
+          //console.log(campos.birthDate);
           } else {
           document.getElementById(`msgFront_birthDate`).innerHTML = ""
           document.getElementById(`msgFront_birthDate`).classList.remove("text-danger")
           document.getElementById(`msgFront_birthDate`).classList.add("rg-imput")
           document.getElementById('birthDate').classList.remove("is-invalid");
           campos.birthDate= true;
-          console.log(campos.birthDate);
+          
           
           }
     }
 
-
-
-  formRegister.addEventListener("submit", (e) => {
-    e.preventDefault();
-
+  formRegister.addEventListener("submit", (e) => {  
+    //e.preventDefault();
+    console.log(campos)
     if (!
       campos.name &&
       campos.lastName &&
@@ -217,11 +214,8 @@ window.onload = () => {
     } else
       
     {
-     return formRegister.submit();
+        return formRegister.submit();
     } 
-    
-        
-    
         
   });
 };
