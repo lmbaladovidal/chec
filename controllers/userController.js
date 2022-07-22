@@ -120,7 +120,7 @@ const userController = {
         return res.render('./users/editProfile', {
           userToEdit,
           errors: resultValidation.mapped(),
-          oldData: {...req.body , avatar: req.file ? req.file.filename : "default_img.png"},
+          oldData: {...req.body , avatar: req.file ? req.file.filename: req.body.oldAvatar? req.body.oldAvatar: "default_img.png"},
         });
     }
    let usuario= await  Users.findOne({
@@ -133,7 +133,7 @@ const userController = {
             email: req.body.email,
             address: req.body.address,
             birthDate: req.body.birthDate,
-            avatar: req.file ? req.file.filename : "default_img.png",
+            avatar: req.file? req.file.filename: req.body.oldAvatar? req.body.oldAvatar: "default_img.png",
            },           
          )
          await usuario.save()

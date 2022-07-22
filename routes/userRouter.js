@@ -58,12 +58,8 @@ const validationsRegister = [
 		.custom((value, {req}) => {			
 			const m = moment(value, "YYYY-MM-DD");
 			const ageUser= parseInt(m.fromNow());
-			const ageUser2=ageUser
-			if(ageUser2 > 18) {
-				return true
-				//throw new Error("Debes ser mayor de 18 años")
-			}
-		}),
+			ageUser2 > 18?true:false
+		}).withMessage('Debes ser mayor de 18 años'),
 	body('password').notEmpty().withMessage('Tienes que escribir una contraseña'),
 	body('passVerify').notEmpty().withMessage('Repite tu contraseña').bail()
 		.custom((value,{req}) => {
@@ -93,49 +89,45 @@ const validationsRegister = [
 ];
 
 const validationsEditProfile = [
-    body('name').notEmpty().withMessage('Tienes que escribir tu nombre').bail()
-		.isLength({min:2}).withMessage("Mínimo 2 caracteres."),
-    body('lastName').notEmpty().withMessage('Tienes que escribir tu apellido').bail()
-		.isLength({min:2}).withMessage("Mínimo 2 caracteres."),
+    body('name')
+		.notEmpty().withMessage('Tienes que escribir tu nombre').bail()
+		.isLength({min:2}).withMessage("Mínimo 2 caracteres.").bail(),
+    body('lastName')
+		.notEmpty().withMessage('Tienes que escribir tu apellido').bail()
+		.isLength({min:2}).withMessage("Mínimo 2 caracteres.").bail(),
 	body('email')
 		.notEmpty().withMessage('Tienes que escribir un correo electrónico').bail() //bail corta la validación si está vacío
 		.isEmail().withMessage('Debes escribir un formato de correo válido'),
-	body('address').notEmpty().withMessage('Tienes que escribir tu dirección'),
-	body('birthDate').notEmpty().withMessage('Tienes que escribir tu fecha de nacimiento').bail()
-	.custom((value, {req}) => {			
-		const m = moment(value, "YYYY-MM-DD");
-		const ageUser= parseInt(m.fromNow());
-		const ageUser2=ageUser
-		if(ageUser2 > 18) {
-			return true
-		}
-	}),
-	body('avatar').custom((value, { req }) => {       //custom validation xq no hay una validación para files. 
-		let fileAvatarExtension
-		console.log(req.file + 'REQ.FILE');
+	body('address')
+		.notEmpty().withMessage('Tienes que escribir tu dirección').bail()
+		.isLength({min:8}).withMessage("Mínimo 8 caracteres."),
+	body('birthDate')
+		.notEmpty().withMessage('Tienes que escribir tu fecha de nacimiento').bail()
+		.custom((value, {req}) => {			
+			const m = moment(value, "YYYY-MM-DD");
+			const ageUser= parseInt(m.fromNow());
+			ageUser>18?true:false
+		}).withMessage('Debes ser mayor de 18 años'),
+	body('oldvatar')
+		.custom((value, { req }) => {       //custom validation xq no hay una validación para files. 
+			let fileAvatarExtension
+			console.log(req.body.oldAvatar);
 			if(req.file == undefined){
-				fileAvatarExtension = ".png"
+				fileAvatarExtension = req.body.oldAvatar
 			} else {
 				fileAvatarExtension = path.extname(req.file.originalname).toLowerCase()
 			}
-
-		console.log(fileAvatarExtension +" pase el Primer IF linea 88");
-			
 			const filetypes = /jpeg|jpg|png|gif/; // Allowed ext
 			const extname = filetypes.test(fileAvatarExtension); // Check ext
-			//const mimetype = filetypes.test(req.file.mimetype);// Check mime
-
 			if(!extname){
 				throw new Error('Solo Formatos jpeg-jpg-png-gif');
   			} else  {
 				return true
 			}
-	})
-	
-];
+		})
+	];
 
 //----RUTAS DE SITIO---------//
-
 //Form de login
 router.get('/login',guestMiddleware, userController.login);
 //Process login
