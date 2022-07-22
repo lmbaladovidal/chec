@@ -107,7 +107,7 @@
                         id="avatar"
                         accept=".jpg,.png,.jpeg,.gif"
                         class="rg-input"
-                        value="<%= locals.oldData ? oldData.avatar : null %>">
+                        value="<%= userToEdit != undefined ? userToEdit.avatar : locals.oldData ? oldData.avatar : null %>">
                 <% if (locals.errors && errors.avatar) { %>
                     <div class="text-danger">
                         <%= errors.avatar.msg %> 

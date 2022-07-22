@@ -34,10 +34,7 @@ const storage = multer.diskStorage({      // [2-MULTER]  Crear el storage
 		if (mimetype && extname){
 			fileName = `${Date.now()}_img${path.extname(file.originalname)}`;
 			cb(null, fileName);
-
 		  } 
-
-
 	}
 })
 const uploadFile = multer({ storage });  // [3-MULTER] Crear la variable upload para usar el storage
@@ -129,6 +126,7 @@ const validationsProfile = [
 	}),
 	body('avatar').custom((value, { req }) => {       //custom validation xq no hay una validación para files. 
 		let fileAvatarExtension
+		console.log(req.file + 'REQ.FILE');
 			if(req.file == undefined){
 				fileAvatarExtension = ".png"
 			} else {

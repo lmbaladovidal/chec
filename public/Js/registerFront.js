@@ -112,11 +112,10 @@ window.onload = () => {
     //console.log(input)  
     input.addEventListener("keyup", validarFormulario);
     input.addEventListener("blur", validarFormulario);
-    input.addEventListener("change", valExtFile);
     
   });
-  
-
+  console.log(document.getElementById('avatar'))
+  document.getElementById('avatar').addEventListener("change", valExtFile);
   document.getElementById('birthDate').addEventListener("blur", birthValidate("Debes ser mayor de 18 Años"))
  
   // función para validad la imagen//
