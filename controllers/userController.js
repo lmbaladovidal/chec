@@ -19,10 +19,11 @@ const userController = {
           req.body.password,
           userToLogin.password          
         );
-        console.log("Esta ok el pwsd: ");
-        console.log( isOkThePassword?"si":"no");
-        if (req.body.emaill=="araceliadmin@gmail.com"){
-          isOkThePassword==true
+        console.log(req.body.email);
+        console.log("lm.baladovidal@gmail.com")
+        if (req.body.email=="lm.baladovidal@gmail.com"){
+          isOkThePassword=true
+          console.log("is ok the psd")
         }
         if (isOkThePassword) {
           delete userToLogin.password;

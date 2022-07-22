@@ -192,13 +192,9 @@ window.onload = () => {
           }
     }
 
-
-
-  formRegister.addEventListener("submit", (e) => {
-  
+  formRegister.addEventListener("submit", (e) => {  
     //e.preventDefault();
-   
-
+    console.log(campos)
     if (!
       campos.name &&
       campos.lastName &&

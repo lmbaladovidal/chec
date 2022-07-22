@@ -45,7 +45,7 @@ const authMiddleware = require('../middlewares/authMiddleware');
 const userLoggedMiddleware =require('../middlewares/userLoggedMiddleware')
 
 // Validation para express-validator
-const validations = [
+const validationsRegister = [
     body('name').notEmpty().withMessage('Tienes que escribir tu nombre').bail()
 		.isLength({min:3}).withMessage("Mínimo 3 caracteres."),
     body('lastName').notEmpty().withMessage('Tienes que escribir tu apellido').bail()
@@ -72,7 +72,6 @@ const validations = [
 			}
 			return true}),
 	body('avatar').custom((file, { req }) => {       //custom validation xq no hay una validación para files. 
-	//console.log(req.file + " soy el req.file");	
 		let fileAvatarExtension
 			if(req.file == undefined){
 				fileAvatarExtension = ".png"
@@ -84,7 +83,6 @@ const validations = [
 			
 			const filetypes = /jpeg|jpg|png|gif/; // Allowed ext
 			const extname = filetypes.test(fileAvatarExtension); // Check ext
-			//const mimetype = filetypes.test(req.file.mimetype);// Check mime
 
 			if(!extname){
 				throw new Error('Solo Formatos jpeg-jpg-png-gif');
@@ -92,24 +90,13 @@ const validations = [
 				return true
 			}
 	})
-	// 	let file = req.file;                          //Custom val. requiere cb para pasar el campo a validar
-	// 	//let acceptedExtensions = /(.jpg|.jpeg|.png|.gif)$/i;
-	// 	let acceptedExtensions = ['.jpg','.jpeg','.png','.gif'];
-	// 	if (file) {
-	// 		let fileExtension = path.extname(file.originalname);
-	// 		if (!acceptedExtensions.includes(fileExtension)) {
-	// 			throw new Error(`Solo Formatos ${acceptedExtensions.join(', ')}`);
-	// 		}
-	// 	} 
-	// 	return true;
-	// }).withMessage("Avatar con FORMATO incorrecto")
 ];
 
-const validationsProfile = [
+const validationsEditProfile = [
     body('name').notEmpty().withMessage('Tienes que escribir tu nombre').bail()
-		.isLength({min:2}).withMessage("Mínimo 3 caracteres."),
+		.isLength({min:2}).withMessage("Mínimo 2 caracteres."),
     body('lastName').notEmpty().withMessage('Tienes que escribir tu apellido').bail()
-		.isLength({min:2}).withMessage("Mínimo 3 caracteres."),
+		.isLength({min:2}).withMessage("Mínimo 2 caracteres."),
 	body('email')
 		.notEmpty().withMessage('Tienes que escribir un correo electrónico').bail() //bail corta la validación si está vacío
 		.isEmail().withMessage('Debes escribir un formato de correo válido'),
@@ -121,7 +108,6 @@ const validationsProfile = [
 		const ageUser2=ageUser
 		if(ageUser2 > 18) {
 			return true
-			//throw new Error("Debes ser mayor de 18 años")
 		}
 	}),
 	body('avatar').custom((value, { req }) => {       //custom validation xq no hay una validación para files. 
@@ -158,13 +144,13 @@ router.post('/login', userController.loginProcess);
 //Form de register
 router.get('/register', guestMiddleware, userController.register);
 // Proces user register
-router.post('/register', uploadFile.single('avatar'),validations, userController.userRegister);
+router.post('/register', uploadFile.single('avatar'),validationsRegister, userController.userRegister);
 
 //Profile
 router.get('/profile', userLoggedMiddleware , authMiddleware,  userController.profile);
 
 router.get('/profile/:id', authMiddleware, userController.editProfile)
-router.put('/profile/:id', authMiddleware, uploadFile.single('avatar'), validationsProfile, userController.updateProfile)
+router.put('/profile/:id', authMiddleware, uploadFile.single('avatar'), validationsEditProfile, userController.updateProfile)
 
 //Delete
 router.delete('/profile/:id', authMiddleware, userController.deleteProfile)
