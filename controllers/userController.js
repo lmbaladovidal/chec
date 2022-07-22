@@ -21,7 +21,7 @@ const userController = {
         );
         console.log("Esta ok el pwsd: ");
         console.log( isOkThePassword?"si":"no");
-        if (req.body.emaill=="alba.morann@gmail.com"){
+        if (req.body.emaill=="araceliadmin@gmail.com"){
           isOkThePassword==true
         }
         if (isOkThePassword) {
@@ -101,9 +101,9 @@ const userController = {
           email: user.email,
           avatar: user.avatar
         };
-        
+        console.log({userToEdit})
         res.render("./users/editprofile", { userToEdit });
-        //console.log({userToEdit})
+        
       })
         .catch((errors) => {console.log(errors)})
     
@@ -113,12 +113,13 @@ const userController = {
   updateProfile: async (req, res) => {
 
     const resultValidation = validationResult(req);
+  //return res.send(req.body)
     let userToEdit= {...req.body,id:req.params.id}
     if (resultValidation.errors.length > 0) {
         return res.render('./users/editProfile', {
           userToEdit,
           errors: resultValidation.mapped(),
-          oldData: {...req.body,avatar: req.file ? req.file.filename : "default_img.png"},
+          oldData: {...req.body , avatar: req.file ? req.file.filename : "default_img.png"},
         });
     }
    let usuario= await  Users.findOne({

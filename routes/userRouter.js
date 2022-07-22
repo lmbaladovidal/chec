@@ -2,6 +2,7 @@ const express = require('express');
 const userController = require('../controllers/userController');
 const router = express.Router();
 const path = require('path');
+const moment = require('moment');
 const { body, validationResult, check } = require('express-validator'); // Requerir la función body de express validator (funciona como check)
 
 //Multer configuration
@@ -12,8 +13,28 @@ const storage = multer.diskStorage({      // [2-MULTER]  Crear el storage
 		cb(null, './public/images/avatars');
 	},
 	filename: (req, file, cb) => {
-		let fileName = `${Date.now()}_img${path.extname(file.originalname)}`;
-		cb(null, fileName);
+
+		const fileDefault = '.png'
+	    const filetypes = /jpeg|jpg|png|gif/;
+		
+		const fileExtension=path.extname(file.originalname).toLowerCase();
+	console.log(fileExtension);	
+	console.log(req.file); 
+		const extname = filetypes.test(fileExtension);
+		const mimetype = filetypes.test(file.mimetype);
+	console.log(mimetype);
+	console.log(extname);
+
+		if(req.file == undefined){
+			fileName = `${Date.now()}_img${fileDefault}`; 
+			cb(null, fileName);
+
+		} else 		
+		
+		if (mimetype && extname){
+			fileName = `${Date.now()}_img${path.extname(file.originalname)}`;
+			cb(null, fileName);
+		  } 
 	}
 })
 const uploadFile = multer({ storage });  // [3-MULTER] Crear la variable upload para usar el storage
@@ -33,26 +54,55 @@ const validations = [
 		.notEmpty().withMessage('Tienes que escribir un correo electrónico').bail() //bail corta la validación si está vacío
 		.isEmail().withMessage('Debes escribir un formato de correo válido'),
 	body('address').notEmpty().withMessage('Tienes que escribir tu dirección'),
-	body('birthDate').notEmpty().withMessage('Tienes que escribir tu fecha de nacimiento'),
+	body('birthDate').exists().withMessage('Tienes que escribir tu fecha de nacimiento').bail() 
+		.custom((value, {req}) => {			
+			const m = moment(value, "YYYY-MM-DD");
+			const ageUser= parseInt(m.fromNow());
+			const ageUser2=ageUser
+			if(ageUser2 > 18) {
+				return true
+				//throw new Error("Debes ser mayor de 18 años")
+			}
+		}),
 	body('password').notEmpty().withMessage('Tienes que escribir una contraseña'),
 	body('passVerify').notEmpty().withMessage('Repite tu contraseña').bail()
-		.custom((value,{req}) =>{
+		.custom((value,{req}) => {
 			if(value !== req.body.password){
 				throw new Error('Las contraseñas no coinciden')
 			}
 			return true}),
-	body('avatar').custom((value, { req }) => {       //custom validation xq no hay una validación para files. 
-		let file = req.file;                          //Custom val. requiere cb para pasar el campo a validar
-		//let acceptedExtensions = /(.jpg|.jpeg|.png|.gif)$/i;
-		let acceptedExtensions = ['.jpg','.jpeg','.png','.gif'];
-		if (file) {
-			let fileExtension = path.extname(file.originalname);
-			if (!acceptedExtensions.includes(fileExtension)) {
-				throw new Error(`Solo Formatos ${acceptedExtensions.join(', ')}`);
+	body('avatar').custom((file, { req }) => {       //custom validation xq no hay una validación para files. 
+	//console.log(req.file + " soy el req.file");	
+		let fileAvatarExtension
+			if(req.file == undefined){
+				fileAvatarExtension = ".png"
+			} else {
+				fileAvatarExtension = path.extname(req.file.originalname).toLowerCase()
 			}
-		} 
-		return true;
-	}).withMessage("Avatar con FORMATO incorrecto")
+
+		console.log(fileAvatarExtension +" pase el Primer IF linea 88");
+			
+			const filetypes = /jpeg|jpg|png|gif/; // Allowed ext
+			const extname = filetypes.test(fileAvatarExtension); // Check ext
+			//const mimetype = filetypes.test(req.file.mimetype);// Check mime
+
+			if(!extname){
+				throw new Error('Solo Formatos jpeg-jpg-png-gif');
+  			} else  {
+				return true
+			}
+	})
+	// 	let file = req.file;                          //Custom val. requiere cb para pasar el campo a validar
+	// 	//let acceptedExtensions = /(.jpg|.jpeg|.png|.gif)$/i;
+	// 	let acceptedExtensions = ['.jpg','.jpeg','.png','.gif'];
+	// 	if (file) {
+	// 		let fileExtension = path.extname(file.originalname);
+	// 		if (!acceptedExtensions.includes(fileExtension)) {
+	// 			throw new Error(`Solo Formatos ${acceptedExtensions.join(', ')}`);
+	// 		}
+	// 	} 
+	// 	return true;
+	// }).withMessage("Avatar con FORMATO incorrecto")
 ];
 
 const validationsProfile = [
@@ -64,27 +114,41 @@ const validationsProfile = [
 		.notEmpty().withMessage('Tienes que escribir un correo electrónico').bail() //bail corta la validación si está vacío
 		.isEmail().withMessage('Debes escribir un formato de correo válido'),
 	body('address').notEmpty().withMessage('Tienes que escribir tu dirección'),
-	body('birthDate').notEmpty().withMessage('Tienes que escribir tu fecha de nacimiento'),
+	body('birthDate').notEmpty().withMessage('Tienes que escribir tu fecha de nacimiento').bail()
+	.custom((value, {req}) => {			
+		const m = moment(value, "YYYY-MM-DD");
+		const ageUser= parseInt(m.fromNow());
+		const ageUser2=ageUser
+		if(ageUser2 > 18) {
+			return true
+			//throw new Error("Debes ser mayor de 18 años")
+		}
+	}),
 	body('avatar').custom((value, { req }) => {       //custom validation xq no hay una validación para files. 
-		let file = req.file;                       //Custom val. requiere cb para pasar el campo a validar
-		let acceptedExtensions = ['.jpg','.jpeg','.png','.gif'];
-		
-		if (file) {
-			console.log(file);
-			let fileExtension = path.extname(file.originalname);
-			console.log(fileExtension);
-			if (!acceptedExtensions.includes(fileExtension)) {
-				//console.log(!acceptedExtensions.includes(fileExtension));
-				
-				throw new Error(`Las extensiones de archivo permitidas son ${acceptedExtensions.join(', ')}`);
-				//console.log(Error());
+		let fileAvatarExtension
+		console.log(req.file + 'REQ.FILE');
+			if(req.file == undefined){
+				fileAvatarExtension = ".png"
+			} else {
+				fileAvatarExtension = path.extname(req.file.originalname).toLowerCase()
 			}
-			return false
-		} 
-		return true;
+
+		console.log(fileAvatarExtension +" pase el Primer IF linea 88");
+			
+			const filetypes = /jpeg|jpg|png|gif/; // Allowed ext
+			const extname = filetypes.test(fileAvatarExtension); // Check ext
+			//const mimetype = filetypes.test(req.file.mimetype);// Check mime
+
+			if(!extname){
+				throw new Error('Solo Formatos jpeg-jpg-png-gif');
+  			} else  {
+				return true
+			}
 	})
+	
 ];
 
+//----RUTAS DE SITIO---------//
 
 //Form de login
 router.get('/login',guestMiddleware, userController.login);
