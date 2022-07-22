@@ -173,8 +173,6 @@ const recetaDelete = (req, res) => {
   Recipes.findOne({ where: { id: id } })
 
     .then((recipeToDelete) => {
-      console.log(recipeToDelete);
-
       Recipes.destroy({ where: { id: recipeToDelete.id } });
       return res.redirect("/recetas/nuestrasRecetas");
     })

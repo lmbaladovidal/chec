@@ -14,7 +14,6 @@ window.onload = () => {
     address: /^[A-Za-z0-9\s°]{8,256}$/, // Letras, numeros, guion y guion_bajo
     avatar: /(.jpg|.jpeg|.png|.gif)$/i,
   };
-
   let campos = null 
     if (document.getElementById("title").innerText=="REGISTRO NUEVO USUARIO"){
       campos = {
@@ -37,56 +36,28 @@ window.onload = () => {
         avatar: true,
     }
   }
-
   const validarFormulario = (e) => {
     switch (e.target.name) {
       case "name":
-        validarCampo(
-          expresiones.name,
-          " Mínimo 2 caracteres. Sólo Letras",
-          e.target,
-          "name"
-        );
-
+        validarCampo(expresiones.name," Mínimo 2 caracteres. Sólo Letras",e.target,"name");
         break;
       case "lastName":
-        validarCampo(
-          expresiones.lastName,
-          "Mínimo 2 caracteres. Admite letras y acentos",
-          e.target,
-          "lastName"
-        );
+        validarCampo(expresiones.lastName,"Mínimo 2 caracteres. Admite letras y acentos",e.target,"lastName");
         break;
       case "password":
-        validarCampo(
-          expresiones.password,
-          "Mínimo 8 caracteres, 1 mayúscula, 1 minúscula, 1 número, y 1 caracter especial.",
-          e.target,
-          "password"
-        );
-        //validar();
+        validarCampo(expresiones.password,"Mínimo 8 caracteres, 1 mayúscula, 1 minúscula, 1 número, y 1 caracter especial.",e.target,"password");
         break;
       case "passVerify":
         validar();
         break;
       case "email":
-        validarCampo(
-          expresiones.email,
-          "Debes escribir un formato válido de Email",
-          e.target,
-          "email"
-        );
+        validarCampo(expresiones.email,"Debes escribir un formato válido de Email",e.target,"email");
         break;
       case "birthDate":
         birthValidate( "Debes ser mayor de 18 Años");
         break;
       case "address":
-        validarCampo(
-          expresiones.address,
-          "Mínimo 8 caracteres. Admite letras y números",
-          e.target,
-          "address"
-        );
+        validarCampo(expresiones.address,"Mínimo 8 caracteres. Admite letras y números",e.target,"address");
         break;
     }
   };
