@@ -73,10 +73,7 @@ const validationsRegister = [
 				fileAvatarExtension = ".png"
 			} else {
 				fileAvatarExtension = path.extname(req.file.originalname).toLowerCase()
-			}
-
-		console.log(fileAvatarExtension +" pase el Primer IF linea 88");
-			
+			}			
 			const filetypes = /jpeg|jpg|png|gif/; // Allowed ext
 			const extname = filetypes.test(fileAvatarExtension); // Check ext
 
