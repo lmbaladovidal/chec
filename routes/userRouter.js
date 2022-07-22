@@ -47,9 +47,9 @@ const userLoggedMiddleware =require('../middlewares/userLoggedMiddleware')
 // Validation para express-validator
 const validationsRegister = [
     body('name').notEmpty().withMessage('Tienes que escribir tu nombre').bail()
-		.isLength({min:3}).withMessage("Mínimo 3 caracteres."),
+		.isLength({min:2}).withMessage("Mínimo 22 caracteres."),
     body('lastName').notEmpty().withMessage('Tienes que escribir tu apellido').bail()
-		.isLength({min:3}).withMessage("Mínimo 3 caracteres."),
+		.isLength({min:2}).withMessage("Mínimo 2 caracteres."),
 	body('email')
 		.notEmpty().withMessage('Tienes que escribir un correo electrónico').bail() //bail corta la validación si está vacío
 		.isEmail().withMessage('Debes escribir un formato de correo válido'),
@@ -58,7 +58,7 @@ const validationsRegister = [
 		.custom((value, {req}) => {			
 			const m = moment(value, "YYYY-MM-DD");
 			const ageUser= parseInt(m.fromNow());
-			ageUser2 > 18?true:false
+			return ageUser > 18?true:false
 		}).withMessage('Debes ser mayor de 18 años'),
 	body('password').notEmpty().withMessage('Tienes que escribir una contraseña'),
 	body('passVerify').notEmpty().withMessage('Repite tu contraseña').bail()
@@ -103,7 +103,7 @@ const validationsEditProfile = [
 		.custom((value, {req}) => {			
 			const m = moment(value, "YYYY-MM-DD");
 			const ageUser= parseInt(m.fromNow());
-			ageUser>18?true:false
+			return	ageUser>18?true:false
 		}).withMessage('Debes ser mayor de 18 años'),
 	body('oldvatar')
 		.custom((value, { req }) => {       //custom validation xq no hay una validación para files. 

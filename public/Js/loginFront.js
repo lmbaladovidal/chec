@@ -34,13 +34,11 @@ window.onload = () => {
         if (regEx.test(input.value)){
             document.getElementById(`msgFront_${field}`).innerHTML = "";
             document.getElementById(`msgFront_${field}`).classList.remove("text-danger");
-            document.getElementById(`msgFront_${field}`).classList.add("rg-input");
             document.getElementById(`${field}`).classList.remove("is-invalid");
             campos[field] = true;
         }else{
             document.getElementById(`msgFront_${field}`).innerHTML = msgErr;
             document.getElementById(`msgFront_${field}`).classList.add("text-danger");
-            document.getElementById(`msgFront_${field}`).classList.remove("rg-input");
             document.getElementById(`${field}`).classList.add("is-invalid");
             campos[field] = false;
         }
