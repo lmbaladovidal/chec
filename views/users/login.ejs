@@ -91,28 +91,30 @@
                 <div id="name"></div>
                 <script>startApp();</script>
                 <button class="lg-button " style="width: 100%"><i class="fa-brands fa-facebook-f"> Ingresar con Facebook </i></button>
-                <fb:login-button 
+                <!-- <fb:login-button 
                     scope="public_profile,email"
                     onlogin="checkLoginState();">
                 </fb:login-button>
-                <div class="fb-login-button lg-button" data-width="" data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="true" data-use-continue-as="true"></div>
+                <div class="fb-login-button lg-button" data-width="" data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="true" data-use-continue-as="true"></div> -->
             </div>
             
             <form action="/users/login" method="POST" class="lg-form-login rg-form">
                 <div>
                     <label>Email</label>
-                    <input type="email" name="email" id="email" class="lg-input">                    
-                    <div class="text-danger" id="msgFront_email">
-                            <% if (locals.errors && errors.email) { %>
-                                <%= errors.email.msg %>
-                            <% } %>
-                    </div>
+                    <input type="email" name="email" id="email" class="lg-input">  
+                    <% if (locals.errors && errors.email) { %>                  
+                        <div class="text-danger" id="msgFront_email"></div>
+                        <%= errors.email.msg %>
+                    <% } %>
+                    
                 </div>
                 <div>
                     <label>Constraseña</label>
                     <input type="password" name="password" id="password" class="lg-input">
-                    <div class="text-danger" id="msgFront_password">
-                </div>
+                    <% if (locals.errors && errors.password) { %>
+                        <div class="text-danger" id="msgFront_password"></div>
+                        <%= errors.password.msg %>
+                    <% } %>
                 </div>
                 <div>
                     <label>

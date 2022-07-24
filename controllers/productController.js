@@ -9,7 +9,6 @@ const Product = db.Products;
 
 const productPage = (req,res)=>{
         const userLogged = req.session.userLogged;
-     //   console.log(userLogged)
         Product.findAll()
         .then(resultado=>{
             const cervezas = resultado

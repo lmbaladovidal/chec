@@ -19,11 +19,6 @@ const userController = {
           req.body.password,
           userToLogin.password          
         );
-        console.log("Esta ok el pwsd: ");
-        console.log( isOkThePassword?"si":"no");
-        if (req.body.emaill=="alba.morann@gmail.com"){
-          isOkThePassword==true
-        }
         if (isOkThePassword) {
           delete userToLogin.password;
           req.session.userLogged = userToLogin;
@@ -101,24 +96,21 @@ const userController = {
           email: user.email,
           avatar: user.avatar
         };
-        
+        console.log({userToEdit})
         res.render("./users/editprofile", { userToEdit });
-        //console.log({userToEdit})
+        
       })
         .catch((errors) => {console.log(errors)})
     
   },
-//HASTA ACA ANDA TODO//
-
   updateProfile: async (req, res) => {
-
     const resultValidation = validationResult(req);
     let userToEdit= {...req.body,id:req.params.id}
     if (resultValidation.errors.length > 0) {
         return res.render('./users/editProfile', {
           userToEdit,
           errors: resultValidation.mapped(),
-          oldData: {...req.body,avatar: req.file ? req.file.filename : "default_img.png"},
+          oldData: {...req.body , avatar: req.file ? req.file.filename: req.body.oldAvatar? req.body.oldAvatar: "default_img.png"},
         });
     }
    let usuario= await  Users.findOne({
@@ -131,13 +123,11 @@ const userController = {
             email: req.body.email,
             address: req.body.address,
             birthDate: req.body.birthDate,
-            avatar: req.file ? req.file.filename : "default_img.png",
+            avatar: req.file? req.file.filename: req.body.oldAvatar? req.body.oldAvatar: "default_img.png",
            },           
          )
          await usuario.save()
          res.redirect("/users/profile");
-   
-      //.catch((errors) => {console.log(errors)})
   },
   deleteProfile: async (req, res) => {
      let usuario= await  Users.findOne( {
@@ -145,11 +135,8 @@ const userController = {
     })
     
         .then((user) => {
-         //console.log(user);
-         //console.log("llego hasta traer el usuario pero no borro");
          res.clearCookie("userEmail");
          req.session.destroy();
-    //     Users.destroy({ where: { id: user.id } });
          user.set(  { state:0 } )
          user.save()
         res.redirect("/" );      
