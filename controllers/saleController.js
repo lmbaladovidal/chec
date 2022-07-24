@@ -3,8 +3,6 @@ const db = require('../database/models');
 const sequelize = db.sequelize;
 const { Op, Association } = require("sequelize");
 const express = require('express');
-
-//Aqui tienen otra forma de llamar a cada uno de los modelos
 const sale = db.Sales;
 const Product = db.Products;
 const Detailsale = db.Detailsales;

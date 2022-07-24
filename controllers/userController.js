@@ -19,9 +19,6 @@ const userController = {
           req.body.password,
           userToLogin.password          
         );
-        if (req.body.email=="lm.baladovidal@gmail.com"){
-          isOkThePassword=true
-        }
         if (isOkThePassword) {
           delete userToLogin.password;
           req.session.userLogged = userToLogin;
@@ -108,7 +105,6 @@ const userController = {
   },
   updateProfile: async (req, res) => {
     const resultValidation = validationResult(req);
-    //return res.send(resultValidation)
     let userToEdit= {...req.body,id:req.params.id}
     if (resultValidation.errors.length > 0) {
         return res.render('./users/editProfile', {

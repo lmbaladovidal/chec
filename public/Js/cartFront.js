@@ -1,4 +1,3 @@
-//window.onload = () => {
 window.addEventListener("load", function() { 
     const formCart = document.getElementById("formProductCart"); // console.log OK
     const shoppingCartItemsContainer = document.querySelector('#shoppingCartItemsContainer');  // console.log OK
@@ -49,18 +48,8 @@ window.addEventListener("load", function() {
 
     const cervezaInCart = shoppingCartItemsContainer.getElementsByClassName('shoppingCartItem')
       console.log(cervezaInCart);
-    // for (let i = 0; i < cervezaInCart.length; i++) {
-    //     if (cervezaInCart[i].innerText === itemTitle) {
-    //       let elementQuantity = cervezaInCart[i].parentElement.querySelector(
-    //         '.shoppingCartItemQuantity'
-    //       );
-    //       elementQuantity.value++;
-    //       $('.toast').toast('show');
-    //       updateShoppingCartTotal();
-    //       return;
-    //     }
-    //   }
+    
 
 });
 
-// }
+

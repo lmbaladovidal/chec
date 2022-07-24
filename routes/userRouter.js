@@ -129,21 +129,16 @@ const validationsEditProfile = [
 router.get('/login',guestMiddleware, userController.login);
 //Process login
 router.post('/login', userController.loginProcess);
-
 //Form de register
 router.get('/register', guestMiddleware, userController.register);
 // Proces user register
 router.post('/register', uploadFile.single('avatar'),validationsRegister, userController.userRegister);
-
 //Profile
 router.get('/profile', userLoggedMiddleware , authMiddleware,  userController.profile);
-
 router.get('/profile/:id', authMiddleware, userController.editProfile)
 router.put('/profile/:id', authMiddleware, uploadFile.single('avatar'), validationsEditProfile, userController.updateProfile)
-
 //Delete
 router.delete('/profile/:id', authMiddleware, userController.deleteProfile)
-
 // Logout
 router.get('/logout/', userController.logout);
 
