@@ -3,10 +3,11 @@ const path = require('path');
 
 
 const db = require('../DataBase/models')
+
 const controllerMain = {
     index: (req,res) => {        
         const userLogged = req.session.userLogged;
-        db.Product.findAll()
+        db.Products.findAll()
         .then(resultado=>{
             const cervezas = resultado
             const datos ={cervezas,userLogged}

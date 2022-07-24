@@ -13,43 +13,83 @@
         <div class="pd-product-info">
             
                 <div class="pc-ResumenCompra">
-                    <h3>Administracion de Producto</h3>
-                    <form action="/product/productAdmin/" method="POST" enctype="multipart/form-data">
+                    <h3 id="title">Creación de Producto</h3>
+                    <form action="/product/productAdmin/" method="POST" id="form" enctype="multipart/form-data">
                     <div class="pd-product-imgs">
                         <img src="" alt="beer">
                     </div>
                         <ul class="lg-form-login rg-form" >
                             <li class='pa-li-element'>
                                 <h5>Nombre</h5>
-                                <p><input type="text" name="name"  class='rg-input'></p>
+                                <div class="text-danger" id="msgFront_name"> 
+                                    <% if (locals.errors && errors.name) { %>
+                                        <%= errors.name.msg %> 
+                                    <% } %>
+                                </div>
+                                <p><input type="text" name="name" id="name"  class='rg-input' value="<%= locals.oldData ? oldData.name : null %>"></p>
                             </li>
                             <li class='pa-li-element'>
                                 <h5>Descripción</h5>
-                                <p><input type="text" name="description" value="" class='rg-input'></p>
+                                <div class="text-danger" id="msgFront_description"> 
+                                    <% if (locals.errors && errors.description) { %>
+                                        <%= errors.description.msg %> 
+                                    <% } %>
+                                </div>
+                                <p><input type="text" name="description" id="description"  class='rg-input' value="<%= locals.oldData ? oldData.description : null %>"></p>
                             </li>
                             <li class='pa-li-element'>
                                 <h5>Amargor </h5>
-                                <p><input type="text" name="bitterness" value="" class='rg-input'></p>
+                                <div class="text-danger" id="msgFront_bitterness">
+                                    <% if (locals.errors && errors.bitterness) { %>
+                                        <%= errors.bitterness.msg %> 
+                                    <% } %>
+                                </div>
+                                <p><input type="text" name="bitterness" id="bitterness"  class='rg-input' value="<%= locals.oldData ? oldData.bitterness : null %>"></p>
                             </li>                  
                             <li class='pa-li-element'>
                                 <h5>Alcohol </h5>
-                                <p><input type="text" name="alcohol" value="" class='rg-input'></p>
+                                <div class="text-danger" id="msgFront_alcohol">
+                                    <% if (locals.errors && errors.alcohol) { %>
+                                        <%= errors.alcohol.msg %> 
+                                    <% } %>
+                                </div>
+                                <p><input type="text" name="alcohol" id="alcohol"  class='rg-input' value="<%= locals.oldData ? oldData.alcohol : null %>"></p>
                             </li>
                             <li class='pa-li-element'>
                                 <h5>Color </h5>
-                                <p><input type="text" name="color" value="" class='rg-input'></p>
+                                <div class="text-danger" id="msgFront_color"> 
+                                    <% if (locals.errors && errors.color) { %>
+                                        <%= errors.color.msg %> 
+                                    <% } %>
+                                </div>
+                                <p><input type="text" name="color" id="color"  class='rg-input' value="<%= locals.oldData ? oldData.color : null %>"></p>
                             </li>
                             <li class='pa-li-element'>
                                 <h5>Lúpulo/s </h5>
-                                <p><input type="text" name="hop" value="" class='rg-input'></p>
+                                <div class="text-danger" id="msgFront_hop">
+                                    <% if (locals.errors && errors.hop) { %>
+                                        <%= errors.hop.msg %> 
+                                    <% } %>
+                                </div>
+                                <p><input type="text" name="hop" id="hop"  class='rg-input' value="<%= locals.oldData ? oldData.hop : null %>"></p>
                             </li>
                             <li class='pa-li-element'>
                                 <h5>Gasificación </h5>
-                                <p><input type="text" name="carbonation" value=""class='rg-input' ></p>
+                                <div class="text-danger" id="msgFront_carbonation"> 
+                                    <% if (locals.errors && errors.carbonation) { %>
+                                        <%= errors.carbonation.msg %> 
+                                    <% } %>
+                                </div>
+                                <p><input type="text" name="carbonation" id="carbonation" class='rg-input' value="<%= locals.oldData ? oldData.carbonation : null %>"></p>
                             </li>
                             <li class='pa-li-element'>
                                 <h5>Precio </h5>
-                                <p><input type="text" name="price" value=""class='rg-input' ></p>
+                                <div class="text-danger" id="msgFront_price"> 
+                                    <% if (locals.errors && errors.price) { %>
+                                        <%= errors.price.msg %> 
+                                    <% } %> 
+                                </div>
+                                <p><input type="text" name="price" id="price" class='rg-input' value="<%= locals.oldData ? oldData.price : null %>"></p>
                             </li>
                             <li class='pa-li-element'>
                                 <h5>Categoría </h5> 
@@ -62,14 +102,15 @@
                                         </option>
                                         <% } %>
                             </select>
-                            </li>
-        
-                        </ul>
-        
-                        <input type="file" name="product-image" class='rg-input'>
-                        <input type="text" name="image" style="opacity: 0;" value="" class='rg-input'>
-
-                
+                            </li>        
+                        </ul>        
+                        <input type="file" name="product-image" id="productImage" class='rg-input' value="<%= locals.oldData ? oldData.productImage : null %>">
+                        <input type="text" name="image"  style="opacity: 0;"  class='rg-input'>
+                        <div class="text-danger" id="msgFront_image"> 
+                            <% if (locals.errors && errors.productImage) { %>
+                                <%= errors.name.msg %> 
+                            <% } %>
+                        </div>                
                     <div class="pd-options rg-input">
                         <input type="submit" class="lg-submit" value="Guardar">
                         <input type="reset" class="lg-submit" name="limpiar" value="Limpiar">
@@ -81,6 +122,7 @@
     </div>
     <!-- Footer-->
     <%- include("../partials/footer") %>
+    <script src="/Js/productFront.js"></script>
 </body>
 
 </html>
