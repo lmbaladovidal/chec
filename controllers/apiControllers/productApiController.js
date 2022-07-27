@@ -24,10 +24,14 @@ const productCart=(req,res)=>{
 }
 
 const productDetail= async (req,res)=>{
+    res.set('Access-Control-Allow-Origin', '*');
     const product = await Product.findOne({ 
         where:{id:req.params.id}
     });
-    res.status(200).json({data:product,status:200})
+    res.status(200).json({data:{
+        name: product.name, 
+        id: product.id},
+        status:200})
 }
 
 const productAdmin=async (req,res)=>{
