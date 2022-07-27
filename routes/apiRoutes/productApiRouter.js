@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const multer = require('multer');
 const path = require('path');
-const productController = require('../../controllers/productController');
+const productApiController = require('../../controllers/apiControllers/productApiController');
 const guestMiddleware = require('../../middlewares/guestMiddleware');
 const authMiddleware = require('../../middlewares/authMiddleware');
 const { body, validationResult, check } = require('express-validator'); // Requerir la función body de express validator (funciona como check)
@@ -49,17 +49,17 @@ const storage = multer.diskStorage({
 
 const upload = multer({storage});
 
-router.get('/productAdmin/', authMiddleware,productController.productCreate);
-router.get('/productCreate/', authMiddleware, productController.productCreatePage);
-router.get('/pack', productController.productPack);
-router.get('/search/',productController.productSearch);
-router.get('/productPage', productController.productPage);
-router.post('/productAdmin/', authMiddleware , upload.single('product-image'),validations, productController.productCreate);
+router.get('/productAdmin',productApiController.productCreate);
+router.get('/productCreate', productApiController.productCreatePage);
+router.get('/pack', productApiController.productPack);//no implementado
+router.get('/search/',productApiController.productSearch);
+router.get('/productPage', productApiController.productPage);
+router.post('/productAdmin' , upload.single('product-image'),validations, productApiController.productCreate);
 
-router.get('/productDetail/:id', productController.productDetail);
-router.get('/productAdmin/:id',authMiddleware,productController.productAdmin);
-router.put('/productAdmin/:id',authMiddleware, upload.single('product-image'), validations, productController.productUpdate);
-router.delete('/:id',productController.productDelete);
+router.get('/productDetail/:id', productApiController.productDetail);
+router.get('/productAdmin/:id',productApiController.productAdmin);
+router.put('/productAdmin/:id', upload.single('product-image'), validations, productApiController.productUpdate);
+router.delete('/:id',productApiController.productDelete);
 
 
 

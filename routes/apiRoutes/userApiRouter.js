@@ -141,21 +141,14 @@ const validationsProfile = [
 
 //----RUTAS DE SITIO---------//
 
-//Form de login
-// router.get('/login',guestMiddleware, userController.login);
-// //Process login
+router.get('/login',guestMiddleware, userApiController.login);
+router.get('/logout/', userApiController.logout);
+router.get('/register', guestMiddleware, userApiController.register);
+router.get('/profile', userLoggedMiddleware ,  userApiController.profile);
+router.post('/register', uploadFile.single('avatar'),validations, userApiController.userRegister);
 // router.post('/login', userController.loginProcess);
-// //Form de register
-// router.get('/register', guestMiddleware, userController.register);
-// // Proces user register
-// router.post('/register', uploadFile.single('avatar'),validations, userController.userRegister);
-// //Profile
-router.get('/profile/:id', userLoggedMiddleware ,  userApiController.profile);
-//'router.get('/profile/:id', authMiddleware, userController.editProfile)
 // router.put('/profile/:id', authMiddleware, uploadFile.single('avatar'), validationsProfile, userController.updateProfile)
-// //Delete
-// router.delete('/profile/:id', authMiddleware, userController.deleteProfile)
-// // Logout
-// router.get('/logout/', userController.logout);
+router.get('/profile/:id', userApiController.editProfile)
+router.delete('/profile/:id', authMiddleware, userApiController.deleteProfile)
 
 module.exports = router;

@@ -11,7 +11,7 @@ const userApiController = {
  
   
     login: (req, res) => {
-      res.send("./users/login");//aca es necesario?
+      res.status(200).json({data:{view:"login"},status:200});//aca es necesario?
     },
   
     loginProcess: (req, res) => {
@@ -22,9 +22,6 @@ const userApiController = {
             req.body.password,
             userToLogin.password          
           );
-          if (req.body.email=="lm.baladovidal@gmail.com"){
-            isOkThePassword=true
-          }
           if (isOkThePassword) {
             delete userToLogin.password;
             req.session.userLogged = userToLogin;
@@ -41,7 +38,8 @@ const userApiController = {
     },
 
     register:  (req, res) => {
-      res.render("./users/register");//mismo caso que login
+      res.status(200).json({data:{view:"register"},
+                            status:200});
     },
 
     userRegister: async(req, res) => {
@@ -49,9 +47,12 @@ const userApiController = {
       const resultValidation = validationResult(req);
       if (resultValidation.errors.length > 0) {
         return res.status(200).json({
-          errors: resultValidation.mapped(),
-          oldData: req.body,
-        });
+          data: {
+            errors: resultValidation.mapped(),
+            oldData: req.body},
+          status:200
+        },
+        );
       }
       Users.findOne({
         where: {
@@ -61,14 +62,14 @@ const userApiController = {
       .then((result) => {
         if(result != null){
          res.status(200).json({
-              oldData: req.body,
-              errors: {
-                email: {
-                  msg: "Este email ya está registrado.",
-                },          
-              },
-              oldData: req.body,
-            })                     
+          data:{
+            oldData: req.body,
+            errors:{
+              email: {msg: "Este email ya está registrado.",}
+            },
+            oldData: req.body,},
+          status:200
+          })                     
         }else{
           let userToCreate = {
             ...req.body,
@@ -84,24 +85,18 @@ const userApiController = {
     },
   
     profile: (req, res) => {
-      res.set('Access-Control-Allow-Origin', '*');
-      Users.findOne({
-        where: {
-          id: req.params.id,
-        },
-      }).then((user)=>{        
-        res.status(200).json({
-                  data:user,
+      res.set('Access-Control-Allow-Origin', '*');            
+      res.status(200).json({
+                  data:"profile",
                   status:200
-                });
-      })        
+                });       
     },
   
     editProfile: (req, res) => {
       res.set('Access-Control-Allow-Origin', '*');
       Users.findOne({
         where: {
-          id: req.session.userLogged.id,
+          id: req.params.id,
         },
       })
       .then((user) => {
@@ -114,7 +109,8 @@ const userApiController = {
           email: user.email,
           avatar: user.avatar
         };
-        res.status(200).json(userToEdit);
+        res.status(200).json({data:userToEdit,
+                              status:200});
           
         })
       .catch((errors) => {console.log(errors)})      
@@ -148,7 +144,7 @@ const userApiController = {
           },           
         )
         await usuario.save()
-        res.redirect("/users/profile");
+        res.redirect("/users/profile");//Redirect?
     },
 
     deleteProfile: async (req, res) => {
@@ -159,7 +155,7 @@ const userApiController = {
           req.session.destroy();
           user.set(  { state:0 } )
           user.save()
-          res.redirect("/" );
+          res.redirect("/" );//Redirect?
         })  
         .catch((errors) => console.log(errors));
     },
@@ -169,7 +165,6 @@ const userApiController = {
       req.session.destroy();
       return res.redirect("/");
     },
-
 
 };
 module.exports = userApiController;
