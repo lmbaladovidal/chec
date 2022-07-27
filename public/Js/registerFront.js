@@ -14,7 +14,6 @@ window.onload = () => {
     address: /^[A-Za-z0-9\s°]{8,256}$/, // Letras, numeros, guion y guion_bajo
     avatar: /(.jpg|.jpeg|.png|.gif)$/i,
   };
-
   let campos = null 
     if (document.getElementById("title").innerText=="REGISTRO NUEVO USUARIO"){
       campos = {
@@ -37,56 +36,28 @@ window.onload = () => {
         avatar: true,
     }
   }
-
   const validarFormulario = (e) => {
     switch (e.target.name) {
       case "name":
-        validarCampo(
-          expresiones.name,
-          " Mínimo 2 caracteres. Sólo Letras",
-          e.target,
-          "name"
-        );
-
+        validarCampo(expresiones.name," Mínimo 2 caracteres. Sólo Letras",e.target,"name");
         break;
       case "lastName":
-        validarCampo(
-          expresiones.lastName,
-          "Mínimo 2 caracteres. Admite letras y acentos",
-          e.target,
-          "lastName"
-        );
+        validarCampo(expresiones.lastName,"Mínimo 2 caracteres. Admite letras y acentos",e.target,"lastName");
         break;
       case "password":
-        validarCampo(
-          expresiones.password,
-          "Mínimo 8 caracteres, 1 mayúscula, 1 minúscula, 1 número, y 1 caracter especial.",
-          e.target,
-          "password"
-        );
-        //validar();
+        validarCampo(expresiones.password,"Mínimo 8 caracteres, 1 mayúscula, 1 minúscula, 1 número, y 1 caracter especial.",e.target,"password");
         break;
       case "passVerify":
         validar();
         break;
       case "email":
-        validarCampo(
-          expresiones.email,
-          "Debes escribir un formato válido de Email",
-          e.target,
-          "email"
-        );
+        validarCampo(expresiones.email,"Debes escribir un formato válido de Email",e.target,"email");
         break;
       case "birthDate":
         birthValidate( "Debes ser mayor de 18 Años");
         break;
       case "address":
-        validarCampo(
-          expresiones.address,
-          "Mínimo 8 caracteres. Admite letras y números",
-          e.target,
-          "address"
-        );
+        validarCampo(expresiones.address,"Mínimo 8 caracteres. Admite letras y números",e.target,"address");
         break;
     }
   };
@@ -95,13 +66,13 @@ window.onload = () => {
     if (expresion.test(input.value)) {
       document.getElementById(`msgFront_${campo}`).innerHTML = "";
       document.getElementById(`msgFront_${campo}`).classList.remove("text-danger");
-      document.getElementById(`msgFront_${campo}`).classList.add("rg-imput");
+      document.getElementById(`msgFront_${campo}`).classList.add("rg-input");
       document.getElementById(`${campo}`).classList.remove("is-invalid");
       campos[campo] = true;
     } else {
       document.getElementById(`msgFront_${campo}`).innerHTML = texto;
       document.getElementById(`msgFront_${campo}`).classList.add("text-danger");
-      document.getElementById(`msgFront_${campo}`).classList.remove("rg-imput");
+      document.getElementById(`msgFront_${campo}`).classList.remove("rg-input");
       document.getElementById(`${campo}`).classList.add("is-invalid");
       campos[campo] = false;
     }
@@ -112,11 +83,10 @@ window.onload = () => {
     //console.log(input)  
     input.addEventListener("keyup", validarFormulario);
     input.addEventListener("blur", validarFormulario);
-    input.addEventListener("change", valExtFile);
     
   });
-  
-
+  console.log(document.getElementById('avatar'))
+  document.getElementById('avatar').addEventListener("change", valExtFile);
   document.getElementById('birthDate').addEventListener("blur", birthValidate("Debes ser mayor de 18 Años"))
  
   // función para validad la imagen//
@@ -178,14 +148,14 @@ window.onload = () => {
         if(ageUser2 < 18 ){
           document.getElementById(`msgFront_birthDate`).innerHTML = texto
           document.getElementById(`msgFront_birthDate`).classList.add("text-danger")
-          document.getElementById(`msgFront_birthDate`).classList.remove("rg-imput")
+          document.getElementById(`msgFront_birthDate`).classList.remove("rg-input")
           document.getElementById('birthDate').classList.add("is-invalid")
           campos.birthDate= false;
           //console.log(campos.birthDate);
           } else {
           document.getElementById(`msgFront_birthDate`).innerHTML = ""
           document.getElementById(`msgFront_birthDate`).classList.remove("text-danger")
-          document.getElementById(`msgFront_birthDate`).classList.add("rg-imput")
+          document.getElementById(`msgFront_birthDate`).classList.add("rg-input")
           document.getElementById('birthDate').classList.remove("is-invalid");
           campos.birthDate= true;
           
@@ -193,13 +163,9 @@ window.onload = () => {
           }
     }
 
-
-
-  formRegister.addEventListener("submit", (e) => {
-  
+  formRegister.addEventListener("submit", (e) => {  
     //e.preventDefault();
-   
-
+    console.log(campos)
     if (!
       campos.name &&
       campos.lastName &&

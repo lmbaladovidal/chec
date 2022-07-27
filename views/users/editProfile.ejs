@@ -10,89 +10,68 @@
         <label><h3 id="title">MODIFICAR DATOS DE USUARIO</h3></label>
         <form action="/users/profile/<%=userToEdit.id%>?_method=PUT" class="rg-form" method="POST" enctype="multipart/form-data" id="formRegister">
             <div>
-            <label><b>Nombre</b></label>
-            <br>
-            <input 
-            type="text" 
-            name="name"
-            id="name"
-            class="rg-input <%= locals.errors && errors.name ? 'is-invalid' : null %>"
-            value="<%=userToEdit.name%>">
-
-            <% if (locals.errors && errors.name) { %>
-                <div class="text-danger">
-                    <%= errors.name.msg %> 
-                </div>
-            <% } %>
-            <div class="text-danger" id="msgFront_name"> </div>
-        </div>
+                <label><b>Nombre</b></label>
+                <br>
+                <input 
+                type="text" name="name" id="name" class="rg-input <%= locals.errors && errors.name ? 'is-invalid' : null %>" value="<%=userToEdit.name%>">
+                <% if (locals.errors && errors.name) { %>
+                    <div class="text-danger" id="msgFront_name">
+                        <%= errors.name.msg %> 
+                    </div>
+                <% }else{%>
+                    <div class="text-danger" id="msgFront_name"></div>
+                <%}%>
+            </div>
             <div>
                 <label><b>Apellido</b></label>
                 <br>
                 <input 
-                    type="text"
-                    name="lastName" 
-                    id="lastName"
-                    class="rg-input <%= locals.errors && errors.lastName ? 'is-invalid' : null %>"
-                    value="<%= userToEdit.lastName  %>">
+                    type="text" name="lastName" id="lastName" class="rg-input <%= locals.errors && errors.lastName ? 'is-invalid' : null %>" value="<%= userToEdit.lastName  %>">
                     <% if (locals.errors && errors.lastName) { %>
-                        <div class="text-danger">
+                        <div class="text-danger" id="msgFront_lastName">
                             <%= errors.lastName.msg %> 
                         </div>
-                    <% } %>
-                    <div class="text-danger" id="msgFront_lastName"> </div>
+                    <% }else{%>
+                        <div class="text-danger" id="msgFront_lastName"></div>
+                    <%}%>
             </div>
-           <div>
+            <div>
             <label><b>Email</b></label>
             <br>
-            <input 
-                type="text" 
-                name="email" 
-                id="email"
-                class="rg-input" <%= locals.errors && errors.email ? 'is-invalid' : null %>"
-                value="<%= userToEdit.email  %>">
+            <input type="text" name="email" id="email" class="rg-input" <%= locals.errors && errors.email ? 'is-invalid' : null %>" value="<%= userToEdit.email  %>">
                 <% if (locals.errors && errors.email) { %>
-                    <div class="text-danger">
+                    <div class="text-danger" id="msgFront_email">
                         <%= errors.email.msg %> 
                     </div>
-                <% } %>
-                <div class="text-danger" id="msgFront_email"> </div>
+                <% }else{%>
+                    <div class="text-danger" id="msgFront_email"></div>
+                <%}%>                    
            </div>
            <div>
             <label><b>Dirección</b></label>
             <br>
-               <input 
-                    type="text" 
-                    name="address" 
-                    id="address"
-                    class="rg-input" <%= locals.errors && errors.address ? 'is-invalid' : null %>"
-                    value="<%= userToEdit.address%>">
-                    <% if (locals.errors && errors.address) { %>
-                        <div class="text-danger">
-                            <%= errors.address.msg %> 
-                        </div>
-                    <% } %>
-                    <div class="text-danger" id="msgFront_address"> </div>
+            <input type="text" name="address" id="address" class="rg-input" <%= locals.errors && errors.address ? 'is-invalid' : null %>" value="<%= userToEdit.address%>">
+                <% if (locals.errors && errors.address) { %>
+                    <div class="text-danger" id="msgFront_address">
+                        <%= errors.address.msg %> 
+                    </div>
+                <% }else{%>
+                    <div class="text-danger" id="msgFront_address"></div>
+                <% } %>
             </div>
             <div>
                 <label><b>Fecha de nacimiento</b></label>
                 <br>
-                <input 
-                    type="date"
-                    name="birthDate" 
-                    id="birthDate"
-                    
-                    class="rg-input" <%= locals.errors && errors.birthDate ? 'is-invalid' : null %>"
+                <input type="date" name="birthDate" id="birthDate" class="rg-input" <%= locals.errors && errors.birthDate ? 'is-invalid' : null %>"
                     value="<%= userToEdit.birthDate  %>">
                     <% if (locals.errors && errors.birthDate) { %>
-                        <div class="text-danger">
+                        <div class="text-danger" id="msgFront_birthDate">
                             <%= errors.birthDate.msg %> 
                         </div>
+                    <% }else{%>
+                        <div class="text-danger" id="msgFront_birthDate"></div>
                     <% } %>
-
-                    <div class="text-danger" id="msgFront_birthDate"> </div>
-            </div>
-             
+            </div>             
             <div>
                 <div >
                     <label><b>Imagen de perfil:</b></label>
@@ -100,32 +79,29 @@
                     <div>
                         <img src="/images/avatars/<%= userToEdit.avatar?userToEdit.avatar: oldData.avatar %> " width="150px">
                     </div>
-                    <input type="hidden" name="oldAvatar" value="<%=userToEdit.avatar%>">
+                    <input type="hidden" name="oldAvatar" value="<%= userToEdit != undefined && userToEdit.avatar!=undefined ? userToEdit.avatar : locals.oldData ? oldData.avatar : null %>">
+                    <p><%= userToEdit != undefined && userToEdit.avatar!=undefined? "userToEdit.avatar" : locals.oldData ? "oldData.avatar" : "nada" %></p>
                     <input 
-                        type="file" 
-                        name="avatar"
-                        id="avatar"
-                        accept=".jpg,.png,.jpeg,.gif"
-                        class="rg-input"
-                        value="<%= locals.oldData ? oldData.avatar : null %>">
-                <% if (locals.errors && errors.avatar) { %>
-                    <div class="text-danger">
-                        <%= errors.avatar.msg %> 
-                    </div>
-                <% } %>
-                    <div class="text-danger" id="msgFront_avatar"> </div>               
+                        type="file" name="avatar" id="avatar" accept=".jpg,.png,.jpeg,.gif" class="rg-input"
+                        value="<%=  userToEdit != undefined && userToEdit.avatar!=undefined ? userToEdit.avatar : locals.oldData ? oldData.avatar : null %>">
+                        <p><%= userToEdit != undefined && userToEdit.avatar!=undefined? userToEdit.avatar+" USTE" : locals.oldData ? oldData.avatar+" OA" : "null" %></p>
+                        <% if (locals.errors && errors.avatar) { %>
+                            <div class="text-danger" id="msgFront_avatar">
+                                <%= errors.avatar.msg %> 
+                            </div>
+                        <% }else{%>
+                            <div class="text-danger" id="msgFront_avatar"></div>
+                        <% } %>            
                 </div>
             </div>
         
             <div class="rg-btn-div rg-input" >
                 <input type="submit" name="" id="rg-submit" class="rg-submit" value="Modificar">
-                <input type="reset" class="rg-reset" value="Deshacer" >
-                
+                <input type="reset" class="rg-reset" value="Deshacer" >                
                 <button type="submit" class="pd-add " >
                     <a href="#" class=" " > Password</a>
                 </button>
-            </div>
-            
+            </div>            
         </form> 
         <form action="/users/profile/<%=userToEdit.id%>?_method=DELETE" class="rg-form" method="POST">
             <div class="pd-add">
