@@ -103,7 +103,7 @@ const validationsEditProfile = [
 		.custom((value, {req}) => {			
 			const m = moment(value, "YYYY-MM-DD");
 			const ageUser= parseInt(m.fromNow());
-			return	ageUser>18?true:false
+			return ageUser>18?true:false
 		}).withMessage('Debes ser mayor de 18 años'),
 	body('oldvatar')
 		.custom((value, { req }) => {       //custom validation xq no hay una validación para files. 
