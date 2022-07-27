@@ -80,7 +80,6 @@
                     type="date"
                     name="birthDate" 
                     id="birthDate"
-                    onblur="birthValidate()"
                     class="rg-input" <%= locals.errors && errors.birthDate ? 'is-invalid' : null %>"
                     value="<%= locals.oldData ? oldData.birthDate : null %>">
                     <% if (locals.errors && errors.birthDate) { %>
@@ -114,7 +113,6 @@
                     class="rg-input"
                     name="passVerify" 
                     id="passVerify" 
-                    onkeyup="validar()">
                 <% if (locals.errors && errors.passVerify) { %>
                     <div class="text-danger">
                         <%= errors.passVerify.msg %> 
