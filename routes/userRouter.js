@@ -58,7 +58,7 @@ const validationsRegister = [
 		.custom((value, {req}) => {			
 			const m = moment(value, "YYYY-MM-DD");
 			const ageUser= parseInt(m.fromNow());
-			ageUser2 > 18?true:false
+			return ageUser > 18?true:false
 		}).withMessage('Debes ser mayor de 18 años'),
 	body('password').notEmpty().withMessage('Tienes que escribir una contraseña'),
 	body('passVerify').notEmpty().withMessage('Repite tu contraseña').bail()
@@ -103,7 +103,7 @@ const validationsEditProfile = [
 		.custom((value, {req}) => {			
 			const m = moment(value, "YYYY-MM-DD");
 			const ageUser= parseInt(m.fromNow());
-			ageUser>18?true:false
+			return ageUser>18?true:false
 		}).withMessage('Debes ser mayor de 18 años'),
 	body('oldvatar')
 		.custom((value, { req }) => {       //custom validation xq no hay una validación para files. 
