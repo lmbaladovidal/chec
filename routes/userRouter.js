@@ -1,5 +1,6 @@
 const express = require('express');
 const userController = require('../controllers/userController');
+//const userApiController = require('../controllers/apiControllers/userApiController');
 const router = express.Router();
 const path = require('path');
 const moment = require('moment');
@@ -135,9 +136,12 @@ router.get('/register', guestMiddleware, userController.register);
 // Proces user register
 router.post('/register', uploadFile.single('avatar'),validationsRegister, userController.userRegister);
 
+//Users Admin
+router.get('/users', userController.userList);
+router.get('/users/:id', userController.userDetail);
+
 //Profile
 router.get('/profile', userLoggedMiddleware , authMiddleware,  userController.profile);
-
 router.get('/profile/:id', authMiddleware, userController.editProfile)
 router.put('/profile/:id', authMiddleware, uploadFile.single('avatar'), validationsEditProfile, userController.updateProfile)
 

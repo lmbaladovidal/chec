@@ -4,14 +4,6 @@
 <body >
 	<%- include("../partials/header") %>
 	
-	<form action="/users/profile/<%= user.id %> " class="" method="POST" enctype="multipart/form-data">
-		<div class="nr-main-containter">
-			<div class="add-receta-container">
-			<% if (locals.datos && datos.userLogged && datos.userLogged.users_roles_id == 2 ){ %>
-				<button class="pd-admin"><a href="/users/users" class="pd-admin-a">Ver listado de usuarios</a></button>
-			<%}%>
-		 </div>
-		</div>
 	<!-- Container -->
 	<div class="container" style="margin-top: 40px;">
 		<div class="pr-form lg-form rg-input" style="padding:15px 0">
@@ -24,13 +16,10 @@
 				<div>
 					
 					<button type="submit" class="pd-add " value="Modificar perfil">
-						<a href="/users/profile/<%=user.id%>" > Modificar perfil</a>
+						<a href="/users/users" > Volver al listado de usuarios</a>
 					</button> <br>
-					<button type="submit" class="pd-admin" value="Modificar perfil">
-						<a href="/users/logout" class="pd-admin-a" > Cerrar Sesión</a>
-					</button>
 					
-	</form>
+	
 				</div>
 			</div>
 		</div>
