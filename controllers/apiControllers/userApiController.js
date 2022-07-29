@@ -166,5 +166,17 @@ const userApiController = {
       return res.redirect("/");
     },
 
+    userList: (req, res) => {
+      res.set('Access-Control-Allow-Origin', '*');
+      Users.findAll()
+      .then((users) => {
+      
+        res.status(200).json({data:users,
+                              status:200});
+          
+        })
+      .catch((errors) => {console.log(errors)})      
+    },
+
 };
 module.exports = userApiController;

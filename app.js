@@ -8,6 +8,7 @@ const userRouter = require("./routes/userRouter");
 const saleRouter = require("./routes/saleRouter");
 const userApiRouter = require("./routes/apiRoutes/userApiRouter");
 const productApiRouter = require("./routes/apiRoutes/productApiRouter");
+const salesApiRouter = require("./routes/apiRoutes/salesApiRouter")
 const notFound = require("./middlewares/notFound");
 
 const session = require('express-session');
@@ -46,6 +47,7 @@ app.use("/product", productRouter);
 app.use("/recetas", recipeRouter);
 app.use("/users", userRouter);
 app.use("/sales",saleRouter)
+app.use("/api/sales",salesApiRouter)
 app.use("/api/user",userApiRouter);
 app.use("/api/product",productApiRouter)
 app.use(notFound)
