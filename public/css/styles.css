@@ -511,6 +511,19 @@ color: #ff6200;
   margin-top: 10px;
 }
 
+/*Pagina de Users admin*/
+
+.user-container{
+  margin: 5px auto; 
+  width: 90%;
+  align-items: center;
+  padding:15px 0;
+}
+
+.td-user {
+  padding: 5px;
+}
+
 /* Página Product Page*/
 
 .pd-main {

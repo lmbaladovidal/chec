@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include('../partials/head') %>
+<body >
+	<%- include("../partials/header") %>
+	
+	<div class="user-container"> <h2> Lista de usuarios </h2></div>
+	<!-- Container -->
+	
+	<div class="user-container">
+	<table class="table table-hover">
+		<thead>
+		  <tr>
+			<th scope="col">#</th>
+			<th scope="col">Apellido</th>
+			<th scope="col">Nombre</th>
+			<th scope="col">Email</th>
+			<th scope="col">Detalle</th>
+		  </tr>
+		</thead>
+		<tbody>
+		<% for (i=0;i< users.length;i++){%>
+		  <tr>
+
+			<td class="td-user"><%= users[i].id %></td>
+			<td class="td-user"><%= users[i].name %></td>
+			<td class="td-user"><%= users[i].lastName %></td>
+			<td class="td-user"><%= users[i].email %></td>
+			<!-- <td class="td-user"><img src="/images/avatars/<%= users[i].avatar %>" width="30px"></td> -->
+			<th class="td-user"><button type="submit" class="pd-add " value="Modificar perfil">
+				<a href="/users/users/<%=users[i].id%>" > Ver detalle </a> 	</button></th>
+		  </tr>
+		  <%}%>
+		</tbody>
+	
+	</table>
+
+	</div>
+
+	
+
+		
+
+	<!-- //Container -->
+	
+	<%- include('../partials/footer') %>
+	<script> src="../node_modules/bootstrap/dist/js/bootstrap.bundle.css"</script>
+</body>
+</html>

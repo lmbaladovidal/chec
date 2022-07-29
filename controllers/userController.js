@@ -105,10 +105,7 @@ const userController = {
   },
   updateProfile: async (req, res) => {
     const resultValidation = validationResult(req);
-    console.log("req.file: ")
-    console.log(req.file)
-    console.log("validation ")
-    console.log(resultValidation)
+  
     let userToEdit= {...req.body,id:req.params.id}
 
     if (resultValidation.errors.length > 0) {
@@ -156,5 +153,26 @@ const userController = {
     req.session.destroy();
     return res.redirect("/");
   },
+  userList: (req, res) => {
+    Users.findAll()
+    .then((users) => {
+    
+      res.render("./users/usersList", {users});
+        
+      })
+    .catch((errors) => {console.log(errors)})      
+  },
+
+  userDetail: async (req, res) => {
+    await Users.findOne({
+        where: { id: req.params.id},
+     })
+     .then(user => {
+        res.render("./users/userDisplay", {user});
+     })
+     .catch((errors) => {console.log(errors)})   
+         
+  },
+  
 };
 module.exports = userController;
