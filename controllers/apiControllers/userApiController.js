@@ -189,7 +189,7 @@ const userApiController = {
        })
        .then(user => {
           res.status(200).json({
-            meta:{status:200, link: "api/users/:id" },
+            meta:{status:200, link: "http://localhost:3001/api/users/"+user.id },
             data: { user } 
           });
        })
