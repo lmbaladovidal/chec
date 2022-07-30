@@ -66,7 +66,6 @@ window.addEventListener("load", function() {
 
     // Función actualizar cantidad de los elementos del carrito
     const changeQuantity = document.querySelectorAll('#shoppingCartItemQuantity')
-    console.log(changeQuantity);
     changeQuantity.forEach(itemQuantity => {
         itemQuantity.addEventListener('change', quantityChanged)
     })
@@ -77,7 +76,19 @@ window.addEventListener("load", function() {
         updateShoppingCartSubtotal(shoppingCartItemsContainer);
       }
 
-
+    const cervezaInCart = shoppingCartItemsContainer.getElementsByClassName('shoppingCartItem')
+      console.log(cervezaInCart);
+    // for (let i = 0; i < cervezaInCart.length; i++) {
+    //     if (cervezaInCart[i].innerText === itemTitle) {
+    //       let elementQuantity = cervezaInCart[i].parentElement.querySelector(
+    //         '.shoppingCartItemQuantity'
+    //       );
+    //       elementQuantity.value++;
+    //       $('.toast').toast('show');
+    //       updateShoppingCartTotal();
+    //       return;
+    //     }
+    //   }
 
 });
 

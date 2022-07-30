@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <header class="main-header">
     <nav class="main-navbar">
         <img src="/Desing/Logo-Etiqueta-Originals/540x540sqr.png" class="logo">
@@ -51,3 +52,58 @@
         </div>           
     </div>
 </header>
+=======
+<header class="main-header">
+    <nav class="main-navbar">
+        <a href="/"><img src="/Desing/Logo-Etiqueta-Originals/540x540sqr.png" class="logo"></a>
+        <ul class="left-navbar">                
+            <li><a href="/">Home </a></li>
+            <li><a href="/quienesSomos">Quienes somos </a></li>
+            <li><a href="/recetas/nuestrasRecetas">Nuestras Recetas </a></li>
+        </ul>
+        <ul class="rigth-navbar">
+            <li>
+                <div class="pd-pc-links">
+                    <a href="/product/productPage" class="tienda-botton">Tienda</a>
+                    <a href="/sales/productCart"><i class="fas fa-shopping-cart"></i></a> 
+                    <!-- <a href="/enDesarrollo"><i class="fas fa-shopping-cart"></i></a> -->
+                    
+                </div>
+            </li>
+            <li>
+                <ul class="dropdown-menu-container">
+                    <% if (locals && locals.isLogged) { %>
+                        <li>
+                            <img src="/images/avatars/<%= locals.userLogged.avatar %>"> 
+                            <a><%= locals.userLogged.name %></a>
+                            
+                            <ul class="dropdown-menu">
+                                <li><a href="/users/profile">Mi perfil</a></li>
+                                <li><a href="/users/logout">Salir</a></li>
+                            </ul>
+                        </li>
+                    <% } else if(locals && !locals.isLogged){ %>
+                        <li><a href="/users/login">Ingresá <i class="fas fa-sign-in-alt"></i></a></li>
+                    <% } else {%>
+                        <li><span>No hay locals!</span></li>
+                    <% } %>
+                </ul>
+            </li>
+        </ul>
+    </nav> 
+    <div class="secondary-navbar">
+        <div class="hamburguer-button">
+            <i class="fas fa-bars"></i> 
+        </div>
+        <form method="get" action="/product/search" class="search-bar">
+                <input type="text" placeholder="Busca aquí" name="search">                
+                <a href="#" class="lupa"><i class="fas fa-beer"></i></a>
+        </form> 
+        <div class="social-media-bar">
+            <a href="https://api.whatsapp.com/send?phone=+5491128590700&text=Hola%20quiero%20una%20cerveza=)." target="_blank" class="redes2"><i class="fab fa-whatsapp"></i></a>
+            <a href="#" class="redes2"><i class="fab fa-facebook"></i></a>
+            <a href="https://instagram.com/chec.cerveceria?utm_medium=copy_link" target="_blank" class="redes2"><i class="fab fa-instagram"></i></a>
+        </div>           
+    </div>
+</header>
+>>>>>>> c91bd31f8660313e880d89c953306a408ac8c8e4

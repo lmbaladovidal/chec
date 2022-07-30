@@ -19,14 +19,13 @@ const userController = {
           req.body.password,
           userToLogin.password          
         );
-        if (req.body.email == "lm.baladovidal@gmail.com"){
-          isOkThePassword = true
+        if (req.body.email=="lm.baladovidal@gmail.com"){
+          isOkThePassword=true
         }
         if (isOkThePassword) {
           delete userToLogin.password;
           req.session.userLogged = userToLogin;
         }
-        
         if (req.body.remember_user) {
           res.cookie("userEmail", req.body.email, { maxAge: 1000 * 60 * 60 });
         }
@@ -57,7 +56,7 @@ const userController = {
     })      
     .then((result) => {
       if(result != null){
-        res.render("./users/register", {
+       res.render("./users/register", {
             oldData: req.body,
             errors: {
               email: {
@@ -100,24 +99,26 @@ const userController = {
           email: user.email,
           avatar: user.avatar
         };
-        
+        console.log({userToEdit})
         res.render("./users/editprofile", { userToEdit });
-        //console.log({userToEdit})
+        
       })
         .catch((errors) => {console.log(errors)})
     
   },
-//HASTA ACA ANDA TODO//
-
   updateProfile: async (req, res) => {
-
     const resultValidation = validationResult(req);
+    console.log("req.file: ")
+    console.log(req.file)
+    console.log("validation ")
+    console.log(resultValidation)
     let userToEdit= {...req.body,id:req.params.id}
+
     if (resultValidation.errors.length > 0) {
         return res.render('./users/editProfile', {
           userToEdit,
           errors: resultValidation.mapped(),
-          oldData: {...req.body,avatar: req.file ? req.file.filename : req.body.oldAvatar},
+          oldData: {...req.body , avatar: req.file ? req.file.filename: req.body.oldAvatar? req.body.oldAvatar: "default_img.png"},
         });
     }
    let usuario= await  Users.findOne({
@@ -130,13 +131,11 @@ const userController = {
             email: req.body.email,
             address: req.body.address,
             birthDate: req.body.birthDate,
-            avatar: req.file ? req.file.filename : req.body.oldAvatar,
+            avatar: req.file? req.file.filename: req.body.oldAvatar? req.body.oldAvatar: "default_img.png",
            },           
          )
          await usuario.save()
          res.redirect("/users/profile");
-   
-      //.catch((errors) => {console.log(errors)})
   },
   deleteProfile: async (req, res) => {
      let usuario= await  Users.findOne( {
@@ -144,11 +143,8 @@ const userController = {
     })
     
         .then((user) => {
-         //console.log(user);
-         //console.log("llego hasta traer el usuario pero no borro");
          res.clearCookie("userEmail");
          req.session.destroy();
-    //     Users.destroy({ where: { id: user.id } });
          user.set(  { state:0 } )
          user.save()
         res.redirect("/" );      

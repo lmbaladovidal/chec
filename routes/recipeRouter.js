@@ -54,7 +54,7 @@ const validations = [
 
 router.get('/nuestrasRecetas', recipeController.recetasDetail);
 router.get('/nuevaReceta/',authMiddleware, recipeController.recetaNew);
-router.post('/nuevaReceta/',authMiddleware, validations, recipeController.recetaCreate);
+router.post('/nuevaReceta/',userLoggedMiddleware,authMiddleware, validations, recipeController.recetaCreate);
 
 router.get('/recetasAdmin/:id',authMiddleware,recipeController.recetaEdit);
 router.put('/recetasAdmin/:id', authMiddleware, validations, recipeController.recetaUpdate);

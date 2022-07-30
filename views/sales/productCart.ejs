@@ -14,9 +14,9 @@
                         <div class="pc-product-group">
                             <div class="pc-product-cantidad">
                                
-                                <div class="shopping-cart-items" id="shoppingCartItemsContainer" >
+                                <div class="shopping-cart-items shoppingCartItemsContainer" id="shoppingCartItemsContainer" >
                                     <% for (i=0;i< products_Detail.length;i++){%>
-                                        <div class="pc-row shoppingCartItem" id="shoppingCartItem">                                         
+                                        <div class="shoppingCartItem pc-row" id="shoppingCartItem">                                         
                                                 <div class="shopping-cart-item">
                                                     <img src="/images/<%= products_Detail[i].Products.image %>" class="pc-shopping-cart-image" id="product-image">
                                                     <h6 class="shopping-cart-item-title shoppingCartItemTitle " id="product-name"><%= products_Detail[i].Products.name %></h6>

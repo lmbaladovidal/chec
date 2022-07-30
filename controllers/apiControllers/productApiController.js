@@ -1,19 +1,31 @@
 const { response } = require('express');
-const { Op } = require("sequelize");
+const { Op,QueryTypes } = require("sequelize");
 const { validationResult } = require("express-validator");
 const fs = require('fs');
 const path = require('path');
-const db = require('../DataBase/models')
+const db = require('../../DataBase/models');
+const { sequelize } = require('../../DataBase/models');
 const Product = db.Products;
 
 
-const productPage = (req,res)=>{
+const productList=  (req,res)=>{
+        res.set('Access-Control-Allow-Origin', '*');
         const userLogged = req.session.userLogged;
-        Product.findAll()
-        .then(resultado=>{
+        Product.findAll({
+            attributes: ['id', 'name','description','category','description','image']
+        })
+        .then(async resultado=>{
             const cervezas = resultado
-            const datos ={cervezas,userLogged}
-            res.render('./product/productPage',{datos})
+            const datos ={cervezas}
+            const countByCategory = await sequelize.query("SELECT category, COUNT(category) as cantCategories  FROM products p GROUP BY category ORDER BY category", { type: QueryTypes.SELECT })
+            res.status(200).json({
+                            count:cervezas.length,
+                            countByCategory:countByCategory,
+                            data:{
+                                    cervezas:cervezas,
+                                    userLogged:userLogged 
+                                },
+                            status:200})
             }
         )
         .catch(error=>{console.log(error)})
@@ -27,7 +39,7 @@ const productDetail= async (req,res)=>{
     const product = await Product.findOne({ 
         where:{id:req.params.id}
     });
-    res.render('./product/productDetail',{product})
+    res.status(200).json({data:product,status:200})
 }
 
 const productAdmin=async (req,res)=>{
@@ -37,21 +49,29 @@ const productAdmin=async (req,res)=>{
     if(cervezaToEdit==undefined)  {
         res.render('enDesarrollo')
     }else{
-    res.render('product/productAdmin',{cervezaToEdit})}
+        res.status(200).json({data:cervezaToEdit,status:200})}
 }
     
-const productCreatePage = (req,res)=>{res.render('product/productCreate')}
+const productCreatePage = (req,res)=>{
+        res.status(200).json({ 
+        data:{
+            view:"productCreatePage"
+        },
+        status:200
+        }
+    )}
 
-const productCreate= async (req,res)=>{
+const productCreate= async (req,res)=>{//esta solo funcionaria en postman si hubiese errores de validacion
     const resultValidation = validationResult(req);
     if (resultValidation.errors.length > 0) {
-      return res.render("./product/productCreate", {
-        errors: resultValidation.mapped(),
-        oldData: req.body,
-      });
-    }
-
-    
+      return res.status(200).json({ 
+        data:{
+            errors: resultValidation.mapped(),
+            oldData: req.body,
+        },
+        status:200
+    });
+    }    
     await Product.create({
         name: req.body.name,
         description: req.body.description,
@@ -72,7 +92,7 @@ const productUpdate = async (req, res) =>{
     const resultValidation = validationResult(req);
     let cervezaToEdit = {...req.body,id:req.params.id}
     if (resultValidation.errors.length > 0) {
-        return res.render("./product/productAdmin", {
+        return res.status(200).json({
             cervezaToEdit,
             errors: resultValidation.mapped(),
             oldData: req.body,
@@ -108,7 +128,7 @@ const productSearch=async (req,res)=>{
             }
         })
         datos = {cervezas,userLogged:"userlogged va aca"}
-        res.render('./product/productSearch',{datos})}
+        return res.status(200).json({data:datos,status:200})}
 
 const productPack=(req,res)=>{res.render('./product/pack')}
 
@@ -127,7 +147,7 @@ const productDelete = async (req, res) => {
 }
 
 const productControler = {
-    productPage,
+    productList,
     productCart,
     productDetail,
     productAdmin,
