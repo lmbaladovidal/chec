@@ -49,7 +49,7 @@ app.use("/recetas", recipeRouter);
 app.use("/users", userRouter);
 app.use("/sales",saleRouter)
 app.use("/api/sales",salesApiRouter)
-app.use("/api/user",userApiRouter);
+app.use("/api/users",userApiRouter);
 app.use("/api/product",productApiRouter)
 app.use(notFound)
 

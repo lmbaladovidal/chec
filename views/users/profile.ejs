@@ -7,8 +7,7 @@
 	<form action="/users/profile/<%= user.id %> " class="" method="POST" enctype="multipart/form-data">
 		<div class="nr-main-containter">
 			<div class="add-receta-container">
-				<p><% datos.userLogged  %> </p>
-				<p><% datos.userLogged.users_roles_id %> </p>
+				
 			<% if (locals.datos && datos.userLogged && datos.userLogged.users_roles_id == 2 ){ %>
 				<button class="pd-admin"><a href="/users/users" class="pd-admin-a">Ver listado de usuarios</a></button>
 			<%}%>
@@ -19,7 +18,7 @@
 		<div class="pr-form lg-form rg-input" style="padding:15px 0">
 			<div class=" col-md-3">
 				<h2>Hola <%= user.name %> </h2>
-				<img src="/images/avatars/<%= user.avatar %> ">
+				<img src="<%= user.avatar %> ">
 				<br>
 				<br>
 				<div class="alert alert-success"><%= user.email %> </div>
