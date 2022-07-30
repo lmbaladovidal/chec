@@ -179,6 +179,7 @@ const userApiController = {
     userDetail: async (req, res) => {
       res.set('Access-Control-Allow-Origin', '*');
       await Users.findOne({
+          
           where: { id: req.params.id},
        })
        .then(user => {
@@ -186,7 +187,7 @@ const userApiController = {
             id: user.id,
             name: user.name,
             email: user.email,
-            link: "http://localhost:3001/users/users/" + user.id
+            link: "http://localhost:3001/api/user/users/" + user.id
           } , status:200});
        })
        .catch((errors) => {console.log(errors)})   

@@ -159,9 +159,7 @@ const userController = {
   userList: (req, res) => {
     Users.findAll()
     .then((users) => {
-    
-      res.render("./users/usersList", {users});
-        
+      res.render("./users/usersList", {users});  
       })
     .catch((errors) => {console.log(errors)})      
   },
