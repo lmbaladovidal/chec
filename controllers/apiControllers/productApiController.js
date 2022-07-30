@@ -6,7 +6,7 @@ const path = require('path');
 const db = require('../../DataBase/models');
 const { sequelize } = require('../../DataBase/models');
 const Product = db.Products;
-
+const Categories = db.Categories;
 
 const productList=  (req,res)=>{
         res.set('Access-Control-Allow-Origin', '*');
@@ -36,10 +36,14 @@ const productCart=(req,res)=>{
 }
 
 const productDetail= async (req,res)=>{
+    res.set('Access-Control-Allow-Origin', '*');
     const product = await Product.findOne({ 
         where:{id:req.params.id}
     });
-    res.status(200).json({data:product,status:200})
+    res.status(200).json({data:{
+        name: product.name, 
+        id: product.id},
+        status:200})
 }
 
 const productAdmin=async (req,res)=>{
@@ -146,6 +150,16 @@ const productDelete = async (req, res) => {
     res.redirect('/product/productPage');
 }
 
+const category = async (req, res) => {
+    res.set('Access-Control-Allow-Origin', '*');
+    const categories = await Categories.findAll();
+
+    res.status(200).json({data:categories,
+                          status:200})
+
+
+}
+
 const productControler = {
     productList,
     productCart,
@@ -156,7 +170,8 @@ const productControler = {
     productPack,
     productCreate,
     productCreatePage,
-    productDelete
+    productDelete,
+    category
 }
 
 module.exports=productControler;

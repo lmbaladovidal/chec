@@ -148,7 +148,9 @@ router.get('/profile', userLoggedMiddleware ,  userApiController.profile);
 router.post('/register', uploadFile.single('avatar'),validations, userApiController.userRegister);
 // router.post('/login', userController.loginProcess);
 // router.put('/profile/:id', authMiddleware, uploadFile.single('avatar'), validationsProfile, userController.updateProfile)
-router.get('/profile/:id', userApiController.editProfile)
-router.delete('/profile/:id', authMiddleware, userApiController.deleteProfile)
+router.get('/users', userApiController.userList);
+router.get('/users/:id', userApiController.userDetail);
+router.get('/profile/:id', userApiController.editProfile);
+router.delete('/profile/:id', authMiddleware, userApiController.deleteProfile);
 
 module.exports = router;
