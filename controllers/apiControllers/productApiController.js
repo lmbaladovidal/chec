@@ -1,19 +1,31 @@
 const { response } = require('express');
-const { Op } = require("sequelize");
+const { Op,QueryTypes } = require("sequelize");
 const { validationResult } = require("express-validator");
 const fs = require('fs');
 const path = require('path');
-const db = require('../../DataBase/models')
+const db = require('../../DataBase/models');
+const { sequelize } = require('../../DataBase/models');
 const Product = db.Products;
 
 
-const productPage = (req,res)=>{
+const productList=  (req,res)=>{
+        res.set('Access-Control-Allow-Origin', '*');
         const userLogged = req.session.userLogged;
-        Product.findAll()
-        .then(resultado=>{
+        Product.findAll({
+            attributes: ['id', 'name','description','category','description','image']
+        })
+        .then(async resultado=>{
             const cervezas = resultado
-            const datos ={cervezas,userLogged}
-            res.status(200).json({data:datos,status:200})
+            const datos ={cervezas}
+            const countByCategory = await sequelize.query("SELECT category, COUNT(category) as cantCategories  FROM products p GROUP BY category ORDER BY category", { type: QueryTypes.SELECT })
+            res.status(200).json({
+                            count:cervezas.length,
+                            countByCategory:countByCategory,
+                            data:{
+                                    cervezas:cervezas,
+                                    userLogged:userLogged 
+                                },
+                            status:200})
             }
         )
         .catch(error=>{console.log(error)})
@@ -135,7 +147,7 @@ const productDelete = async (req, res) => {
 }
 
 const productControler = {
-    productPage,
+    productList,
     productCart,
     productDetail,
     productAdmin,

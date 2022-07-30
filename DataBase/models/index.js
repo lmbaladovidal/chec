@@ -38,6 +38,4 @@ console.log('conexion establecida con la Base de Datos chec_db')
 })
 
 db.sequelize = sequelize;
-db.Sequelize = Sequelize;
-
 module.exports = db;

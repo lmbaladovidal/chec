@@ -53,7 +53,7 @@ router.get('/productAdmin',productApiController.productCreate);
 router.get('/productCreate', productApiController.productCreatePage);
 router.get('/pack', productApiController.productPack);//no implementado
 router.get('/search/',productApiController.productSearch);
-router.get('/productPage', productApiController.productPage);
+router.get('/productList', productApiController.productList);
 router.post('/productAdmin' , upload.single('product-image'),validations, productApiController.productCreate);
 
 router.get('/productDetail/:id', productApiController.productDetail);
