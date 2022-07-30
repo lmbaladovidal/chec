@@ -183,4 +183,27 @@
 
 <hr/>
 
+<h2>Retro Sprint 8</h2>
+
+<h3>Qué hicimos bien</h3>
+<ul> 
+<li> Priorizar las tareas obligatorias del Sprint.  </li>
+<li> Consultamos documetnación oficial y videos con tutoriales con mayor frecuencia para cumplir con algunas implementaciones.</li>
+</ul>
+
+<h3>Qué hicimos mal</h3>
+<ul>
+<li> Demoramos demasiado tiempo en el Sprint anterior, quedando el tiempo muy ajustado para trabajar este último. </li>
+</ul>
+
+<h3>Qué deberíamos empezar a hacer</h3>
+<ul>
+<li> Cerrar detalles de CSS y funcionalidades para culminar al 100% el sitio web </li>
+</ul>
+
+<h3>Qué deberíamos dejar de hacer</h3>
+<ul>
+<li> En este sprint no detectamos prácticas que debamos suspender</li>
+</ul>
+<hr/>
 
