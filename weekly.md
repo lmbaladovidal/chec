@@ -118,4 +118,27 @@
   <li> Terminar de dar funcionalidades del sitio con React y estilos con Css.</li>
 </ul>
 
+<hr/>
 
+<h2>Weeky Semanas 30/2022 y 31/2022</h2>
+<h3>Qué se hizo</h3>
+<ul>
+  <li>Alba, David, Leandro, Araceli: Crear en Trello un listado de componenetes a crear, ordenados por categorias. Ademas, comenzamos con la creacion del dashborad y dividimos el proyecto para React, generando un nuevo repositorio en GitHub</li>
+  
+  <li>Araceli y Alba: avanzaron con el desarrollo del Dashboard en React listado de Usarios.</li>
+  <li>Leandro y David: contrucción de todas las Api </li>
+  <li>Araceli y Alba: Construcción de estructuras para Api controllers y Api Routes de users.</li>
+  <li>Leandro y David:  Construcción de estructuras para Api controllers y Api Routes de productos. </li>
+
+</ul>
+<h3>Qué impedimentos encontramos</h3>
+<ul>
+  <li> Muy poco conentenido y material teórico sobre React para poder desarrollar el Sprint. El ultimo sprint tuvo poco tiempo para resolver las consignas, y cosnultar documentacion extra al curso demandó mucho más tiempo de lo previsto.</li>
+ </ul>
+
+<h3>Qué se va a hacer</h3>
+<ul>
+  <li> Terminar al 100% el sitio web para que quede funcional y operativo para el cliente. </li>
+</ul>
+
+<hr/>
