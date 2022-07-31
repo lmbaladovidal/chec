@@ -4,6 +4,8 @@ window.addEventListener("load", function() {
     const shoppingCartItemsContainer = document.querySelector('#shoppingCartItemsContainer');  // console.log OK
     const shoppingCartItem = document.querySelectorAll('#shoppingCartItem')
     
+    
+    
     function updateShoppingCartSubtotal() {
         let subtotal = 0;
         const shoppingCartSubotal = document.querySelector('#subtotal');
@@ -37,7 +39,7 @@ window.addEventListener("load", function() {
     }    
 
     // Función actualizar cantidad de los elementos del carrito
-    const changeQuantity = document.getElementsByClassName('shoppingCartItemQuantity')
+    const changeQuantity = document.querySelectorAll('#shoppingCartItemQuantity')
     console.log(changeQuantity);
     changeQuantity.forEach(itemQuantity => {
         itemQuantity.addEventListener('change', quantityChanged)
@@ -49,9 +51,20 @@ window.addEventListener("load", function() {
         updateShoppingCartSubtotal(shoppingCartItemsContainer);
       }
 
-    const cervezaInCart = shoppingCartItemsContainer.getElementsByClassName('shoppingCartItem')
+    const cervezaInCart = shoppingCartItemsContainer.querySelectorAll('#shoppingCartItem')
       console.log(cervezaInCart);
-    
+
+
+      
+
+    function updateShoppingCartTotal() {
+        
+        const shippingCost =  Number(document.getElementsByClassName('shipping-cost').value)
+        const total = document.getElementsByClassName('total')
+        total = subtotal + shippingCost
+        total.innerHTML = `${total.toFixed(2)}`
+    }
+   
 
 });
 
