@@ -15,7 +15,7 @@ const storage = multer.diskStorage({      // [2-MULTER]  Crear el storage
 	},
 	filename: (req, file, cb) => {
 
-		const fileDefault = 'https://res.cloudinary.com/ds0upcco9/image/upload/v1659102278/default_img_ggcmul.png'
+		const fileDefault = 'https://res.cloudinary.com/ds0upcco9/image/upload/v1659118673/images/avatars/default_img_wmlytg.png'
 	    const filetypes = /jpeg|jpg|png|gif/;
 		
 		const fileExtension=path.extname(file.originalname).toLowerCase();

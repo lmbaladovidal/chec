@@ -602,8 +602,8 @@ section .pd-product-imgs {
 
 section .pd-product-info {
   align-items: flex-start;
-  flex: 40%;
-  margin: 10px;
+  flex: 70%;
+  /* margin: 10px; */
   font-family: "Montagu Slab", serif;
   /*width: 100%;*/
 }
@@ -679,7 +679,7 @@ section div .pd-product-form .pd-quantity input[type="button"] {
 }
 
 section div .pd-product-form .pd-quantity input[type="number"] {
-  width: 30px;
+  width: 45px;
   height: 25px;
   border-radius: 0;
   border: 1px solid #c4c4c4;
@@ -703,6 +703,7 @@ section div .pd-product-form .pd-quantity .plus {
 section div .pd-product-form .pd-quantity h5 {
   width: 80px;
   text-align: right;
+  margin-right: 15px;
 }
 
 .pd-product-area .pd-product-info .pd-options, .pd-pack-area .pd-pack-container-right .pd-pack-selected .pd-options {

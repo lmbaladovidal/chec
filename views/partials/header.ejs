@@ -15,11 +15,8 @@
                 </div>
             </li>
             <li>
-                <p >soy locals  <% locals %></p>
                 <ul class="dropdown-menu-container">
                     <% if (locals && locals.isLogged) { %>
-                        <p><%= "username" + locals.userLogged.name %></p>
-                        <a><%= locals.userLogged.name %></a>
                         <li>
                             <img src="<%= locals.userLogged.avatar %>"> 
                             <a><%= locals.userLogged.name %></a>
