@@ -17,7 +17,7 @@ const productList=  (req,res)=>{
         .then(async resultado=>{
             const cervezas = resultado
             const datos ={cervezas}
-            const countByCategory = await sequelize.query("SELECT category, COUNT(category) as cantCategories  FROM products p GROUP BY category ORDER BY category", { type: QueryTypes.SELECT })
+            const countByCategory = await sequelize.query("SELECT c.description, COUNT(category) as cantCategories  FROM products p INNER JOIN categories c  ON c.id = p.category GROUP BY category ORDER BY category", { type: QueryTypes.SELECT })
             res.status(200).json({
                             meta:{status:200, link: "http://localhost:3001/api/product/productList/" },
                             count:cervezas.length,
@@ -148,15 +148,15 @@ const productDelete = async (req, res) => {
     res.redirect('/product/productPage');
 }
 
-const category = async (req, res) => {
-    res.set('Access-Control-Allow-Origin', '*');
-    const categories = await Categories.findAll();
+// const category = async (req, res) => {
+//     res.set('Access-Control-Allow-Origin', '*');
+//     const categories = await Categories.findAll();
     
-    res.status(200).json({data:categories,
-                          status:200})
+//     res.status(200).json({data:categories,
+//                           status:200})
 
 
-}
+// }
 
 const productControler = {
     productList,
@@ -169,7 +169,6 @@ const productControler = {
     productCreate,
     productCreatePage,
     productDelete,
-    category
 }
 
 module.exports=productControler;

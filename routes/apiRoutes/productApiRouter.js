@@ -55,7 +55,8 @@ router.get('/pack', productApiController.productPack);//no implementado
 router.get('/search/',productApiController.productSearch);
 
 
-router.get('/category', productApiController.category);
+//router.get('/category', productApiController.category);
+router.get('/productList', productApiController.productList);
 router.post('/productAdmin' , upload.single('product-image'),validations, productApiController.productCreate);
 
 router.get('/productList', productApiController.productList);

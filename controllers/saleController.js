@@ -1,7 +1,7 @@
 const path = require('path');
 const db = require('../database/models');
 const sequelize = db.sequelize;
-const { Op, Association } = require("sequelize");
+const { Op, Association,QueryTypes } = require("sequelize");
 const express = require('express');
 const sale = db.Sales;
 const Product = db.Products;
@@ -72,15 +72,12 @@ const salesController = {
             return res.redirect('/sale')
             
     },
-    deleteShoppingCart : async (req,res) => {
-        
-        let id = req.body.idProductInCart;
-        const itemToDelete = await Detailsale.findOne({
-            where:{id:id}
-
-        })
-        await Detailsale.destroy(itemToDelete)
-        res.redirect('./sales/productCart');
+    deleteShoppingCart : async (req,res) => {        
+        let id = req.params.id;
+        const itemToDelete = await sequelize.query("DELETE FROM detailsales WHERE id IN (SELECT r.id FROM (SELECT d.id FROM detailsales d " +
+                                                   "inner join sales s on s.id = d.sales_id "+
+                                                   "where product_id =" +id+ " and s.users_id ="+req.session.userLogged.id+")r)",{ type: QueryTypes.DELETE })        
+        res.redirect('./');
     }   
 }
 module.exports = salesController;
