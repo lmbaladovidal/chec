@@ -21,6 +21,7 @@ module.exports = (sequelize, dataTypes) => {
 
 const Categories = sequelize.define(alias, cols, config);
 
+
 // UserRoles.associate= (models) =>{
 //     UserRoles.hasMany(models.Users,{
 //         as:"Users",  // tiene que ser el alias de la base Users
