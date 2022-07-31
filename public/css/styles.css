@@ -433,9 +433,13 @@ max-width: 500px;
 
 
 /*Pagina Register*/
+.is-invalid {
+  border: 1px red solid;
 
+}
 .text-danger {
   color: #dc3545 !important;
+  font-size: 12px;
 }
 
 section label h3{
@@ -507,6 +511,19 @@ color: #ff6200;
   margin-top: 10px;
 }
 
+/*Pagina de Users admin*/
+
+.user-container{
+  margin: 5px auto; 
+  width: 90%;
+  align-items: center;
+  padding:15px 0;
+}
+
+.td-user {
+  padding: 5px;
+}
+
 /* Página Product Page*/
 
 .pd-main {
@@ -534,9 +551,7 @@ main h2 .pd-titulo {
   padding: 10px;
   max-width: 250px;
 }
-.pc-img-product {
-  width: 50%;
-}
+
 
 .pd-datos-cerveza {
   border-top: 1px solid #ebebeb;
@@ -902,6 +917,51 @@ padding: 0 10px;
     margin: 0 20px 30px 0;
 }
 
+.pc-shopping-cart-image {
+  max-width: 80px;
+  border-radius: 20px;
+}
+
+.pc-shopping-cart-quantity-input {
+  max-width: 45px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background: #eee;
+  padding: 5px;
+}
+.pc-btn-danger {
+  color: #fff;
+  background-color: #ff5200;
+  border-color: #ff5200;
+}
+.pc-row, .subtotal {
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+ justify-content: space-between;
+ align-self: baseline;
+ margin-top: 10px;
+}
+
+.shopping-cart-item, .shopping-cart-quantity {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  align-items: space-between
+}
+.shopping-cart-item-title {
+  margin: 7px 25px;
+  align-self: left;
+
+
+}
+
+.shopping-cart-item-price {
+  margin: 5px;
+  align-self: right;
+  text-align: center;
+}
 
 
 .fa-brands, .fab, .far {
@@ -924,7 +984,7 @@ padding: 0 10px;
 }
 
 .pc-product-cantidad input[type="number"] {
-  width: 30px;
+  width: 40px;
   height: 25px;
   border-radius: 0;
   border: 1px solid #c4c4c4;
@@ -1105,6 +1165,7 @@ padding: 0 5px;
 .pc-DireccionEnvio-Titulo-caja-texto{
   font-family: "Montagu Slab", serif;
   margin: 10px 5px;
+  width:100%
 }
 .pc-direccionEnvio-detalle-texto{
   display: block;
@@ -1497,12 +1558,12 @@ div .ra-receta-container {
   font-size: 13px;
   margin: 0 5px 0 5px;
 }
-.ra-information-attributes li input, .ra-information .ra-beer-attributes li p input, .ra-name p input {
+input, .ra-name p input {
   border-radius: 3px;
   margin-right: 20px;
   border: 1px solid #c4c4c4;
   padding:2px;
-  width: 30%;
+  /**width: 30%;*/
 }
 .ra-tip-container {
   display: flex;
@@ -2034,7 +2095,7 @@ section.ind-top {
 
   .pc-ResumenCompra {
     border-top: 5px #949494 solid;
-    margin: 40px auto;
+    margin: 40px ;
     padding: 10px 11px;
   }
 .pc-direccionEnvio{

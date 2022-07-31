@@ -1,6 +1,6 @@
 <header class="main-header">
     <nav class="main-navbar">
-        <img src="/Desing/Logo-Etiqueta-Originals/540x540sqr.png" class="logo">
+        <a href="/"><img src="/Desing/Logo-Etiqueta-Originals/540x540sqr.png" class="logo"></a>
         <ul class="left-navbar">                
             <li><a href="/">Home </a></li>
             <li><a href="/quienesSomos">Quienes somos </a></li>
@@ -10,14 +10,18 @@
             <li>
                 <div class="pd-pc-links">
                     <a href="/product/productPage" class="tienda-botton">Tienda</a>
-                    <a href="/enDesarrollo"><i class="fas fa-shopping-cart"></i></a>
+                    <a href="/sales/productCart"><i class="fas fa-shopping-cart"></i></a> 
+                                       
                 </div>
             </li>
             <li>
+                <p >soy locals  <% locals %></p>
                 <ul class="dropdown-menu-container">
                     <% if (locals && locals.isLogged) { %>
+                        <p><%= "username" + locals.userLogged.name %></p>
+                        <a><%= locals.userLogged.name %></a>
                         <li>
-                            <img src="/images/avatars/<%= locals.userLogged.avatar %>"> 
+                            <img src="<%= locals.userLogged.avatar %>"> 
                             <a><%= locals.userLogged.name %></a>
                             
                             <ul class="dropdown-menu">

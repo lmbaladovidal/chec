@@ -9,16 +9,29 @@
         <%- include("../partials/header") %>
         
         <div class="nr-main-containter">
-            <h3>Nueva receta</h3> <br>
-            <form action="/recetas/nuevareceta" method="POST">
+            <h3 id="title">Nueva receta</h3> <br>
+            <form action="/recetas/nuevareceta" method="POST" id="formRecipes">
 
                 <section class="ra-details-container">
 
                     <div class="ra-name">
                         <h5 class="receta-name">Nombre</h5>
-                        <p><input type="text" name="name"></p>
+                        <input 
+                        type="text" 
+                        name="name" 
+                        id="name" 
+                        class="" <%= locals.errors && errors.name ? 'is-invalid' : null %>
+                        value="<%= locals.oldData ? oldData.name : null %>">
+                        <% if (locals.errors && errors.name) { %>
+                            <div class="text-danger">
+                                <%= errors.name.msg %> 
+                            </div>
+                        <% } %>
+                        <div class="text-danger" id="msgFront_name"> </div>
+                       
+                        
                     </div>
-
+                    
                     <div class="ra-receta-container">
 
                         <div class="ra-information-container">
@@ -28,36 +41,125 @@
                                     <ul class="ra-beer-attributes">
                                         <li>
                                             <h6>Volumen: </h6>
-                                            <p><input type="text" name="volume"> lts.</p>
+                                            <input 
+                                            type="text" 
+                                            name="volume" 
+                                            id="volume"
+                                            class="" <%= locals.errors && errors.volume ? 'is-invalid' : null %>
+                                            value="<%= locals.oldData ? oldData.volume : null %>"> lts.
+                                                <% if (locals.errors && errors.volume) { %>
+                                                    <div class="text-danger">
+                                                        <%= errors.volume.msg %> 
+                                                    </div>
+                                                <% } %>
+                                            <p class="text-danger" id="msgFront_volume"> </p>
                                         </li>
+                                       
                                         <li>
                                             <h6>Volumen de hervor: </h6>
-                                            <p><input type="text" name="boilvolume">lts.</p>
+                                            <input 
+                                                type="text" 
+                                                name="boilvolume" 
+                                                id="boilvolume"
+                                                class="" <%= locals.errors && errors.boilvolume ? 'is-invalid' : null %>
+                                                value="<%= locals.oldData ? oldData.boilvolume : null %>"> lts.
+                                                    <% if (locals.errors && errors.boilvolume) { %>
+                                                        <div class="text-danger">
+                                                            <%= errors.boilvolume.msg %> 
+                                                        </div>
+                                                    <% } %>
+                                            <p class="text-danger" id="msgFront_boilvolume"></p>
                                         </li>
                                         <li>
                                             <h6>Duración del hervor: </h6>
-                                            <p><input type="text" name="boilTime">lts.</p>
+                                            <input 
+                                                type="text" 
+                                                name="boilTime" 
+                                                id="boilTime"
+                                                class="" <%= locals.errors && errors.boilTime ? 'is-invalid' : null %>
+                                                value="<%= locals.oldData ? oldData.boilTime : null %>"> lts.
+                                            <% if (locals.errors && errors.boilTime) { %>
+                                                <div class="text-danger">
+                                                    <%= errors.boilTime.msg %> 
+                                                </div>
+                                            <% } %>
+                                            <p class="text-danger" id="msgFront_boilTime"></p>
 
                                         </li>
                                         <li>
                                             <h6>Alcohol: </h6>
-                                            <p><input type="text" name="alcohol"> %</p>
+                                            <input 
+                                                type="text" 
+                                                name="alcohol" 
+                                                id="alcohol"
+                                                class="" <%= locals.errors && errors.alcohol ? 'is-invalid' : null %>
+                                                value="<%= locals.oldData ? oldData.alcohol : null %>"> %                                            
+                                                    <% if (locals.errors && errors.alcohol) { %>
+                                                        <div class="text-danger">
+                                                            <%= errors.alcohol.msg %> 
+                                                        </div>
+                                                    <% } %>
+                                            <p class="text-danger" id="msgFront_alcohol"></p>
                                         </li>
                                         <li>
                                             <h6>Densidad final: </h6>
-                                            <p><input type="text" name="targetFG"></p>
+                                            <input 
+                                                type="text" 
+                                                name="targetFG" 
+                                                id="targetFG"
+                                                class="" <%= locals.errors && errors.targetFG ? 'is-invalid' : null %>
+                                                value="<%= locals.oldData ? oldData.targetFG : null %>">                                           
+                                                    <% if (locals.errors && errors.targetFG) { %>
+                                                        <div class="text-danger">
+                                                            <%= errors.targetFG.msg %> 
+                                                        </div>
+                                                    <% } %>
+                                            <p class="text-danger" id="msgFront_targetFG"></p>
                                         </li>
                                         <li>
                                             <h6>Densidad inicial: </h6>
-                                            <p><input type="text" name="targetOG"></p>
+                                            <input 
+                                                type="text" 
+                                                name="targetOG"  
+                                                id="targetOG"
+                                                class="" <%= locals.errors && errors.targetOG ? 'is-invalid' : null %>
+                                                value="<%= locals.oldData ? oldData.targetOG : null %>">                                            
+                                                    <% if (locals.errors && errors.targetOG) { %>
+                                                        <div class="text-danger">
+                                                            <%= errors.targetOG.msg %> 
+                                                        </div>
+                                                    <% } %>
+                                            <p class="text-danger" id="msgFront_targetOG"></p>
                                         </li>
                                         <li>
                                             <h6>PH inicial: </h6>
-                                            <p><input type="text" name="initialPH"></p>
+                                            <input 
+                                                type="text" 
+                                                name="initialPH" 
+                                                id="initialPH"
+                                                class="" <%= locals.errors && errors.initialPH ? 'is-invalid' : null %>
+                                                value="<%= locals.oldData ? oldData.initialPH : null %>">                                          
+                                                    <% if (locals.errors && errors.initialPH) { %>
+                                                        <div class="text-danger">
+                                                            <%= errors.initialPH.msg %> 
+                                                        </div>
+                                                    <% } %>
+                                            <p class="text-danger" id="msgFront_initialPH"></p>
                                         </li>
                                         <li>
-                                            <h6>PH final: </h6>
-                                            <p><input type="text" name="finalPH"></p>
+                                            <h6>PH final: </h6>                              
+                                            <input 
+                                                type="text" 
+                                                name="finalPH" 
+                                                id="finalPH"
+                                                class="" <%= locals.errors && errors.finalPH ? 'is-invalid' : null %>
+                                                value="<%= locals.oldData ? oldData.finalPH : null %>">                                          
+                                                    <% if (locals.errors && errors.finalPH) { %>
+                                                        <div class="text-danger">
+                                                            <%= errors.finalPH.msg %> 
+                                                        </div>
+                                                    <% } %>
+                                            <p class="text-danger" id="msgFront_finalPH"></p>
                                         </li>
                                     </ul>
                                 </div><br>
@@ -69,16 +171,46 @@
                                             <h6>Macerado </h6>
 
                                             <h6>Temperatura de maceración: </h6>
-                                            <p></p><input type="text" name="mashTemp"> ° (grados celsius)</p>
+                                        <input 
+                                            type="text" 
+                                            name="mashTemp" 
+                                            id="mashTemp"
+                                            value="<%= locals.oldData ? oldData.mashTemp : null %>"> ° (grados celsius)                                       
+                                                    <% if (locals.errors && errors.mashTemp) { %>
+                                                        <div class="text-danger">
+                                                            <%= errors.mashTemp.msg %> 
+                                                        </div>
+                                                    <% } %>
+                                        <div class="text-danger" id="msgFront_mashTemp"> </div>
 
                                             <h6>Tiempo de maceración: </h6>
-                                            <p></p><input type="text" name="mashTime"> minutos
+                                          <input 
+                                            type="text" 
+                                            name="mashTime" 
+                                            id="mashTime"
+                                            value="<%= locals.oldData ? oldData.mashTime : null %>"> min.                                       
+                                                    <% if (locals.errors && errors.mashTime) { %>
+                                                        <div class="text-danger">
+                                                            <%= errors.mashTime.msg %> 
+                                                        </div>
+                                                    <% } %>
+                                          <div class="text-danger" id="msgFront_mashTime"> </div>
 
                                         </li>
                                         <li class="ra-li-malt">
                                             <h6>Fermentación </h6>
                                             <h6>Temperatura de fermentación: </h6>
-                                            <p></p><input type="text" name="fermentationTemp"> grados
+                                            <input 
+                                                type="text" 
+                                                name="fermentationTemp" 
+                                                id="fermentationTemp"
+                                                value="<%= locals.oldData ? oldData.fermentationTemp : null %>"> ° (grados celsius)                                       
+                                                    <% if (locals.errors && errors.fermentationTemp) { %>
+                                                        <div class="text-danger">
+                                                            <%= errors.fermentationTemp.msg %> 
+                                                        </div>
+                                                    <% } %>
+                                            <div class="text-danger" id="msgFront_fermentationTemp"> </div>
                                         </li>
                                     </ul>
                                 </div>
@@ -91,28 +223,59 @@
                                             <h6>Maltas</h6>
                                             <h6>Malta principal: </h6>
                                             <div>
-                                                <p>Tipo de malta:</p><p><input type="text" name="malt1">
-                                                <p>Cantidad:</p><input type="text" name="malt1Amount">
+                                                <p>Tipo de malta:</p><input 
+                                                                        type="text" 
+                                                                        name="malt1" 
+                                                                        id="malt1"
+                                                                        class="" <%= locals.errors && errors.malt1 ? 'is-invalid' : null %>
+                                                                        value="<%= locals.oldData ? oldData.malt1 : null %>"> %                                            
+                                                                            <% if (locals.errors && errors.malt1) { %>
+                                                                                <div class="text-danger">
+                                                                                    <%= errors.malt1.msg %> 
+                                                                                </div>
+                                                                            <% } %>
+                                                    <div class="text-danger" id="msgFront_malt1"> </div>
+                                                <p>Cantidad:</p><input 
+                                                                    type="text" 
+                                                                    name="malt1Amount" 
+                                                                    id="malt1Amount"
+                                                                    class="" <%= locals.errors && errors.malt1Amount ? 'is-invalid' : null %>
+                                                                    value="<%= locals.oldData ? oldData.malt1Amount : null %>"> %                                            
+                                                                        <% if (locals.errors && errors.malt1Amount) { %>
+                                                                            <div class="text-danger">
+                                                                                <%= errors.malt1Amount.msg %> 
+                                                                            </div>
+                                                                        <% } %>
+                                                    <div class="text-danger" id="msgFront_malt1Amount"> </div>
                                             </div>
                                             <h6>Malta adicional: </h6>
                                             <div>
-                                                <p>Tipo de malta:</p><p><input type="text" name="malt2">
-                                                    <p>Cantidad:</p><input type="text" name="malt2Amount">
+                                                <p>Tipo de malta:</p><input type="text" name="malt2" id="malt2">
+                                                    <div class="text-danger" id="msgFront_malt2"> </div>
+                                                <p>Cantidad:</p><input type="text" name="malt2Amount" id="malt2Amount">
+                                                <div class="text-danger" id="msgFront_malt2Amount"> </div>
                                             </div>
                                             <h6>Malta adicional: </h6>
                                             <div>
-                                                <p>Tipo de malta:</p><p><input type="text" name="malt3">
-                                                <p>Cantidad:</p><input type="text" name="malt3Amount">
+                                                <p>Tipo de malta:</p><input type="text" name="malt3" id="malt3">
+                                                    <div class="text-danger" id="msgFront_malt3"> </div>
+                                                <p>Cantidad:</p><input type="text" name="malt3Amount" id="malt3Amount">
+                                                    <div class="text-danger" id="msgFront_malt3Amount"> </div>
+                                                
                                             </div>
                                             <h6>Malta adicional: </h6>
                                             <div>
-                                                <p>Tipo de malta:</p><p><input type="text" name="malt4">
-                                                    <p>Cantidad:</p><input type="text" name="malt4Amount">
-                                            </div>
+                                                <p>Tipo de malta:</p><input type="text" name="malt4" id="malt4">
+                                                    <div class="text-danger" id="msgFront_malt4"> </div>
+                                                    <p>Cantidad:</p><input type="text" name="malt4Amount" id="malt4Amount">
+                                                    <div class="text-danger" id="msgFront_malt4Amount"> </div>
+                                                </div>
                                             <h6>Malta adicional: </h6>
                                             <div>
-                                                <p>Tipo de malta:</p><p><input type="text" name="malt5">
-                                                    <p>Cantidad:</p><input type="text" name="malt5Amount">
+                                                <p>Tipo de malta:</p><input type="text" name="malt5" id="malt5">
+                                                    <div class="text-danger" id="msgFront_malt5"> </div>
+                                                <p>Cantidad:</p><input type="text" name="malt5Amount" id="malt5Amount">
+                                                    <div class="text-danger" id="msgFront_malt5Amount"> </div>
                                             </div>
                                         </li>
                                         <li class="ra-li-hop">
@@ -120,28 +283,89 @@
 
                                             <h6>Lúpulo principal: </h6>
                                             <div>
-                                                <p>Tipo de lúpulo:</p><input type="text" name="hop1">
-                                                <p>Cantidad: </p> <input type="text" name="hop1Amount">
-                                                <p>Momento de adición:</p><input type="text" name="hop1Moment">
+                                                <p>Tipo de lúpulo:</p><input 
+                                                                        type="text" 
+                                                                        name="hop1" 
+                                                                        id="hop1"
+                                                                        class="" <%= locals.errors && errors.hop1 ? 'is-invalid' : null %>
+                                                                        value="<%= locals.oldData ? oldData.hop1 : null %>"> %                                            
+                                                                            <% if (locals.errors && errors.hop1) { %>
+                                                                                <div class="text-danger">
+                                                                                    <%= errors.hop1.msg %> 
+                                                                                </div>
+                                                                            <% } %>
+                                                <div class="text-danger" id="msgFront_hop1"> </div>
+                                                <p>Cantidad: </p> <input 
+                                                                    type="text" 
+                                                                    name="hop1Amount" 
+                                                                    id="hop1Amount"
+                                                                    class="" <%= locals.errors && errors.hop1Amount ? 'is-invalid' : null %>
+                                                                    value="<%= locals.oldData ? oldData.hop1Amount : null %>"> %                                           
+                                                                        <% if (locals.errors && errors.hop1Amount) { %>
+                                                                            <div class="text-danger">
+                                                                                <%= errors.hop1Amount.msg %> 
+                                                                            </div>
+                                                                        <% } %>
+                                                <div class="text-danger" id="msgFront_hop1Amount"> </div>
+                                                <p>Momento de adición:</p><input 
+                                                                            type="text" 
+                                                                            name="hop1Moment" 
+                                                                            id="hop1Moment"
+                                                                            class="" <%= locals.errors && errors.hop1Moment ? 'is-invalid' : null %>
+                                                                            value="<%= locals.oldData ? oldData.hop1Moment : null %>"> %                                           
+                                                                                <% if (locals.errors && errors.hop1Moment) { %>
+                                                                                    <div class="text-danger">
+                                                                                        <%= errors.hop1Moment.msg %> 
+                                                                                    </div>
+                                                                                <% } %>
+                                                <div class="text-danger" id="msgFront_hop1Moment"> </div>
                                             </div>
                                             <h6>Lúpulo adicional: </h6>
                                             <div>
-                                                <p>Tipo de lúpulo:</p><input type="text" name="hop2">
-                                                <p>Cantidad: </p> <input type="text" name="hop2Amount">
-                                                <p>Momento de adición:</p><input type="text" name="hop2Moment">
+                                                <p>Tipo de lúpulo:</p><input type="text" name="hop2" id="hop2">
+                                                <div class="text-danger" id="msgFront_hop2"> </div>
+                                                <p>Cantidad: </p> <input type="text" name="hop2Amount" id="hop2Amount">
+                                                <div class="text-danger" id="msgFront_hop2Amount"> </div>
+                                                <p>Momento de adición:</p><input type="text" name="hop2Moment" id="hop2Moment">
+                                                <div class="text-danger" id="msgFront_hop2Moment"> </div>
                                             </div>
                                             <h6>Lúpulo adicional: </h6>
                                             <div>
-                                                <p>Tipo de lúpulo:</p><input type="text" name="hop3">
-                                                <p>Cantidad: </p> <input type="text" name="hop3Amount">
-                                                <p>Momento de adición:</p><input type="text" name="hop3Moment">
+                                                <p>Tipo de lúpulo:</p><input type="text" name="hop3" id="hop3">
+                                                <div class="text-danger" id="msgFront_hop3"> </div>
+                                                <p>Cantidad: </p> <input type="text" name="hop3Amount" id="hop3Amount">
+                                                <div class="text-danger" id="msgFront_hop3Amount"> </div>
+                                                <p>Momento de adición:</p><input type="text" name="hop3Moment" id="hop3Moment">
+                                                <div class="text-danger" id="msgFront_hop3Moment"> </div>
                                             </div>
                                         </li>
                                         <li class="ra-li-malt">
                                             <h6>Levadura: </h6>
                                             <div>
-                                                <p>Tipo de levadura:</p><input type="text" name="yeast">
-                                                <p>Cantidad:</p><input type="text" name="yeastAmount">
+                                                <p>Tipo de levadura:</p><input 
+                                                                            type="text" 
+                                                                            name="yeast" 
+                                                                            id="yeast"
+                                                                            class="" <%= locals.errors && errors.name ? 'is-invalid' : null %>
+                                                                            value="<%= locals.oldData ? oldData.name : null %>"> %                                          
+                                                                                <% if (locals.errors && errors.name) { %>
+                                                                                    <div class="text-danger">
+                                                                                        <%= errors.name.msg %> 
+                                                                                    </div>
+                                                                                <% } %>
+                                                <div class="text-danger" id="msgFront_yeast"> </div>
+                                                <p>Cantidad:</p><input 
+                                                                    type="text" 
+                                                                    name="yeastAmount" 
+                                                                    id="yeastAmount"
+                                                                    class="" <%= locals.errors && errors.name ? 'is-invalid' : null %>
+                                                                    value="<%= locals.oldData ? oldData.name : null %>"> %                                            
+                                                                        <% if (locals.errors && errors.name) { %>
+                                                                            <div class="text-danger">
+                                                                                <%= errors.name.msg %> 
+                                                                            </div>
+                                                                        <% } %>
+                                                <div class="text-danger" id="msgFront_yeastAmount"> </div>
                                             </div>
                                         </li>
                                     </ul>
@@ -150,18 +374,22 @@
                             <div class="ra-tip-container">
                                 <div class="ra-tip">
                                     <h4>Tip cervecero</h4>
-                                    <p>Redactá una recmendación <input type="text" name="brewerTip"></p>
+                                    <p>Redactá una recmendación <input type="text" name="brewerTip" id="brewerTip"></p>
+                                    <div class="text-danger" id="msgFront_brewerTip"> </div>
                                 </div>
                                 <div class="ra-tip">
                                     <h4>Maridaje</h4>
                                     <p>¿Combina bien con qué comida/s?
-                                        <input type="text" name="foodPairing">
+                                        <input type="text" name="foodPairing" id="foodPairing">
+                                        <div class="text-danger" id="msgFront_foodPairing"> </div>
                                     </p>
                                 </div>
                             </div>
                         </div>
-                        <button class="pd-admin" type="submit">Guardar</button>
+                        <button class="pd-admin" type="submit" >Guardar</button>
+                        <div class="text-danger" id="msgFront_submit"> </div>
                         <button class="pd-admin ra-edit" type="reset"></a>Cancelar cambios</a></button>
+                       
                     </div>
                 </section>
             </form>
@@ -169,6 +397,7 @@
 
             <!-- Footer-->
             <%- include("../partials/footer") %>
+            <script src="/js/recipesFront.js"></script>
     </body>
 
 </html>
