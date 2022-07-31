@@ -1,11 +1,7 @@
 module.exports = {
   "development": {
     "username": "root",
-<<<<<<< HEAD
     "password": "Mysql.2203", 
-=======
-    "password": "Dworkin1946", 
->>>>>>> 83a340ee2b33fee319d20da3b71001d5d98b7f1d
     "database": "chec_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
