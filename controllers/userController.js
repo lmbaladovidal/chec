@@ -22,7 +22,9 @@ const userController = {
         req.body.email=="lm.baladovidal@gmail.com"?isOkThePassword=true:null
         if (isOkThePassword) {
           delete userToLogin.password;
+          console.log(userToLogin)
           req.session.userLogged = userToLogin;
+          req.session.isLogged = true;
         }
         if (req.body.remember_user) {
           res.cookie("userEmail", req.body.email, { maxAge: 1000 * 60 * 60 });
@@ -135,9 +137,8 @@ const userController = {
   deleteProfile: async (req, res) => {
      let usuario= await  Users.findOne( {
       where: { id: req.session.userLogged.id},
-    })
-    
-        .then((user) => {
+    })    
+    .then((user) => {
          res.clearCookie("userEmail");
          req.session.destroy();
          user.set(  { state:0 } )

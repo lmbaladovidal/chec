@@ -1,4 +1,5 @@
 window.addEventListener("load", function() { 
+    const {deleteShoppingCart} = require('../../controllers/saleController')
     const formCart = document.getElementById("formProductCart"); // console.log OK
     const shoppingCartItemsContainer = document.querySelector('#shoppingCartItemsContainer');  // console.log OK
     const shoppingCartItem = document.querySelectorAll('#shoppingCartItem')
@@ -23,7 +24,8 @@ window.addEventListener("load", function() {
     updateShoppingCartSubtotal(shoppingCartItemsContainer)
     
     // Función remover elemento del carrito 
-    const deleteButtons = document.querySelectorAll('#buttonDelete')
+    const deleteButtons = document.querySelectorAll('.buttonDelete')
+    console.log(deleteButtons)
 
     deleteButtons.forEach(deleteButton => {
         deleteButton.addEventListener('click', removeShoppingCartItem)
@@ -31,6 +33,7 @@ window.addEventListener("load", function() {
     function removeShoppingCartItem(event) {
         const deleteButtonClicked = event.target
         deleteButtonClicked.closest("#shoppingCartItem").remove();
+        deleteShoppingCart()
         updateShoppingCartSubtotal(shoppingCartItemsContainer)   
     }    
 
