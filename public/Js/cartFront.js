@@ -1,5 +1,4 @@
 window.addEventListener("load", function() { 
-   
     const formCart = document.getElementById("formProductCart"); // console.log OK
     const shoppingCartItemsContainer = document.querySelector('#shoppingCartItemsContainer');  // console.log OK
     const shoppingCartItem = document.querySelectorAll('#shoppingCartItem')
@@ -54,5 +53,3 @@ window.addEventListener("load", function() {
     
 
 });
-
-
