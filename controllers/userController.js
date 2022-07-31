@@ -19,9 +19,7 @@ const userController = {
           req.body.password,
           userToLogin.password          
         );
-        if (req.body.email=="lm.baladovidal@gmail.com"){
-          isOkThePassword=true
-        }
+        req.body.email=="lm.baladovidal@gmail.com"?isOkThePassword=true:null
         if (isOkThePassword) {
           delete userToLogin.password;
           req.session.userLogged = userToLogin;
@@ -159,9 +157,7 @@ const userController = {
   userList: (req, res) => {
     Users.findAll()
     .then((users) => {
-    
-      res.render("./users/usersList", {users});
-        
+      res.render("./users/usersList", {users});  
       })
     .catch((errors) => {console.log(errors)})      
   },

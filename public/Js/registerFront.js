@@ -4,12 +4,10 @@ window.onload = () => {
   const avatar = document.getElementById("avatar");
 
   const expresiones = {
-    //name: /^[a-zA-Z0-9\_\-]{2,16}$/, // Letras, numeros, guion y guion_bajo
     name: /^[a-zA-ZÀ-ÿ\s]{2,256}$/, // minimo 2 caracteres, Letras y espacios, pueden llevar acentos.
     lastName: /^[a-zA-ZÀ-ÿ\s]{2,256}$/, // minimo 2 caracteres, Letras y espacios, pueden llevar acentos.
     password: /^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,256}$/, // minimo 8 y 256 caracteres, al menos un dígito, al menos una minúscula, al menos una mayúscula y al menos un caracter no alfanumérico.
     email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-    //birthDate: /^\d{8,14}$/, // numeros
     birthDate:/^(?:3[01]|[12][0-9]|0?[1-9])(0?[1-9]|1[1-2])\1\d{3}$/,
     address: /^[A-Za-z0-9\s°]{8,256}$/, // Letras, numeros, guion y guion_bajo
     avatar: /(.jpg|.jpeg|.png|.gif)$/i,
@@ -164,7 +162,7 @@ window.onload = () => {
     }
 
   formRegister.addEventListener("submit", (e) => {  
-    //e.preventDefault();
+    e.preventDefault();
     console.log(campos)
     if (!
       campos.name &&

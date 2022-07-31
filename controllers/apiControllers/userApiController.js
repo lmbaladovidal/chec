@@ -168,26 +168,30 @@ const userApiController = {
 
     userList: (req, res) => {
       res.set('Access-Control-Allow-Origin', '*');
-      Users.findAll()
+      Users.findAll({
+        attributes: ['id', 'name','lastname','email', 'avatar'],
+      })
+      
       .then((users) => {      
-        res.status(200).json({data: users,
-                              status:200});
-          
+        
+        return res.status(200).json({
+                                    meta:{ total:users.length, status:200, link: "api/users" },                                                          
+                                    data: {users},
+                                      });
         })
       .catch((errors) => {console.log(errors)})      
     },
     userDetail: async (req, res) => {
       res.set('Access-Control-Allow-Origin', '*');
       await Users.findOne({
-          where: { id: req.params.id},
+            attributes: ['id', 'name', 'lastName', 'birthDate', 'address', 'email','avatar', 'state', 'users_roles_id'],
+            where: { id: req.params.id}
        })
        .then(user => {
-          res.status(200).json({data: {
-            id: user.id,
-            name: user.name,
-            email: user.email,
-            link: "http://localhost:3001/users/users/" + user.id
-          } , status:200});
+          res.status(200).json({
+            meta:{status:200, link: "api/users/:id" },
+            data: { user } 
+          });
        })
        .catch((errors) => {console.log(errors)})   
            

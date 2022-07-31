@@ -48,9 +48,9 @@ const userLoggedMiddleware =require('../middlewares/userLoggedMiddleware')
 // Validation para express-validator
 const validationsRegister = [
     body('name').notEmpty().withMessage('Tienes que escribir tu nombre').bail()
-		.isLength({min:3}).withMessage("Mínimo 3 caracteres."),
+		.isLength({min:2}).withMessage("Mínimo 22 caracteres."),
     body('lastName').notEmpty().withMessage('Tienes que escribir tu apellido').bail()
-		.isLength({min:3}).withMessage("Mínimo 3 caracteres."),
+		.isLength({min:2}).withMessage("Mínimo 2 caracteres."),
 	body('email')
 		.notEmpty().withMessage('Tienes que escribir un correo electrónico').bail() //bail corta la validación si está vacío
 		.isEmail().withMessage('Debes escribir un formato de correo válido'),
@@ -130,7 +130,6 @@ const validationsEditProfile = [
 router.get('/login',guestMiddleware, userController.login);
 //Process login
 router.post('/login', userController.loginProcess);
-
 //Form de register
 router.get('/register', guestMiddleware, userController.register);
 // Proces user register
@@ -144,10 +143,8 @@ router.get('/users/:id', userController.userDetail);
 router.get('/profile', userLoggedMiddleware , authMiddleware,  userController.profile);
 router.get('/profile/:id', authMiddleware, userController.editProfile)
 router.put('/profile/:id', authMiddleware, uploadFile.single('avatar'), validationsEditProfile, userController.updateProfile)
-
 //Delete
 router.delete('/profile/:id', authMiddleware, userController.deleteProfile)
-
 // Logout
 router.get('/logout/', userController.logout);
 

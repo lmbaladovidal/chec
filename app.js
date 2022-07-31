@@ -34,7 +34,6 @@ app.use(userLoggedMiddleware);
 
 app.use(express.static("public"));
 app.set('view engine', 'ejs');
-//app.set('views', './views');
 
 app.listen(3001, () => {
     console.log('Servidor corriendo en puerto 3001') 
@@ -49,7 +48,7 @@ app.use("/recetas", recipeRouter);
 app.use("/users", userRouter);
 app.use("/sales",saleRouter)
 app.use("/api/sales",salesApiRouter)
-app.use("/api/user",userApiRouter);
+app.use("/api/users",userApiRouter);
 app.use("/api/product",productApiRouter)
 app.use(notFound)
 

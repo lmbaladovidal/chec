@@ -5,9 +5,6 @@ const salesController = require('../controllers/saleController');
 //const guestMiddleware = require('../middlewares/guestMiddleware');
 const authMiddleware = require('../middlewares/authMiddleware');
 
-//router.get('/nuestrasRecetas', nuestrasRecetasController.recetasDetail);
-//router.get('/sales/add',authMiddleware, salesController.add);
-
 
 router.get('/productCart', authMiddleware, salesController.list);
 router.get('/addShipingCart/:id', salesController.addShopingCart);
