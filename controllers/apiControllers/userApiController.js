@@ -169,14 +169,15 @@ const userApiController = {
     userList: (req, res) => {
       res.set('Access-Control-Allow-Origin', '*');
       Users.findAll({
-        attributes: ['id', 'name','email', 'avatar'],
+        attributes: ['id', 'name','email'],
       })
       
       .then((users) => {      
         
         return res.status(200).json({
-                                    meta:{ total:users.length, status:200, link: "api/users" },                                                          
+                                    meta:{ total:users.length, status:200, link: "api/users" },                                                     
                                     data: {users},
+                                    
                                       });
         })
       .catch((errors) => {console.log(errors)})      
@@ -188,11 +189,11 @@ const userApiController = {
             where: { id: req.params.id}
        })
        .then(user => {
-          res.status(200).json({
-            meta:{status:200, link: "api/users/:id" },
-            data: { user } 
-          });
-       })
+        res.status(200).json({
+          meta:{status:200, link: "http://localhost:3001/api/users/"+ user.id } ,
+          data: { user } 
+        });
+     })
        .catch((errors) => {console.log(errors)})   
            
     },
