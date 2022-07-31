@@ -945,16 +945,22 @@ padding: 0 10px;
 
 .shopping-cart-item, .shopping-cart-quantity {
   display: flex;
-  flex-direction: row;
-  justify-content: start;
+  flex-wrap: wrap;
+  justify-content: space-between;
   align-items: center;
+  align-items: space-between
 }
 .shopping-cart-item-title {
-  margin: 20px;
+  margin: 7px 25px;
+  align-self: left;
+
+
 }
 
-.shopping-cart-item-title {
- align-self: right;
+.shopping-cart-item-price {
+  margin: 5px;
+  align-self: right;
+  text-align: center;
 }
 
 
@@ -978,7 +984,7 @@ padding: 0 10px;
 }
 
 .pc-product-cantidad input[type="number"] {
-  width: 30px;
+  width: 40px;
   height: 25px;
   border-radius: 0;
   border: 1px solid #c4c4c4;
@@ -1159,6 +1165,7 @@ padding: 0 5px;
 .pc-DireccionEnvio-Titulo-caja-texto{
   font-family: "Montagu Slab", serif;
   margin: 10px 5px;
+  width:100%
 }
 .pc-direccionEnvio-detalle-texto{
   display: block;
@@ -1556,7 +1563,7 @@ input, .ra-name p input {
   margin-right: 20px;
   border: 1px solid #c4c4c4;
   padding:2px;
-  width: 30%;
+  /**width: 30%;*/
 }
 .ra-tip-container {
   display: flex;
@@ -2088,7 +2095,7 @@ section.ind-top {
 
   .pc-ResumenCompra {
     border-top: 5px #949494 solid;
-    margin: 40px auto;
+    margin: 40px ;
     padding: 10px 11px;
   }
 .pc-direccionEnvio{

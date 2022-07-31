@@ -169,7 +169,7 @@ const userApiController = {
     userList: (req, res) => {
       res.set('Access-Control-Allow-Origin', '*');
       Users.findAll({
-        attributes: ['id', 'name','email', 'avatar'],
+        attributes: ['id', 'name','lastName','email', 'avatar'],
       })
       
       .then((users) => {      
@@ -189,7 +189,7 @@ const userApiController = {
        })
        .then(user => {
           res.status(200).json({
-            meta:{status:200, link: "http://localhost:3001/api/users/"+user.id },
+            meta:{status:200, link: "http://localhost:3001/api/users/"+ user.id },
             data: { user } 
           });
        })

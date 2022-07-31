@@ -18,9 +18,12 @@ const productList=  (req,res)=>{
             const cervezas = resultado
             const datos ={cervezas}
             const countByCategory = await sequelize.query("SELECT category, COUNT(category) as cantCategories  FROM products p GROUP BY category ORDER BY category", { type: QueryTypes.SELECT })
+            const productByCategoryName = await sequelize.query("SELECT c.description , COUNT(p.id) as CountProduct FROM chec_db.categories as c INNER JOIN products as p ON p.category= c.id group by c.description", { type: QueryTypes.SELECT } )
+            
             res.status(200).json({
                             count:cervezas.length,
                             countByCategory:countByCategory,
+                            productByCategoryName: productByCategoryName,
                             data:{
                                     cervezas:cervezas,
                                     userLogged:userLogged 

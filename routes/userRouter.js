@@ -15,7 +15,7 @@ const storage = multer.diskStorage({      // [2-MULTER]  Crear el storage
 	},
 	filename: (req, file, cb) => {
 
-		const fileDefault = '.png'
+		const fileDefault = 'https://res.cloudinary.com/ds0upcco9/image/upload/v1659102278/default_img_ggcmul.png'
 	    const filetypes = /jpeg|jpg|png|gif/;
 		
 		const fileExtension=path.extname(file.originalname).toLowerCase();
@@ -27,7 +27,9 @@ const storage = multer.diskStorage({      // [2-MULTER]  Crear el storage
 	console.log(extname);
 
 		if(req.file == undefined){
-			fileName = `${Date.now()}_img${fileDefault}`; 
+			fileName = `${fileDefault}`; 
+			//fileName = `${Date.now()}_img${fileDefault}`; 
+			
 			cb(null, fileName);
 
 		} else 		
@@ -140,7 +142,7 @@ router.get('/users', userController.userList);
 router.get('/users/:id', userController.userDetail);
 
 //Profile
-router.get('/profile', userLoggedMiddleware , authMiddleware,  userController.profile);
+router.get('/profile', authMiddleware,  userController.profile);
 router.get('/profile/:id', authMiddleware, userController.editProfile)
 router.put('/profile/:id', authMiddleware, uploadFile.single('avatar'), validationsEditProfile, userController.updateProfile)
 //Delete
