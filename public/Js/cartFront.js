@@ -38,7 +38,8 @@ window.addEventListener("load", function() {
     }    
 
     // Función actualizar cantidad de los elementos del carrito
-    const changeQuantity = document.querySelectorAll('#shoppingCartItemQuantity')
+    const changeQuantity = document.getElementsByClassName('shoppingCartItemQuantity')
+    console.log(changeQuantity);
     changeQuantity.forEach(itemQuantity => {
         itemQuantity.addEventListener('change', quantityChanged)
     })

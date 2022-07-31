@@ -26,6 +26,7 @@ const userController = {
           req.session.userLogged = userToLogin;
           req.session.isLogged = true;
         }
+        console.log(userToLogin);
         if (req.body.remember_user) {
           res.cookie("userEmail", req.body.email, { maxAge: 1000 * 60 * 60 });
         }
@@ -69,7 +70,7 @@ const userController = {
         let userToCreate = {
           ...req.body,
           password: bcryptjs.hashSync(req.body.password, 10), // encripta la contraseña y pisa la password que viene en body
-          avatar: req.file ? req.file.filename : "default_img.png",
+          avatar: req.file ? req.file.filename : 'https://res.cloudinary.com/ds0upcco9/image/upload/v1659102278/default_img_ggcmul.png',
           users_roles_id: 1,
           state: 1
         };
@@ -115,7 +116,7 @@ const userController = {
         return res.render('./users/editProfile', {
           userToEdit,
           errors: resultValidation.mapped(),
-          oldData: {...req.body , avatar: req.file ? req.file.filename: req.body.oldAvatar? req.body.oldAvatar: "default_img.png"},
+          oldData: {...req.body , avatar: req.file ? req.file.filename: req.body.oldAvatar? req.body.oldAvatar: 'https://res.cloudinary.com/ds0upcco9/image/upload/v1659102278/default_img_ggcmul.png',},
         });
     }
    let usuario= await  Users.findOne({
@@ -128,7 +129,7 @@ const userController = {
             email: req.body.email,
             address: req.body.address,
             birthDate: req.body.birthDate,
-            avatar: req.file? req.file.filename: req.body.oldAvatar? req.body.oldAvatar: "default_img.png",
+            avatar: req.file? req.file.filename: req.body.oldAvatar? req.body.oldAvatar: 'https://res.cloudinary.com/ds0upcco9/image/upload/v1659118667/images/avatars/1656420199161_img_yryme1.png',
            },           
          )
          await usuario.save()
