@@ -3,7 +3,7 @@ module.exports = {
     "username": "root",
     "password": "Dworkin1946", 
     "database": "chec_db",
-    "host": "remotemysql.com",
+    "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "test": {
