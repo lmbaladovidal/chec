@@ -175,7 +175,7 @@ const userApiController = {
       .then(async (users) => {
         
        for (let i=0; i < users.length; i++){            
-        const salesPerUser = await sequelize.query("SELECT u.id, COUNT(*) AS Ventas FROM sales AS s INNER JOIN users AS u ON s.users_id = u.id   WHERE u.id = " + users[i].id + " GROUP BY u.id;", { type: QueryTypes.SELECT } )
+        const salesPerUser = await sequelize.query("SELECT u.id, COUNT(*) AS Ventas FROM Sales AS s INNER JOIN Users AS u ON s.users_id = u.id   WHERE u.id = " + users[i].id + " GROUP BY u.id;", { type: QueryTypes.SELECT } )
 
          users[i] = {id: users[i].id,
                      name: users[i].name,

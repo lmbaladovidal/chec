@@ -12,21 +12,24 @@ const productList=  (req,res)=>{
         res.set('Access-Control-Allow-Origin', '*');
         const userLogged = req.session.userLogged;
         Product.findAll({
-            attributes: ['id', 'name','description','category','image']
+            attributes: ['id', 'name','description','category','price','image'],
+            order:['description']
+
         })
         .then(async resultado=>{
             const cervezas = resultado
             const datos ={cervezas}
-            const countByCategory = await sequelize.query("SELECT category, COUNT(category) as cantCategories  FROM products p GROUP BY category ORDER BY category", { type: QueryTypes.SELECT })
-            const productByCategoryName = await sequelize.query("SELECT c.description , COUNT(p.id) as CountProduct FROM chec_db.categories as c INNER JOIN products as p ON p.category= c.id group by c.description", { type: QueryTypes.SELECT } )
+            const countByCategory = await sequelize.query("SELECT category, COUNT(category) as cantCategories  FROM Products p GROUP BY category ORDER BY category", { type: QueryTypes.SELECT })
+            const productByCategoryName = await sequelize.query("SELECT c.description , COUNT(p.id) as CountProduct FROM Categories as c INNER JOIN Products as p ON p.category= c.id group by c.description", { type: QueryTypes.SELECT } )
             
             
             for (let i=0; i < resultado.length; i++){   
-                const salesPerProduct = await sequelize.query("SELECT d.product_id , COUNT(*)  AS ventas  FROM detailsales AS d INNER JOIN sales AS s ON s.id = d.sales_id  WHERE d.product_id =" + resultado[i].id + " GROUP BY d.product_id", { type: QueryTypes.SELECT } )      
+                const salesPerProduct = await sequelize.query("SELECT d.product_id , COUNT(*)  AS ventas  FROM DetailSales AS d INNER JOIN Sales AS s ON s.id = d.sales_id  WHERE d.product_id =" + resultado[i].id + " GROUP BY d.product_id", { type: QueryTypes.SELECT } )      
          
                 resultado[i] = {id: resultado[i].id,
                             name: resultado[i].name,
                             description: resultado[i].description,
+                            price: resultado[i].price,
                             category: resultado[i].category,
                             image: resultado[i].image,
                             link: "http://localhost:3001/api/product/productList/"+  resultado[i].id,
@@ -151,10 +154,6 @@ const productSearch=async (req,res)=>{
 
 const productPack=(req,res)=>{res.render('./product/pack')}
 
-
-function recargar () {
-    window.location.href = window.location.href;
-}
 
 const productDelete = async (req, res) => {
     let id = parseInt(req.params.id);    

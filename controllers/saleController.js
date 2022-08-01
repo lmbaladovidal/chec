@@ -5,7 +5,7 @@ const { Op, Association,QueryTypes } = require("sequelize");
 const express = require('express');
 const sale = db.Sales;
 const Product = db.Products;
-const Detailsale = db.Detailsales;
+const Detailsale = db.DetailSales;
 
 const salesController = {
     list: async (req, res) => {
@@ -75,8 +75,8 @@ const salesController = {
     deleteShoppingCart : async (req,res) => {    
         
         let id = req.params.id;
-        const itemToDelete = await sequelize.query("DELETE FROM detailsales WHERE id IN (SELECT r.id FROM (SELECT d.id FROM detailsales d " +
-        "inner join sales s on s.id = d.sales_id "+
+        const itemToDelete = await sequelize.query("DELETE FROM DetailSales WHERE id IN (SELECT r.id FROM (SELECT d.id FROM DetailSales d " +
+        "inner join Sales s on s.id = d.sales_id "+
         "where product_id =" +id+ " and s.users_id ="+req.session.userLogged.id+")r)",{ type: QueryTypes.DELETE })          
         res.redirect('./');
     }   
