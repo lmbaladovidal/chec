@@ -1,5 +1,6 @@
 const express = require('express');
 const userController = require('../controllers/userController');
+//const userApiController = require('../controllers/apiControllers/userApiController');
 const router = express.Router();
 const path = require('path');
 const moment = require('moment');
@@ -14,7 +15,7 @@ const storage = multer.diskStorage({      // [2-MULTER]  Crear el storage
 	},
 	filename: (req, file, cb) => {
 
-		const fileDefault = '.png'
+		const fileDefault = 'https://res.cloudinary.com/ds0upcco9/image/upload/v1659118673/images/avatars/default_img_wmlytg.png'
 	    const filetypes = /jpeg|jpg|png|gif/;
 		
 		const fileExtension=path.extname(file.originalname).toLowerCase();
@@ -26,7 +27,9 @@ const storage = multer.diskStorage({      // [2-MULTER]  Crear el storage
 	console.log(extname);
 
 		if(req.file == undefined){
-			fileName = `${Date.now()}_img${fileDefault}`; 
+			fileName = `${fileDefault}`; 
+			//fileName = `${Date.now()}_img${fileDefault}`; 
+			
 			cb(null, fileName);
 
 		} else 		
@@ -47,9 +50,9 @@ const userLoggedMiddleware =require('../middlewares/userLoggedMiddleware')
 // Validation para express-validator
 const validationsRegister = [
     body('name').notEmpty().withMessage('Tienes que escribir tu nombre').bail()
-		.isLength({min:3}).withMessage("Mínimo 3 caracteres."),
+		.isLength({min:2}).withMessage("Mínimo 22 caracteres."),
     body('lastName').notEmpty().withMessage('Tienes que escribir tu apellido').bail()
-		.isLength({min:3}).withMessage("Mínimo 3 caracteres."),
+		.isLength({min:2}).withMessage("Mínimo 2 caracteres."),
 	body('email')
 		.notEmpty().withMessage('Tienes que escribir un correo electrónico').bail() //bail corta la validación si está vacío
 		.isEmail().withMessage('Debes escribir un formato de correo válido'),
@@ -129,21 +132,21 @@ const validationsEditProfile = [
 router.get('/login',guestMiddleware, userController.login);
 //Process login
 router.post('/login', userController.loginProcess);
-
 //Form de register
 router.get('/register', guestMiddleware, userController.register);
 // Proces user register
 router.post('/register', uploadFile.single('avatar'),validationsRegister, userController.userRegister);
 
-//Profile
-router.get('/profile', userLoggedMiddleware , authMiddleware,  userController.profile);
+//Users Admin
+router.get('/users', userController.userList);
+router.get('/users/:id', userController.userDetail);
 
+//Profile
+router.get('/profile', authMiddleware,  userController.profile);
 router.get('/profile/:id', authMiddleware, userController.editProfile)
 router.put('/profile/:id', authMiddleware, uploadFile.single('avatar'), validationsEditProfile, userController.updateProfile)
-
 //Delete
 router.delete('/profile/:id', authMiddleware, userController.deleteProfile)
-
 // Logout
 router.get('/logout/', userController.logout);
 

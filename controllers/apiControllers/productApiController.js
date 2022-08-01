@@ -1,20 +1,47 @@
 const { response } = require('express');
-const { Op } = require("sequelize");
+const { Op,QueryTypes } = require("sequelize");
 const { validationResult } = require("express-validator");
 const fs = require('fs');
 const path = require('path');
-const db = require('../../DataBase/models')
+const db = require('../../DataBase/models');
+const { sequelize } = require('../../DataBase/models');
 const Product = db.Products;
 const Categories = db.Categories;
 
-const productPage = (req,res)=>{
+const productList=  (req,res)=>{
         res.set('Access-Control-Allow-Origin', '*');
         const userLogged = req.session.userLogged;
-        Product.findAll()
-        .then(resultado=>{
+        Product.findAll({
+            attributes: ['id', 'name','description','category','image']
+        })
+        .then(async resultado=>{
             const cervezas = resultado
-            const datos ={cervezas,userLogged}
-            res.status(200).json({data:datos,status:200})
+            const datos ={cervezas}
+            const countByCategory = await sequelize.query("SELECT category, COUNT(category) as cantCategories  FROM products p GROUP BY category ORDER BY category", { type: QueryTypes.SELECT })
+            const productByCategoryName = await sequelize.query("SELECT c.description , COUNT(p.id) as CountProduct FROM chec_db.categories as c INNER JOIN products as p ON p.category= c.id group by c.description", { type: QueryTypes.SELECT } )
+            
+            
+            for (let i=0; i < resultado.length; i++){   
+                const salesPerProduct = await sequelize.query("SELECT d.product_id , COUNT(*)  AS ventas  FROM detailsales AS d INNER JOIN sales AS s ON s.id = d.sales_id  WHERE d.product_id =" + resultado[i].id + " GROUP BY d.product_id", { type: QueryTypes.SELECT } )      
+         
+                resultado[i] = {id: resultado[i].id,
+                            name: resultado[i].name,
+                            description: resultado[i].description,
+                            category: resultado[i].category,
+                            image: resultado[i].image,
+                            link: "http://localhost:3001/api/product/productList/"+  resultado[i].id,
+                            salesPerProduct:salesPerProduct ? salesPerProduct : null
+                            }
+               }  
+
+            res.status(200).json({
+                            meta:{status:200, link: "http://localhost:3001/api/product/productList/" },
+                            count:cervezas.length,
+                            countByCategory:countByCategory,
+                            productByCategoryName: productByCategoryName,
+                            data:{
+                                    cervezas:cervezas,
+                                    userLogged:userLogged} })
             }
         )
         .catch(error=>{console.log(error)})
@@ -29,10 +56,9 @@ const productDetail= async (req,res)=>{
     const product = await Product.findOne({ 
         where:{id:req.params.id}
     });
-    res.status(200).json({data:{
-        name: product.name, 
-        id: product.id},
-        status:200})
+    res.status(200).json({
+        meta:{status:200, link: "http://localhost:3001/api/product/productList/" + product.id },
+        data:product})
 }
 
 const productAdmin=async (req,res)=>{
@@ -142,7 +168,7 @@ const productDelete = async (req, res) => {
 const category = async (req, res) => {
     res.set('Access-Control-Allow-Origin', '*');
     const categories = await Categories.findAll();
-
+    
     res.status(200).json({data:categories,
                           status:200})
 
@@ -150,7 +176,7 @@ const category = async (req, res) => {
 }
 
 const productControler = {
-    productPage,
+    productList,
     productCart,
     productDetail,
     productAdmin,

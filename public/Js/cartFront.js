@@ -1,4 +1,3 @@
-//window.onload = () => {
 window.addEventListener("load", function() { 
     const formCart = document.getElementById("formProductCart"); // console.log OK
     const shoppingCartItemsContainer = document.querySelector('#shoppingCartItemsContainer');  // console.log OK
@@ -24,7 +23,8 @@ window.addEventListener("load", function() {
     updateShoppingCartSubtotal(shoppingCartItemsContainer)
     
     // Función remover elemento del carrito 
-    const deleteButtons = document.querySelectorAll('#buttonDelete')
+    const deleteButtons = document.querySelectorAll('.buttonDelete')
+    console.log(deleteButtons)
 
     deleteButtons.forEach(deleteButton => {
         deleteButton.addEventListener('click', removeShoppingCartItem)
@@ -36,7 +36,8 @@ window.addEventListener("load", function() {
     }    
 
     // Función actualizar cantidad de los elementos del carrito
-    const changeQuantity = document.querySelectorAll('#shoppingCartItemQuantity')
+    const changeQuantity = document.getElementsByClassName('shoppingCartItemQuantity')
+    console.log(changeQuantity);
     changeQuantity.forEach(itemQuantity => {
         itemQuantity.addEventListener('change', quantityChanged)
     })
@@ -49,18 +50,6 @@ window.addEventListener("load", function() {
 
     const cervezaInCart = shoppingCartItemsContainer.getElementsByClassName('shoppingCartItem')
       console.log(cervezaInCart);
-    // for (let i = 0; i < cervezaInCart.length; i++) {
-    //     if (cervezaInCart[i].innerText === itemTitle) {
-    //       let elementQuantity = cervezaInCart[i].parentElement.querySelector(
-    //         '.shoppingCartItemQuantity'
-    //       );
-    //       elementQuantity.value++;
-    //       $('.toast').toast('show');
-    //       updateShoppingCartTotal();
-    //       return;
-    //     }
-    //   }
+    
 
 });
-
-// }
