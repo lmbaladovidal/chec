@@ -3,9 +3,9 @@ const path = require("path");
 const bcryptjs = require("bcryptjs");
 const { validationResult } = require("express-validator");
 const db = require("../../DataBase/models");
-const sequelize = db.Sequelize;
-const { Op } = require("sequelize");
+const { Op,QueryTypes } = require("sequelize");
 const Users = db.Users;
+const { sequelize } = require('../../DataBase/models');
 
 const userApiController = {
  
@@ -172,15 +172,26 @@ const userApiController = {
         attributes: ['id', 'name','lastName','email', 'avatar'],
       })
       
-      .then((users) => {      
+      .then(async (users) => {
         
+       for (let i=0; i < users.length; i++){            
+        const salesPerUser = await sequelize.query("SELECT u.id, COUNT(*) AS Ventas FROM sales AS s INNER JOIN users AS u ON s.users_id = u.id   WHERE u.id = " + users[i].id + " GROUP BY u.id;", { type: QueryTypes.SELECT } )
+
+         users[i] = {id: users[i].id,
+                     name: users[i].name,
+                     lastName: users[i].lastName,
+                     email: users[i].email,
+                     avatar: users[i].avatar,
+                     link: "http://localhost:3001/api/users/"+  users[i].id,
+                     salesPerUser:salesPerUser ? salesPerUser : null
+                     }
+        }  
         return res.status(200).json({
-                                    meta:{ total:users.length, status:200, link: "api/users" },                                                     
-                                    data: {users},
-                                    
-                                      });
+          meta:{ total:users.length, status:200 },                                                     
+          data: {users},          
+          });       
         })
-      .catch((errors) => {console.log(errors)})      
+        .catch((errors) => {console.log(errors)})      
     },
     userDetail: async (req, res) => {
       res.set('Access-Control-Allow-Origin', '*');
