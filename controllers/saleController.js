@@ -72,11 +72,12 @@ const salesController = {
             return res.redirect('/sale')
             
     },
-    deleteShoppingCart : async (req,res) => {        
+    deleteShoppingCart : async (req,res) => {    
+        
         let id = req.params.id;
         const itemToDelete = await sequelize.query("DELETE FROM detailsales WHERE id IN (SELECT r.id FROM (SELECT d.id FROM detailsales d " +
-                                                   "inner join sales s on s.id = d.sales_id "+
-                                                   "where product_id =" +id+ " and s.users_id ="+req.session.userLogged.id+")r)",{ type: QueryTypes.DELETE })        
+        "inner join sales s on s.id = d.sales_id "+
+        "where product_id =" +id+ " and s.users_id ="+req.session.userLogged.id+")r)",{ type: QueryTypes.DELETE })          
         res.redirect('./');
     }   
 }
