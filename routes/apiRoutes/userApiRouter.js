@@ -1,6 +1,5 @@
 const express = require('express');
-const userController = require('../controllers/userController');
-//const userApiController = require('../controllers/apiControllers/userApiController');
+const userApiController = require('../../controllers/apiControllers/userApiController');
 const router = express.Router();
 const path = require('path');
 const moment = require('moment');
@@ -15,7 +14,7 @@ const storage = multer.diskStorage({      // [2-MULTER]  Crear el storage
 	},
 	filename: (req, file, cb) => {
 
-		const fileDefault = 'https://res.cloudinary.com/ds0upcco9/image/upload/v1659118673/images/avatars/default_img_wmlytg.png'
+		const fileDefault = '.png'
 	    const filetypes = /jpeg|jpg|png|gif/;
 		
 		const fileExtension=path.extname(file.originalname).toLowerCase();
@@ -27,9 +26,7 @@ const storage = multer.diskStorage({      // [2-MULTER]  Crear el storage
 	console.log(extname);
 
 		if(req.file == undefined){
-			fileName = `${fileDefault}`; 
-			//fileName = `${Date.now()}_img${fileDefault}`; 
-			
+			fileName = `${Date.now()}_img${fileDefault}`; 
 			cb(null, fileName);
 
 		} else 		
@@ -37,22 +34,25 @@ const storage = multer.diskStorage({      // [2-MULTER]  Crear el storage
 		if (mimetype && extname){
 			fileName = `${Date.now()}_img${path.extname(file.originalname)}`;
 			cb(null, fileName);
+
 		  } 
+
+
 	}
 })
 const uploadFile = multer({ storage });  // [3-MULTER] Crear la variable upload para usar el storage
 
 // Middlewares
-const guestMiddleware = require('../middlewares/guestMiddleware');
-const authMiddleware = require('../middlewares/authMiddleware');
-const userLoggedMiddleware =require('../middlewares/userLoggedMiddleware')
+const guestMiddleware = require('../../middlewares/guestMiddleware');
+const authMiddleware = require('../../middlewares/authMiddleware');
+const userLoggedMiddleware =require('../../middlewares/userLoggedMiddleware')
 
 // Validation para express-validator
-const validationsRegister = [
+const validations = [
     body('name').notEmpty().withMessage('Tienes que escribir tu nombre').bail()
-		.isLength({min:2}).withMessage("Mínimo 22 caracteres."),
+		.isLength({min:3}).withMessage("Mínimo 3 caracteres."),
     body('lastName').notEmpty().withMessage('Tienes que escribir tu apellido').bail()
-		.isLength({min:2}).withMessage("Mínimo 2 caracteres."),
+		.isLength({min:3}).withMessage("Mínimo 3 caracteres."),
 	body('email')
 		.notEmpty().withMessage('Tienes que escribir un correo electrónico').bail() //bail corta la validación si está vacío
 		.isEmail().withMessage('Debes escribir un formato de correo válido'),
@@ -61,8 +61,12 @@ const validationsRegister = [
 		.custom((value, {req}) => {			
 			const m = moment(value, "YYYY-MM-DD");
 			const ageUser= parseInt(m.fromNow());
-			return ageUser > 18?true:false
-		}).withMessage('Debes ser mayor de 18 años'),
+			const ageUser2=ageUser
+			if(ageUser2 > 18) {
+				return true
+				//throw new Error("Debes ser mayor de 18 años")
+			}
+		}),
 	body('password').notEmpty().withMessage('Tienes que escribir una contraseña'),
 	body('passVerify').notEmpty().withMessage('Repite tu contraseña').bail()
 		.custom((value,{req}) => {
@@ -71,14 +75,19 @@ const validationsRegister = [
 			}
 			return true}),
 	body('avatar').custom((file, { req }) => {       //custom validation xq no hay una validación para files. 
+	//console.log(req.file + " soy el req.file");	
 		let fileAvatarExtension
 			if(req.file == undefined){
 				fileAvatarExtension = ".png"
 			} else {
 				fileAvatarExtension = path.extname(req.file.originalname).toLowerCase()
-			}			
+			}
+
+		console.log(fileAvatarExtension +" pase el Primer IF linea 88");
+			
 			const filetypes = /jpeg|jpg|png|gif/; // Allowed ext
 			const extname = filetypes.test(fileAvatarExtension); // Check ext
+			//const mimetype = filetypes.test(req.file.mimetype);// Check mime
 
 			if(!extname){
 				throw new Error('Solo Formatos jpeg-jpg-png-gif');
@@ -88,66 +97,60 @@ const validationsRegister = [
 	})
 ];
 
-const validationsEditProfile = [
-    body('name')
-		.notEmpty().withMessage('Tienes que escribir tu nombre').bail()
-		.isLength({min:2}).withMessage("Mínimo 2 caracteres.").bail(),
-    body('lastName')
-		.notEmpty().withMessage('Tienes que escribir tu apellido').bail()
-		.isLength({min:2}).withMessage("Mínimo 2 caracteres.").bail(),
+const validationsProfile = [
+    body('name').notEmpty().withMessage('Tienes que escribir tu nombre').bail()
+		.isLength({min:2}).withMessage("Mínimo 3 caracteres."),
+    body('lastName').notEmpty().withMessage('Tienes que escribir tu apellido').bail()
+		.isLength({min:2}).withMessage("Mínimo 3 caracteres."),
 	body('email')
 		.notEmpty().withMessage('Tienes que escribir un correo electrónico').bail() //bail corta la validación si está vacío
 		.isEmail().withMessage('Debes escribir un formato de correo válido'),
-	body('address')
-		.notEmpty().withMessage('Tienes que escribir tu dirección').bail()
-		.isLength({min:8}).withMessage("Mínimo 8 caracteres."),
-	body('birthDate')
-		.notEmpty().withMessage('Tienes que escribir tu fecha de nacimiento').bail()
-		.custom((value, {req}) => {			
-			const m = moment(value, "YYYY-MM-DD");
-			const ageUser= parseInt(m.fromNow());
-			return ageUser>18?true:false
-		}).withMessage('Debes ser mayor de 18 años'),
-	body('oldvatar')
-		.custom((value, { req }) => {       //custom validation xq no hay una validación para files. 
-			let fileAvatarExtension
-			console.log(req.body.oldAvatar);
+	body('address').notEmpty().withMessage('Tienes que escribir tu dirección'),
+	body('birthDate').notEmpty().withMessage('Tienes que escribir tu fecha de nacimiento').bail()
+	.custom((value, {req}) => {			
+		const m = moment(value, "YYYY-MM-DD");
+		const ageUser= parseInt(m.fromNow());
+		const ageUser2=ageUser
+		if(ageUser2 > 18) {
+			return true
+			//throw new Error("Debes ser mayor de 18 años")
+		}
+	}),
+	body('avatar').custom((value, { req }) => {       //custom validation xq no hay una validación para files. 
+		let fileAvatarExtension
 			if(req.file == undefined){
-				fileAvatarExtension = req.body.oldAvatar
+				fileAvatarExtension = ".png"
 			} else {
 				fileAvatarExtension = path.extname(req.file.originalname).toLowerCase()
 			}
+
+		console.log(fileAvatarExtension +" pase el Primer IF linea 88");
+			
 			const filetypes = /jpeg|jpg|png|gif/; // Allowed ext
 			const extname = filetypes.test(fileAvatarExtension); // Check ext
+			//const mimetype = filetypes.test(req.file.mimetype);// Check mime
+
 			if(!extname){
 				throw new Error('Solo Formatos jpeg-jpg-png-gif');
   			} else  {
 				return true
 			}
-		})
-	];
+	})
+	
+];
 
 //----RUTAS DE SITIO---------//
-//Form de login
-router.get('/login',guestMiddleware, userController.login);
-//Process login
-router.post('/login', userController.loginProcess);
-//Form de register
-router.get('/register', guestMiddleware, userController.register);
-// Proces user register
-router.post('/register', uploadFile.single('avatar'),validationsRegister, userController.userRegister);
 
-//Users Admin
-router.get('/users', userController.userList);
-router.get('/users/:id', userController.userDetail);
-
-//Profile
-router.get('/profile', authMiddleware,  userController.profile);
-router.get('/profile/:id', authMiddleware, userController.editProfile)
-router.put('/profile/:id', authMiddleware, uploadFile.single('avatar'), validationsEditProfile, userController.updateProfile)
-//Delete
-router.delete('/profile/:id', authMiddleware, userController.deleteProfile)
-// Logout
-router.get('/logout/', userController.logout);
+router.get('/login',guestMiddleware, userApiController.login);
+router.get('/logout/', userApiController.logout);
+router.get('/register', guestMiddleware, userApiController.register);
+router.get('/profile', userLoggedMiddleware ,  userApiController.profile);
+router.post('/register', uploadFile.single('avatar'),validations, userApiController.userRegister);
+// router.post('/login', userController.loginProcess);
+// router.put('/profile/:id', authMiddleware, uploadFile.single('avatar'), validationsProfile, userController.updateProfile)
+router.get('/', userApiController.userList);
+router.get('/:id', userApiController.userDetail);
+router.get('/profile/:id', userApiController.editProfile);
+router.delete('/profile/:id', authMiddleware, userApiController.deleteProfile);
 
 module.exports = router;

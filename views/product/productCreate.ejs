@@ -16,7 +16,7 @@
                     <h3 id="title">Creación de Producto</h3>
                     <form action="/product/productAdmin/" method="POST" id="form" enctype="multipart/form-data">
                     <div class="pd-product-imgs">
-                        <img src="" alt="beer">
+                        <img src="https://res.cloudinary.com/ds0upcco9/image/upload/v1659118986/images/guarda_az4cle.png" alt="beer">
                     </div>
                         <ul class="lg-form-login rg-form" >
                             <li class='pa-li-element'>
@@ -103,7 +103,8 @@
                                         <% } %>
                             </select>
                             </li>        
-                        </ul>        
+                        </ul>
+                        <div class="lg-form-login rg-form">        
                         <input type="file" name="product-image" id="productImage" class='rg-input' value="<%= locals.oldData ? oldData.productImage : null %>">
                         <input type="text" name="image"  style="opacity: 0;"  class='rg-input'>
                         <div class="text-danger" id="msgFront_image"> 
@@ -115,6 +116,7 @@
                         <input type="submit" class="lg-submit" value="Guardar">
                         <input type="reset" class="lg-submit" name="limpiar" value="Limpiar">
                     </div>                
+                </div>
             </form> 
         </div>
 

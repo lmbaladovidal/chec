@@ -1,4 +1,5 @@
 window.addEventListener("load", function() { 
+
     const formCart = document.getElementById("formProductCart"); // console.log OK
     const shoppingCartItemsContainer = document.querySelector('#shoppingCartItemsContainer');  // console.log OK
     const shoppingCartItem = document.querySelectorAll('#shoppingCartItem')
@@ -23,19 +24,12 @@ window.addEventListener("load", function() {
     updateShoppingCartSubtotal(shoppingCartItemsContainer)
     
     // Función remover elemento del carrito 
-    const deleteButtons = document.querySelectorAll('#buttonDelete')
-
-    deleteButtons.forEach(deleteButton => {
-        deleteButton.addEventListener('click', removeShoppingCartItem)
-    })
-    function removeShoppingCartItem(event) {
-        const deleteButtonClicked = event.target
-        deleteButtonClicked.closest("#shoppingCartItem").remove();
-        updateShoppingCartSubtotal(shoppingCartItemsContainer)   
-    }    
+    const deleteButtons = document.querySelectorAll('.buttonDelete')
+ 
 
     // Función actualizar cantidad de los elementos del carrito
     const changeQuantity = document.querySelectorAll('#shoppingCartItemQuantity')
+    console.log(changeQuantity);
     changeQuantity.forEach(itemQuantity => {
         itemQuantity.addEventListener('change', quantityChanged)
     })
@@ -51,5 +45,3 @@ window.addEventListener("load", function() {
     
 
 });
-
-

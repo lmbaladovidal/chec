@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include('../partials/head') %>
+<body >
+	<%- include("../partials/header") %>
+	
+	<!-- Container -->
+	<div class="container" style="margin-top: 40px;">
+		<div class="pr-form lg-form rg-input" style="padding:15px 0">
+			<div class=" col-md-3">
+				<h2>Hola <%= user.name %> </h2>
+				<img src="/images/avatars/<%= user.avatar %> ">
+				<br>
+				<br>
+				<div class="alert alert-success"><%= user.email %> </div>
+				<div>
+					
+					<button type="submit" class="pd-add " value="Modificar perfil">
+						<a href="/users/users" > Volver al listado de usuarios</a>
+					</button> <br>
+					
+	
+				</div>
+			</div>
+		</div>
+		<div style="margin-top:180px"></div>
+
+		
+	</div>
+	<!-- //Container -->
+	
+	<%- include('../partials/footer') %>
+</body>
+</html>
