@@ -15,6 +15,8 @@
   <li>Demoramos en ponernos de acuerdo para elegir la aplicación para realizar los wireframes y duplicamos trabajo probando herramientas.</li>
 </ul>
 
+<hr/>
+
 <h2>Retro Sprint 2</h2>
 
 <h3>Qué hicimos bien</h3>
@@ -42,6 +44,8 @@
 <li>Requerir el concenso del equipo completo para realizar cambios en el código de css para poder avanzar con mayor flexibilidad.</li>
 </ul>
 
+<hr/>
+
 <h2>Retro Sprint 3</h2>
 
 <h3>Qué hicimos bien</h3>
@@ -65,6 +69,8 @@
 <ul>
 <li> En este sprint no hay puntos que ameriten tratamiento.</li>
 </ul>
+
+<hr/>
 
 <h2>Retro Sprint 4</h2>
 
@@ -90,6 +96,7 @@
 <li> En este sprint no hay puntos que ameriten tratamiento.</li>
 </ul>
 
+<hr/>
 
 <h2>Retro Sprint 5</h2>
 
@@ -116,6 +123,8 @@
 <ul>
 <li> No acumular muchos commits en las ramas individuales sin subirlas a desarrollo. Esto requiere mantener fluida la conversación grupal para consensuar lo que subimos a desarrollo y resolver conflictos a medida que sucedan.</li>
 </ul>
+
+<hr/>
 
 <h2>Retro Sprint 6</h2>
 
@@ -145,6 +154,56 @@
 <li> Deberíamos consultar más documentación oficial cuando el contenido de la plataforma no es suficiente.</li>
 </ul>
 
+<hr/>
 
+<h2>Retro Sprint 7</h2>
 
+<h3>Qué hicimos bien</h3>
+<ul> 
+<li> Trabajamos más colaborativamente con tareas asignadas a otros compañeros, para resolver más rápido algunos desafíos.   </li>
+<li> Consultamos documetnación oficial y videos con tutoriales con mayor frecuencia para cumplir con algunas implementaciones.</li>
+</ul>
+
+<h3>Qué hicimos mal</h3>
+<ul>
+<li> Nos costó nuevamente reorgnizarnos con los tiempos para cumplir los entregables. </li>
+<li> No tuvimos celeridad para resolver algunos errores que se nos fueron presentando, y eso atrasó mucho en algunas tareas fundamentales.  </li>
+</ul>
+
+<h3>Qué deberíamos empezar a hacer</h3>
+<ul>
+<li> Reunirnos mas el grupo completo, al menos 2 veces por semana. </li>
+<li> Dedicar mas tiempo a profundizar conceptos sobre React con material extra. </li>
+</ul>
+
+<h3>Qué deberíamos dejar de hacer</h3>
+<ul>
+<li> En este sprint no detectamos prácticas que debamos suspender</li>
+</ul>
+
+<hr/>
+
+<h2>Retro Sprint 8</h2>
+
+<h3>Qué hicimos bien</h3>
+<ul> 
+<li> Priorizar las tareas obligatorias del Sprint.  </li>
+<li> Consultamos documetnación oficial y videos con tutoriales con mayor frecuencia para cumplir con algunas implementaciones.</li>
+</ul>
+
+<h3>Qué hicimos mal</h3>
+<ul>
+<li> Demoramos demasiado tiempo en el Sprint anterior, quedando el tiempo muy ajustado para trabajar este último. </li>
+</ul>
+
+<h3>Qué deberíamos empezar a hacer</h3>
+<ul>
+<li> Cerrar detalles de CSS y funcionalidades para culminar al 100% el sitio web </li>
+</ul>
+
+<h3>Qué deberíamos dejar de hacer</h3>
+<ul>
+<li> En este sprint no detectamos prácticas que debamos suspender</li>
+</ul>
+<hr/>
 

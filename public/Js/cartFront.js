@@ -25,15 +25,10 @@ window.addEventListener("load", function() {
     
     // Función remover elemento del carrito 
     const deleteButtons = document.querySelectorAll('.buttonDelete')
-    console.log(deleteButtons)
-
-    deleteButtons.forEach(deleteButton => {
-        deleteButton.addEventListener('click', removeShoppingCartItem)
-    })
-  
+ 
 
     // Función actualizar cantidad de los elementos del carrito
-    const changeQuantity = document.getElementsByClassName('shoppingCartItemQuantity')
+    const changeQuantity = document.querySelectorAll('#shoppingCartItemQuantity')
     console.log(changeQuantity);
     changeQuantity.forEach(itemQuantity => {
         itemQuantity.addEventListener('change', quantityChanged)
@@ -50,5 +45,3 @@ window.addEventListener("load", function() {
     
 
 });
-
-
