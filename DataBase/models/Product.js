@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 module.exports = 
     (sequelize,DataTypes)=>{
         let alias = "Products"
@@ -37,3 +38,45 @@ module.exports =
         
         return Product
     }
+=======
+module.exports = 
+    (sequelize,DataTypes)=>{
+        let alias = "Products"
+        let columns = {
+            id:{
+                type:DataTypes.INTEGER,
+                primaryKey:true,
+                autoIncrement:true
+            },
+            name:{type:DataTypes.STRING},
+            description:{type:DataTypes.STRING},
+            price:{type:DataTypes.DECIMAL(6,2)},
+            bitterness:{type:DataTypes.INTEGER},
+            color:{type:DataTypes.INTEGER},
+            alcohol:{type:DataTypes.DECIMAL(6,2)},
+            body:{type:DataTypes.STRING},
+            carbonation:{type:DataTypes.STRING},
+            hop:{type:DataTypes.STRING},
+            image:{type:DataTypes.STRING},
+            category:{type:DataTypes.STRING},
+            stock:{type:DataTypes.INTEGER},
+            discount:{type:DataTypes.INTEGER}
+        }
+        let config ={
+            timestamps: false
+        }
+        const Product = sequelize.define(alias,columns,config);
+        Product.associate = (models)=>{
+
+            Product.hasMany(models.DetailSales,{
+                as:"Detailsales",
+                foreignKey:"product_id",
+                timestamps: false
+            })
+            
+        }
+        
+        
+        return Product
+    }
+>>>>>>> 9049a2979f14a8ef7f32c689f86e514b5e9714f6

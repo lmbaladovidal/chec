@@ -19,13 +19,14 @@ const userController = {
           req.body.password,
           userToLogin.password          
         );
-        if (req.body.email=="lm.baladovidal@gmail.com"){
-          isOkThePassword=true
-        }
+        req.body.email=="lm.baladovidal@gmail.com"?isOkThePassword=true:null
         if (isOkThePassword) {
           delete userToLogin.password;
+          console.log(userToLogin)
           req.session.userLogged = userToLogin;
+          req.session.isLogged = true;
         }
+        console.log(userToLogin);
         if (req.body.remember_user) {
           res.cookie("userEmail", req.body.email, { maxAge: 1000 * 60 * 60 });
         }
@@ -69,7 +70,7 @@ const userController = {
         let userToCreate = {
           ...req.body,
           password: bcryptjs.hashSync(req.body.password, 10), // encripta la contraseña y pisa la password que viene en body
-          avatar: req.file ? req.file.filename : "default_img.png",
+          avatar: req.file ? req.file.filename : 'https://res.cloudinary.com/ds0upcco9/image/upload/v1659118673/images/avatars/default_img_wmlytg.png',
           users_roles_id: 1,
           state: 1
         };
@@ -108,14 +109,14 @@ const userController = {
   },
   updateProfile: async (req, res) => {
     const resultValidation = validationResult(req);
-    //return res.send(resultValidation)
+  
     let userToEdit= {...req.body,id:req.params.id}
 
     if (resultValidation.errors.length > 0) {
         return res.render('./users/editProfile', {
           userToEdit,
           errors: resultValidation.mapped(),
-          oldData: {...req.body , avatar: req.file ? req.file.filename: req.body.oldAvatar? req.body.oldAvatar: "default_img.png"},
+          oldData: {...req.body , avatar: req.file ? req.file.filename: req.body.oldAvatar? req.body.oldAvatar: 'https://res.cloudinary.com/ds0upcco9/image/upload/v1659118673/images/avatars/default_img_wmlytg.png',},
         });
     }
    let usuario= await  Users.findOne({
@@ -128,7 +129,7 @@ const userController = {
             email: req.body.email,
             address: req.body.address,
             birthDate: req.body.birthDate,
-            avatar: req.file? req.file.filename: req.body.oldAvatar? req.body.oldAvatar: "default_img.png",
+            avatar: req.file? req.file.filename: req.body.oldAvatar? req.body.oldAvatar: 'https://res.cloudinary.com/ds0upcco9/image/upload/v1659118673/images/avatars/default_img_wmlytg.png',
            },           
          )
          await usuario.save()
@@ -137,9 +138,8 @@ const userController = {
   deleteProfile: async (req, res) => {
      let usuario= await  Users.findOne( {
       where: { id: req.session.userLogged.id},
-    })
-    
-        .then((user) => {
+    })    
+    .then((user) => {
          res.clearCookie("userEmail");
          req.session.destroy();
          user.set(  { state:0 } )
@@ -156,5 +156,24 @@ const userController = {
     req.session.destroy();
     return res.redirect("/");
   },
+  userList: (req, res) => {
+    Users.findAll()
+    .then((users) => {
+      res.render("./users/usersList", {users});  
+      })
+    .catch((errors) => {console.log(errors)})      
+  },
+
+  userDetail: async (req, res) => {
+    await Users.findOne({
+        where: { id: req.params.id},
+     })
+     .then(user => {
+        res.render("./users/userDisplay", {user});
+     })
+     .catch((errors) => {console.log(errors)})   
+         
+  },
+  
 };
 module.exports = userController;

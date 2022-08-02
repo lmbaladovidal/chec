@@ -1,5 +1,6 @@
 const express = require('express');
 const userController = require('../controllers/userController');
+//const userApiController = require('../controllers/apiControllers/userApiController');
 const router = express.Router();
 const path = require('path');
 const moment = require('moment');
@@ -14,7 +15,7 @@ const storage = multer.diskStorage({      // [2-MULTER]  Crear el storage
 	},
 	filename: (req, file, cb) => {
 
-		const fileDefault = '.png'
+		const fileDefault = 'https://res.cloudinary.com/ds0upcco9/image/upload/v1659118673/images/avatars/default_img_wmlytg.png'
 	    const filetypes = /jpeg|jpg|png|gif/;
 		
 		const fileExtension=path.extname(file.originalname).toLowerCase();
@@ -26,7 +27,9 @@ const storage = multer.diskStorage({      // [2-MULTER]  Crear el storage
 	console.log(extname);
 
 		if(req.file == undefined){
-			fileName = `${Date.now()}_img${fileDefault}`; 
+			fileName = `${fileDefault}`; 
+			//fileName = `${Date.now()}_img${fileDefault}`; 
+			
 			cb(null, fileName);
 
 		} else 		
@@ -103,7 +106,11 @@ const validationsEditProfile = [
 		.custom((value, {req}) => {			
 			const m = moment(value, "YYYY-MM-DD");
 			const ageUser= parseInt(m.fromNow());
+<<<<<<< HEAD
 			return	ageUser>18?true:false
+=======
+			return ageUser>18?true:false
+>>>>>>> 9049a2979f14a8ef7f32c689f86e514b5e9714f6
 		}).withMessage('Debes ser mayor de 18 años'),
 	body('oldvatar')
 		.custom((value, { req }) => {       //custom validation xq no hay una validación para files. 
@@ -129,21 +136,21 @@ const validationsEditProfile = [
 router.get('/login',guestMiddleware, userController.login);
 //Process login
 router.post('/login', userController.loginProcess);
-
 //Form de register
 router.get('/register', guestMiddleware, userController.register);
 // Proces user register
 router.post('/register', uploadFile.single('avatar'),validationsRegister, userController.userRegister);
 
-//Profile
-router.get('/profile', userLoggedMiddleware , authMiddleware,  userController.profile);
+//Users Admin
+router.get('/users', userController.userList);
+router.get('/users/:id', userController.userDetail);
 
+//Profile
+router.get('/profile', authMiddleware,  userController.profile);
 router.get('/profile/:id', authMiddleware, userController.editProfile)
 router.put('/profile/:id', authMiddleware, uploadFile.single('avatar'), validationsEditProfile, userController.updateProfile)
-
 //Delete
 router.delete('/profile/:id', authMiddleware, userController.deleteProfile)
-
 // Logout
 router.get('/logout/', userController.logout);
 

@@ -198,7 +198,7 @@
                     <label><b>Imagen de perfil:</b></label>
                     <br>
                     <div>
-                        <img src="/images/avatars/<%= userToEdit.avatar?userToEdit.avatar: oldData.avatar %> " width="150px">
+                        <img src="<%= userToEdit.avatar?userToEdit.avatar: oldData.avatar %> " width="150px">
                     </div>
                     <input type="hidden" name="oldAvatar" value="<%= userToEdit != undefined && userToEdit.avatar!=undefined ? userToEdit.avatar : locals.oldData ? oldData.avatar : null %>">
                     <input 

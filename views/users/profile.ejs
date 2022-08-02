@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="es">
 <%- include('../partials/head') %>
@@ -33,4 +34,51 @@
 	
 	<%- include('../partials/footer') %>
 </body>
+=======
+<!DOCTYPE html>
+<html lang="es">
+<%- include('../partials/head') %>
+<body >
+	<%- include("../partials/header") %>
+	
+	<form action="/users/profile/<%= user.id %> " class="" method="POST" enctype="multipart/form-data">
+		<div class="nr-main-containter">
+			<div class="add-receta-container">
+				
+			<% if (locals.datos && datos.userLogged && datos.userLogged.users_roles_id == 2 ){ %>
+				<button class="pd-admin"><a href="/users/users" class="pd-admin-a">Ver listado de usuarios</a></button>
+			<%}%>
+		 </div>
+		</div>
+	<!-- Container -->
+	<div class="container" style="margin-top: 40px;">
+		<div class="pr-form lg-form rg-input" style="padding:15px 0">
+			<div class=" col-md-3">
+				<h2>Hola <%= user.name %> </h2>
+				<img src="<%= user.avatar %> ">
+				<br>
+				<br>
+				<div class="alert alert-success"><%= user.email %> </div>
+				<div>
+					
+					<button type="submit" class="pd-add " value="Modificar perfil">
+						<a href="/users/profile/<%=user.id%>" > Modificar perfil</a>
+					</button> <br>
+					<button type="submit" class="pd-admin" value="Modificar perfil">
+						<a href="/users/logout" class="pd-admin-a" > Cerrar Sesión</a>
+					</button>
+					
+	</form>
+				</div>
+			</div>
+		</div>
+		<div style="margin-top:180px"></div>
+
+		
+	</div>
+	<!-- //Container -->
+	
+	<%- include('../partials/footer') %>
+</body>
+>>>>>>> 9049a2979f14a8ef7f32c689f86e514b5e9714f6
 </html>

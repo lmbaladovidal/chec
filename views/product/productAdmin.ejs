@@ -11,7 +11,7 @@
                     <h3 id="title">Administracion de Producto</h3>
                     <form action="/product/productAdmin/<%= cervezaToEdit.id %>?_method=PUT" method="POST" enctype="multipart/form-data" id="form">
                         <div class="pd-product-imgs">
-                            <img src="/images/<%= cervezaToEdit.image %>" alt="beer">
+                            <img src="<%= cervezaToEdit.image %>" alt="beer">
                         </div>
                         <ul class="lg-form-login rg-form" >
                             <li class='pa-li-element'>
@@ -100,6 +100,7 @@
                             </li>
         
                         </ul> 
+                        <div class="lg-form-login rg-form">
                         <h5>Imagen de Producto</h5>        
                         <input type="file" name="productImage"  id="productImage"  class='rg-input'>
                         <input type="text" name="image" style="opacity: 0;" id="inputImg" value="<%=cervezaToEdit.image%>" class='rg-input'>                
@@ -111,13 +112,15 @@
                     <div class="pd-options rg-input">
                         <input type="submit" class="lg-submit" value="Guardar">
                         <input type="reset" class="lg-submit" name="limpiar" value="Limpiar">
-                    </div>                
+                    </div>  
+                             
             </form>
             <form action="/product/<%= cervezaToEdit.id %>?_method=DELETE" method="POST">
                 <div class="pd-options">
                     <input type="submit" class="lg-submit " value="Eliminar">
                 </div>
             </form>  
+        </div> 
         </div>
 
     </section>

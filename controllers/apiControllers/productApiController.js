@@ -6,26 +6,48 @@ const path = require('path');
 const db = require('../../DataBase/models');
 const { sequelize } = require('../../DataBase/models');
 const Product = db.Products;
-
+const Categories = db.Categories;
 
 const productList=  (req,res)=>{
         res.set('Access-Control-Allow-Origin', '*');
         const userLogged = req.session.userLogged;
         Product.findAll({
-            attributes: ['id', 'name','description','category','description','image']
+            attributes: ['id', 'name','description','category','price','image'],
+            order:['description']
+
         })
         .then(async resultado=>{
             const cervezas = resultado
             const datos ={cervezas}
             const countByCategory = await sequelize.query("SELECT category, COUNT(category) as cantCategories  FROM Products p GROUP BY category ORDER BY category", { type: QueryTypes.SELECT })
+<<<<<<< HEAD
+=======
+            const productByCategoryName = await sequelize.query("SELECT c.description , COUNT(p.id) as CountProduct FROM Categories as c INNER JOIN Products as p ON p.category= c.id group by c.description", { type: QueryTypes.SELECT } )
+            
+            
+            for (let i=0; i < resultado.length; i++){   
+                const salesPerProduct = await sequelize.query("SELECT d.product_id , COUNT(*)  AS ventas  FROM DetailSales AS d INNER JOIN Sales AS s ON s.id = d.sales_id  WHERE d.product_id =" + resultado[i].id + " GROUP BY d.product_id", { type: QueryTypes.SELECT } )      
+         
+                resultado[i] = {id: resultado[i].id,
+                            name: resultado[i].name,
+                            description: resultado[i].description,
+                            price: resultado[i].price,
+                            category: resultado[i].category,
+                            image: resultado[i].image,
+                            link: "http://localhost:3001/api/product/productList/"+  resultado[i].id,
+                            salesPerProduct:salesPerProduct ? salesPerProduct : null
+                            }
+               }  
+
+>>>>>>> 9049a2979f14a8ef7f32c689f86e514b5e9714f6
             res.status(200).json({
+                            meta:{status:200, link: "http://localhost:3001/api/product/productList/" },
                             count:cervezas.length,
                             countByCategory:countByCategory,
+                            productByCategoryName: productByCategoryName,
                             data:{
                                     cervezas:cervezas,
-                                    userLogged:userLogged 
-                                },
-                            status:200})
+                                    userLogged:userLogged} })
             }
         )
         .catch(error=>{console.log(error)})
@@ -36,10 +58,13 @@ const productCart=(req,res)=>{
 }
 
 const productDetail= async (req,res)=>{
+    res.set('Access-Control-Allow-Origin', '*');
     const product = await Product.findOne({ 
         where:{id:req.params.id}
     });
-    res.status(200).json({data:product,status:200})
+    res.status(200).json({
+        meta:{status:200, link: "http://localhost:3001/api/product/productList/" + product.id },
+        data:product})
 }
 
 const productAdmin=async (req,res)=>{
@@ -133,10 +158,6 @@ const productSearch=async (req,res)=>{
 const productPack=(req,res)=>{res.render('./product/pack')}
 
 
-function recargar () {
-    window.location.href = window.location.href;
-}
-
 const productDelete = async (req, res) => {
     let id = parseInt(req.params.id);    
     const cerveza = await Product.findOne({
@@ -144,6 +165,16 @@ const productDelete = async (req, res) => {
     });
     await cerveza.destroy()
     res.redirect('/product/productPage');
+}
+
+const category = async (req, res) => {
+    res.set('Access-Control-Allow-Origin', '*');
+    const categories = await Categories.findAll();
+    
+    res.status(200).json({data:categories,
+                          status:200})
+
+
 }
 
 const productControler = {
@@ -156,7 +187,8 @@ const productControler = {
     productPack,
     productCreate,
     productCreatePage,
-    productDelete
+    productDelete,
+    category
 }
 
 module.exports=productControler;
