@@ -17,7 +17,7 @@ const productList=  (req,res)=>{
         .then(async resultado=>{
             const cervezas = resultado
             const datos ={cervezas}
-            const countByCategory = await sequelize.query("SELECT category, COUNT(category) as cantCategories  FROM products p GROUP BY category ORDER BY category", { type: QueryTypes.SELECT })
+            const countByCategory = await sequelize.query("SELECT category, COUNT(category) as cantCategories  FROM Products p GROUP BY category ORDER BY category", { type: QueryTypes.SELECT })
             res.status(200).json({
                             count:cervezas.length,
                             countByCategory:countByCategory,
