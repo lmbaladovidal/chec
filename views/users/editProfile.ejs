@@ -201,11 +201,9 @@
                         <img src="/images/avatars/<%= userToEdit.avatar?userToEdit.avatar: oldData.avatar %> " width="150px">
                     </div>
                     <input type="hidden" name="oldAvatar" value="<%= userToEdit != undefined && userToEdit.avatar!=undefined ? userToEdit.avatar : locals.oldData ? oldData.avatar : null %>">
-                    <p><%= userToEdit != undefined && userToEdit.avatar!=undefined? "userToEdit.avatar" : locals.oldData ? "oldData.avatar" : "nada" %></p>
                     <input 
                         type="file" name="avatar" id="avatar" accept=".jpg,.png,.jpeg,.gif" class="rg-input"
                         value="<%=  userToEdit != undefined && userToEdit.avatar!=undefined ? userToEdit.avatar : locals.oldData ? oldData.avatar : null %>">
-                        <p><%= userToEdit != undefined && userToEdit.avatar!=undefined? userToEdit.avatar+" USTE" : locals.oldData ? oldData.avatar+" OA" : "null" %></p>
                         <% if (locals.errors && errors.avatar) { %>
                             <div class="text-danger" id="msgFront_avatar">
                                 <%= errors.avatar.msg %> 

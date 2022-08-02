@@ -108,10 +108,7 @@ const userController = {
   },
   updateProfile: async (req, res) => {
     const resultValidation = validationResult(req);
-    console.log("req.file: ")
-    console.log(req.file)
-    console.log("validation ")
-    console.log(resultValidation)
+    //return res.send(resultValidation)
     let userToEdit= {...req.body,id:req.params.id}
 
     if (resultValidation.errors.length > 0) {
