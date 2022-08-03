@@ -22,12 +22,9 @@ const userController = {
         req.body.email=="lm.baladovidal@gmail.com"?isOkThePassword=true:null
         if (isOkThePassword) {
           delete userToLogin.password;
-          console.log("soy session")
           req.session.userLogged = userToLogin;
-          req.session.isLogged = true;
-          console.log(req.session)
+          req.session.isLogged = true;     
         }
-        console.log(userToLogin);
         if (req.body.remember_user) {
           res.cookie("userEmail", req.body.email, { maxAge: 1000 * 60 * 60 });
         }

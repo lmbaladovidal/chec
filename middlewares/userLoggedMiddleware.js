@@ -10,7 +10,9 @@ function userLoggedMiddleware(req, res, next) {
 	if(emailInCookie){
 		Users.findOne({
 		where:{
-			email: emailInCookie}
+			email: emailInCookie
+		},
+		nest:true
 		}).then((userFromCookie) => {
 			req.session.userLogged = userFromCookie;
 			res.locals.isLogged = true;
@@ -19,6 +21,9 @@ function userLoggedMiddleware(req, res, next) {
 			console.log(error)
 			
 		})
+	}else if(req.session && req.session.isLogged){
+		res.locals.userLogged = req.session.userLogged;
+		res.locals.isLogged = true;
 	}
 		next();
 	}

@@ -16,13 +16,11 @@
             </li>
             <li>
                 <ul class="dropdown-menu-container">
-                    <% if (locals && locals.session) { %>
-                        <script>console.log(locals.session)</script>
-                    <%}%>
                     <% if (locals && locals.isLogged) { %>
                         <li>
                             <img src="<%= locals.userLogged.avatar %>"> 
-                            <a><%= locals.userLogged.name %></a>                            
+                            <a><%= locals.userLogged.name %></a>
+                            
                             <ul class="dropdown-menu">
                                 <li><a href="/users/profile">Mi perfil</a></li>
                                 <li><a href="/users/logout">Salir</a></li>
