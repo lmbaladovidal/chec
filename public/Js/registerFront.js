@@ -80,46 +80,9 @@ window.onload = () => {
   inputs.forEach((input) => {
     //console.log(input)  
     input.addEventListener("keyup", validarFormulario);
-    input.addEventListener("blur", validarFormulario);
-    
+    input.addEventListener("blur", validarFormulario);    
   });
-  console.log(document.getElementById('avatar'))
-  document.getElementById('avatar').addEventListener("change", valExtFile);
   document.getElementById('birthDate').addEventListener("blur", birthValidate("Debes ser mayor de 18 Años"))
- 
-  // función para validad la imagen//
-
-  function valExtFile() {
-    const filePath = avatar.value;
-    let extension = filePath.substring(
-      filePath.lastIndexOf("."),
-      filePath.length
-    );
-
-    if (avatar == null) {
-      return true;
-    } else if (
-      document
-        .getElementById("avatar")
-        .getAttribute("accept")
-        .split(",")
-        .indexOf(extension) > 0
-    ) {
-      document.getElementById(`msgFront_avatar`).innerHTML = "";
-      document
-        .getElementById(`msgFront_avatar`)
-        .classList.remove("text-danger");
-      return true;
-    } else {
-      document.getElementById(
-        `msgFront_avatar`
-      ).innerHTML = `Los formatos permitidos son .png,jpg, jpeg y gif`;
-      document.getElementById(`msgFront_avatar`).classList.add("text-danger");
-      campos.avatar = false;
-      return false;
-    }
-  }
-
   // funcion para validar coincidencias entre ambas contraseñas//
   function validar() {
     if (
@@ -155,36 +118,33 @@ window.onload = () => {
           document.getElementById(`msgFront_birthDate`).classList.remove("text-danger")
           document.getElementById(`msgFront_birthDate`).classList.add("rg-input")
           document.getElementById('birthDate').classList.remove("is-invalid");
-          campos.birthDate= true;
-          
-          
+          campos.birthDate= true;                   
           }
     }
+    formRegister.addEventListener("submit", (e) => {  
+      e.preventDefault();
+      console.log(campos)
+      if (!
+        campos.name &&
+        campos.lastName &&
+        campos.email &&
+        campos.birthDate &&
+        campos.address &&
+        campos.password
+        ) 
+        {
+          document.getElementById("msgFront_submit").innerHTML = "Debes completar correctamente el formulario."
+          setTimeout(() => {
+            document.getElementById("msgFront_submit").innerHTML = ""
+            document.getElementById('email').classList.remove("is-invalid");
+          },6000)
+          return formRegister.reset();
+        }else{
+          return formRegister.submit();
+        }         
+      });
 
-  formRegister.addEventListener("submit", (e) => {  
-    e.preventDefault();
-    console.log(campos)
-    if (!
-      campos.name &&
-      campos.lastName &&
-      campos.email &&
-      campos.birthDate &&
-      campos.address &&
-      campos.password
-    ) 
-    {
-      document.getElementById("msgFront_submit").innerHTML = "Debes completar correctamente el formulario."
-      setTimeout(() => {
-        document.getElementById("msgFront_submit").innerHTML = ""
-        document.getElementById('email').classList.remove("is-invalid");
-      },6000)
 
-    return formRegister.reset();
-    } else
-      
-    {
-        return formRegister.submit();
-    } 
-        
-  });
+
+
 };

@@ -7,6 +7,8 @@ const sequelize = db.Sequelize;
 const { Op } = require("sequelize");
 const Users = db.Users;
 
+
+
 const userController = {
   login: (req, res) => {
     res.render("./users/login");
@@ -22,11 +24,9 @@ const userController = {
         req.body.email=="lm.baladovidal@gmail.com"?isOkThePassword=true:null
         if (isOkThePassword) {
           delete userToLogin.password;
-          console.log(userToLogin)
           req.session.userLogged = userToLogin;
-          req.session.isLogged = true;
+          req.session.isLogged = true;     
         }
-        console.log(userToLogin);
         if (req.body.remember_user) {
           res.cookie("userEmail", req.body.email, { maxAge: 1000 * 60 * 60 });
         }
@@ -70,7 +70,6 @@ const userController = {
         let userToCreate = {
           ...req.body,
           password: bcryptjs.hashSync(req.body.password, 10), // encripta la contraseña y pisa la password que viene en body
-          avatar: req.file ? req.file.filename : 'https://res.cloudinary.com/ds0upcco9/image/upload/v1659118673/images/avatars/default_img_wmlytg.png',
           users_roles_id: 1,
           state: 1
         };
@@ -109,27 +108,26 @@ const userController = {
   },
   updateProfile: async (req, res) => {
     const resultValidation = validationResult(req);
-  
     let userToEdit= {...req.body,id:req.params.id}
 
     if (resultValidation.errors.length > 0) {
         return res.render('./users/editProfile', {
           userToEdit,
           errors: resultValidation.mapped(),
-          oldData: {...req.body , avatar: req.file ? req.file.filename: req.body.oldAvatar? req.body.oldAvatar: 'https://res.cloudinary.com/ds0upcco9/image/upload/v1659118673/images/avatars/default_img_wmlytg.png',},
+          oldData: {...req.body , avatar: req.body.oldAvatar},
         });
     }
    let usuario= await  Users.findOne({
       where: { id: req.params.id},
     })
-         usuario.set(     
+      req.session.userLogged = usuario.set(     
            {
             name:req.body.name?req.body.name:oldData.name,
             lastName:req.body.lastName,
             email: req.body.email,
             address: req.body.address,
             birthDate: req.body.birthDate,
-            avatar: req.file? req.file.filename: req.body.oldAvatar? req.body.oldAvatar: 'https://res.cloudinary.com/ds0upcco9/image/upload/v1659118673/images/avatars/default_img_wmlytg.png',
+            avatar: req.body.oldAvatar
            },           
          )
          await usuario.save()

@@ -62,7 +62,7 @@ const productCreate= async (req,res)=>{
         body: req.body.body,
         carbonation: req.body.carbonation,
         hop: req.body.hop,
-        image:req.file.filename,
+        image:req.body.oldProductImage,
         category : req.body.category
       })
     res.redirect('/product/productPage')
@@ -82,6 +82,9 @@ const productUpdate = async (req, res) =>{
     const cerveza = await Product.findOne({
         where:{id:req.params.id}
     }); 
+    console.log(cervezaToEdit)
+    console.log(req.oldProductImage)
+    
     cerveza.set({
         name: req.body.name,
         description: req.body.description,
@@ -92,7 +95,7 @@ const productUpdate = async (req, res) =>{
         carbonation: req.body.carbonation,
         hop: req.body.hop,
         category: req.body.category,
-        image: req.file?req.file.filename:req.body.image
+        image: req.body.oldProductImage
     })
     await cerveza.save();                
     res.redirect('/product/productPage')
