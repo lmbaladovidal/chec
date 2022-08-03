@@ -38,13 +38,32 @@ const validations = [
 	})
 ];
 
-const storage = multer.diskStorage({
-    destination: (req,res,cb) => {
-        cb(null, path.join(__dirname, '../public/images'));
-    },
-    filename: (req,file,cb) => {
-        cb(null, 'beer' + '-' + Date.now() + path.extname(file.originalname));
-    }
+const storage = multer.diskStorage({      // [2-MULTER]  Crear el storage
+	destination: (req, file, cb) => {
+		cb(null, './public/images/avatars');
+	},
+	filename: (req, file, cb) => {
+
+		const fileDefault = 'https://res.cloudinary.com/ds0upcco9/image/upload/v1659118673/images/avatars/default_img_wmlytg.png'
+	    const filetypes = /jpeg|jpg|png|gif/;
+		
+		const fileExtension=path.extname(file.originalname).toLowerCase();
+	console.log(fileExtension);	
+	console.log(req.file); 
+		const extname = filetypes.test(fileExtension);
+		const mimetype = filetypes.test(file.mimetype);
+	console.log(mimetype);
+	console.log(extname);
+		if(req.file == undefined){
+			fileName = `${fileDefault}`; 
+			//fileName = `${Date.now()}_img${fileDefault}`; 			
+			cb(null, fileName);
+		} else 				
+		if (mimetype && extname){
+			fileName = `${Date.now()}_img${path.extname(file.originalname)}`;
+			cb(null, fileName);
+		  } 
+	}
 })
 
 const upload = multer({storage});

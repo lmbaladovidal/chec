@@ -7,7 +7,7 @@ window.onload = () => {
       text: /^[a-zA-ZÀ-ÿ\s|.|,|/}]{2,256}$/, 
       text2: /^[a-zA-ZÀ-ÿ\s|.|,}]{20,256}$/, 
       number:/^[0-9]+([.{1}|,{1}][0-9]+)?$/,
-      img: /(.jpg|.jpeg|.png|.gif)$/i,
+      img: /(.jpg|.jpeg|.png|.gif)$/,
     };
   
     let campos = null 
@@ -68,6 +68,8 @@ window.onload = () => {
     };
 
     const validarCampo = (regEx, msgErr, input, field) => {
+        console.log("soy REGEX EN VALIDAR CAMPO");
+        console.log(regEx)
         if (regEx.test(input.value)){
             document.getElementById(`msgFront_${field}`).innerHTML = "";
             document.getElementById(`msgFront_${field}`).classList.remove("text-danger");
@@ -97,12 +99,9 @@ window.onload = () => {
         let extension = filePath.substring(filePath.lastIndexOf("."),filePath.length); 
         console.log("regEx");
         console.log(regEx);
+        console.log(extension)
         console.log("regEx test");
         console.log(regEx.test);
-        console.log("regEx test png");
-        console.log(regEx.test('.png'));
-        console.log("regEx test extension");
-        console.log(regEx.test(extension));
         if(regEx.test(extension)){
             document.getElementById(`msgFront_productImage`).innerHTML = "";
             document.getElementById(`msgFront_productImage`).classList.remove("text-danger");

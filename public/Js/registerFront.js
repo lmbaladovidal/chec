@@ -91,10 +91,7 @@ window.onload = () => {
 
   function valExtFile() {
     const filePath = avatar.value;
-    let extension = filePath.substring(
-      filePath.lastIndexOf("."),
-      filePath.length
-    );
+    let extension = filePath.substring(filePath.lastIndexOf("."),filePath.length);
 
     if (avatar == null) {
       return true;

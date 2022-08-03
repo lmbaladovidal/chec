@@ -22,9 +22,10 @@ const userController = {
         req.body.email=="lm.baladovidal@gmail.com"?isOkThePassword=true:null
         if (isOkThePassword) {
           delete userToLogin.password;
-          console.log(userToLogin)
+          console.log("soy session")
           req.session.userLogged = userToLogin;
           req.session.isLogged = true;
+          console.log(req.session)
         }
         console.log(userToLogin);
         if (req.body.remember_user) {
