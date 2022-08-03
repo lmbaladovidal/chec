@@ -102,16 +102,18 @@
                                         </option>
                                         <% } %>
                             </select>
-                            </li>        
+                            </li>   
+                            <li class='pa-li-element'>
+                                <div >
+                                    <label><b>Imagen</b></label>
+                                    <input type="button" id="btnImage" class="rg-btn-avatar" value="Seleccionar Imagen">
+                                    <input type="hidden" name="oldProductImage" id="hiddenProduct" value="https://res.cloudinary.com/ds0upcco9/image/upload/v1659489493/images/Logos/1080x1080Original_qhz8im.png">
+                                    <img src="https://res.cloudinary.com/ds0upcco9/image/upload/v1659489493/images/Logos/1080x1080Original_qhz8im.png" class="rg-img-profile" id="imageProduct" alt="">
+                                    <br>
+                                </div>       
+                            </li>     
                         </ul>
-                        <div class="lg-form-login rg-form">        
-                        <input type="file" name="product-image" id="productImage" class='rg-input' value="<%= locals.oldData ? oldData.productImage : null %>">
-                        <input type="text" name="image"  style="opacity: 0;"  class='rg-input'>
-                        <div class="text-danger" id="msgFront_image"> 
-                            <% if (locals.errors && errors.productImage) { %>
-                                <%= errors.name.msg %> 
-                            <% } %>
-                        </div>                
+      
                     <div class="pd-options rg-input">
                         <input type="submit" class="lg-submit" value="Guardar">
                         <input type="reset" class="lg-submit" name="limpiar" value="Limpiar">
@@ -124,6 +126,8 @@
     </div>
     <!-- Footer-->
     <%- include("../partials/footer") %>
+    <script src="https://upload-widget.cloudinary.com/global/all.js" type="text/javascript">    </script>
+    <script src="/Js/widgetCloudinaryProducts.js"></script>
     <script src="/Js/productFront.js"></script>
 </body>
 
