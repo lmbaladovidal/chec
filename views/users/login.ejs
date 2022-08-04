@@ -103,9 +103,9 @@
                     <label>Email</label>
                     <input type="email" name="email" id="email" class="lg-input">  
                     <% if (locals.errors && errors.email) { %>                  
-                        <%= errors.email.msg %>
+                        <div class="text-danger" id="msgFront_email"><%= errors.email.msg %></div>
+                        
                     <% } %>
-                        <div class="text-danger" id="msgFront_email"></div>
                     
                 </div>
                 <div>
