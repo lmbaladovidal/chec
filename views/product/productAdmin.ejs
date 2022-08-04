@@ -98,27 +98,29 @@
                                         <% } %>
                             </select>
                             </li>
-        
+                            <li class='pa-li-element'>
+                                <div >
+                                    <label><b>Imagen</b></label>
+                                    <input type="button" id="btnImage" class="rg-btn-avatar" value="Seleccionar Imagen">
+                                    <input type="hidden" name="oldProductImage" id="hiddenProduct" value="<%=cervezaToEdit.image%>">
+                                    <img src="<%=cervezaToEdit.image%>" class="rg-img-profile" id="imageProduct" alt="">
+                                    <br>
+                                </div>       
+                            </li>           
                         </ul> 
-                        <div class="lg-form-login rg-form">
-                        <h5>Imagen de Producto</h5>        
-                        <input type="file" name="productImage"  id="productImage"  class='rg-input'>
-                        <input type="text" name="image" style="opacity: 0;" id="inputImg" value="<%=cervezaToEdit.image%>" class='rg-input'>                
-                        <div class="text-danger" id="msgFront_image"> 
-                            <% if (locals.errors && errors.productImage) { %>
-                                <%= errors.productImage.msg %> 
-                            <% } %>
+                        <div class=" rg-form rg-btn-div" >
+                            <input type="submit" class="lg-submit" value="Guardar">
+                            <input type="reset" class="lg-submit" name="limpiar" value="Limpiar">
+                    </form>
+                    
+                    <div class="rg-btn-div ">
+                    <form action="/product/<%= cervezaToEdit.id %>?_method=DELETE" method="POST">
+                        <div class=" " >
+                            <input type="submit" class="lg-submit " value="Eliminar">
                         </div>
-                    <div class="pd-options rg-input">
-                        <input type="submit" class="lg-submit" value="Guardar">
-                        <input type="reset" class="lg-submit" name="limpiar" value="Limpiar">
-                    </div>  
-                             
-            </form>
-            <form action="/product/<%= cervezaToEdit.id %>?_method=DELETE" method="POST">
-                <div class="pd-options">
-                    <input type="submit" class="lg-submit " value="Eliminar">
-                </div>
+                    </div>
+                    </div>                    
+           
             </form>  
         </div> 
         </div>
@@ -127,6 +129,8 @@
     </div>
     <!-- Footer-->
     <%- include("../partials/footer") %>
+    <script src="https://upload-widget.cloudinary.com/global/all.js" type="text/javascript">    </script>
+    <script src="/Js/widgetCloudinaryProducts.js"></script>
     <script src="/Js/productFront.js"></script>
 </body>
 </html>

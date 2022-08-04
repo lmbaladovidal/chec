@@ -1,13 +1,11 @@
 window.onload = () => {
     const formRegister = document.querySelector("#form");
     const inputs = document.querySelectorAll("#form input");
-    const productImage = document.getElementById("productImage");
 
     const regEx = {
       text: /^[a-zA-ZÀ-ÿ\s|.|,|/}]{2,256}$/, 
       text2: /^[a-zA-ZÀ-ÿ\s|.|,}]{20,256}$/, 
       number:/^[0-9]+([.{1}|,{1}][0-9]+)?$/,
-      img: /(.jpg|.jpeg|.png|.gif)$/,
     };
   
     let campos = null 
@@ -20,7 +18,6 @@ window.onload = () => {
             color: false,
             carbonation: false,
             price: false,
-            productImage:false
           };
     }else{
         campos = {
@@ -30,8 +27,7 @@ window.onload = () => {
             alcohol: true,
             color: true,
             carbonation: true,
-            price: true,
-            productImage:true          };
+            price: true,        };
     }
     
     const validarFormulario = (e) => {
@@ -61,9 +57,6 @@ window.onload = () => {
             case "price":
                 validarCampo(regEx.number,"Solo se admiten valores numericos",e.target,"price");
                 break;
-            case "productImage":
-                valExtFile(regEx.img,"Solo se admiten archivos de imagen jpg, jpeg, png o gif",e.target,"image");
-                break;
         }
     };
 
@@ -90,31 +83,7 @@ window.onload = () => {
       input.addEventListener("blur", validarFormulario);
       
     });
-
-    document.getElementById("productImage").addEventListener("change", valExtFile);
      
-    function valExtFile(regEx,msgErr) {
-        console.log("estoy en extension de archivo");
-        const filePath = productImage.value;
-        let extension = filePath.substring(filePath.lastIndexOf("."),filePath.length); 
-        console.log("regEx");
-        console.log(regEx);
-        console.log(extension)
-        console.log("regEx test");
-        console.log(regEx.test);
-        if(regEx.test(extension)){
-            document.getElementById(`msgFront_productImage`).innerHTML = "";
-            document.getElementById(`msgFront_productImage`).classList.remove("text-danger");
-            campos.productImage = true
-            return true;
-        //if(document.getElementById("productImage").getAttribute(regEx.img).split(".").indexOf(extension) > 0){
-        }else{
-            document.getElementById(`msgFront_productImage`).innerHTML = `Los formatos permitidos son .png,jpg, jpeg y gif`;
-            document.getElementById(`msgFront_productImage`).classList.add("text-danger");
-            campos.productImage = false;
-            return false;
-        }
-    }
 
     formRegister.addEventListener("submit", (e) => {
         e.preventDefault(); 

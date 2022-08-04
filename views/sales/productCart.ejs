@@ -24,7 +24,7 @@
                             </div>
                             <div class="shopping-cart-quantity ">
                                 <form action="/sales/productCart/<%= products_Detail[i].Products.id %>?_method=DELETE" method="POST">
-                                    <input class="pc-shopping-cart-quantity-input " id="shoppingCartItemQuantity" type="number" value="1">
+                                    <input class="pc-shopping-cart-quantity-input " id="shoppingCartItemQuantity" type="number" value="<%= products_Detail[i].quantity %>">
                                     <button class="btn pc-btn-danger buttonDelete" name="buttonDelete" id="buttonDelete_<%= products_Detail[i].Products.id %>" type="submit">X</button>
                                 </form>
                             </div>                                          
@@ -57,21 +57,6 @@
                                     <div class="pc-options">
                                         <button class="pc-options-button lg-button" >Calcular</button>
                                     </div>   
-                                    <div class="pc-direccionEnvio">
-                                        <div class="pc-direccionEnvio-detalle">
-                                            <label class="pc-direccionEnvio-detalle-texto" >Descuento</label> 
-                                        </div>
-                                        <div class="pc-direccionEnvio-valor">
-                                            <input type="text" class="pc-DireccionEnvio-Titulo-caja-texto" name="discount"
-                                                value="100" title="Cantidad" placeholder="" inputmode="text">
-                                        </div>
-                                    
-                                    </div>
-                                    
-                                    <div class="pc-options">
-                                        <button class="pc-options-button lg-button" >Calcular</button>
-                                    </div>   
-                                    
                             </div>
 
                         </div>
@@ -84,9 +69,6 @@
                             <div class="pc-ResumenCompra-Subtotal">
                                 <div class="pc-ResumenCompra-Subtotal-texto">
                                     
-                                    <div  class="pc-ResumenCompra-detalle">
-                                        <label name="descuento" class="pc-ResumenCompra-detalle-texto" required>Descuento</label> 
-                                    </div>
                                     <div class="pc-ResumenCompra-detalle">
                                         <label  name="envio"  class="pc-ResumenCompra-detalle-texto" >Envío</label> 
                                     </div>
@@ -98,10 +80,6 @@
 
                                 <div class="pc-ResumenCompra-Subtotal-valores">
                                     
-                                    <div class="pc-counter-ResumenCompra">
-                                        <label class=".pc-counter-label-det-label2" >ARS</label>
-                                        <input type="text" class="pc-counter-label-det-valor" name="totalDiscount" value="100" title="totalDiscount" placeholder="" readonly="readonly">
-                                    </div>
                                     <div class="pc-counter-ResumenCompra">
                                         <label class=".pc-counter-label-det-label2" >ARS</label>
                                         <input type="text" class="pc-counter-label-det-valor" name="totalShipping" value="250" title="totalShipping" placeholder="" readonly="readonly">
