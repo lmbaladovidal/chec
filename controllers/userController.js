@@ -21,7 +21,7 @@ const userController = {
           req.body.password,
           userToLogin.password          
         );
-        req.body.email=="lm.baladovidal@gmail.com"?isOkThePassword=true:null
+     //   req.body.email=="lm.baladovidal@gmail.com"?isOkThePassword=true:null
         if (isOkThePassword) {
           delete userToLogin.password;
           req.session.userLogged = userToLogin;
@@ -33,9 +33,8 @@ const userController = {
         return res.redirect("/users/profile");
       })
       .catch((error) => {
-        console.log(error);
         res.render("./users/login", {
-          errors: { email: { msg: "las credenciales no son validas" } },
+          errors: { email: { msg: "Las credenciales no son válidas." } },
         });
       });
   },
