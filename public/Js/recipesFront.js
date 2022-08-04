@@ -130,7 +130,7 @@ window.onload = () => {
                 validarCampo(regEx.number,"Solo números",e.target,"hop1Amount");
                 break; 
             case "hop1Moment":
-                validarCampo(regEx.alfanumeric,"Mínimo 3 caracteres",e.target,"hop1Amount");
+                validarCampo(regEx.alfanumeric,"Mínimo 3 caracteres",e.target,"hop1Moment");
                 break;
             case "hop2":
                 validarCampo(regEx.text,"Solo letras",e.target,"hop2");
@@ -139,7 +139,7 @@ window.onload = () => {
                 validarCampo(regEx.number,"Solo números",e.target,"hop2Amount");
                 break; 
             case "hop2Moment":
-                validarCampo(regEx.alfanumeric,"Mínimo 3 caracteres",e.target,"hop2Amount");
+                validarCampo(regEx.alfanumeric,"Mínimo 3 caracteres",e.target,"hop2Moment");
                 break;
             case "hop3":
                 validarCampo(regEx.text,"Solo letras",e.target,"hop3");
@@ -148,7 +148,7 @@ window.onload = () => {
                 validarCampo(regEx.number,"Solo números",e.target,"hop3Amount");
                 break; 
             case "hop3Moment":
-                validarCampo(regEx.alfanumeric,"Mínimo 3 caracteres",e.target,"hop3Amount");
+                validarCampo(regEx.alfanumeric,"Mínimo 3 caracteres",e.target,"hop3Moment");
                 break; 
             case "yeast":
                 validarCampo(regEx.alfanumeric,"Mínimo 3 caracteres",e.target,"yeast");
@@ -187,9 +187,12 @@ window.onload = () => {
 
     formRecipes.addEventListener("submit", (e) => {
         e.preventDefault();
-        Object.values(fields).filter(value=>{return !value}).length == 0?formRecipes.submit()
+        console.log('VALUES (FIELDS)')
+        console.log(fields)
+        Object.values(fields).filter(value=>{return !value}).length == 0 
+        ? formRecipes.submit()
         :document.getElementById("msgFront_submit").innerHTML="Debes completar correctamente el formulario.";
-        console.log('CAMPOS')
+        
       
        
             

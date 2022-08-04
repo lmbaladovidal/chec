@@ -11,6 +11,7 @@ const controllerMain = {
         .then(resultado=>{
             const cervezas = resultado
             const datos ={cervezas,userLogged}
+           
             res.render('index',{datos});
             }
         )

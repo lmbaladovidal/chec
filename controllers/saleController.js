@@ -22,6 +22,7 @@ const salesController = {
                      where:{Sales_id:(json)
                      }
                      })
+                    //return res.status(200).send(products_Detail) 
                      res.render('./sales/productCart',{products_Detail})}
     }, 
     createShopingCart: async function (req,res) {
@@ -48,13 +49,26 @@ const salesController = {
         const product = await Product.findOne({
             where:{id:req.params.id}
         })
-        const produc_sale = await Detailsale.create({
-            price:product.price,
-            quantity:1,
-            Sales_id:idSale,
-            product_id:product.id
-        })  
+
+        let id = req.params.id;
+        const DetailSalesProduct = await sequelize.query("SELECT d.id , d.quantity  FROM DetailSales d INNER JOIN Sales s ON s.id = d.sales_id " +
+                "where d.product_id =" + id + " and d.sales_id = " + idSale + " and users_id = " + Userid + " and s.state = 1 order by d.id desc LIMIT 1 ",{ type: QueryTypes.SELECT })    
+        
+        if (DetailSalesProduct[0] == undefined ){
+            const produc_sale = await Detailsale.create({
+                price:product.price,
+                quantity: 1 ,
+                Sales_id:idSale,
+                product_id:product.id
+            })  
+        }else{
+            DetailSalesProduct[0].quantity +=1
+            const UpdateSalesProduct = await sequelize.query("UPDATE DetailSales SET quantity = " + DetailSalesProduct[0].quantity  + 
+                    " where id = " + DetailSalesProduct[0].id  ,{ type: QueryTypes.UPDATE })    
+        }
+
         res.redirect("/product/productPage")
+
     },
     confirmShopingCart: async (req,res) => {
         let Userid = parseInt(req.session.userLogged.id);
