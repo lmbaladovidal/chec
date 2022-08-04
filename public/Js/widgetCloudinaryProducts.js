@@ -6,8 +6,8 @@ function showUploadWidget() {
     cloudinary.openUploadWidget(
         { cloudName: "ds0upcco9", 
         uploadPreset: "ml_default", 
-        sources: ["local", "camera", "image_search", "google_drive", "facebook", "dropbox", "instagram", "shutterstock", "getty", "url", "unsplash", "istock"], 
-        googleApiKey: "AIzaSyDuq8hYqB3s-EHyIRHI15hE67Ge8YOoRpQ", 
+        sources: ["local", "camera", "google_drive", "facebook", "dropbox", "instagram", "shutterstock", "getty", "url", "unsplash", "istock"], 
+        googleApiKey: "<image_search_google_api_key>", 
         showAdvancedOptions: false, 
         cropping: true, 
         multiple: false, 

@@ -108,16 +108,19 @@
                                 </div>       
                             </li>           
                         </ul> 
-                    <div class="pd-options rg-input">
-                        <input type="submit" class="lg-submit" value="Guardar">
-                        <input type="reset" class="lg-submit" name="limpiar" value="Limpiar">
-                    </div>  
-                             
-            </form>
-            <form action="/product/<%= cervezaToEdit.id %>?_method=DELETE" method="POST">
-                <div class="pd-options">
-                    <input type="submit" class="lg-submit " value="Eliminar">
-                </div>
+                        <div class=" rg-form rg-btn-div" >
+                            <input type="submit" class="lg-submit" value="Guardar">
+                            <input type="reset" class="lg-submit" name="limpiar" value="Limpiar">
+                    </form>
+                    
+                    <div class="rg-btn-div ">
+                    <form action="/product/<%= cervezaToEdit.id %>?_method=DELETE" method="POST">
+                        <div class=" " >
+                            <input type="submit" class="lg-submit " value="Eliminar">
+                        </div>
+                    </div>
+                    </div>                    
+           
             </form>  
         </div> 
         </div>
