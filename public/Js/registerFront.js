@@ -101,37 +101,31 @@ window.onload = () => {
       
         const expresion = birthDate.value;
         const m = moment(expresion, "YYYY-MM-DD");
-        const ageUser= parseInt(m.fromNow());
-        const ageUser2=ageUser
-        
-        console.log(ageUser2);
-       
+        const ageUser2= parseInt(m.fromNow()); 
+        const ageUser= m.fromNow();               
+        console.log(ageUser)
+        console.log(ageUser2)
         if(ageUser2 < 18 ){
-          document.getElementById(`msgFront_birthDate`).innerHTML = texto
-          document.getElementById(`msgFront_birthDate`).classList.add("text-danger")
-          document.getElementById(`msgFront_birthDate`).classList.remove("rg-input")
-          document.getElementById('birthDate').classList.add("is-invalid")
-          campos.birthDate= false;
-          //console.log(campos.birthDate);
+            document.getElementById(`msgFront_birthDate`).innerHTML = texto
+            document.getElementById(`msgFront_birthDate`).classList.add("text-danger")
+            document.getElementById(`msgFront_birthDate`).classList.remove("rg-input")
+            document.getElementById('birthDate').classList.add("is-invalid")
+            campos.birthDate= false;
+            console.log("soy campos.birthdate", campos.birthDate);
           } else {
-          document.getElementById(`msgFront_birthDate`).innerHTML = ""
-          document.getElementById(`msgFront_birthDate`).classList.remove("text-danger")
-          document.getElementById(`msgFront_birthDate`).classList.add("rg-input")
-          document.getElementById('birthDate').classList.remove("is-invalid");
-          campos.birthDate= true;                   
+            document.getElementById(`msgFront_birthDate`).innerHTML = ""
+            document.getElementById(`msgFront_birthDate`).classList.remove("text-danger")
+            document.getElementById(`msgFront_birthDate`).classList.add("rg-input")
+            document.getElementById('birthDate').classList.remove("is-invalid");
+            campos.birthDate= true; 
+            console.log("soy campos.birthdate",campos.birthDate);                  
           }
-    }
+        }
+
     formRegister.addEventListener("submit", (e) => {  
       e.preventDefault();
       console.log(campos)
-      if (!
-        campos.name &&
-        campos.lastName &&
-        campos.email &&
-        campos.birthDate &&
-        campos.address &&
-        campos.password
-        ) 
+      if (!(campos.name && campos.lastName && campos.email && campos.birthDate && campos.address && campos.password)) 
         {
           document.getElementById("msgFront_submit").innerHTML = "Debes completar correctamente el formulario."
           setTimeout(() => {

@@ -82,12 +82,11 @@
                     id="birthDate"
                     class="rg-input" <%= locals.errors && errors.birthDate ? 'is-invalid' : null %>"
                     value="<%= locals.oldData ? oldData.birthDate : null %>">
+                    <div class="text-danger" id="msgFront_birthDate"> 
                     <% if (locals.errors && errors.birthDate) { %>
-                        <div class="text-danger">
                             <%= errors.birthDate.msg %> 
-                        </div>
                     <% } %>
-                    <div class="text-danger" id="msgFront_birthDate"> </div>
+                    </div>
             </div>
             <div>
                 <label><b>Contraseña *</b></label>
