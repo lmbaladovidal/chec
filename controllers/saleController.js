@@ -53,9 +53,7 @@ const salesController = {
         let id = req.params.id;
         const DetailSalesProduct = await sequelize.query("SELECT d.id , d.quantity  FROM DetailSales d INNER JOIN Sales s ON s.id = d.sales_id " +
                 "where d.product_id =" + id + " and d.sales_id = " + idSale + " and users_id = " + Userid + " and s.state = 1 order by d.id desc LIMIT 1 ",{ type: QueryTypes.SELECT })    
-        //console.log("OBTIENE DATOS: " , DetailSalesProduct)
-
-
+        
         if (DetailSalesProduct[0] == undefined ){
             const produc_sale = await Detailsale.create({
                 price:product.price,
@@ -71,14 +69,6 @@ const salesController = {
 
         res.redirect("/product/productPage")
 
-
-        //const produc_sale = await Detailsale.create({
-        //    price:product.price,
-        //    quantity:1,
-        //    Sales_id:idSale,
-        //    product_id:product.id
-        //})  
-        //res.redirect("/product/productPage")
     },
     confirmShopingCart: async (req,res) => {
         let Userid = parseInt(req.session.userLogged.id);
